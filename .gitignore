@@ -1,4 +1,10 @@
+<<<<<<< Updated upstream
 .project
 .classpath
 MANIFEST.MF
 pom.properties
+=======
+/.metadata/
+.project
+.classpath
+>>>>>>> Stashed changes
