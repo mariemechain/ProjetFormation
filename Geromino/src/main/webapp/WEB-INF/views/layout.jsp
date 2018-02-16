@@ -6,18 +6,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet"
-	href="/Geromino/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/Geromino/css/bootstrap.min.css" />
 <title>Insert title here</title>
 </head>
 <body>
-	<script type="js/jquery-3.1.1.min.js"></script>
-	<script type="js/popper.min.js"></script>
-	<script type="js/bootsrap.min.js"></script>
-
-
-
+<nav> <tiles:insertAttribute name="navigation" /> </nav>
 	<div class="container">
+		
 		<h1>
 			<tiles:insertAttribute name="title" />
 		</h1>
@@ -27,6 +22,9 @@
 	</div>
 
 
+	<script type="js/jquery-3.1.1.min.js"></script>
+	<script type="js/popper.min.js"></script>
+	<script type="js/bootsrap.min.js"></script>
 
 </body>
 </html>

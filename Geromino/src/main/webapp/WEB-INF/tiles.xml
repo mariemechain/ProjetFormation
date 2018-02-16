@@ -8,9 +8,5 @@
 		<put-attribute name="navigation" value="/WEB-INF/views/navigation.jsp" />
 		<put-attribute name="content" value="" />
 	</definition>
-	<definition name="technicien" extends="app.layout">
-		<put-attribute name="title" value="Technicien" />
-		<put-attribute name="content" value="/WEB-INF/technicien.jsp" />
-	</definition>
-	
+
 </tiles-definitions>
