@@ -57,7 +57,7 @@ public class Matiere {
 	public String getObjectifs() {
 		return objectif;
 	}
-	public void setObjectifs(String objectifs) {
+	public void setObjectifs(String objectif) {
 		this.objectif = objectif;
 	}
 	public String getContenu() {
