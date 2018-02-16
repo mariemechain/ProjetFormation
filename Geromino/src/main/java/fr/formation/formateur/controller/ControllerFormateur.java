@@ -18,8 +18,8 @@ import fr.formation.formateur.dao.IFormateurDAO;
 import fr.formation.formateur.dao.IMatiereDAOPourTest;
 import fr.formation.formateur.model.Expertise;
 import fr.formation.formateur.model.Formateur;
-import fr.formation.formateur.model.Matiere;
 import fr.formation.formateur.model.Niveau;
+import fr.formation.test.Matiere;
 
 @ResponseBody
 @RestController
@@ -67,7 +67,7 @@ return listeExpertises;
 @GetMapping ( value = {""})
 public String getModifExpertise (Model model,@RequestParam("idf") int idFormateur){
 	model.addAttribute("formateur",daoFormateur.findById(idFormateur).get());
-	model.addAttribute("listeExpertises",daoFormateur.findById(idFormateur).get().getExpertise());
+	model.addAttribute("listeExpertises",daoFormateur.findById(idFormateur).get().getExpertises());
 	return "listeexpertise";
 }
 
@@ -80,10 +80,10 @@ public String getSuppExpertise(@RequestParam("ide") int idExpertise, Model model
 	List<Expertise> listeExpertise = new ArrayList<Expertise>();
 	expertise = daoExpertise.findById(idExpertise).get();
 	formateur = expertise.getFormateur();
-	listeExpertise = formateur.getExpertise();
+	listeExpertise = formateur.getExpertises();
 	for (int i=0;i< listeExpertise.size();i++){	
 		if (listeExpertise.get(i).getId() == idExpertise){
-		formateur.getExpertise().remove(i);
+		formateur.getExpertises().remove(i);
 		}
 	}
 	daoFormateur.save(formateur);
@@ -110,7 +110,7 @@ public String postAjouterExpertise(@RequestParam("idf") int idFormateur,@Request
 	formateur = daoFormateur.findById(idFormateur).get();
 	List<Expertise> listeExpertise = new ArrayList<Expertise>();
 	List<Matiere> listeMatiere = new ArrayList<Matiere>();
-	listeExpertise = formateur.getExpertise();
+	listeExpertise = formateur.getExpertises();
 	Expertise expertise = new Expertise();
 	
 	
@@ -152,7 +152,7 @@ public String postAjouterExpertise(@RequestParam("idf") int idFormateur,@Request
 	
 	
 	//Ajout de l'expertise au formateur
-	formateur.getExpertise().add(expertise);
+	formateur.getExpertises().add(expertise);
 	
 	//Sauvegarde du formateur modifié
 	daoFormateur.save(formateur);
@@ -185,7 +185,7 @@ public String postModifierExpertise(@RequestParam("ide") int idExpertise,@Reques
 		Expertise expertise = daoExpertise.findById(idExpertise).get();
 		formateur = expertise.getFormateur();
 		List<Expertise> listeExpertise = new ArrayList<Expertise>();
-		listeExpertise = formateur.getExpertise();
+		listeExpertise = formateur.getExpertises();
 		
 	//Statut: Edition ==> afin d'afficher le bon contenu sur le formulaire
 		model.addAttribute("statut","edition");
@@ -222,7 +222,7 @@ public String postModifierExpertise(@RequestParam("ide") int idExpertise,@Reques
 		}
 		
 	//Sauvegarde du formateur modifié
-		formateur.setExpertise(listeExpertise);
+		formateur.setExpertises(listeExpertise);
 	
 	//Sauvegarde du formateur modifié
 		daoFormateur.save(formateur);
