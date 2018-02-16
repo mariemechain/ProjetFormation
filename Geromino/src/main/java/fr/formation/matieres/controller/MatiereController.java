@@ -53,7 +53,7 @@ public class MatiereController {
 	
 	@GetMapping("/supprimerproduit")
 	public String supprimer(@RequestParam("titre") String titre) {
-		daoMatiere.deleteById(titre);
+		daoMatiere.deleteByTitre(titre);
 		return "redirect:./";
 	}
 
