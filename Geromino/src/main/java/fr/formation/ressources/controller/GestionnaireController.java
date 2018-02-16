@@ -16,6 +16,12 @@ import fr.formation.ressources.metier.Salle;
 @RequestMapping("/gestionnaire")
 public class GestionnaireController {
 	
+	@ModelAttribute("page")
+    public String page() {
+        return "home";
+    }
+	
+	
 	@Autowired
 	private ISalleDAO daoSalle;
 

@@ -19,7 +19,12 @@ import fr.formation.ressources.metier.Ordinateur;
 @Controller
 @RequestMapping("/technicien")
 public class TechnicienController {
-
+	
+	@ModelAttribute("page")
+    public String page() {
+        return "technicien";
+    }
+	
 	@Autowired
 	private ITechnicienDAO techDAO;
 	@Autowired
