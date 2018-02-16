@@ -13,14 +13,10 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-<<<<<<< HEAD
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-=======
 import javax.persistence.Transient;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Positive;
->>>>>>> Module_matieres
+
 
 import fr.formation.matieres.test.Expertise;
 
@@ -54,8 +50,8 @@ public class Matiere {
 	@JoinTable(name="prerequis",
 			joinColumns=@JoinColumn(name="PRE_PREREQUIS_ID", referencedColumnName="MAT_ID"),
 			inverseJoinColumns=@JoinColumn(name="PRE_MAT_ID", referencedColumnName="MAT_ID"))
-	//@JsonIgnoreProperties("matiere")
 	private List<Matiere> prerequis;
+	
 	@Transient
 	private List<Expertise> expertise;
 
