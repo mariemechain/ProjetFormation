@@ -37,9 +37,9 @@ public class Matiere {
 	@Column(name="MAT_CONTENU")
 	private String contenu;
 	
-	@Column(name="MAT_PREREQUIS")
-	private List<Matiere> prerequis;
-	
+//	@Column(name="MAT_PREREQUIS")
+//	private List<Matiere> prerequis;
+//	
 	
 	//Getter et Setter de tous les attributs
 	public String getTitre() {
@@ -66,18 +66,18 @@ public class Matiere {
 	public void setContenu(String contenu) {
 		this.contenu = contenu;
 	}
-	public List<Matiere> getPrerequis() {
-		return prerequis;
-	}
-	public void setPrerequis(List<Matiere> prerequis) {
-		this.prerequis = prerequis;
-	}
+//	public List<Matiere> getPrerequis() {
+//		return prerequis;
+//	}
+//	public void setPrerequis(List<Matiere> prerequis) {
+//		this.prerequis = prerequis;
+//	}
 	
-	@Override
-	public String toString() {
-		return "Matiere [titre=" + titre + ", duree=" + duree + ", objectif=" + objectif + ", contenu=" + contenu
-				+ ", prerequis=" + prerequis + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Matiere [titre=" + titre + ", duree=" + duree + ", objectif=" + objectif + ", contenu=" + contenu
+//				+ ", prerequis=" + prerequis + "]";
+//	}
 	
 	
 }
