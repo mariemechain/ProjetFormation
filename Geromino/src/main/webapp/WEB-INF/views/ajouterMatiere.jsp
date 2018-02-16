@@ -21,7 +21,7 @@
 				<form:label path="objectif">Objectifs</form:label>
 				<form:input path="objectif" />
 			</div>
-			<div class="form-group">
+<%-- 		<div class="form-group">
 				<form:label path="prerequis">Prérequis</form:label>
 				<div class="btn-group btn-group-toggle" data-toggle="buttons">
 					<c:forEach items="${matiere}" var="matiere">
@@ -30,7 +30,7 @@
 					  </label>
 					</c:forEach>
 				</div>
-			</div>
+			</div> --%>	
 			<div class="form-group">
 				<form:label path="contenu">Contenu</form:label>
 				<form:input path="contenu" />

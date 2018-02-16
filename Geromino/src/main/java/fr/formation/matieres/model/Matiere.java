@@ -42,8 +42,21 @@ public class Matiere {
 //	
 	
 	//Getter et Setter de tous les attributs
+	
 	public String getTitre() {
 		return titre;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getObjectif() {
+		return objectif;
+	}
+	public void setObjectif(String objectif) {
+		this.objectif = objectif;
 	}
 	public void setTitre(String titre) {
 		this.titre = titre;

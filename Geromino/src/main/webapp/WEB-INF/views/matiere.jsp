@@ -15,7 +15,7 @@
      				<div class="list-group">
      					<c:forEach items="${matieres}" var="m">
 				        	<button  class="list-group-item">${m.titre}</button>
-<%-- 				        	<a href="/Geromino/matiere/editer?id=${m.id}" class="list-group-item">Modifier</a> --%>
+ 				        	<a href="/Geromino/matiere/editer?id=${m.id}" class="list-group-item">Modifier</a>
 <%-- 				        	<a href="/Geromino/matiere/supprimer?id=${m.id}" class="list-group-item">Supprimer</a> --%>
 				        </c:forEach>
 				    </div>
@@ -25,13 +25,15 @@
     			</div>
     			
     			<div class="col-8">
-    				<h2>Details de la matière sélectionnée :</h2>
-    				<c:if test="detailMatiere!=null">
-	    				<p> Durée de la matière : {detailMatiere.duree}</p>
-	    				<p> Objectif de la matière : {detailMatiere.objectif}</p>
-	    				<p> Prérequis de la matière : {detailMatiere.prerequis}</p>
-	    				<p> Contenu de la matière : {detailMatiere.contenu}</p>
-    				</c:if>
+    				<p class="zoneTexte"></p>
+	    				<h2>Details de la matière sélectionnée :</h2>
+	    				<c:if test="detailMatiere!=null">
+		    				<p> Durée de la matière : {detailMatiere.duree} jour</p>
+		    				<p> Objectif de la matière : {detailMatiere.objectif}</p>
+		    				<p> Prérequis de la matière : {detailMatiere.prerequis}</p>
+		    				<p> Contenu de la matière : {detailMatiere.contenu}</p>
+	    				</c:if>
+	    		
     			</div>
     			
 			</div>
