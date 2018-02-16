@@ -9,7 +9,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Cache;
 
@@ -22,12 +26,13 @@ public class Materiel {
 	@Id
 	@Column(name = "MAT_ID")
 	private String id;
-	@Column(name = "MAT_COUT")
+	@Column(name = "MAT_COUT", columnDefinition = "INTEGER")
 	private int cout;
-	@Column(name = "MAT_DISPO")
-	private List<Projet> dispo;
-	@Column(name = "MAT_ETAT")
+	@Column(name = "MAT_ETAT", columnDefinition = "DATE")
+	@Temporal(TemporalType.DATE)
 	private Date date;
+	@ManyToMany(mappedBy = "projets")
+	private List<Projet> dispo;
 	
 	
 	// Constructeur par defaut	
