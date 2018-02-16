@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import fr.formation.ressources.dao.IContactDAO;
 import fr.formation.ressources.dao.ISalleDAO;
 import fr.formation.ressources.metier.Salle;
 
@@ -26,6 +27,9 @@ public class GestionnaireController {
 	
 	@Autowired
 	private ISalleDAO daoSalle;
+	
+	@Autowired
+	private IContactDAO daoContact;
 
 	@GetMapping("")
 	public String gestionnaire() {
@@ -42,15 +46,18 @@ public class GestionnaireController {
 	@GetMapping("/gestionnaireAjouterSalle")
 	public String ajouterSalle(Model model) {
 		model.addAttribute("salles", new Salle());
+		model.addAttribute("contacts", daoContact.findAll());
 		return "gestionnaireAjouterSalle";
 	}
 	
 	@PostMapping("/gestionnaireAjouterSalle")
-	public String ajouter(@ModelAttribute("salles") Salle salle) {
+	public String ajouter(@ModelAttribute("salles") Salle salle, Model model, @RequestParam(value="idContact") int idContact) {
 //		if(result.hasErrors()) {
 //			model.addAttribute("fournisseurs", daoFournisseur.findAll());
 //		
 //		}
+		model.addAttribute("contacts", daoContact.findAll());
+		
 		daoSalle.save(salle);	
 		return "redirect:./gestionnaireSalle";
 	}
@@ -59,6 +66,7 @@ public class GestionnaireController {
 	@GetMapping("/gestionnaireEditerSalle")
 	public String editerSalle( @RequestParam("id") String id, Model model) {
 		model.addAttribute("salles", daoSalle.findById(id).get());
+		model.addAttribute("contacts", daoContact.findAll());
 		return "gestionnaireAjouterSalle";
 	}
 	
