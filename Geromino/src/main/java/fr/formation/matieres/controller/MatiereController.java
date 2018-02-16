@@ -31,14 +31,14 @@ public class MatiereController {
 	public String ajouter(Model model) {
 		model.addAttribute("matiere", new Matiere());
 
-		return "ajoutMatiere";
+		return "ajouterMatiere";
 	}
 
 	@PostMapping("/ajouter")
 	public String ajouter(@ModelAttribute("matiere") Matiere matiere, BindingResult result, Model model) {
 		if (result.hasErrors()) {
 
-			return "ajoutMatiere";
+			return "ajouterMatiere";
 		}
 		daoMatiere.save(matiere);
 		return "redirect:./";
@@ -48,7 +48,7 @@ public class MatiereController {
 	public String editer(Model model, @RequestParam("titre") String titre) {
 		model.addAttribute("matiere", daoMatiere.findByTitre(titre));
 		
-		return "ajoutmatiere";
+		return "ajouterMatiere";
 	}
 	
 	@GetMapping("/supprimer")
