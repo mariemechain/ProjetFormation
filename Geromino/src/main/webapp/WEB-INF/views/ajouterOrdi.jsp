@@ -14,6 +14,14 @@
 <div class="container">
 
 <h3>Ajouter un ordinateur</h3>
+			<div class="form-group">
+					<label for="id">Identifiant :</label> <input name="id"
+						type="text" class="form-control" id="id"
+						value="${ordinateur.id}" placeholder="id">
+
+					
+				</div>
+
 
 			<div class="form-group">
 					<label for="processeur">Processeur :</label> <input name="processeur"
@@ -37,6 +45,13 @@
 						value="${ordinateur.stockage}" placeholder="Stockage">
 				</div>
 
+<%-- 				<div class="form-group">
+					<label for="date">Date</label>
+					<input name="date"
+						type="date" class="form-control" id="date"
+						value="${ordinateur.date}" placeholder="Date">
+				</div>
+				 --%>
 
 				<button type="submit" class="btn btn-primary">Submit</button>
 			</div>
