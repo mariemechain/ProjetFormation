@@ -1,6 +1,6 @@
-body{
+/* body{
   background-image: url('/homer_summer_fond_ecran.jpg');
-}
+} */
 
 .negatif{
   background-color: red;
@@ -18,4 +18,9 @@ body{
 
 .table-striped{
   background-color: white;
+}
+
+#logo{
+  width:80px;
+  heigth:80px;
 }

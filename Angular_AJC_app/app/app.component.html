@@ -1,1 +1,14 @@
-<p>Ma première application Angular ! :-)</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+    <a class="navbar-brand" [routerLink]="['home']" routerLinkActive="active"><img id="logo" src="images/logoAJC.png"/></a>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="container">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" [routerLink]="['home']" routerLinkActive="active">Accueil</a></li>
+                <li class="nav-item"><a class="nav-link" [routerLink]="['formateur']" routerLinkActive="active">Formateur</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<router-outlet></router-outlet>

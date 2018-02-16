@@ -9,5 +9,5 @@ templateUrl: 'app/home.component.html'
 
 
 export class HomeComponent {
-  
+
 }

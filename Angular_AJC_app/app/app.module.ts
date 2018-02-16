@@ -1,12 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
+import { FormateurModule } from './formateur/formateur.module'
+import { HttpModule } from '@angular/http';
+import { RouterModule, Routes } from '@angular/router';
+
+
 
 import { AppConfigService } from './app-config.service';
 
-import { HttpModule } from '@angular/http';
-import { FormateurModule } from './client/client.module';
+
+
+import { AppComponent } from './app.component';
+import { HomeComponent } from './home.component';
+
 
 
 const routes: Routes = [
@@ -29,7 +36,7 @@ const routes: Routes = [
 
   declarations: [
     AppComponent,
-    // HomeComponent,
+    HomeComponent,
   ],
 
   bootstrap: [ AppComponent ]

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { FormateursService } from './formateurs.service';
+import { FormateurService } from './formateur.service';
 import { FormateurComponent } from './formateur.component';
 
 
@@ -24,7 +24,7 @@ const routesFormateur: Routes = [
     ],
     providers: [
 
-        FormateursService
+        FormateurService
     ],
 
     declarations: [
