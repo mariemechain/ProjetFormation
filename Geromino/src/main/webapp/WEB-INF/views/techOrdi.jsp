@@ -38,6 +38,7 @@
 							class="btn btn-outline-success">Modifier</a></td>
 						<td><a href="/Geromino/technicien/ordi/supprimer?id=${ordinateur.id}"
 							class="btn btn-outline-danger">Supprimer</a></td>
+						
 					</tr>
 				</c:forEach>
 
