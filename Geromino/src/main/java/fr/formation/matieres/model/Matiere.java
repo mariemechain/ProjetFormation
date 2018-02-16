@@ -14,6 +14,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Positive;
 
+import fr.formation.test.Expertise;
+
 
 @Entity
 @Table(name="matiere")
@@ -45,6 +47,8 @@ public class Matiere {
 			joinColumns=@JoinColumn(name="PRE_PREREQUIS_ID", referencedColumnName="MAT_ID"),
 			inverseJoinColumns=@JoinColumn(name="PRE_MAT_ID", referencedColumnName="MAT_ID"))
 	private List<Matiere> matieres;
+	
+	private List<Expertise> expertise;
 
 	//Getter et Setter de tous les attributs
 	
@@ -90,6 +94,14 @@ public class Matiere {
 	public String toString() {
 		return "Matiere [id=" + id + ", titre=" + titre + ", duree=" + duree + ", objectif=" + objectif + ", contenu="
 				+ contenu +"]";
+	}
+
+	public List<Expertise> getExpertise() {
+		return expertise;
+	}
+
+	public void setExpertise(List<Expertise> expertise) {
+		this.expertise = expertise;
 	}
 	
 }
