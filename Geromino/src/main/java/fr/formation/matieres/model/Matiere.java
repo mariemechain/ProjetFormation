@@ -10,8 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Positive;
@@ -53,6 +51,7 @@ public class Matiere {
 	public String getTitre() {
 		return titre;
 	}
+	
 	public int getId() {
 		return id;
 	}
@@ -74,24 +73,11 @@ public class Matiere {
 	public void setDuree(int duree) {
 		this.duree = duree;
 	}
-	public String getObjectif() {
-		return objectif;
-	}
-	public void setObjectif(String objectif) {
-		this.objectif = objectif;
-	}
 	public String getContenu() {
 		return contenu;
 	}
 	public void setContenu(String contenu) {
 		this.contenu = contenu;
-	}
-	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
 	}
 	public List<Matiere> getMatieres() {
 		return matieres;
