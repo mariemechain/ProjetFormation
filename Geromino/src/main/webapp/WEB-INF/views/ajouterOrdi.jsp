@@ -14,6 +14,14 @@
 <div class="container">
 
 <h3>Ajouter un ordinateur</h3>
+<div class="form-group">
+					<label for="id">Identifiant :</label> <input name="id"
+						type="text" class="form-control" id="id"
+						value="${ordinateur.id}" placeholder="Identifiant">
+
+					
+				</div>
+
 
 			<div class="form-group">
 					<label for="processeur">Processeur :</label> <input name="processeur"

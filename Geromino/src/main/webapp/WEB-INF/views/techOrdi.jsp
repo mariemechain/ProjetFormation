@@ -17,14 +17,24 @@
 			<table class="table table-striped">
 
 				<c:forEach items="${ ordinateurs }" var="ordinateur">
+				<thead>
+				<tr>
+				<th>Identifiant</th>
+				<th>Processeur</th>
+				<th>RAM</th>
+				<th>Stockage</th>
+				<th>Option</th>
+				</tr>
+				</thead>
 					<tr>
+					<td>${ ordinateur.id }</td>
 						<td>${ ordinateur.processeur }</td>
 						<td>${ ordinateur.ram }</td>
 						<td>${ ordinateur.stockage }</td>
-						<td>${ ordinateur.date }</td>
-						<td><a href="/Geromino/technicien/edit?id=${ordinateur.id}"
+						<%-- <td>${ ordinateur.date }</td> --%>
+						<td><a href="/Geromino/technicien/ordi/edit?id=${ordinateur.id}"
 							class="btn btn-outline-success">Modifier</a></td>
-						<td><a href="/Geromino/technicien/delete?id=${ordinateur.id}"
+						<td><a href="/Geromino/technicien/ordi/supprimer?id=${ordinateur.id}"
 							class="btn btn-outline-danger">Supprimer</a></td>
 					</tr>
 				</c:forEach>
