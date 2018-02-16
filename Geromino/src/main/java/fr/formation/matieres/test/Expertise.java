@@ -1,4 +1,4 @@
-package fr.formation.test;
+package fr.formation.matieres.test;
 
 public class Expertise {
 

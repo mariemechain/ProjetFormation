@@ -10,11 +10,14 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Positive;
 
-import fr.formation.test.Expertise;
+import fr.formation.matieres.test.Expertise;
 
 
 @Entity
@@ -48,6 +51,7 @@ public class Matiere {
 			inverseJoinColumns=@JoinColumn(name="PRE_MAT_ID", referencedColumnName="MAT_ID"))
 	private List<Matiere> matieres;
 	
+	@Transient
 	private List<Expertise> expertise;
 
 	//Getter et Setter de tous les attributs
@@ -96,12 +100,5 @@ public class Matiere {
 				+ contenu +"]";
 	}
 
-	public List<Expertise> getExpertise() {
-		return expertise;
-	}
-
-	public void setExpertise(List<Expertise> expertise) {
-		this.expertise = expertise;
-	}
 	
 }
