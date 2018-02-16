@@ -10,4 +10,5 @@ pom.properties
 .settings/
 .springBeans
 target/
-
+/dist/
+/node_modules/
