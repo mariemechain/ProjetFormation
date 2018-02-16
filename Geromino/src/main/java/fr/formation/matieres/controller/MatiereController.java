@@ -43,17 +43,17 @@ public class MatiereController {
 		daoMatiere.save(matiere);
 		return "redirect:./";
 	}
-	
+
 	@GetMapping("/editer")
-	public String editer(Model model, @RequestParam("titre") String titre) {
-		model.addAttribute("matiere", daoMatiere.findByTitre(titre));
-		
+	public String editer(Model model, @RequestParam("id") int id) {
+		model.addAttribute("matiere", daoMatiere.findById(id).get());
+
 		return "ajouterMatiere";
 	}
-	
+
 	@GetMapping("/supprimer")
-	public String supprimer(@RequestParam("titre") String titre) {
-		daoMatiere.deleteByTitre(titre);
+	public String supprimer(@RequestParam("id") int id) {
+		daoMatiere.deleteById(id);
 		return "redirect:./";
 	}
 
