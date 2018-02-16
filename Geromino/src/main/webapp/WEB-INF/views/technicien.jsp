@@ -12,25 +12,12 @@
 
 
 <div class="container">
+<br/>
+<p>Interface Technicien</p>
 
-<p>Liste d'ordinateurs disponibles</p>
-<table class="table table-striped">
+<a href="/Geromino/technicien/ordi" class="btn btn-secondary mr-4">Liste ordinateurs</a><a href="/Geromino/technicien/video" class="btn btn-secondary">Liste vidéoprojecteurs</a>
 
-<c:forEach items="${ ordinateurs }" var="ordinateur">
-<tr>
-<td>${ ordinateur.processeur }  </td> 
-<td>${ ordinateur.ram } </td>
-<td>${ ordinateur.stockage } </td>
-<td>${ ordinateur.date } </td>
-<td><a href="/Geromino/technicien/edit?id=${ordinateur.id}" class="btn btn-outline-success">Modifier</a>
-</td>
-<td><a href="/Geromino/technicien/delete?id=${ordinateur.id}" class="btn btn-outline-danger">Supprimer</a>
-</td>
-</tr>
-</c:forEach>
 
-</table>
-<a href="/Geromino/technicien/add" class="btn btn-outline-primary">Ajouter</a>
 
 </div>
 

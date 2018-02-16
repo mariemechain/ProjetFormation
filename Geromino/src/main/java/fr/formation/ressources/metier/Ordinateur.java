@@ -32,6 +32,39 @@ public class Ordinateur extends Materiel {
 	@Temporal(TemporalType.DATE)
 	private Date achat;
 		
+	
+
+	public String getProcesseur() {
+		return processeur;
+	}
+
+	public void setProcesseur(String processeur) {
+		this.processeur = processeur;
+	}
+
+	public int getRam() {
+		return ram;
+	}
+
+	public void setRam(int ram) {
+		this.ram = ram;
+	}
+
+	public int getStockage() {
+		return stockage;
+	}
+
+	public void setStockage(int stockage) {
+		this.stockage = stockage;
+	}
+
+	public Date getAchat() {
+		return achat;
+	}
+
+	public void setAchat(Date achat) {
+		this.achat = achat;
+	}
 
 	public Ordinateur() {
 		
