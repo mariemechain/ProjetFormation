@@ -13,7 +13,7 @@
 		<table class="table table-striped">
 			<thead>
 				<tr>
-					<th>Nom</th>
+					<th>Id</th>
 					<th>Nombre de place</th>
 					<th>Adresse</th>
 					<th>Contact</th>
@@ -26,14 +26,15 @@
 					<td>${salle.id }</td>
 					<td>${salle.places }</td>
 					<td>${salle.adresse }</td>
-					<td>${salle.contact }</td>
-					<td>${salle.videoProjecteur }</td>
+					<td>${salle.contact.prenom }</td>
+					<td>${salle.videoprojecteur.id }</td>
 					<td><a
 						href="/Geromino/gestionnaire/gestionnaireEditerSalle?id=${salle.id }"><button
 								type="button" class="btn btn-outline-primary">modifier</button></a>
 					</td>
-					<%-- 						<a href="/Mvc/produits/supprimer?id=${produit.id }"><button
-								type="button" class="btn btn-danger">X</button></a></td> --%>
+					<td><a
+						href="/Geromino/gestionnaire/gestionnaireSupprimerSalle?id=${salle.id }"><button
+								type="button" class="btn btn-danger">X</button></a></td>
 				</tr>
 			</c:forEach>
 		</table>

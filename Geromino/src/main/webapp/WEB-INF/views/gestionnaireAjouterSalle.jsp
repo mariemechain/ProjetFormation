@@ -5,28 +5,28 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 <tiles:insertDefinition name="app.layout">
-	<tiles:putAttribute name="title" value="Ajout d'une salle" />
+	<tiles:putAttribute name="title"
+		value="Ajout ou modification d'une salle" />
 	<tiles:putAttribute name="content">
 		<form:form method="POST" modelAttribute="salles">
-		
-			<div class="form-group">			
-				<form:label path="id">Nom :</form:label>
-				<form:input path="id" type="text" class="form-control"
-					name="id" aria-describedby="Help" placeholder="Nom"
-					value="${salle.id}" />
-				<form:errors path="id" element="div"
-					cssClass="alert alert-danger" />
-			</div>
-			
+
 			<div class="form-group">
-				<form:label path="place">Nombre de place :</form:label>
-				<form:input path="place" type="number" class="form-control"
-					name="place" id="exampleInputPassword1" placeholder="Place"
-					value="${salle.places }" />
-				<form:errors path="place" element="div" cssClass="alert alert-danger" />
+				<form:label path="id">Id :</form:label>
+				<form:input path="id" type="text" class="form-control" name="id"
+					aria-describedby="Help" placeholder="Id" value="${salle.id}" />
+				<form:errors path="id" element="div" cssClass="alert alert-danger" />
 			</div>
 
-			<div class="form-group">			
+			<div class="form-group">
+				<form:label path="places">Nombre de places :</form:label>
+				<form:input path="places" type="number" class="form-control"
+					name="places" id="exampleInputPassword1" placeholder="Places"
+					value="${salle.places }" />
+				<form:errors path="places" element="div"
+					cssClass="alert alert-danger" />
+			</div>
+
+			<div class="form-group">
 				<form:label path="adresse">Adresse :</form:label>
 				<form:input path="adresse" type="text" class="form-control"
 					name="adresse" aria-describedby="Help" placeholder="Adresse"
@@ -35,23 +35,34 @@
 					cssClass="alert alert-danger" />
 			</div>
 
-			<div class="form-group">
-				<form:label path="contact">Contact :</form:label>
-				<form:input path="contact" type="text" class="form-control"
-					name="contact" aria-describedby="Help" placeholder="Contact"
-					value="${salle.contact}" />
-				<form:errors path="contact" element="div"
-					cssClass="alert alert-danger" />
-			</div>
+			<div class="col-sm">
+                  <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Contact</span>
+                    </div>
+                  <select name="idContact">
+                 <c:forEach items="${contacts}" var="contact">
+                   <option value="${contact.id}">${contact.nom}</option>
+                   </c:forEach>
+                   </select>
+                </div>
+            </div>
+
+			<div class="col-sm">
+                  <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">VideoProjecteur</span>
+                    </div>
+                  <select name="idVideoProjecteur">
+                 <c:forEach items="${videoprojecteurs}" var="videoprojecteur">
+                   <option value="${videoprojecteur.id}">${videoprojecteur.nom}</option>
+                   </c:forEach>
+                   </select>
+                </div>
+            </div>
 			
-			<div class="form-group">
-				<form:label path="videoProjecteur">VideoProjecteur :</form:label>
-				<form:input path="videoProjecteur" type="text" class="form-control"
-					name="videoProjecteur" aria-describedby="Help" placeholder="VideoProjecteur"
-					value="${salle.videoProjecteur}" />
-				<form:errors path="videoProjecteur" element="div"
-					cssClass="alert alert-danger" />
-			</div>
+			
+			
 
 			<button type="submit" class="btn btn-danger">Ajouter</button>
 
