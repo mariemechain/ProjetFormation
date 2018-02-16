@@ -14,7 +14,7 @@
 		<mvc:message-converters>
 			<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
 				<property name="objectMapper">
-					<bean class="config.HibernateObjectMapper" />
+					<bean class="fr.formation.config.HibernateObjectMapper" />
 				</property>
 			</bean>
 		</mvc:message-converters>
