@@ -32,29 +32,29 @@ public class MatiereController {
 	public String ajouter(Model model) {
 		model.addAttribute("matiere", new Matiere());
 
-		return "ajoutmatiere";
+		return "ajouterMatiere";
 	}
 
 	@PostMapping("/ajouter")
 	public String ajouter(@ModelAttribute("matiere") Matiere matiere, BindingResult result, Model model) {
 		if (result.hasErrors()) {
 
-			return "ajoutmatiere";
+			return "ajouterMatiere";
 		}
 		daoMatiere.save(matiere);
 		return "redirect:./";
 	}
-	
+
 	@GetMapping("/editer")
-	public String editer(Model model, @RequestParam("titre") String titre) {
-		model.addAttribute("matiere", daoMatiere.findByTitre(titre));
-		
-		return "ajoutproduit";
+	public String editer(Model model, @RequestParam("id") int id) {
+		model.addAttribute("matiere", daoMatiere.findById(id).get());
+
+		return "ajouterMatiere";
 	}
-	
-	@GetMapping("/supprimerproduit")
-	public String supprimer(@RequestParam("titre") String titre) {
-		daoMatiere.deleteByTitre(titre);
+
+	@GetMapping("/supprimer")
+	public String supprimer(@RequestParam("id") int id) {
+		daoMatiere.deleteById(id);
 		return "redirect:./";
 	}
 

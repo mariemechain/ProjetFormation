@@ -8,31 +8,37 @@
 	
 	<tiles:putAttribute name="content">
 		<form:form method="post" modelAttribute="matiere">
-			<table>
-				<tr>
-					<td><form:label path="titre">Titre</form:label></td>
-				    <td><form:input path="titre" /></td>
-			    </tr>
-				<tr>
-					<td><form:label path="duree">Durée</form:label></td>
-				    <td><form:input path="duree" /></td>
-			    </tr>
-				<tr>
-				    <td><form:label path="objectif">Objectifs</form:label></td>
-				    <td><form:input path="objectif" /></td>
-			    </tr>
-				<tr>
-				    <td><form:label path="fournisseur">Fournisseur</form:label></td>
-				    <td><select name="idFournisseur" class="custom-select" path="fournisseur"> 
-				    	  <option selected>Selection d'un fournisseur</option>
-				    	  <c:forEach items="${fournisseurs}" var="fournisseur">
-						  		<option value="${fournisseur.id}">${fournisseur.societe}</option>
-						  </c:forEach>
-					</select></td>
-				</tr>
-			</table>
+		
+			<div class="form-group">
+				<form:label path="titre">Titre</form:label>
+				<form:input path="titre" />
+			</div>
+			<div class="form-group">
+				<form:label path="duree">Durée</form:label>
+				<form:input path="duree" />
+			</div>
+			<div class="form-group">
+				<form:label path="objectif">Objectifs</form:label>
+				<form:input path="objectif" />
+			</div>
+			<div class="form-group">
+				<form:label path="prerequis">Prérequis</form:label>
+				<div class="btn-group btn-group-toggle" data-toggle="buttons">
+					<c:forEach items="${matiere}" var="matiere">
+					  <label class="btn btn-secondary active">
+					    <input type="checkbox" name="options" autocomplete="off" value="${matiere.id}"> ${matiere.titre}
+					  </label>
+					</c:forEach>
+				</div>
+			</div>
+			<div class="form-group">
+				<form:label path="contenu">Contenu</form:label>
+				<form:input path="contenu" />
+		    </div>
+		    <div>
+		    	<button type="submit" class="btn btn-outline-success" value="Ajouter"> Ajouter une matière</button>
+		    </div>
 		    
-		    <button type="submit" class="btn btn-outline-success" value="Valider"> Ajouter un produit</button>
 		</form:form>	
 	</tiles:putAttribute>
 	

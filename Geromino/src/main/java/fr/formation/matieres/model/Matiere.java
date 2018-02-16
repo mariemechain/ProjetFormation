@@ -37,7 +37,7 @@ public class Matiere {
 	@Column(name="MAT_CONTENU")
 	private String contenu;
 	
-	@Column(name="MAT_PREREQUISS")
+	@Column(name="MAT_PREREQUIS")
 	private List<Matiere> prerequis;
 	
 	
