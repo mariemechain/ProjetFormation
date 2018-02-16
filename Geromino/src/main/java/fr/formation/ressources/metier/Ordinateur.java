@@ -68,7 +68,6 @@ public class Ordinateur extends Materiel {
 
 	public Ordinateur() {
 		
-		
 	}
 	
 	public Ordinateur(String processeur, int ram, int stockage, Date achat) {

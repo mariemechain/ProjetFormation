@@ -6,7 +6,7 @@ import fr.formation.ressources.metier.Ordinateur;
 
 
 
-public interface IOrdinateurDAO extends JpaRepository<Ordinateur, String>
+public interface IOrdinateurDAO extends JpaRepository<Ordinateur, Integer>
 {
 	
 }
