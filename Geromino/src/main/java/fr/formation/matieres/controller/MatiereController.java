@@ -41,7 +41,7 @@ public class MatiereController {
 
 			return "ajouterMatiere";
 		}
-		daoMatiere.save(matiere);
+		daoMatiere.save(matiere); 
 		return "redirect:./";
 	}
 
