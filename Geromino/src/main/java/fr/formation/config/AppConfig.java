@@ -25,8 +25,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @PropertySource("classpath:data.properties")
 @EnableTransactionManagement
-@EnableJpaRepositories("fr.formation.matiere.dao")
-@ComponentScan("fr.formation.matiere")
+@EnableJpaRepositories("fr.formation.matieres.dao")
+@ComponentScan("fr.formation.matieres")
 public class AppConfig
 {
 	@Autowired
