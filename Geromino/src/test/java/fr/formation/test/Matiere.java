@@ -1,4 +1,4 @@
-package fr.formation.formateur.model;
+package fr.formation.test;
 
 import java.util.List;
 
@@ -11,6 +11,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import fr.formation.formateur.model.Expertise;
 
 @Entity
 @Table(name="matiere")

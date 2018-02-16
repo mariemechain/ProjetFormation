@@ -10,10 +10,12 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import fr.formation.test.Personne;
+
 @Entity
 @Table(name="formateur")
 @PrimaryKeyJoinColumn(name="FOR_ID", referencedColumnName="PER_ID")
-public class Formateur {
+public class Formateur extends Personne{
 	
 	@Column(name="FOR_TITRE")
 	private String titre;
