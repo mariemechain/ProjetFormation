@@ -1,6 +1,6 @@
 package fr.formation.ressources.metier;
 
-import java.sql.Date;
+import java.util.*;
 
 import javax.persistence.Cacheable;
 import javax.persistence.Column;

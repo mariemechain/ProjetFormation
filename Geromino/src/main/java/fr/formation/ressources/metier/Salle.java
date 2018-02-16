@@ -18,7 +18,7 @@ public class Salle extends Materiel{
 	@Column(name="SAL_ADRESSE")
 	private String adresse;
 	
-	@Column(name="SAL_CONTACT")
+	
 	@ManyToOne
 	@JoinColumn(name="SAL_CONTACT_ID")
 	private Personne contact;

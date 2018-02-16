@@ -1,27 +1,30 @@
 package fr.formation.ressources.metier;
 
-import java.sql.Date;
+
+import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity
 @Table(name = "materiel")
+@Inheritance(strategy=InheritanceType.JOINED)
 @Cacheable
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class Materiel {
+public class Materiel implements Serializable{
 
 	@Id
 	@Column(name = "MAT_ID")
