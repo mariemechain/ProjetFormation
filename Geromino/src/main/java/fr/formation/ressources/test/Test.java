@@ -1,10 +1,17 @@
 package fr.formation.ressources.test;
 
+
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import fr.formation.config.AppConfig;
+
+
 public class Test {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
+		AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationContext(AppConfig.class);
+		
 	}
-
 }
