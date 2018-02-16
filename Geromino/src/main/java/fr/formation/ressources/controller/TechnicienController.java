@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.formation.ressources.dao.IOrdinateurDAO;
+import fr.formation.ressources.dao.IStagiaireDAO;
 import fr.formation.ressources.dao.ITechnicienDAO;
 import fr.formation.ressources.dao.IVideoProjecteurDAO;
 import fr.formation.ressources.metier.Ordinateur;
@@ -33,6 +34,8 @@ public class TechnicienController {
 	private IOrdinateurDAO ordiDAO;
 	@Autowired
 	private IVideoProjecteurDAO videoDAO;
+	@Autowired
+	private IStagiaireDAO stagDAO;
 	
 	@GetMapping("")
 	public String tech(Model model) {

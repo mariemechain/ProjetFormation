@@ -21,7 +21,7 @@ public class GestionnaireController {
 	
 	@ModelAttribute("page")
     public String page() {
-        return "home";
+        return "gestionnaire";
     }
 	
 	
