@@ -25,8 +25,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @PropertySource("classpath:data.properties")
 @EnableTransactionManagement
-@EnableJpaRepositories("fr.formation.dao")
-@ComponentScan("fr.formation.service")
+@EnableJpaRepositories("fr.formation.projets.dao")
 public class AppConfig
 {
 	@Autowired
@@ -38,11 +37,11 @@ public class AppConfig
 	public BasicDataSource dataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
 		
-		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+		dataSource.setDriverClassName(env.getProperty("mysql.className"));
 		dataSource.setUrl(env.getProperty("mysql.url"));
-		dataSource.setUsername("root");
-		dataSource.setPassword("root");
-		dataSource.setMaxTotal(10);
+		dataSource.setUsername(env.getProperty("mysql.username"));
+		dataSource.setPassword(env.getProperty("mysql.password"));
+		dataSource.setMaxTotal(env.getProperty("mysql.maxTotal", Integer.class));
 		
 		return dataSource;
 	}
@@ -52,7 +51,7 @@ public class AppConfig
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory(BasicDataSource dataSource) {
 		LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
 		emf.setDataSource(dataSource);
-		emf.setPackagesToScan("fr.formation.model");
+		emf.setPackagesToScan("fr.formation.projets.model", "fr.formation.ressources.model");
 
 		JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		emf.setJpaVendorAdapter(vendorAdapter);
