@@ -29,15 +29,19 @@
     			</div>
     			
     			<div class="col-6">
-    				<p class="zoneTexte"></p>
 	    				<h2>Details de la matière sélectionnée :</h2>
 	    				<c:if test="${detailMatiere==null}">
-	    				 <p>je suis nul</p>
+	    				 <p class="zoneTexte"></p>
 	    				</c:if>
 	    				<c:if test="${detailMatiere!=null}">
 		    				<p> Durée de la matière : ${detailMatiere.duree} jour(s)</p>
 		    				<p> Objectif de la matière : ${detailMatiere.objectif}</p>
-		    				<%--<p> Prérequis de la matière : ${detailMatiere.prerequis}</p>  --%>
+		    				<c:if test="${detailMatiere.prerequis=='[]'}">
+		    				<p> Prérequis de la matière : aucun </p>
+		    				</c:if>
+		    				<c:if test="${detailMatiere.prerequis!='[]'}">
+		    				<p> Prérequis de la matière : ${detailMatiere.prerequis}</p>
+		    				</c:if>
 		    				<p> Contenu de la matière : ${detailMatiere.contenu}</p>
 	    				</c:if>
 	    		

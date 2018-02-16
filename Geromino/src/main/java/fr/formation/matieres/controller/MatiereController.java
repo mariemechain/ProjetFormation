@@ -40,7 +40,7 @@ public class MatiereController {
 
 	@GetMapping("/editer")
 	public String editer(Model model, @RequestParam("id") int id) {
-		model.addAttribute("matiere", daoMatiere.findById(id).get());
+		model.addAttribute("matiere", daoMatiere.findById(id));
 		return "ajouterMatiere";
 	}
 
@@ -59,7 +59,7 @@ public class MatiereController {
 	
 	@GetMapping("/information")
 	public String information(@RequestParam("id") int id, Model model) {
-		model.addAttribute("detailMatiere", daoMatiere.findById(id).get());
+		model.addAttribute("detailMatiere", daoMatiere.findById(id));
 		model.addAttribute("matieres", daoMatiere.findAll());
 		return "matiere";
 	}

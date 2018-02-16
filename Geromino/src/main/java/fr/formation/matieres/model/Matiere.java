@@ -11,8 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Positive;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 @Entity
@@ -44,7 +44,8 @@ public class Matiere {
 	@JoinTable(name="prerequis",
 			joinColumns=@JoinColumn(name="PRE_PREREQUIS_ID", referencedColumnName="MAT_ID"),
 			inverseJoinColumns=@JoinColumn(name="PRE_MAT_ID", referencedColumnName="MAT_ID"))
-	private List<Matiere> matieres;
+	//@JsonIgnoreProperties("matiere")
+	private List<Matiere> prerequis;
 
 	//Getter et Setter de tous les attributs
 	
@@ -79,13 +80,16 @@ public class Matiere {
 	public void setContenu(String contenu) {
 		this.contenu = contenu;
 	}
-	public List<Matiere> getMatieres() {
-		return matieres;
-	}
-	public void setMatieres(List<Matiere> matieres) {
-		this.matieres = matieres;
-	}
+
 	
+	public List<Matiere> getPrerequis() {
+		return prerequis;
+	}
+
+	public void setPrerequis(List<Matiere> prerequis) {
+		this.prerequis = prerequis;
+	}
+
 	@Override
 	public String toString() {
 		return "Matiere [id=" + id + ", titre=" + titre + ", duree=" + duree + ", objectif=" + objectif + ", contenu="
