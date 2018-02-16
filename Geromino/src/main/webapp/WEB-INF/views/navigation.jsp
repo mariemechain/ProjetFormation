@@ -1,12 +1,80 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
-</body>
-</html>
+
+<!--  si je suis connecté, j'affiche le menu de navigation sinon je ne l'affiche pas. -->
+<!-- <c:if test="${login != null }"> -->
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+	<button class="navbar-toggler" type="button" data-toggle="collapse"
+		data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
+		aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+
+		<!--  <a class="navbar-brand" href="#">Hidden brand</a>  -->
+		<c:if test="${page == 'technicien'}">
+			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+				<li class="nav-item active"><a class="nav-link"
+					href="Geromino/technicien">Techniciens <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item"><a class="nav-link"
+					href="/Geromino/gestionnaire">Gestionnaire</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="/Geromino/technicien">Tetrimino</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="Geromino/technicien">Déconnexion</a></li>
+			</ul>
+		</c:if>
+
+		<c:if test="${page == 'gestionnaire'}">
+			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+				<li class="nav-item"><a class="nav-link"
+					href="Geromino/technicien">Techniciens </a></li>
+				<li class="nav-item active"><a class="nav-link"
+					href="Geromino/gestionnaire">Gestionnaire<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item"><a class="nav-link"
+					href="/TetrisFinal/tetrimino">Tetrimino</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="/TetrisFinal/deconnexion">Déconnexion</a></li>
+			</ul>
+		</c:if>
+
+		<c:if test="${page == 'tetrimino'}">
+			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+				<li class="nav-item"><a class="nav-link"
+					href="/TetrisFinal/home">Home </a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="/TetrisFinal/faq">FAQ</a></li>
+				<li class="nav-item active"><a class="nav-link"
+					href="/TetrisFinal/tetrimino">Tetrimino <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item"><a class="nav-link"
+					href="/TetrisFinal/deconnexion">Déconnexion</a></li>
+			</ul>
+		</c:if>
+		<form class="form-inline my-2 my-lg-0">
+			<input class="form-control mr-sm-2" type="search"
+				placeholder="Search" aria-label="Search">
+			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Chercher!</button>
+		</form>
+	</div>
+</nav>
+
+
+
+
+
+<!-- </c:if>
+    
+    <c:if test="${login == null }">
+        
+    </c:if>  -->
+
