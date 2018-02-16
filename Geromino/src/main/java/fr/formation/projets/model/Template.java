@@ -1,3 +1,4 @@
+
 // Classe créée par Christophe
 
 package fr.formation.projets.model;
@@ -32,6 +33,7 @@ public class Template {
 	@Column(name="TEM_NOM")
 	private String nom;
 	
+	/*--------------------------------------------- A modifier avec Matiere et IMatiereDAO
 	@ManyToMany
 	@JoinTable(
 		name="contenu",
@@ -39,6 +41,7 @@ public class Template {
 		inverseJoinColumns=@JoinColumn(name="CON_MATIERE_ID", referencedColumnName="MAT_ID")
 	)
 	private List<Matiere> matieres;
+	*/
 	
 	/*
 	 * Getters et setters
@@ -60,6 +63,7 @@ public class Template {
 		this.nom = nom;
 	}
 	
+	/*--------------------------------------------- A modifier avec Matiere et IMatiereDAO
 	public List<Matiere> getMatieres() {
 		return matieres;
 	}
@@ -67,9 +71,10 @@ public class Template {
 	public void setMatieres(List<Matiere> matieres) {
 		this.matieres = matieres;
 	}
+	*/
 
 	@Override
 	public String toString() {
-		return "Template [id=" + id + ", nom=" + nom + ", matieres=" + matieres + "]";
+		return "Template [id=" + id + ", nom=" + nom + "]";
 	}
 }
