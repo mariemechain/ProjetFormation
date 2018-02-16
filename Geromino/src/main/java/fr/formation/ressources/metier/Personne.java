@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
@@ -40,6 +42,7 @@ public class Personne implements Serializable
 	private String telephone;
 	
 	@Column(name="PER_DATEDENAISSANCE", columnDefinition="DATE")
+	@Temporal(TemporalType.DATE)
 	private Date date;
 	
 	@Column(name="PER_ADRESSE", columnDefinition="VARCHAR(50)")
