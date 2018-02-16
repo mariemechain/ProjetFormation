@@ -1,11 +1,7 @@
-<<<<<<< HEAD
+
 #Fichiers ignorés
 .project
 .classpath
-MANIFEST.MF
-pom.properties
-
-=======
 MANIFEST.MF
 pom.properties
 /.metadata/
@@ -14,4 +10,4 @@ pom.properties
 .settings/
 .springBeans
 target/
->>>>>>> master
+
