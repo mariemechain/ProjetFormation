@@ -6,7 +6,7 @@
     
 <tiles:insertDefinition name="app.layout">
 
-<tiles:putAttribute name="title" value="Technicient" />
+<tiles:putAttribute name="title" value="Technicien" />
 
 <tiles:putAttribute name="content">
 
@@ -16,7 +16,7 @@
 <p>Liste d'ordinateurs disponibles</p>
 <table class="table table-striped">
 
-<c:forEach items="${ ordinateurs }" var="produit">
+<c:forEach items="${ ordinateurs }" var="ordinateur">
 <tr>
 <td>${ ordinateur.processeur }  </td> 
 <td>${ ordinateur.ram } </td>
@@ -24,7 +24,7 @@
 <td>${ ordinateur.date } </td>
 <td><a href="/Geromino/technicien/edit?id=${ordinateur.id}" class="btn btn-outline-success">Modifier</a>
 </td>
-<td><a href="/MavenSp/produits/delete?id=${ordinateur.id}" class="btn btn-outline-danger">Supprimer</a>
+<td><a href="/Geromino/technicien/delete?id=${ordinateur.id}" class="btn btn-outline-danger">Supprimer</a>
 </td>
 </tr>
 </c:forEach>

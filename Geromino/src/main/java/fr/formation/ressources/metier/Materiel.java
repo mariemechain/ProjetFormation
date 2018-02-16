@@ -2,8 +2,8 @@ package fr.formation.ressources.metier;
 
 
 import java.io.Serializable;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
+
 
 import javax.persistence.Cacheable;
 import javax.persistence.Column;
@@ -34,9 +34,9 @@ public class Materiel implements Serializable{
 	@Column(name = "MAT_ETAT", columnDefinition = "DATE")
 	@Temporal(TemporalType.DATE)
 	private Date date;
-	@ManyToMany(mappedBy = "materiels")
-	private List<Projet> dispo;
-	
+//	@ManyToMany(mappedBy = "materiels")
+//	private List<Projet> dispo;
+//	
 	
 	// Constructeur par defaut	
 	public Materiel() {
@@ -69,21 +69,21 @@ public class Materiel implements Serializable{
 
 
 
-	public List<Projet> getDispo() {
-		return dispo;
-	}
-
-
-
-	public void setDispo(List<Projet> dispo) {
-		this.dispo = dispo;
-	}
-
-
-
+//	public List<Projet> getDispo() {
+//		return dispo;
+//	}
+//
+//
+//
+//	public void setDispo(List<Projet> dispo) {
+//		this.dispo = dispo;
+//	}
+//
+//
+//
 	@Override
 	public String toString() {
-		return "Materiel [id = " + id + " - cout = " + cout + " - dispo = " + dispo + "]";
+		return "Materiel [id = " + id + " - cout = " + cout +"]";
 	}
 
 	
