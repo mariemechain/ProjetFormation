@@ -21,7 +21,6 @@ public class Matiere {
 	@Column(name="MAT_ID")
 	private int id;
 	
-	@Column(name="MAT_EXPERTISES")
 	@OneToMany(mappedBy="matiere")
 	@JsonIgnoreProperties("matiere")
 	private List<Expertise> expertises;

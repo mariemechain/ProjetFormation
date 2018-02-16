@@ -1,7 +1,5 @@
 package fr.formation.formateur.model;
 
-import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -23,10 +21,10 @@ public class Formateur {
 	@Column(name="FOR_PATIENCE")
 	private double patience;
 	
-	@Column(name="FOR_DISPONIBILITE")
-	private List<Date> disponibilite;
+	@OneToMany(mappedBy="formateur")
+	@JsonIgnoreProperties("formateur")
+	private List<Disponibilite> disponibilites;
 	
-	@Column(name="FOR_EXPERTISES")
 	@OneToMany(mappedBy="formateur")
 	@JsonIgnoreProperties("formateur")
 	private List<Expertise> expertises;	
@@ -43,16 +41,16 @@ public class Formateur {
 	public void setPatience(double patience) {
 		this.patience = patience;
 	}
-	public List<Date> getDisponibilite() {
-		return disponibilite;
+	public List<Disponibilite> getDisponibilites() {
+		return disponibilites;
 	}
-	public void setDisponibilite(List<Date> disponibilite) {
-		this.disponibilite = disponibilite;
+	public void setDisponibilites(List<Disponibilite> disponibilites) {
+		this.disponibilites = disponibilites;
 	}
-	public List<Expertise> getExpertise() {
+	public List<Expertise> getExpertises() {
 		return expertises;
 	}
-	public void setExpertise(List<Expertise> expertise) {
+	public void setExpertises(List<Expertise> expertise) {
 		this.expertises = expertise;
 	}
 	
