@@ -23,9 +23,9 @@ public class MatiereController {
 	private IMatiereDAO daoMatiere;
 
 	@GetMapping("")
-	public List<Matiere> findAll(Model model) {
-		model.addAttribute("matieres",daoMatiere.findAll());
-		return this.daoMatiere.findAll();
+	public String findAll(Model model) {
+		model.addAttribute("matieres", daoMatiere.findAll());
+		return "matiere";
 	}
 
 	@GetMapping("/ajouter")
