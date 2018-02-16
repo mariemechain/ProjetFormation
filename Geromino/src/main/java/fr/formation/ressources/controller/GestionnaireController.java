@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.formation.ressources.dao.IContactDAO;
 import fr.formation.ressources.dao.ISalleDAO;
+import fr.formation.ressources.dao.IVideoProjecteurDAO;
 import fr.formation.ressources.metier.Salle;
 
 @Controller
@@ -30,6 +31,9 @@ public class GestionnaireController {
 	
 	@Autowired
 	private IContactDAO daoContact;
+	
+	@Autowired
+	private IVideoProjecteurDAO daoVideoProjecteur;
 
 	@GetMapping("")
 	public String gestionnaire() {
@@ -47,17 +51,18 @@ public class GestionnaireController {
 	public String ajouterSalle(Model model) {
 		model.addAttribute("salles", new Salle());
 		model.addAttribute("contacts", daoContact.findAll());
+		model.addAttribute("videoprojecteurs", daoVideoProjecteur.findAll());
 		return "gestionnaireAjouterSalle";
 	}
 	
 	@PostMapping("/gestionnaireAjouterSalle")
-	public String ajouter(@ModelAttribute("salles") Salle salle, Model model, @RequestParam(value="idContact") int idContact) {
+	public String ajouter(@ModelAttribute("salles") Salle salle, Model model, @RequestParam(value="idContact") int idContact, @RequestParam(value="idVideoProjecteur") int idVideoProjecteur) {
 //		if(result.hasErrors()) {
 //			model.addAttribute("fournisseurs", daoFournisseur.findAll());
 //		
 //		}
 		model.addAttribute("contacts", daoContact.findAll());
-		
+		model.addAttribute("videoprojecteurs", daoVideoProjecteur.findAll());
 		daoSalle.save(salle);	
 		return "redirect:./gestionnaireSalle";
 	}
@@ -67,6 +72,7 @@ public class GestionnaireController {
 	public String editerSalle( @RequestParam("id") String id, Model model) {
 		model.addAttribute("salles", daoSalle.findById(id).get());
 		model.addAttribute("contacts", daoContact.findAll());
+		model.addAttribute("videoprojecteurs", daoVideoProjecteur.findAll());
 		return "gestionnaireAjouterSalle";
 	}
 	
