@@ -25,13 +25,13 @@ public class Matiere {
 	private int id;
 	
 	@Column(name="MAT_TITRE")
-	@NotEmpty(message="le titre de la matiere ne peut pas etre nul")
+	//@NotEmpty(message="le titre de la matiere ne peut pas etre nul")
 	private String titre;
 	
 	
 	@Column(name="MAT_DUREE")
-	@NotEmpty(message="la duree de la matiere ne peut pas etre nul")
-	@Positive(message="la duree de la matiere doit etre une valeur positive")
+	//@NotEmpty(message="la duree de la matiere ne peut pas etre nul")
+	//@Positive(message="la duree de la matiere doit etre une valeur positive")
 	private int duree;
 	
 	@Column(name="MAT_OBJECTIF")

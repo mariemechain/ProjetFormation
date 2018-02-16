@@ -38,11 +38,7 @@ public class MatiereController {
 	}
 
 	@PostMapping("/ajouter")
-	public String ajouter(@ModelAttribute("matiere") Matiere matiere, BindingResult result, Model model) {
-		if (result.hasErrors()) {
-
-			return "ajouterMatiere";
-		}
+	public String ajouter(@ModelAttribute("matiere") Matiere matiere, Model model) {
 		daoMatiere.save(matiere);
 		return "redirect:./";
 	}
@@ -55,11 +51,8 @@ public class MatiereController {
 	}
 
 	@PostMapping("/editer")
-	public String editer(@ModelAttribute("matiere") Matiere matiere, BindingResult result, Model model) {
-		if (result.hasErrors()) {
-			return "ajouterMatiere";
-		}
-		System.out.println(matiere.getTitre());
+	public String editer(@ModelAttribute("matiere") Matiere matiere, Model model) {
+
 		daoMatiere.save(matiere);
 		return "redirect:./";
 	}
