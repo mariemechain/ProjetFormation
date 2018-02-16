@@ -12,8 +12,10 @@ import javax.persistence.Table;
 public class Matiere {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="MAT_ID")
 	private int id;
+	
 	@Column(name="MAT_NOM")
 	private String nom;
 	
@@ -35,7 +37,10 @@ public class Matiere {
 		this.nom = nom;
 	}
 
-	
+	@Override
+	public String toString() {
+		return "Matiere [id=" + id + ", nom=" + nom + "]";
+	}
 	
 	
 	

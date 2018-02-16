@@ -1,3 +1,4 @@
+/*
 package fr.formation.projets.model;
 
 import javax.persistence.Column;
@@ -62,3 +63,4 @@ public class Planification {
 
 
 }
+*/

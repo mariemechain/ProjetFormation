@@ -1,3 +1,4 @@
+/*
 package fr.formation.projets.listener;
 
 import java.util.ArrayList;
@@ -39,3 +40,4 @@ public class ListenerFormateur implements ServletContextListener {
 		sce.getServletContext().setAttribute("myFormateursListener", myFormateurs);
 	}
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package fr.formation.ressources.model;
 
 import javax.persistence.Entity;
@@ -12,3 +13,4 @@ public class Materiel {
 	
 
 }
+*/
