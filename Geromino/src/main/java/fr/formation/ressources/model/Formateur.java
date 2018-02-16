@@ -1,5 +1,6 @@
 package fr.formation.ressources.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -7,6 +8,7 @@ import javax.persistence.Table;
 @Table(name ="formateur")
 public class Formateur {
 	
+	@Column(name="FOR_NOM")
 	private String nom;
 
 	public String getNom() {
@@ -16,6 +18,12 @@ public class Formateur {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+
+	@Override
+	public String toString() {
+		return "Formateur " + nom ;
+	}
+	
 	
 	
 	

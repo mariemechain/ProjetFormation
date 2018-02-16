@@ -5,13 +5,12 @@ import java.util.List;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
-import javax.servlet.annotation.WebServlet;
+import javax.servlet.annotation.WebListener;
 
-import fr.formation.ressources.model.Formateur;
-import fr.formation.ressources.model.Materiel;
+
 import fr.formation.ressources.model.Matiere;
 
-@WebServlet
+@WebListener
 public class ListenerMatiere implements ServletContextListener {
 
 	
@@ -37,7 +36,7 @@ public class ListenerMatiere implements ServletContextListener {
 		myMatieres.add(m2);
 		myMatieres.add(m3);
 		
-		sce.getServletContext().setAttribute("listeMatiereListener", myMatieres);
+		sce.getServletContext().setAttribute("myMatieresListener", myMatieres);
 		
 		
 	}

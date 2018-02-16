@@ -2,13 +2,23 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <tiles:insertDefinition name="app.layout">
-	<tiles:putAttribute name="title" value="Edition Produit" />
+	<tiles:putAttribute name="title" value="Select Matiere" />
 	<tiles:putAttribute name="content">
 
 
-Salut voic la plannification
+		<div>
+			<!-- Selection matiere -->
 
-	${message}
+			<select>
+				<c:forEach items="${matieres }" var="matiere">
+					<option>${matiere.nom}
+					<option>
+				</c:forEach>
+			</select>
+		</div>
+		<button name="" type="submit" class="btn btn-primary btn-info">Valider</button>
+
+
 
 	</tiles:putAttribute>
 </tiles:insertDefinition>

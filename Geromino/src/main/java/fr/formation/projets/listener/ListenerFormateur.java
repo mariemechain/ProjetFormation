@@ -36,6 +36,6 @@ public class ListenerFormateur implements ServletContextListener {
 		myFormateurs.add(f2);
 		myFormateurs.add(f3);
 		
-		sce.getServletContext().setAttribute("listeFormateuristener", myFormateurs);
+		sce.getServletContext().setAttribute("myFormateursListener", myFormateurs);
 	}
 }
