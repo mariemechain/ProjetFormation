@@ -14,10 +14,16 @@
 <div class="container">
 
 <h3>Liste de videoprojecteurs disponibles</h3>
-
+<br/>
 <table class="table table-striped">
 
 <c:forEach items="${ videoprojecteurs }" var="videoprojecteur">
+<thead>
+				<tr>
+				<th>Identifiant</th>
+				<th>Option</th>
+				</tr>
+				</thead>
 <tr>
 <td>${ videoprojecteur.id }  </td> 
 <td><a href="/Geromino/technicien/video/edit?id=${videoprojecteur.id}" class="btn btn-outline-success">Modifier</a>

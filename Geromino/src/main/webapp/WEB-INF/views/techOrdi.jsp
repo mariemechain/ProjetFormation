@@ -14,6 +14,7 @@
 
 		<div class="container">
 			<h3>Liste d'ordinateurs disponibles</h3>
+			<br/>
 			<table class="table table-striped">
 
 				<c:forEach items="${ ordinateurs }" var="ordinateur">
@@ -23,6 +24,7 @@
 				<th>Processeur</th>
 				<th>RAM</th>
 				<th>Stockage</th>
+				<th>Date d'achat</th>
 				<th>Option</th>
 				</tr>
 				</thead>
@@ -31,7 +33,7 @@
 						<td>${ ordinateur.processeur }</td>
 						<td>${ ordinateur.ram }</td>
 						<td>${ ordinateur.stockage }</td>
-						<%-- <td>${ ordinateur.date }</td> --%>
+						 <td>${ ordinateur.achat }</td> 
 						<td><a href="/Geromino/technicien/ordi/edit?id=${ordinateur.id}"
 							class="btn btn-outline-success">Modifier</a></td>
 						<td><a href="/Geromino/technicien/ordi/supprimer?id=${ordinateur.id}"

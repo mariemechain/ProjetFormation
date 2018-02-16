@@ -14,6 +14,7 @@
 <div class="container">
 
 <h3>Ajouter un ordinateur</h3>
+<br/>
 <div class="form-group">
 					<label for="id">Identifiant :</label> <input name="id"
 						type="text" class="form-control" id="id"
@@ -44,6 +45,13 @@
 						type="number" class="form-control" id="stockage"
 						value="${ordinateur.stockage}" placeholder="Stockage">
 				</div>
+				
+				<div class="form-group">
+					<label for="date">Date</label>
+					<input name="achat"
+						type="number" class="form-control" id="date"
+						value="${ordinateur.achat}" placeholder="achat">
+				</div> 
 
 
 				<button type="submit" class="btn btn-primary">Submit</button>
