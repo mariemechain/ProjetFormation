@@ -26,34 +26,34 @@
 				<li class="nav-item"><a class="nav-link"
 					href="/Geromino/gestionnaire">Gestionnaire</a></li>
 				<li class="nav-item"><a class="nav-link"
-					href="/Geromino/technicien">Tetrimino</a></li>
+					href="/Geromino/technicien">Matière</a></li>
 				<li class="nav-item"><a class="nav-link"
-					href="Geromino/technicien">Déconnexion</a></li>
+					href="Geromino/home">Déconnexion</a></li>
 			</ul>
 		</c:if>
 
 		<c:if test="${page == 'gestionnaire'}">
 			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 				<li class="nav-item"><a class="nav-link"
-					href="Geromino/technicien">Techniciens </a></li>
+					href="/Geromino/technicien">Techniciens </a></li>
 				<li class="nav-item active"><a class="nav-link"
-					href="Geromino/gestionnaire">Gestionnaire<span class="sr-only">(current)</span></a>
+					href="/Geromino/gestionnaire">Gestionnaire<span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item"><a class="nav-link"
-					href="/TetrisFinal/tetrimino">Tetrimino</a></li>
+					href="/Geromino/gestionnaire">Matières</a></li>
 				<li class="nav-item"><a class="nav-link"
-					href="/TetrisFinal/deconnexion">Déconnexion</a></li>
+					href="/Geromino/home">Déconnexion</a></li>
 			</ul>
 		</c:if>
 
-		<c:if test="${page == 'tetrimino'}">
+		<c:if test="${page == 'matiere'}">
 			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 				<li class="nav-item"><a class="nav-link"
-					href="/TetrisFinal/home">Home </a></li>
+					href="/Geromino/technicien">Techniciens </a></li>
 				<li class="nav-item"><a class="nav-link"
-					href="/TetrisFinal/faq">FAQ</a></li>
+					href="/Geromino/gestionnaire">Gestionnaire</a></li>
 				<li class="nav-item active"><a class="nav-link"
-					href="/TetrisFinal/tetrimino">Tetrimino <span class="sr-only">(current)</span></a>
+					href="/Geromino/gestionnaire">Matières <span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item"><a class="nav-link"
 					href="/TetrisFinal/deconnexion">Déconnexion</a></li>
