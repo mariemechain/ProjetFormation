@@ -14,9 +14,9 @@
    				<div class="col-2">
      				<div class="list-group">
      					<c:forEach items="${matieres}" var="m">
-				        	<button  class="list-group-item">{m.titre}</button>
-				        	<a href="/Geromino/matiere/editer?id=${m.id}" class="list-group-item">Modifier</a>
-				        	<a href="/Geromino/matiere/supprimer?id=${m.id}" class="list-group-item">Supprimer</a>
+				        	<button  class="list-group-item">${m.titre}</button>
+<%-- 				        	<a href="/Geromino/matiere/editer?id=${m.id}" class="list-group-item">Modifier</a> --%>
+<%-- 				        	<a href="/Geromino/matiere/supprimer?id=${m.id}" class="list-group-item">Supprimer</a> --%>
 				        </c:forEach>
 				    </div>
     			</div>
