@@ -9,36 +9,46 @@
 	
 	<tiles:putAttribute name="content">
 	
-		<div class="container-fluid">
-			<div class="row align-items-center">
-   				<div class="col-2">
-     				<div class="list-group">
+		<div class="container">
+			<div class="row">
+				
+   				<div class="col-5">
+     				<div class="list-group">     					     					
      					<c:forEach items="${matieres}" var="m">
-				        	<button  class="list-group-item">${m.titre}</button>
- 				        	<a href="/Geromino/matiere/editer?id=${m.id}" class="list-group-item">Modifier</a>
-<%-- 				        	<a href="/Geromino/matiere/supprimer?id=${m.id}" class="list-group-item">Supprimer</a> --%>
-				        </c:forEach>
+	     					<p class="list-group-item d-flex justify-content-between align-items-center">
+	     						${m.titre}
+	     						<span class="badge badge-success badge-pill"><a class="text-white" href="/Geromino/matiere/information?id=${m.id}">Information</a></span>
+	 				        	<span class="badge badge-primary badge-pill"><a class="text-white" href="/Geromino/matiere/editer?id=${m.id}">Modifier</a></span>
+					        	<span class="badge badge-danger badge-pill"><a class="text-white" href="/Geromino/matiere/supprimer?id=${m.id}">Supprimer</a></span>
+					        </p>
+				        </c:forEach>				        				        
 				    </div>
     			</div>
     			
     			<div class="col-1">
     			</div>
     			
-    			<div class="col-8">
+    			<div class="col-6">
     				<p class="zoneTexte"></p>
 	    				<h2>Details de la matière sélectionnée :</h2>
-	    				<c:if test="detailMatiere!=null">
-		    				<p> Durée de la matière : {detailMatiere.duree} jour</p>
-		    				<p> Objectif de la matière : {detailMatiere.objectif}</p>
-		    				<p> Prérequis de la matière : {detailMatiere.prerequis}</p>
-		    				<p> Contenu de la matière : {detailMatiere.contenu}</p>
+	    				<c:if test="${detailMatiere==null}">
+	    				 <p>je suis nul</p>
+	    				</c:if>
+	    				<c:if test="${detailMatiere!=null}">
+		    				<p> Durée de la matière : ${detailMatiere.duree} jour(s)</p>
+		    				<p> Objectif de la matière : ${detailMatiere.objectif}</p>
+		    				<%--<p> Prérequis de la matière : ${detailMatiere.prerequis}</p>  --%>
+		    				<p> Contenu de la matière : ${detailMatiere.contenu}</p>
 	    				</c:if>
 	    		
     			</div>
     			
 			</div>
 		</div>
+		
+		<a href="/Geromino/matiere/ajouter">Ajouter une nouvelle matière</a>
+		
 	</tiles:putAttribute>
-
+	
 </tiles:insertDefinition>
 	
