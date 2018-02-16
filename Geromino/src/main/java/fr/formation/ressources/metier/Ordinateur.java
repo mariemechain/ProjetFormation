@@ -6,6 +6,7 @@ import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -17,6 +18,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @Table(name="ordinateur")
 @Cacheable
 @Cache(usage=CacheConcurrencyStrategy.READ_WRITE)
+@PrimaryKeyJoinColumn(name="ORD_ID", referencedColumnName="MAT_ID")
 public class Ordinateur extends Materiel {
 	
 	
