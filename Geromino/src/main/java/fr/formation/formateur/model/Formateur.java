@@ -8,5 +8,5 @@ public class Formateur {
 	private String titre;
 	private double patience;
 	private List<Date> disponibilite;
-	private HashMap<String, Niveau> expertise;
+	private HashMap<Matiere, Niveau> expertise;
 }
