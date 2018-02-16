@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet"
-	href="/eshop-mvc-rest/css/bootstrap.min.css" />
+	href="/geromino-mvc-rest/css/bootstrap.min.css" />
 <title>Insert title here</title>
 </head>
 <body>
