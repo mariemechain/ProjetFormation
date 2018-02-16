@@ -33,6 +33,14 @@ public class Expertise {
 	@Column(name="EXP_NIVEAU")
 	private Niveau niveau;
 	
+	
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public Formateur getFormateur() {
 		return formateur;
 	}
