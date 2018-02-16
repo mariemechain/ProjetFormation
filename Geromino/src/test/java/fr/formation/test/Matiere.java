@@ -1,4 +1,4 @@
-package fr.formation.formateur.model;
+package fr.formation.test;
 
 import java.util.List;
 
@@ -12,6 +12,8 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import fr.formation.formateur.model.Expertise;
+
 @Entity
 @Table(name="matiere")
 public class Matiere {
@@ -21,7 +23,6 @@ public class Matiere {
 	@Column(name="MAT_ID")
 	private int id;
 	
-	@Column(name="MAT_EXPERTISES")
 	@OneToMany(mappedBy="matiere")
 	@JsonIgnoreProperties("matiere")
 	private List<Expertise> expertises;

@@ -1,0 +1,21 @@
+body{
+  background-image: url('/homer_summer_fond_ecran.jpg');
+}
+
+.negatif{
+  background-color: red;
+}
+
+.input-group-text{
+  width:200px;
+  background-color: #B34151;
+  color: white;
+}
+
+.form-control{
+  width: 300px;
+}
+
+.table-striped{
+  background-color: white;
+}

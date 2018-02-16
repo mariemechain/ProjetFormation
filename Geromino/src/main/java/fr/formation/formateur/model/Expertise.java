@@ -11,6 +11,8 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import fr.formation.test.Matiere;
+
 @Entity
 @Table(name="expertise")
 public class Expertise {
