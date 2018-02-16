@@ -2,6 +2,8 @@ package fr.formation.matieres.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,7 +43,7 @@ public class MatiereController {
 
 			return "ajouterMatiere";
 		}
-		daoMatiere.save(matiere); 
+		daoMatiere.save(matiere);
 		return "redirect:./";
 	}
 
@@ -50,6 +52,16 @@ public class MatiereController {
 		model.addAttribute("matiere", daoMatiere.findById(id).get());
 
 		return "ajouterMatiere";
+	}
+
+	@PostMapping("/editer")
+	public String editer(@ModelAttribute("matiere") Matiere matiere, BindingResult result, Model model) {
+		if (result.hasErrors()) {
+			return "ajouterMatiere";
+		}
+		System.out.println(matiere.getTitre());
+		daoMatiere.save(matiere);
+		return "redirect:./";
 	}
 
 	@GetMapping("/supprimer")
