@@ -22,7 +22,7 @@ public class Projet {
 	 * 	Constructeur(s)
 	 * =========================================== */
 	public Projet() {
-		// ctor par défaut
+		// ctor par dï¿½faut
 	}
 
 	/* ===========================================

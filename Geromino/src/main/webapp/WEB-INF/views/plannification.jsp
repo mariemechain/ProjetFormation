@@ -6,7 +6,9 @@
 	<tiles:putAttribute name="content">
 
 
+Salut voic la plannification
 
+	${message}
 
 	</tiles:putAttribute>
 </tiles:insertDefinition>

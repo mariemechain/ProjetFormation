@@ -25,6 +25,6 @@
 	<mvc:resources mapping="/js/**" location="/js/" />
 	<mvc:resources mapping="/images/**" location="/images/" />
 	
-	<context:component-scan base-package="fr.formation.matieres.controller, fr.formation.config.controller, fr.formation.ressources.controller, fr.formation.formateur.controller "></context:component-scan>
+	<context:component-scan base-package="fr.formation.matieres.controller, fr.formation.config.controller, fr.formation.ressources.controller, fr.formation.formateur.controller, fr.formation.projets.controller "></context:component-scan>
 
 </beans>
