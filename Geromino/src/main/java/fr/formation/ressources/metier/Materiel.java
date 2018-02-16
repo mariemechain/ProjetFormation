@@ -31,7 +31,7 @@ public class Materiel {
 	@Column(name = "MAT_ETAT", columnDefinition = "DATE")
 	@Temporal(TemporalType.DATE)
 	private Date date;
-	@ManyToMany(mappedBy = "projets")
+	@ManyToMany(mappedBy = "materiels")
 	private List<Projet> dispo;
 	
 	
