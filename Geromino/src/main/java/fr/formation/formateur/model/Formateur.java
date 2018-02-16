@@ -8,7 +8,7 @@ public class Formateur {
 	private String titre;
 	private double patience;
 	private List<Date> disponibilite;
-	private HashMap<Matiere, Niveau> expertise;
+	private Expertise expertise;
 	
 	
 	
@@ -24,17 +24,18 @@ public class Formateur {
 	public void setPatience(double patience) {
 		this.patience = patience;
 	}
+	public Expertise getExpertise() {
+		return expertise;
+	}
+	public void setExpertise(Expertise expertise) {
+		this.expertise = expertise;
+	}
 	public List<Date> getDisponibilite() {
 		return disponibilite;
 	}
 	public void setDisponibilite(List<Date> disponibilite) {
 		this.disponibilite = disponibilite;
 	}
-	public HashMap<Matiere, Niveau> getExpertise() {
-		return expertise;
-	}
-	public void setExpertise(HashMap<Matiere, Niveau> expertise) {
-		this.expertise = expertise;
-	}
+	
 	
 }
