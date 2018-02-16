@@ -16,9 +16,7 @@
 			<h3>Liste d'ordinateurs disponibles</h3>
 			<br/>
 			<table class="table table-striped">
-
-				<c:forEach items="${ ordinateurs }" var="ordinateur">
-				<thead>
+<thead>
 				<tr>
 				<th>Identifiant</th>
 				<th>Processeur</th>
@@ -28,6 +26,8 @@
 				<th>Option</th>
 				</tr>
 				</thead>
+				<c:forEach items="${ ordinateurs }" var="ordinateur">
+				
 					<tr>
 					<td>${ ordinateur.id }</td>
 						<td>${ ordinateur.processeur }</td>

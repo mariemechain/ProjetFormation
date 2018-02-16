@@ -49,7 +49,7 @@
 				<div class="form-group">
 					<label for="date">Date</label>
 					<input name="achat"
-						type="number" class="form-control" id="date"
+						type="text" class="form-control" id="date"
 						value="${ordinateur.achat}" placeholder="achat">
 				</div> 
 

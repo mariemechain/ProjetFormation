@@ -66,7 +66,7 @@ public class TechnicienController {
 			 Model model) {
 		
 		ordiDAO.save(ordinateur);
-		return "/ordi";
+		return "redirect:./";
 	}
 	
 	 @GetMapping("/video/ajouter") 
