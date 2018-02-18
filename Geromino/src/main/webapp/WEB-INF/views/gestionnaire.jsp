@@ -12,5 +12,15 @@
 					class="btn btn-success">Gestion des salles</button></a>
 		</div>
 
+		<div>
+			<a href="/Geromino/gestionnaire/gestionnaireProjet"><button
+					type="button" class="btn btn-info">Gestion des projets</button></a>
+		</div>
+		
+		<div>
+			<a href="/Geromino/gestionnaire/gestionnaireFormateur"><button
+					type="button" class="btn btn-warning">Gestion des formateurs</button></a>
+		</div>
+
 	</tiles:putAttribute>
 </tiles:insertDefinition>

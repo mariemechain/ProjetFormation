@@ -26,7 +26,7 @@
 					<td>${salle.id }</td>
 					<td>${salle.places }</td>
 					<td>${salle.adresse }</td>
-					<td>${salle.contact.prenom }</td>
+					<td>${salle.contact.nom }</td>
 					<td>${salle.videoprojecteur.id }</td>
 					<td><a
 						href="/Geromino/gestionnaire/gestionnaireEditerSalle?id=${salle.id }"><button

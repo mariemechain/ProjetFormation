@@ -35,7 +35,7 @@
 					cssClass="alert alert-danger" />
 			</div>
 
-			<div class="col-sm">
+<%-- 			<div class="col-sm">
                   <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Contact</span>
@@ -46,23 +46,40 @@
                    </c:forEach>
                    </select>
                 </div>
-            </div>
+            </div> --%>
+            
+            <div class="form-group row">
+				<label for="prix" class="col-sm-2 col-form-label">Contact
+					:</label>
+				<div class="col-sm-10>">
+					<form:select path="contact.id" items="${contacts}"
+						itemLabel="nom" itemValue="id" cssClass="form-control" />
+				</div>
+			</div>
 
-			<div class="col-sm">
+<%-- 			<div class="col-sm">
                   <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">VideoProjecteur</span>
                     </div>
                   <select name="idVideoProjecteur">
                  <c:forEach items="${videoprojecteurs}" var="videoprojecteur">
-                   <option value="${videoprojecteur.id}">${videoprojecteur.nom}</option>
+                   <option value="${videoprojecteur.id}">${videoprojecteur.id}</option>
                    </c:forEach>
                    </select>
                 </div>
-            </div>
-			
-			
-			
+            </div> --%>
+
+			<div class="form-group row">
+				<label for="prix" class="col-sm-2 col-form-label">Video
+					projecteur :</label></br>
+				<div class="col-sm-10>">
+					<form:select path="videoprojecteur.id" items="${videoprojecteurs}"
+						itemLabel="id" itemValue="id" cssClass="form-control" />
+				</div>
+			</div>
+
+
 
 			<button type="submit" class="btn btn-danger">Ajouter</button>
 
