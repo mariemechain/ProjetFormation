@@ -17,6 +17,7 @@
 					</c:forEach>
 				</select>
 			</div>
+			<br>
 			<button name="" type="submit" class="btn btn-primary btn-info">Valider</button>
 		</form>
 	</tiles:putAttribute>
