@@ -1,5 +1,7 @@
 package fr.formation.matieres.controller;
 
+import javax.validation.Valid;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -43,7 +46,7 @@ public class MatiereController {
 	@PostMapping("/ajouter")
 	public String ajouter(@ModelAttribute("matiere") Matiere matiere, Model model, HttpServletRequest req) {
 		
-		//checkbox à récupérer !
+		//checkbox ï¿½ rï¿½cupï¿½rer !
 		List<Matiere> liste = daoMatiere.findAll();
 		List<Matiere> prerequis = new ArrayList<Matiere>();
 		for (Matiere m : liste) {
@@ -71,8 +74,10 @@ public class MatiereController {
 	}
 
 	@PostMapping("/editer")
-	public String editer(@ModelAttribute("matiere") Matiere matiere, Model model) {
-
+	public String editer(@Valid@ModelAttribute("matiere") Matiere matiere, BindingResult result, Model model, @RequestParam("id") int id) {
+		if (result.hasErrors()) {
+			return "editer";
+		}
 		daoMatiere.save(matiere);
 		return "redirect:./";
 	}

@@ -62,6 +62,9 @@
 					</div>
 				</div>
 
+				<form:errors path="titre" element="div" cssClass="alert alert-danger" />
+				<form:errors path="duree" element="div" cssClass="alert alert-danger" />
+
 				<div>
 					<button type="submit" class="btn btn-outline-success"
 						value="Ajouter">Ajouter une matière</button>
