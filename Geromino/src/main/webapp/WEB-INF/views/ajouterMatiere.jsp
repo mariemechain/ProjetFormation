@@ -48,7 +48,7 @@
 				<!-- <div class="btn-group btn-group-toggle" data-toggle="buttons"> -->
 					<c:forEach items="${matieres}" var="matiere">
 					  <!-- <label class="btn btn-secondary active"> -->
-					    <input type="checkbox" autocomplete="off" name="${matiere.id}"> ${matiere.titre}
+					    <input type="checkbox"  name="prerequis_${matiere.id}"> ${matiere.titre}
 					  <!-- </label> -->
 					</c:forEach>
 				<!-- </div> -->

@@ -1,5 +1,10 @@
 package fr.formation.matieres.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
@@ -27,21 +32,40 @@ public class MatiereController {
 	}
 
 	@GetMapping("/ajouter")
-	public String ajouter(Model model, HttpRequest req) {
-		//checkbox à récupérer !
+	public String ajouter(Model model) {
+
+		
 		model.addAttribute("matieres", daoMatiere.findAll());
 		model.addAttribute("matiere", new Matiere());
 		return "ajouterMatiere";
 	}
 
 	@PostMapping("/ajouter")
-	public String ajouter(@ModelAttribute("matiere") Matiere matiere, Model model) {
+	public String ajouter(@ModelAttribute("matiere") Matiere matiere, Model model, HttpServletRequest req) {
+		
+		//checkbox à récupérer !
+		List<Matiere> liste = daoMatiere.findAll();
+		List<Matiere> prerequis = new ArrayList<Matiere>();
+		for (Matiere m : liste) {
+			int id = m.getId();
+			if(req.getAttribute("prerequis_"+id) != null) {
+				//model.addAttribute(m);
+				System.out.println(req.getAttribute("prerequis_"+id));
+				prerequis.add(m);
+			}
+		}
+		
+		matiere.setPrerequis(prerequis);
+		
+		
+		
 		daoMatiere.save(matiere);
 		return "redirect:./";
 	}
 
 	@GetMapping("/editer")
 	public String editer(Model model, @RequestParam("id") int id) {
+		model.addAttribute("matieres", daoMatiere.findAll());
 		model.addAttribute("matiere", daoMatiere.findById(id));
 		return "ajouterMatiere";
 	}
