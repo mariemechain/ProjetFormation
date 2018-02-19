@@ -1,7 +1,5 @@
 package fr.formation.ressources.controller;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +15,7 @@ import fr.formation.ressources.dao.IProjetDAO;
 import fr.formation.ressources.dao.ISalleDAO;
 import fr.formation.ressources.dao.IStagiaireDAO;
 import fr.formation.ressources.dao.IVideoProjecteurDAO;
+import fr.formation.ressources.metier.Contact;
 import fr.formation.ressources.metier.Projet;
 import fr.formation.ressources.metier.Salle;
 
@@ -181,4 +180,70 @@ public class GestionnaireController {
 			daoProjet.deleteById(id);	
 			return "redirect:./gestionnaireProjet";
 		}
+		
+		//***********************************************************************************************
+		//****************************CONTACT*************************************************************
+		//***********************************************************************************************
+		
+		@GetMapping("/gestionnaireContact")
+		public String listeContact(Model model) {
+			model.addAttribute("contacts", daoContact.findAll());
+			return "gestionnaireContact";
+		}
+		
+		//************************************************** Ajouter un contact***************************
+				@GetMapping("/gestionnaireAjouterContact")
+				public String ajouterContact(Model model) {
+					model.addAttribute("contact", new Contact());
+					model.addAttribute("contacts", daoContact.findAll());
+					
+					return "gestionnaireAjouterContact";
+				}
+
+				@PostMapping("/gestionnaireAjouterContact")
+				public String ajouterContact(@ModelAttribute("contact") Contact contact, Model model) {
+//					if(result.hasErrors()) {
+//						model.addAttribute("fournisseurs", daoFournisseur.findAll());
+//					
+//					}
+					model.addAttribute("contacts", daoContact.findAll());
+					
+					daoContact.save(contact);	
+					return "redirect:./gestionnaireContact";
+				}
+				
+				//************************************************** Editer un contact***************************
+				@GetMapping("/gestionnaireEditerContact")
+				public String editerContact( @RequestParam("id") int id, Model model) {
+					model.addAttribute("contact", daoContact.findById(id).get());
+					System.out.println(id);
+					
+					
+					return "gestionnaireAjouterContact";
+				}
+				
+				@PostMapping("/gestionnaireEditerContact")
+				public String editerContact( @ModelAttribute("contact") Contact contact,  @RequestParam("id") int id, Model model) {
+//					if(result.hasErrors()) {
+//						System.out.println(result.getAllErrors());
+//						model.addAttribute("fournisseurs", daoFournisseur.findAll());
+//						return "gestionnaireAjouterSalle";
+//					}
+//					model.addAttribute("contacts", daoContact.findAll());
+//					model.addAttribute("videoprojecteurs", daoVideoProjecteur.findAll());
+					contact.setId(id);
+					daoContact.save(contact);		
+					//return "gestionnaireSalle";
+					return "redirect:./gestionnaireContact";	
+				}
+				
+				
+				
+				//************************************************** Supprimer un contact***************************	
+				
+				@GetMapping("/gestionnaireSupprimerContact")
+				public String supprimerContact(@RequestParam("id") int id) {
+					daoContact.deleteById(id);	
+					return "redirect:./gestionnaireContact";
+				}
 }
