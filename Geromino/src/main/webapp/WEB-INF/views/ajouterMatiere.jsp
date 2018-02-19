@@ -16,7 +16,7 @@
 
 			<form:form method="post" modelAttribute="matiere">
 
-				<div class="input-group input-group-sm mb-3">
+				<div class="input-group mb-3">
 					<div class="input-group-prepend">
 						<form:label class="input-group-text" id="inputGroup-sizing-sm"
 							path="titre">Titre</form:label>
@@ -24,7 +24,7 @@
 					</div>
 				</div>
 
-				<div class="input-group input-group-sm mb-3">
+				<div class="input-group mb-3">
 					<div class="input-group-prepend">
 						<form:label class="input-group-text" id="inputGroup-sizing-sm"
 							path="duree">Durée</form:label>
@@ -32,7 +32,7 @@
 					</div>
 				</div>
 
-				<div class="input-group input-group-sm mb-3">
+				<div class="input-group mb-3">
 					<div class="input-group-prepend">
 						<form:label class="input-group-text" id="inputGroup-sizing-sm"
 							path="objectif">Objectifs</form:label>
@@ -41,18 +41,22 @@
 					</div>
 				</div>
 
-				<div class="form-group">
-					<form:label path="prerequis">Prérequis</form:label>
-					<div class="btn-group btn-group-toggle" data-toggle="buttons">
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<form:label class="input-group-text" id="inputGroup-sizing-sm"
+							path="prerequis">Prérequis</form:label>
+					
+					<div class="form-check" aria-label="Small">
 						<c:forEach items="${matieres}" var="matiere">
-						   	<!-- label class="btn btn-secondary active"-->
-						    	<input type="checkbox" name="test_${matiere.id}"/> ${matiere.titre}
-						  	<!-- /label-->
-						</c:forEach>
+						    <input type="checkbox"  class="filled-in" name="test_${matiere.id}">
+						    <label >${matiere.titre}</label>
+					    </c:forEach>
 					</div>
+					</div>
+					
 				</div>
 
-				<div class="input-group input-group-sm mb-3">
+				<div class="input-group mb-3">
 					<div class="input-group-prepend">
 						<form:label class="input-group-text" id="inputGroup-sizing-sm"
 							path="contenu">Contenu</form:label>

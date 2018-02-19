@@ -3,3 +3,7 @@
 	border: solid 2px gray;
 	
 }
+
+.input-group-text {
+   width: 200px;
+}
