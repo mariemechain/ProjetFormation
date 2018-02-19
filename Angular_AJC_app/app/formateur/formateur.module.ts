@@ -4,6 +4,7 @@ import { FormateurService } from './formateur.service';
 import { FormateurComponent } from './formateur.component';
 import { DispoComponent } from './dispo.component';
 import { DispoService } from './dispo.service';
+import { ExpertiseService } from './expertise';
 
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
@@ -26,7 +27,9 @@ const routesFormateur: Routes = [
     providers: [
 
         FormateurService,
-        DispoService
+        DispoService,
+        ExpertiseService
+        
     ],
 
     declarations: [
