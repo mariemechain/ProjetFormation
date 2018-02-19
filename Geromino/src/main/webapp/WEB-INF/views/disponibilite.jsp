@@ -24,42 +24,44 @@
 			  
 				<tbody>
 					<c:forEach items="${liste}" var="liste">
-						<tr>
-							<th scope="row">${liste.date}</th>
-							<td>
-								<c:if test="${liste.salle <= 10}">
-									<td bgcolor=red >${ liste.salle }</td>
-								</c:if>
-								<c:if test="${liste.salle > 10 && liste.salle <= 30}">
-									<td bgcolor=yellow >${ liste.salle }</td>
-								</c:if>
-								<c:if test="${liste.salle > 30}">
-									<td bgcolor=green ></td>
-								</c:if>
-							</td>
-							<td>
-								<c:if test="${liste.ordi <= 10}">
-									<td bgcolor=red >${ liste.ordi }</td>
-								</c:if>
-								<c:if test="${liste.ordi > 10 && liste.ordi <= 30}">
-									<td bgcolor=yellow >${ liste.ordi }</td>
-								</c:if>
-								<c:if test="${liste.ordi > 30}">
-									<td bgcolor=green ></td>
-								</c:if>
-							</td>
-							<td>
-								<c:if test="${liste.video <= 10}">
-									<td bgcolor=red >${ liste.video }</td>
-								</c:if>
-								<c:if test="${liste.video > 10 && liste.video <= 30}">
-									<td bgcolor=yellow >${ liste.video }</td>
-								</c:if>
-								<c:if test="${liste.video > 30}">
-									<td bgcolor=green ></td>
-								</c:if>
-							</td>
-					    </tr>
+						<c:if test="${liste.id == 1}">
+							<tr>
+								<th scope="row">${liste.date}</th>
+								<td>
+									<c:if test="${liste.salle <= 10}">
+										<td bgcolor=red >${ liste.salle }</td>
+									</c:if>
+									<c:if test="${liste.salle > 10 && liste.salle <= 30}">
+										<td bgcolor=yellow >${ liste.salle }</td>
+									</c:if>
+									<c:if test="${liste.salle > 30}">
+										<td bgcolor=green ></td>
+									</c:if>
+								</td>
+								<td>
+									<c:if test="${liste.ordi <= 10}">
+										<td bgcolor=red >${ liste.ordi }</td>
+									</c:if>
+									<c:if test="${liste.ordi > 10 && liste.ordi <= 30}">
+										<td bgcolor=yellow >${ liste.ordi }</td>
+									</c:if>
+									<c:if test="${liste.ordi > 30}">
+										<td bgcolor=green ></td>
+									</c:if>
+								</td>
+								<td>
+									<c:if test="${liste.video <= 10}">
+										<td bgcolor=red >${ liste.video }</td>
+									</c:if>
+									<c:if test="${liste.video > 10 && liste.video <= 30}">
+										<td bgcolor=yellow >${ liste.video }</td>
+									</c:if>
+									<c:if test="${liste.video > 30}">
+										<td bgcolor=green ></td>
+									</c:if>
+								</td>
+						    </tr>
+						</c:if>
 				   	</c:forEach>
 				</tbody>
 			 
