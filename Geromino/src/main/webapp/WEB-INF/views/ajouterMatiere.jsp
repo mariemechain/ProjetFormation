@@ -43,16 +43,16 @@
 
 
 
-				<%-- 		<div class="form-group">
+				<div class="form-group">
 				<form:label path="prerequis">Prérequis</form:label>
-				<div class="btn-group btn-group-toggle" data-toggle="buttons">
-					<c:forEach items="${matiere}" var="matiere">
-					  <label class="btn btn-secondary active">
-					    <input type="checkbox" name="options" autocomplete="off" value="${matiere.id}"> ${matiere.titre}
-					  </label>
+				<!-- <div class="btn-group btn-group-toggle" data-toggle="buttons"> -->
+					<c:forEach items="${matieres}" var="matiere">
+					  <!-- <label class="btn btn-secondary active"> -->
+					    <input type="checkbox" autocomplete="off" name="${matiere.id}"> ${matiere.titre}
+					  <!-- </label> -->
 					</c:forEach>
-				</div>
-			</div> --%>
+				<!-- </div> -->
+			</div>
 
 				<div class="input-group input-group-sm mb-3">
 					<div class="input-group-prepend">

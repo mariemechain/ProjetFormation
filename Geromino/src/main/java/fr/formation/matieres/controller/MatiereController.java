@@ -1,6 +1,7 @@
 package fr.formation.matieres.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,9 +27,10 @@ public class MatiereController {
 	}
 
 	@GetMapping("/ajouter")
-	public String ajouter(Model model) {
+	public String ajouter(Model model, HttpRequest req) {
+		//checkbox à récupérer !
+		model.addAttribute("matieres", daoMatiere.findAll());
 		model.addAttribute("matiere", new Matiere());
-
 		return "ajouterMatiere";
 	}
 
