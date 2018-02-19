@@ -50,7 +50,6 @@ public class MatiereController {
 			return "ajouterMatiere";
 		}
 		
-		//checkbox � r�cup�rer !
 		List<Matiere> liste = daoMatiere.findAll();
 		List<Matiere> prerequis = new ArrayList<Matiere>();
 		
@@ -58,8 +57,6 @@ public class MatiereController {
 			if(req.getParameter("test_"+m.getId()) != null)
 				prerequis.add(m);
 		}
-		
-		System.out.println(prerequis);
 		
 		matiere.setPrerequis(prerequis);
 		
@@ -75,10 +72,21 @@ public class MatiereController {
 	}
 
 	@PostMapping("/editer")
-	public String editer(@Valid@ModelAttribute("matiere") Matiere matiere, BindingResult result, Model model, @RequestParam("id") int id) {
+	public String editer(@Valid@ModelAttribute("matiere") Matiere matiere, BindingResult result, Model model, @RequestParam("id") int id, HttpServletRequest req) {
 		if (result.hasErrors()) {
 			return "ajouterMatiere";
 		}
+		
+		List<Matiere> liste = daoMatiere.findAll();
+		List<Matiere> prerequis = new ArrayList<Matiere>();
+		
+		for (Matiere m : liste) {
+			if(req.getParameter("test_"+m.getId()) != null)
+				prerequis.add(m);
+		}
+		
+		matiere.setPrerequis(prerequis);
+		
 		daoMatiere.save(matiere);
 		return "redirect:./";
 	}
