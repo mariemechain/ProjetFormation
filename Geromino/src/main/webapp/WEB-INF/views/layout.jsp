@@ -6,8 +6,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet"
-	href="/eshop-mvc-rest/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/Geromino/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/Geromino/css/zoneTexte.css" />
 <title>Insert title here</title>
 </head>
 <body>
