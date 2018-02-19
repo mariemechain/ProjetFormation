@@ -29,32 +29,39 @@ public class Formateur extends Personne{
 	
 	@OneToMany(mappedBy="formateur")
 	@JsonIgnoreProperties("formateur")
-	private List<Expertise> expertises;	
-	
+	private List<Expertise> expertises;
+
 	public String getTitre() {
 		return titre;
 	}
+
 	public void setTitre(String titre) {
 		this.titre = titre;
 	}
+
 	public double getPatience() {
 		return patience;
 	}
+
 	public void setPatience(double patience) {
 		this.patience = patience;
 	}
+
 	public List<Disponibilite> getDisponibilites() {
 		return disponibilites;
 	}
+
 	public void setDisponibilites(List<Disponibilite> disponibilites) {
 		this.disponibilites = disponibilites;
 	}
+
 	public List<Expertise> getExpertises() {
 		return expertises;
 	}
-	public void setExpertises(List<Expertise> expertise) {
-		this.expertises = expertise;
-	}
+
+	public void setExpertises(List<Expertise> expertises) {
+		this.expertises = expertises;
+	}	
 	
-	
+
 }
