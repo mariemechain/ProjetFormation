@@ -47,6 +47,8 @@ public class MatiereController {
 	public String ajouter(@Valid@ModelAttribute("matiere") Matiere matiere, BindingResult result, Model model, HttpServletRequest req) {
 		
 		if (result.hasErrors()) {
+			model.addAttribute("matieres", daoMatiere.findAll());
+
 			return "ajouterMatiere";
 		}
 		
@@ -74,6 +76,8 @@ public class MatiereController {
 	@PostMapping("/editer")
 	public String editer(@Valid@ModelAttribute("matiere") Matiere matiere, BindingResult result, Model model, @RequestParam("id") int id, HttpServletRequest req) {
 		if (result.hasErrors()) {
+			model.addAttribute("matieres", daoMatiere.findAll());
+
 			return "ajouterMatiere";
 		}
 		
