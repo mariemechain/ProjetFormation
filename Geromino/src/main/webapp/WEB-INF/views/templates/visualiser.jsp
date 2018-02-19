@@ -8,7 +8,29 @@
 	<tiles:putAttribute name="title" value="Visualisation du cursus ${ Template.nom }" />
 	<tiles:putAttribute name="content">
 
-	<p>Test Christophe </p>
+     <table class="table table-striped">
+				<thead>
+					<tr>
+						<th scope="col">Matière</th>
+						<th scope="col">durée</th>
+						<th scope="col"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${ Matieres }" var="Matieres">
+						<tr>
+							<td>${ Matieres.nom }</td>
+							<td>${ Matieres.duree }</td>
+							<td><a class="btn btn-secondary" href="/Geromino/templates/modifier/${Templates.id}" role="button">Visualiser</a>
+							<a class="btn btn-danger" href="/Geromino/templates/supprimer/${Templates.id}"role="button">Supprimer</a></td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+
+			<div>
+				<a class="btn btn-primary" href="/Geromino/templates/ajouter" role="button">Ajouter une matiere</a>
+			</div>
 
 	</tiles:putAttribute>
 </tiles:insertDefinition>

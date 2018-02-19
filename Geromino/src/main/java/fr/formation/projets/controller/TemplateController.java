@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import fr.formation.projets.dao.ITemplateDAO;
+import fr.formation.projets.model.Template;
 
 @Controller
 @RequestMapping("/templates")
@@ -26,7 +27,9 @@ public class TemplateController {
 	
 	@GetMapping("/visualiser/{id}")
 	public String visualiser(@PathVariable(value="id", required=true) int myId, Model model) {
-		model.addAttribute("Template",daoTemplate.findById(myId).get());
+		Template myTemplate = daoTemplate.findById(myId).get();
+		model.addAttribute("Template", myTemplate);
+		model.addAttribute("Matieres", myTemplate.getMatieres());
 		
 		return "templates/visualiser";
 	}

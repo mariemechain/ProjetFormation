@@ -40,6 +40,12 @@ public class Matiere implements Serializable{
 		this.nom = nom;
 	}
 
-	
+	public int getDuree() {
+		return duree;
+	}
+
+	public void setDuree(int duree) {
+		this.duree = duree;
+	}
 	
 }
