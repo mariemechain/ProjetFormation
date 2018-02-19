@@ -5,7 +5,7 @@ import { Formateur } from './formateur';
 
 @Injectable()
 export class FormateurService {
-     private formateurs: Array<Formateur>;
+     private formateur: Formateur;
 
     constructor(private appConfig: AppConfigService, private http: Http) {
 
@@ -13,13 +13,9 @@ export class FormateurService {
 
 
     public findById(id: number) {
-        for (let formateur of this.formateurs) {
-            if (formateur.id == id) {
-                return formateur;
-            }
-        }
-
-        return null;
+      this.http.get(this.appConfig.uri + "/formateur/"+id).subscribe(resp => this.formateur =  resp.json());
+      this.expertises = this.formateur.expertises;
+      return this.expertises;
     }
 
 
