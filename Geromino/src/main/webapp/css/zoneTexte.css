@@ -4,8 +4,10 @@
 	
 }
 
-.colonne1 {
-	width: 150px;
+table th.colonne1 {
+	min-width: 190px;
+	vertical-align: middle;
+	text-align: left;
 }
 
 .input-group-text {
