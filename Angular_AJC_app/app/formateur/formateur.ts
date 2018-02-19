@@ -1,11 +1,16 @@
+import { Disponibilite } from './disponibilite';
+import { Expertise } from './expertise';
+
+
 
 export class Formateur {
-disponibilite
+public disponibilite: Array<Disponibilite>;
+public expertises: Array<Expertise>;
+public titre: string;
+public patiente: number;
+public id: number;
 
-  // private produits: Array<Produit> = new Array<Produit>();
-  constructor(public nom: string, public prenom: string, ca?: number) {
-  super(nom,prenom);
-  this.ca=ca;
+  constructor() {
 }
 
 

@@ -2,10 +2,13 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { AppConfigService } from '../app-config.service';
 import { Expertise } from './expertise';
+import { Formateur } from './formateur';
+
+
 
 @Injectable()
 export class ExpertiseService {
-     private expertises: new Array<Expertise>;
+     private expertises: Array<Expertise>;
      private formateur: Formateur;
 
     constructor(private appConfig: AppConfigService, private http: Http) {
