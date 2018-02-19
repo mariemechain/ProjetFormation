@@ -21,42 +21,42 @@
 		<c:if test="${page == 'technicien'}">
 			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 				<li class="nav-item active"><a class="nav-link"
-					href="/Geromino/technicien">Techniciens <span class="sr-only">(current)</span></a>
+					href="technicien">Techniciens <span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item"><a class="nav-link"
-					href="/Geromino/gestionnaire">Gestionnaire</a></li>
+					href="gestionnaire">Gestionnaire</a></li>
 				<li class="nav-item"><a class="nav-link"
-					href="/Geromino/technicien">Matière</a></li>
+					href="technicien">Matière</a></li>
 				<li class="nav-item"><a class="nav-link"
-					href="Geromino/home">Déconnexion</a></li>
+					href="home">Déconnexion</a></li>
 			</ul>
 		</c:if>
 
 		<c:if test="${page == 'gestionnaire'}">
 			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 				<li class="nav-item"><a class="nav-link"
-					href="/Geromino/technicien">Techniciens </a></li>
+					href="technicien">Techniciens </a></li>
 				<li class="nav-item active"><a class="nav-link"
-					href="/Geromino/gestionnaire">Gestionnaire<span class="sr-only">(current)</span></a>
+					href="gestionnaire">Gestionnaire<span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item"><a class="nav-link"
-					href="/Geromino/gestionnaire">Matières</a></li>
+					href="gestionnaire">Matières</a></li>
 				<li class="nav-item"><a class="nav-link"
-					href="/Geromino/home">Déconnexion</a></li>
+					href="home">Déconnexion</a></li>
 			</ul>
 		</c:if>
 
 		<c:if test="${page == 'matiere'}">
 			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 				<li class="nav-item"><a class="nav-link"
-					href="/Geromino/technicien">Techniciens </a></li>
+					href="technicien">Techniciens </a></li>
 				<li class="nav-item"><a class="nav-link"
-					href="/Geromino/gestionnaire">Gestionnaire</a></li>
+					href="gestionnaire">Gestionnaire</a></li>
 				<li class="nav-item active"><a class="nav-link"
-					href="/Geromino/gestionnaire">Matières <span class="sr-only">(current)</span></a>
+					href="gestionnaire">Matières <span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item"><a class="nav-link"
-					href="/TetrisFinal/deconnexion">Déconnexion</a></li>
+					href="deconnexion">Déconnexion</a></li>
 			</ul>
 		</c:if>
 		<form class="form-inline my-2 my-lg-0">
