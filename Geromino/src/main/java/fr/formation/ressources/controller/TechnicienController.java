@@ -5,7 +5,6 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -69,8 +68,7 @@ public class TechnicienController {
 		return "redirect:./";
 	}
 
-	// ************************************************** Modifier un
-	// ordi***************************
+	// ******************** Modifier un ordi***************************
 	@GetMapping("/ordi/modifier")
 	public String modifOrdi(Model model, @RequestParam("id") String idOrdi) {
 		model.addAttribute("ordinateur", new Ordinateur());
@@ -86,17 +84,16 @@ public class TechnicienController {
 		return "redirect:./";
 	}
 
-	// **************************************************Supprimer un
-	// ordi***************************
+	// ***********************Supprimer un ordi***************************
 	@GetMapping("/ordi/supprimer")
 	public String deleteOrdi(@RequestParam("id") String idOrdi) {
 		ordiDAO.deleteById(idOrdi);
 		return "redirect:./";
 	}
 
-	// ***********************************************************************************************
-	// ****************************VIDEO**************************************************************
-	// ***********************************************************************************************
+	// **********************************************************************************
+	// ****************************VIDEO*************************************************
+	// **********************************************************************************
 
 	@GetMapping("/video")
 	public String listeVideo(Model model) {
@@ -104,8 +101,7 @@ public class TechnicienController {
 		return "techVideo";
 	}
 
-	// ************************************************** Ajouter un
-	// videoproj***************************
+	// ************************* Ajouter un videoproj***************************
 	@GetMapping("/video/ajouter")
 	public String ajouterVideo(Model model) {
 		model.addAttribute("videoprojecteur", new VideoProjecteur());
@@ -113,17 +109,13 @@ public class TechnicienController {
 	}
 
 	@PostMapping("/video/ajouter")
-	public String sauvegardeVideo(@Valid @ModelAttribute("videoprojecteur") VideoProjecteur videoprojecteur, /*
-																												 * BindingResult
-																												 * result,
-																												 */
+	public String sauvegardeVideo(@Valid @ModelAttribute("videoprojecteur") VideoProjecteur videoprojecteur,
 			Model model) {
 		videoDAO.save(videoprojecteur);
 		return "redirect:./";
 	}
 
-	// ************************************************** Modifier un
-	// videoproj***************************
+	// ****************************** Modifier un videoproj***************************
 	@GetMapping("/video/modifier")
 	public String modifVideoprojecteur(Model model, @RequestParam("id") String idVideo) {
 		model.addAttribute("videoprojecteur", new VideoProjecteur());
@@ -140,32 +132,32 @@ public class TechnicienController {
 		return "redirect:./";
 	}
 
-	// **************************************************Supprimer un
-	// videoproj***************************
+	// ************************Supprimer un videoproj***************************
 	@GetMapping("/video/supprimer")
 	public String deleteVideo(@RequestParam("id") String idVideo) {
 		videoDAO.deleteById(idVideo);
 		return "redirect:./";
 	}
 
-	// ***********************************************************************************************
-	// ****************************Allouer
-	// ORDI**************************************************************
-	// ***********************************************************************************************
+	// ***************************************************************************
+	// ****************************Allouer ORDI***********************************
+	// ***************************************************************************
 
 	@GetMapping("/ordi/allouer")
 	public String allouerOrdi(Model model, @RequestParam("id") String idOrdi) {
 		model.addAttribute("ordinateur", new Ordinateur());
 		model.addAttribute("ordinateur", ordiDAO.findById(idOrdi).get());
+		model.addAttribute("stagiaire", new Stagiaire());
 		model.addAttribute("stagiaires", stagDAO.findAll());
 		return "allouerOrdi";
 	}
-	
+
 	@PostMapping("/ordi/allouer")
-	public String allouerOrdinateur(@ModelAttribute("ordinateur") Ordinateur ordinateur,Model model, @RequestParam("id") String idOrdi) {
-		ordinateur.setId(idOrdi);
-		model.addAttribute("stagiaires", stagDAO.findAll());
-		ordiDAO.save(ordinateur);
+	public String allouerOrdinateur(@RequestParam("id") String idOrdi, @RequestParam("stagiaires") int idStagiaire) {
+		Ordinateur ordinateur = ordiDAO.findById(idOrdi).get();
+		Stagiaire s = stagDAO.findById(idStagiaire).get();
+		s.setOrdinateur(ordinateur);
+		stagDAO.save(s);
 		return "redirect:./";
 	}
 
