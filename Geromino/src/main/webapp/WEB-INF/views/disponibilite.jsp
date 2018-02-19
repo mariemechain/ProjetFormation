@@ -11,7 +11,8 @@
 	<tiles:putAttribute name="content">
 		<div class="container">
 			
-			<table class="table table-bordered">
+			<table class="table table-bordered" name="table1">
+			
 				<thead>
 					<tr>
 						<th scope="col">Date</th>
