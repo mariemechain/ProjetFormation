@@ -5,7 +5,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 <tiles:insertDefinition name="app.layout">
-	<tiles:putAttribute name="title" value="liste des templates" />
+	<tiles:putAttribute name="title" value="liste des templates cursus" />
 	<tiles:putAttribute name="content">
 	
 	
@@ -23,16 +23,15 @@
 						<tr>
 							<td>${ Templates.id }</td>
 							<td>${ Templates.nom }</td>
-							<td><a class="btn btn-success" href="/Geronimo/template/visualiser/${Templates.id}" role="button">Visualiser</a></td>
-							<td><a class="btn btn-secondary" href="/Geronimo/template/modifier/${Templates.id}" role="button">Modifier</a>
-							<a class="btn btn-danger" href="/Geronimo/template/supprimer/${Templates.id}"role="button">Supprimer</a></td>
+							<td><a class="btn btn-success" href="/Geronimo/templates/visualiser/${Templates.id}" role="button">Visualiser</a></td>
+							<a class="btn btn-danger" href="/Geronimo/templates/supprimer/${Templates.id}"role="button">Supprimer</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 
 			<div>
-				<a class="btn btn-primary" href="/Geronimo/template/ajouter" role="button">Ajouter un nouveau template</a>
+				<a class="btn btn-primary" href="/Geronimo/templates/ajouter" role="button">Ajouter un nouveau template</a>
 			</div>
 
 	</tiles:putAttribute>
