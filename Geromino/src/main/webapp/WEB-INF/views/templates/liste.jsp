@@ -23,15 +23,15 @@
 						<tr>
 							<td>${ Templates.id }</td>
 							<td>${ Templates.nom }</td>
-							<td><a class="btn btn-success" href="/Geronimo/templates/visualiser/${Templates.id}" role="button">Visualiser</a></td>
-							<a class="btn btn-danger" href="/Geronimo/templates/supprimer/${Templates.id}"role="button">Supprimer</a></td>
+							<td><a class="btn btn-success" href="/Geromino/templates/visualiser/${Templates.id}" role="button">Visualiser</a>
+							<a class="btn btn-danger" href="/Geromino/templates/supprimer/${Templates.id}"role="button">Supprimer</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 
 			<div>
-				<a class="btn btn-primary" href="/Geronimo/templates/ajouter" role="button">Ajouter un nouveau template</a>
+				<a class="btn btn-primary" href="/Geromino/templates/ajouter" role="button">Ajouter un nouveau template</a>
 			</div>
 
 	</tiles:putAttribute>

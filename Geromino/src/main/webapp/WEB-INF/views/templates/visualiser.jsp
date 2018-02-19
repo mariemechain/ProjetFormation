@@ -5,7 +5,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 <tiles:insertDefinition name="app.layout">
-	<tiles:putAttribute name="title" value="Visualisation du cursus" />
+	<tiles:putAttribute name="title" value="Visualisation du cursus ${ Template.nom }" />
 	<tiles:putAttribute name="content">
 
 	<p>Test Christophe </p>

@@ -21,7 +21,8 @@ public class Matiere implements Serializable{
 	@Column(name="MAT_NOM")
 	private String nom;
 	
-	
+	@Column(name="MAT_DUREE")
+	private int duree;
 
 	public int getId() {
 		return id;
