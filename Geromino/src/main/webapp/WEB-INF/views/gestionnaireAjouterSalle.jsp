@@ -10,29 +10,20 @@
 	<tiles:putAttribute name="content">
 		<form:form method="POST" modelAttribute="salle">
 
-			<%-- <c:if test="${ salle.id != null}">
-				<p>${salle.id }</p>
-			</c:if>
 
-			<c:if test="${ salle.id == null}">
-				<div class="form-group">
-				
-					<form:label path="id">Id :</form:label>
-					<form:input path="id" type="text" class="form-control" name="id"
-						aria-describedby="Help" placeholder="Id" value="${salle.id}" />
-					<form:errors path="id" element="div" cssClass="alert alert-danger" />
-					<label>${ordinateur.id}</label>
-				</div>
-			</c:if> --%>
-			
 			<div class="form-group">
-					<label for="id">Identifiant :</label> 
-					<c:if test="${salle.id == null}"> 
-					<input name="id" type="text" class="form-control" id="id" value="${salle.id}" placeholder="Identifiant">
-					</c:if>
-					<label>${salle.id}</label>
-				</div>
-			
+				<c:if test="${salle.id == null || salle.id == ''}">
+					<label for="id">Identifiant :</label>
+
+					<input name="id" type="text" class="form-control" id="id"
+						value="${salle.id}" placeholder="Identifiant" />
+					<form:errors path="id" element="div"
+						cssClass="alert alert-danger" />
+				</c:if>
+
+				<label>${salle.id}</label>
+			</div>
+
 
 
 
@@ -54,18 +45,6 @@
 					cssClass="alert alert-danger" />
 			</div>
 
-			<%-- 			<div class="col-sm">
-                  <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">Contact</span>
-                    </div>
-                  <select name="idContact">
-                 <c:forEach items="${contacts}" var="contact">
-                   <option value="${contact.id}">${contact.nom}</option>
-                   </c:forEach>
-                   </select>
-                </div>
-            </div> --%>
 
 			<div class="form-group row">
 				<label for="prix" class="col-sm-2 col-form-label">Contact :</label>
@@ -75,18 +54,7 @@
 				</div>
 			</div>
 
-			<%-- 			<div class="col-sm">
-                  <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">VideoProjecteur</span>
-                    </div>
-                  <select name="idVideoProjecteur">
-                 <c:forEach items="${videoprojecteurs}" var="videoprojecteur">
-                   <option value="${videoprojecteur.id}">${videoprojecteur.id}</option>
-                   </c:forEach>
-                   </select>
-                </div>
-            </div> --%>
+
 
 			<div class="form-group row">
 				<label for="prix" class="col-sm-2 col-form-label">Video
@@ -98,9 +66,12 @@
 			</div>
 
 
-
-			<button type="submit" class="btn btn-danger">Ajouter</button>
-
+			<div>
+				<button type="submit" class="btn btn-danger">Ajouter</button>
+				<a href="/Geromino/gestionnaire/gestionnaireSalle"><button
+						type="button" class="btn btn-success">Revenir au menu
+						précédent</button></a>
+			</div>
 
 
 		</form:form>

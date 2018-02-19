@@ -1,8 +1,11 @@
 package fr.formation.ressources.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -73,13 +76,13 @@ public class GestionnaireController {
 	}
 
 	@PostMapping("/gestionnaireAjouterSalle")
-	public String ajouter(@ModelAttribute("salle") Salle salle, Model model) {
-//		if(result.hasErrors()) {
-//			model.addAttribute("fournisseurs", daoFournisseur.findAll());
-//		
-//		}
-		model.addAttribute("contacts", daoContact.findAll());
-		model.addAttribute("videoprojecteurs", daoVideoProjecteur.findAll());
+	public String ajouter(@Valid @ModelAttribute("salle") Salle salle,BindingResult result, Model model) {
+		if(result.hasErrors()) {
+			model.addAttribute("contacts", daoContact.findAll());
+			model.addAttribute("videoprojecteurs", daoVideoProjecteur.findAll());
+			return "gestionnaireAjouterSalle";		
+		}
+
 		daoSalle.save(salle);	
 		return "redirect:./gestionnaireSalle";
 	}
@@ -94,14 +97,14 @@ public class GestionnaireController {
 	}
 	
 	@PostMapping("/gestionnaireEditerSalle")
-	public String editerSalle( @ModelAttribute("salle") Salle salle,  @RequestParam("id") String id, Model model) {
-//		if(result.hasErrors()) {
-//			System.out.println(result.getAllErrors());
-//			model.addAttribute("fournisseurs", daoFournisseur.findAll());
-//			return "gestionnaireAjouterSalle";
-//		}
-//		model.addAttribute("contacts", daoContact.findAll());
-//		model.addAttribute("videoprojecteurs", daoVideoProjecteur.findAll());
+	public String editerSalle(@Valid @ModelAttribute("salle") Salle salle, BindingResult result,  @RequestParam("id") String id, Model model) {
+		if(result.hasErrors()) {
+			System.out.println(result.getAllErrors());
+			model.addAttribute("contacts", daoContact.findAll());
+			model.addAttribute("videoprojecteurs", daoVideoProjecteur.findAll());
+			return "gestionnaireAjouterSalle";
+		}
+
 		daoSalle.save(salle);		
 		//return "gestionnaireSalle";
 		return "redirect:./gestionnaireSalle";	

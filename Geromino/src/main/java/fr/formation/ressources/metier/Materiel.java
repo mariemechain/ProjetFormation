@@ -8,6 +8,8 @@ import java.util.*;
 import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -15,6 +17,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotEmpty;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -26,8 +29,11 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Materiel implements Serializable{
 
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@Column(name = "MAT_ID")
+	@NotEmpty(message = "Veuillez indiquer l''ID")
 	private String id;
 	@Column(name = "MAT_COUT", columnDefinition = "INTEGER")
 	private int cout;

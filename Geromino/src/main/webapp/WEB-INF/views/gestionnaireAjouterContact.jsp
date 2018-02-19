@@ -71,6 +71,8 @@
 
 
 			<button type="submit" class="btn btn-danger">Ajouter</button>
+			<a href="gestionnaire/gestionnaireContact">
+			<button type="button" class="btn btn-success">Revenir au menu précédent</button></a>
 
 
 
