@@ -1,5 +1,6 @@
 package fr.formation.projets.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -52,7 +53,7 @@ public class Projet {
 	private Gestionnaire gestionnaire; 
 
 	@OneToMany(mappedBy="projet")
-	private List<Planification> planifications;
+	private List<Planification> planifications = new ArrayList<Planification>();
 	
 	@ManyToMany
 	@JoinTable(
