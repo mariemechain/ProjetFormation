@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import fr.formation.test.Personne;
+
 
 @Entity
 @Table(name="formateur")
@@ -62,6 +62,8 @@ public class Formateur extends Personne{
 	public void setExpertises(List<Expertise> expertises) {
 		this.expertises = expertises;
 	}	
+	
+	
 	
 
 }
