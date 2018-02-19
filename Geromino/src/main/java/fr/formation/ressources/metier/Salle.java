@@ -25,7 +25,7 @@ public class Salle extends Materiel{
 	
 	@Column(name="SAL_PLACES")
 	@NotNull(message = "Veuillez indiquer le nombre de places")
-	private int places;
+	private Integer places;
 	
 	@Column(name="SAL_ADRESSE")
 	@NotEmpty(message = "Veuillez indiquer l'adresse")
@@ -42,11 +42,11 @@ public class Salle extends Materiel{
 	private VideoProjecteur videoprojecteur;
 
 	
-	public int getPlaces() {
+	public Integer getPlaces() {
 		return places;
 	}
 
-	public void setPlaces(int places) {
+	public void setPlaces(Integer places) {
 		this.places = places;
 	}
 
