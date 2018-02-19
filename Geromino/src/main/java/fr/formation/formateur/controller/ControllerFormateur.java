@@ -4,37 +4,35 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
 import fr.formation.formateur.dao.IExpertiseDAO;
 import fr.formation.formateur.dao.IFormateurDAO;
 import fr.formation.formateur.dao.IMatiereDAOPourTest;
 import fr.formation.formateur.model.Expertise;
 import fr.formation.formateur.model.Formateur;
+import fr.formation.formateur.model.Matiere;
 import fr.formation.formateur.model.Niveau;
-import fr.formation.test.Matiere;
 
-@ResponseBody
-@RestController
+@Controller
 @RequestMapping("/formateur")
 public class ControllerFormateur {
 
 	
 //====================================INJECTION=====================================================
-@Autowired
+@Autowired(required=false)
 IFormateurDAO daoFormateur;
 
-@Autowired
+@Autowired(required=false)
 IMatiereDAOPourTest daoMatiere;
 
-@Autowired
+@Autowired(required=false)
 IExpertiseDAO daoExpertise;
 
 
@@ -64,7 +62,7 @@ return listeExpertises;
 }
 
 //====================================MATIERES FORMATEUR=====================================================
-@GetMapping ( value = {""})
+@GetMapping ( value = {"/liste"})
 public String getModifExpertise (Model model,@RequestParam("idf") int idFormateur){
 	model.addAttribute("formateur",daoFormateur.findById(idFormateur).get());
 	model.addAttribute("listeExpertises",daoFormateur.findById(idFormateur).get().getExpertises());
@@ -73,7 +71,7 @@ public String getModifExpertise (Model model,@RequestParam("idf") int idFormateu
 
 //====================================SUPPRESSION=====================================================
 @GetMapping(value={ "/supprimer" })
-public String getSuppExpertise(@RequestParam("ide") int idExpertise, Model model) {
+public String getSuppExpertise(@RequestParam("idf") int idFormateur, @RequestParam("ide") int idExpertise, Model model) {
 	
 	Formateur formateur = new Formateur();
 	Expertise expertise = new Expertise();
@@ -87,7 +85,11 @@ public String getSuppExpertise(@RequestParam("ide") int idExpertise, Model model
 		}
 	}
 	daoFormateur.save(formateur);
-return "redirect:./";
+	daoExpertise.delete(daoExpertise.findById(idExpertise).get());
+	
+	
+	
+return "redirect:./liste?idf="+ idFormateur;
 }
 
 
@@ -97,25 +99,23 @@ return "redirect:./";
 public String getAjouterExpertise(@RequestParam("idf") int idFormateur, Model model) {
 	model.addAttribute("formateur",daoFormateur.findById(idFormateur).get());
 	
-
+	//Statut: Ajout ==> afin d'afficher le bon contenu sur le formulaire
+	model.addAttribute("statut","ajout");
+	
 	return "modifexpertise";
 }
 
 
 @PostMapping(value={ "/ajouter" })
-public String postAjouterExpertise(@RequestParam("idf") int idFormateur,@RequestParam("string") String niveau,@RequestParam("idM") int idMatiere, Model model) {
+public String postAjouterExpertise(@RequestParam("idf") int idFormateur,@RequestParam("niveau") String niveau,@RequestParam("idM") int idMatiere, Model model) {
 	
 	//Initialisation
 	Formateur formateur = new Formateur();
 	formateur = daoFormateur.findById(idFormateur).get();
 	List<Expertise> listeExpertise = new ArrayList<Expertise>();
 	List<Matiere> listeMatiere = new ArrayList<Matiere>();
-	listeExpertise = formateur.getExpertises();
+	//listeExpertise = formateur.getExpertises();
 	Expertise expertise = new Expertise();
-	
-	
-	//Statut: Edition ==> afin d'afficher le bon contenu sur le formulaire
-		model.addAttribute("statut","ajout");
 	
 	//Test Niveau Saisi
 	if (niveau != "")
@@ -150,16 +150,23 @@ public String postAjouterExpertise(@RequestParam("idf") int idFormateur,@Request
 	expertise.setMatiere(matiere);
 	expertise.setFormateur(formateur);
 	
+	if (formateur.getExpertises() == null) {
+		
+		formateur.setExpertises(listeExpertise);
+		//Ajout de l'expertise au formateur
+		formateur.getExpertises().add(expertise);
+	}else {
+		//Ajout de l'expertise au formateur
+		formateur.getExpertises().add(expertise);
+	}
 	
-	//Ajout de l'expertise au formateur
-	formateur.getExpertises().add(expertise);
-	
+	//Sauvegarde de l'expertise
+	daoExpertise.save(expertise);
 	//Sauvegarde du formateur modifié
 	daoFormateur.save(formateur);
 	
 	
-	
-return "redirect:./";
+return "redirect:./liste?idf="+ idFormateur;
 }
 
 
@@ -169,6 +176,8 @@ return "redirect:./";
 @GetMapping(value={ "/modifier" })
 public String getModifierExpertise(@RequestParam("idf") int idFormateur,@RequestParam("ide") int idExpertise, Model model) {
 	
+	//Statut: Ajout ==> afin d'afficher le bon contenu sur le formulaire
+    model.addAttribute("statut","edition");
 	model.addAttribute("formateur",daoFormateur.findById(idFormateur).get());
 	model.addAttribute("expertise",daoExpertise.findById(idExpertise).get());
 	
@@ -177,7 +186,7 @@ return "modifexpertise";
 
 
 @PostMapping(value={ "/modifier" })
-public String postModifierExpertise(@RequestParam("ide") int idExpertise,@RequestParam("string") String niveau, Model model) {
+public String postModifierExpertise(@RequestParam("idf") int idFormateur,@RequestParam("ide") int idExpertise,@RequestParam("niveau") String niveau, Model model) {
 	
 	
 	//Initialisation
@@ -220,23 +229,17 @@ public String postModifierExpertise(@RequestParam("ide") int idExpertise,@Reques
 				listeExpertise.set(i, expertise);
 			}
 		}
+	
+	//Sauvegarde de l'expertise modifiée	
+		daoExpertise.save(expertise);
 		
-	//Sauvegarde du formateur modifié
+	//Sauvegarde de la liste
 		formateur.setExpertises(listeExpertise);
 	
 	//Sauvegarde du formateur modifié
 		daoFormateur.save(formateur);
 	
-return "redirect:./";
+return "redirect:./liste?idf="+ idFormateur;
 }
-
-
-
-
-
-
-
-
-
 
 }

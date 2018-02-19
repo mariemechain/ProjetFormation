@@ -8,10 +8,10 @@
 
 <tiles:putAttribute name="content">
 
-<div class="container">
-  <h2>Liste des Compétences: {{formateur.nom}}</h2>
+<!-- <div class="container"> -->
+  <h2>Liste des Compétences: ${formateur.nom}</h2>
   
-  <a href="/Geronimo/formateur/ajouter?idf=${formateur.id}" class="btn-success" > Ajouter + </a>
+  <a href="/Geromino/formateur/ajouter?idf=${formateur.id}" class="btn-success" > Ajouter + </a>
   <table class="table table-dark table-striped">
     <thead>
       <tr>
@@ -27,14 +27,15 @@
 			<td>${ listeExpertises.id }</td>
 			<td>${ listeExpertises.matiere }</td>
 			<td>${ listeExpertises.niveau }</td>
-			<td> <a href="/Geronimo/formateur/modifier?idf=${formateur.id}&ide=${expertise.id}" class="btn btn-primary">Editer</a><a href="/Geronimo/formateur/supprimer?ide=${expertise.id}" class="btn btn-danger">Supprimer</a></td>
+			<td> <a href="/Geromino/formateur/modifier?idf=${formateur.id}&ide=${listeExpertises.id}" class="btn btn-primary">Editer</a><a href="/Geromino/formateur/supprimer?idf=${formateur.id}&ide=${listeExpertises.id}" class="btn btn-danger">Supprimer</a></td>
 			
 			</tr>
 	</c:forEach>
     </tbody>
   </table>
-</div>
+<!-- </div> -->
 
 
 </tiles:putAttribute>
 </tiles:insertDefinition>
+
