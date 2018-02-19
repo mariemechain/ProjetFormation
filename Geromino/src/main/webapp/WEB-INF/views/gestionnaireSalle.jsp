@@ -21,7 +21,7 @@
 
 				</tr>
 			</thead>
-			<c:forEach items="${salles}" var="salle">
+			<c:forEach items="${salle}" var="salle">
 				<tr>
 					<td>${salle.id }</td>
 					<td>${salle.places }</td>

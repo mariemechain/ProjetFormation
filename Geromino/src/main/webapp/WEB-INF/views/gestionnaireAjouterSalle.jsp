@@ -8,14 +8,33 @@
 	<tiles:putAttribute name="title"
 		value="Ajout ou modification d'une salle" />
 	<tiles:putAttribute name="content">
-		<form:form method="POST" modelAttribute="salles">
+		<form:form method="POST" modelAttribute="salle">
 
+			<%-- <c:if test="${ salle.id != null}">
+				<p>${salle.id }</p>
+			</c:if>
+
+			<c:if test="${ salle.id == null}">
+				<div class="form-group">
+				
+					<form:label path="id">Id :</form:label>
+					<form:input path="id" type="text" class="form-control" name="id"
+						aria-describedby="Help" placeholder="Id" value="${salle.id}" />
+					<form:errors path="id" element="div" cssClass="alert alert-danger" />
+					<label>${ordinateur.id}</label>
+				</div>
+			</c:if> --%>
+			
 			<div class="form-group">
-				<form:label path="id">Id :</form:label>
-				<form:input path="id" type="text" class="form-control" name="id"
-					aria-describedby="Help" placeholder="Id" value="${salle.id}" />
-				<form:errors path="id" element="div" cssClass="alert alert-danger" />
-			</div>
+					<label for="id">Identifiant :</label> 
+					<c:if test="${salle.id == null}"> 
+					<input name="id" type="text" class="form-control" id="id" value="${salle.id}" placeholder="Identifiant">
+					</c:if>
+					<label>${salle.id}</label>
+				</div>
+			
+
+
 
 			<div class="form-group">
 				<form:label path="places">Nombre de places :</form:label>
@@ -35,7 +54,7 @@
 					cssClass="alert alert-danger" />
 			</div>
 
-<%-- 			<div class="col-sm">
+			<%-- 			<div class="col-sm">
                   <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Contact</span>
@@ -47,17 +66,16 @@
                    </select>
                 </div>
             </div> --%>
-            
-            <div class="form-group row">
-				<label for="prix" class="col-sm-2 col-form-label">Contact
-					:</label>
+
+			<div class="form-group row">
+				<label for="prix" class="col-sm-2 col-form-label">Contact :</label>
 				<div class="col-sm-10>">
-					<form:select path="contact.id" items="${contacts}"
-						itemLabel="nom" itemValue="id" cssClass="form-control" />
+					<form:select path="contact.id" items="${contacts}" itemLabel="nom"
+						itemValue="id" cssClass="form-control" />
 				</div>
 			</div>
 
-<%-- 			<div class="col-sm">
+			<%-- 			<div class="col-sm">
                   <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">VideoProjecteur</span>
