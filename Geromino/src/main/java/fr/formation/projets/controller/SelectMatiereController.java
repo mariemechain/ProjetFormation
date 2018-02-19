@@ -33,10 +33,9 @@ public class SelectMatiereController {
 	}
 
 	@PostMapping("")
-	public String selectMatiere(@RequestParam("selectMat") String nom) {
-		Matiere matiere = new Matiere();
-		matiere.setNom(nom);
-		System.out.println(matiere.getNom() + " " + matiere.getId());
+	public String selectMatiere(@RequestParam("selectMat") int idMatiere) {
+		Matiere matiere = daoMAt.findById(idMatiere).get();
+		System.out.println("id : "+matiere.getId()+" nom "+ matiere.getNom());
 		return "redirect:./selectMatiere";
 	}
 }

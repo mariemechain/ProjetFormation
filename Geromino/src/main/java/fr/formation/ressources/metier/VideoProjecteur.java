@@ -10,8 +10,8 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity
 @Table(name="videoprojecteur")
-@Cacheable
-@Cache(usage=CacheConcurrencyStrategy.READ_WRITE)
+//@Cacheable
+//@Cache(usage=CacheConcurrencyStrategy.READ_WRITE)
 @PrimaryKeyJoinColumn(name="VID_ID", referencedColumnName="MAT_ID")
 public class VideoProjecteur extends Materiel {
 	private static final long serialVersionUID = 1L;

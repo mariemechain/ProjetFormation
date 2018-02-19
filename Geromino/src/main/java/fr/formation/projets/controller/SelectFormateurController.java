@@ -33,9 +33,9 @@ public class SelectFormateurController {
 		 }
 	 
 	 @PostMapping("")
-		public String selectMatiere(HttpServletRequest req,@RequestParam("selectForm") String nom){
-			Formateur formateur = new Formateur();
-			formateur.setNom(nom);
+		public String selectMatiere(HttpServletRequest req,@RequestParam("selectForm") int idFormateur){
+			Formateur formateur = daoForm.findById(idFormateur).get();
+			
 			System.out.println(formateur.getNom() + " " + formateur.getId());
 			
 			

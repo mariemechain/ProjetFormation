@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,7 +23,7 @@ public class Matiere implements Serializable{
 	@Column(name="MAT_NOM")
 	private String nom;
 	
-	
+
 
 	public int getId() {
 		return id;
@@ -38,6 +40,7 @@ public class Matiere implements Serializable{
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+
 
 	
 	

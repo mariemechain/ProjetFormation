@@ -12,7 +12,8 @@
 
 				<select name="selectForm">
 					<c:forEach items="${formateurs }" var="formateur">
-						<option value="${formateur }">${formateur.nom}</option>
+						<!-- Ce que j'ai dans value est la valeur que je recupere en parametre dans mon url pour la recuperer avec requestParam dans le controller -->
+						<option value="${formateur.id }">${formateur.nom}</option>
 					</c:forEach>
 				</select>
 			</div>

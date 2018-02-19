@@ -11,8 +11,8 @@
 
 				<select name="selectMat">
 					<c:forEach items="${matieres}" var="matiere">
-						<!-- Ce que j'ai dans value est la valeur que je recupere en parametre dans mon url -->
-						<option value="${matiere}">${matiere.nom}</option>
+						<!-- Ce que j'ai dans value est la valeur que je recupere en parametre dans mon url pour la recuperer avec requestParam dans le controller -->
+						<option value="${matiere.id}">${matiere.nom}</option>
 					</c:forEach>
 				</select>
 			</div>
