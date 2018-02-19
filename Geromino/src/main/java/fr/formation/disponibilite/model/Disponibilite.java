@@ -3,7 +3,8 @@ package fr.formation.disponibilite.model;
 import java.time.LocalDate;
 
 public class Disponibilite {
-
+	
+	private int id;
 	private LocalDate date;
 	private Double etatSalle;
 	private Double etatOrdi;
