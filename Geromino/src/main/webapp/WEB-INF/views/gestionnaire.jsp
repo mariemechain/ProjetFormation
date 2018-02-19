@@ -21,6 +21,10 @@
 			<a href="/Geromino/gestionnaire/gestionnaireFormateur"><button
 					type="button" class="btn btn-warning">Gestion des formateurs</button></a>
 		</div>
+		<div>
+			<a href="/Geromino/gestionnaire/gestionnaireContact"><button
+					type="button" class="btn btn-warning">Gestion des contacts</button></a>
+		</div>
 
 	</tiles:putAttribute>
 </tiles:insertDefinition>
