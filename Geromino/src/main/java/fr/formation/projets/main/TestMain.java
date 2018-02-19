@@ -23,7 +23,7 @@ public class TestMain {
     public static void main( String[] args )
     {
 //    	testModif();
-    	testDAOProjet(); 
+    	testFindAll(); 
     }
     
     /*
@@ -105,7 +105,8 @@ AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationCo
     /*
      * Test des méthode de la dao Projet
      */
-    	
+ 
+/*
     static void testDAOProjet() {
 		AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationContext(AppConfig.class);
 		
@@ -138,7 +139,7 @@ AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationCo
 		
 //    	System.out.println(pdao.findAll());
 
-    }
+    }    
+*/
     
-
 }

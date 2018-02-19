@@ -1,6 +1,5 @@
 package fr.formation.projets.model;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -37,6 +36,8 @@ public class Projet {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="PRO_ID") private int id;
+
+	@Column(name="PRO_NOM") private String nom; 
 	
 	@Column(name="PRO_DUREE") private int duree; 
 	
