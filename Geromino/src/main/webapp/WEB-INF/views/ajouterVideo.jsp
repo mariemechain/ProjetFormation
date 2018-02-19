@@ -16,11 +16,11 @@
 <h3>Ajouter un videoprojecteur</h3> 
 <br/> 
       <div class="form-group"> 
-          <label for="id">Identifiant :</label> <input name="id" 
-            type="text" class="form-control" id="id" 
-            value="${videoprojecteur.id}" placeholder="id"> 
- 
-           
+          <label for="id">Identifiant :</label> 
+          <c:if test="${videoprojecteur.id == null}"> 
+          <input name="id" type="text" class="form-control" id="id" value="${videoprojecteur.id}" placeholder="id"> 
+ 			</c:if>
+           <label>${videoprojecteur.id}</label>
         </div> 
  
  

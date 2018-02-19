@@ -28,7 +28,7 @@
 
 <tr>
 <td>${ videoprojecteur.id }  </td> 
-<td><a href="/Geromino/technicien/video/edit?id=${videoprojecteur.id}" class="btn btn-outline-success">Modifier</a>
+<td><a href="/Geromino/technicien/video/modifier?id=${videoprojecteur.id}" class="btn btn-outline-success">Modifier</a>
 </td>
 <td><a href="/Geromino/technicien/video/supprimer?id=${videoprojecteur.id}" class="btn btn-outline-danger">Supprimer</a>
 </td>

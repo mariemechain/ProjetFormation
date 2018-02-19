@@ -128,6 +128,8 @@ public class TechnicienController {
 		@PostMapping("/video/modifier")
 		public String modifierOrdi(@ModelAttribute("videoprojecteur") VideoProjecteur videoprojecteur,
 				 Model model,  @RequestParam("id") String idVideo) {
+			
+				videoprojecteur.setId(idVideo);
 			 videoDAO.save(videoprojecteur); 
 			return "redirect:./";
 		}   
