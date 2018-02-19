@@ -15,19 +15,22 @@
 
 				<div class="col-5">
 					<div class="list-group">
-						<c:forEach items="${matieres}" var="m">
-							<p
-								class="list-group-item d-flex justify-content-between align-items-center">
-								${m.titre} <span class="badge badge-success badge-pill"><a
-									class="text-white"
-									href="/Geromino/matiere/information?id=${m.id}">Informations</a></span>
-								<span class="badge badge-primary badge-pill"><a
-									class="text-white" href="/Geromino/matiere/editer?id=${m.id}">Modifier</a></span>
-								<span class="badge badge-danger badge-pill"><a
-									class="text-white"
-									href="/Geromino/matiere/supprimer?id=${m.id}">Supprimer</a></span>
-							</p>
-						</c:forEach>
+						<table class="table table-striped">
+
+							<c:forEach items="${matieres}" var="m">
+								<tr>
+									<td class="colonne1"><span class="h6">${m.titre}</span></td>
+									<td><a class="btn btn-outline-success"
+										href="/Geromino/matiere/information?id=${m.id}">Informations</a>
+									</td>
+									<td><a class="btn btn-outline-secondary"
+										href="/Geromino/matiere/editer?id=${m.id}">Modifier</a></td>
+									<td><a class="btn btn-outline-danger"
+										href="/Geromino/matiere/supprimer?id=${m.id}">Supprimer</a></td>	
+								</tr>
+							</c:forEach>
+
+						</table>
 					</div>
 					<div class="list-group">
 						<a href="/Geromino/matiere/ajouter"
@@ -43,17 +46,17 @@
 						<h2>Details de la matière sélectionnée :</h2> <c:if
 							test="${detailMatiere==null}">
 						</c:if> <c:if test="${detailMatiere!=null}">
-						<p>Matière : ${detailMatiere.titre}</p>
+							<p>Matière : ${detailMatiere.titre}</p>
 							<p>Durée de la matière : ${detailMatiere.duree} jour(s)</p>
 							<p>Objectif de la matière : ${detailMatiere.objectif}</p>
 							<c:if test="${detailMatiere.prerequis=='[]'}">
 								<p>Prérequis de la matière : aucun</p>
 							</c:if>
 							<c:if test="${detailMatiere.prerequis!='[]'}">
-			    				<p> Prérequis de la matière :</p>
-			    				<c:forEach items="${Prerequis}" var = "matierePrerequis">
-			    					<p>- ${matierePrerequis}</p>
-			    				 </c:forEach>
+								<p>Prérequis de la matière :</p>
+								<c:forEach items="${Prerequis}" var="matierePrerequis">
+									<p>- ${matierePrerequis}</p>
+								</c:forEach>
 							</c:if>
 							<p>Contenu de la matière : ${detailMatiere.contenu}</p>
 						</c:if>
