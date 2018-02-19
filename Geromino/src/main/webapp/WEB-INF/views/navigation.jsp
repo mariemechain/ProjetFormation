@@ -18,7 +18,7 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 
-			<!--  <a class="navbar-brand" href="#">Hidden brand</a>  -->
+			<a class="navbar-brand" href="home">MONIQUE PASSION GESTION DE FORMATION</a> 
 			<c:if test="${page == 'home'}">
 				<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 					<li class="nav-item active"><a class="nav-link" href="home">Home
@@ -46,18 +46,20 @@
 
 			<c:if test="${page == 'gestionnaire'}">
 				<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+					<li class="nav-item"><a class="nav-link" href="home">Home</a></li>
 					<li class="nav-item"><a class="nav-link" href="technicien">Techniciens
 					</a></li>
 					<li class="nav-item active"><a class="nav-link"
 						href="gestionnaire">Gestionnaire<span class="sr-only">(current)</span></a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="gestionnaire">Matières</a></li>
+					<li class="nav-item"><a class="nav-link" href="technicien">Matières</a></li>
 					<li class="nav-item"><a class="nav-link" href="deconnexion">Déconnexion</a></li>
 				</ul>
 			</c:if>
 
 			<c:if test="${page == 'matiere'}">
 				<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+					<li class="nav-item"><a class="nav-link" href="home">Home</a></li>
 					<li class="nav-item"><a class="nav-link" href="technicien">Techniciens
 					</a></li>
 					<li class="nav-item"><a class="nav-link" href="gestionnaire">Gestionnaire</a></li>
