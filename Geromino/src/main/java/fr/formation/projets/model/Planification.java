@@ -13,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -36,9 +37,9 @@ public class Planification implements Serializable{
 	@JoinColumn(name = "PLA_FORMATEUR_ID")
 	private Formateur formateur;
 	
-//	@oneToMany
-//	@JoinColumn(name = "PLA_PROJET")
-//	private Projet projet;
+	@ManyToOne
+	@JoinColumn(name = "PLA_PROJET_ID")
+	private Projet projet;
 
 	public Planification() {
 

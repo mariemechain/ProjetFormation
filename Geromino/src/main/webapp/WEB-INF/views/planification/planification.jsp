@@ -36,7 +36,7 @@
 
 							<!-- Excecution des methodes du controller avec un mapping "/edit" -->
 							<td><a href="selectFormateur?id=${planif.id}"
-								class="btn btn-sm btn-primary"><span
+								class="btn btn-warning"><span
 									class="glyphicon glyphicon-pencil"></span> Edit Formateur</a> <!-- Excecution des methodes du controller avec un mapping "/delete" -->
 								<a href="planification/delete?id=${planif.id }"
 								class="btn btn-sm btn-danger"><span
