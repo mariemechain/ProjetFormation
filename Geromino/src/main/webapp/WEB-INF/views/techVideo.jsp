@@ -15,31 +15,38 @@
 		<div class="container">
 
 
-<h3>Liste de videoprojecteurs disponibles</h3>
-<br/>
-<table class="table table-striped">
-<thead>
-				<tr>
-				<th>Identifiant</th>
-				<th>Cout journalier</th>
-				<th>Date retour</th>
-				<th>Option</th>
-				</tr>
+			<h3>Liste de videoprojecteurs disponibles</h3>
+			<br />
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Identifiant</th>
+						<th>Cout journalier</th>
+						<th>Date retour</th>
+						<th>Option</th>
+					</tr>
 				</thead>
-<c:forEach items="${ videoprojecteurs }" var="videoprojecteur">
+				<c:forEach items="${ videoprojecteurs }" var="videoprojecteur">
 
-<tr>
-<td>${ videoprojecteur.id }  </td> 
- <td>${ videoprojecteur.cout }</td>
- <td>${ videoprojecteur.date }</td> 
-<td><a href="/Geromino/technicien/video/modifier?id=${videoprojecteur.id}" class="btn btn-outline-success">Modifier</a>
-</td>
-<td><a href="/Geromino/technicien/video/supprimer?id=${videoprojecteur.id}" class="btn btn-outline-danger">Supprimer</a>
-</td>
-</tr>
-</c:forEach>
+					<tr>
+						<td>${ videoprojecteur.id }</td>
+						<td>${ videoprojecteur.cout }€</td>
+						<td>${ videoprojecteur.date }</td>
+						<td><a
+							href="/Geromino/technicien/video/modifier?id=${videoprojecteur.id}"
+							class="btn btn-success">Modifier</a></td>
 
-			
+						<td><a
+							href="/Geromino/technicien/video/etat?id=${videoprojecteur.id}"
+							class="btn btn-warning">OUT</a>
+							<a
+							href="/Geromino/technicien/video/supprimer?id=${videoprojecteur.id}"
+							class="btn btn-danger">X</a></td>
+						
+					</tr>
+				</c:forEach>
+
+
 
 
 

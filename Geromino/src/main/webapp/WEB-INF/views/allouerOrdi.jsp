@@ -6,14 +6,13 @@
     
 <tiles:insertDefinition name="app.layout">
 
-<tiles:putAttribute name="title" value="Ajouter ordi" />
+<tiles:putAttribute name="title" value="Allouer un ordinateur à un stagiaire" />
 
 <tiles:putAttribute name="content">
 
-<form:form method="POST" modelAttribute="ordinateur">
+<form:form method="POST" >
 <div class="container">
 
-<h3>Allouer un ordinateur</h3>
 <br/>
 				<div class="form-group">
 					<label for="id">Identifiant :</label> 

@@ -1,5 +1,7 @@
 package fr.formation.ressources.controller;
 
+import java.util.Date;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -84,6 +86,23 @@ public class TechnicienController {
 		return "redirect:./";
 	}
 
+	// ***********************Modifier dispo ordinateur***************************
+	@GetMapping("/ordi/etat")
+	public String dispoOrdi(Model model, @RequestParam("id") String idOrdi) {
+
+		model.addAttribute("ordinateur", ordiDAO.findById(idOrdi).get());
+		return "dispoOrdi";
+	}
+
+	@PostMapping("/ordi/etat")
+	public String dispoOrdinateur(@ModelAttribute("ordinateur") Ordinateur ordinateur,
+			@RequestParam("id") String idOrdi, @RequestParam("date") Date date) {
+		Ordinateur ordi = ordiDAO.findById(idOrdi).get();
+		ordi.setDate(date);
+		ordiDAO.save(ordi);
+		return "redirect:./";
+	}
+
 	// ***********************Supprimer un ordi***************************
 	@GetMapping("/ordi/supprimer")
 	public String deleteOrdi(@RequestParam("id") String idOrdi) {
@@ -115,7 +134,8 @@ public class TechnicienController {
 		return "redirect:./";
 	}
 
-	// ****************************** Modifier un videoproj***************************
+	// ****************************** Modifier un
+	// videoproj***************************
 	@GetMapping("/video/modifier")
 	public String modifVideoprojecteur(Model model, @RequestParam("id") String idVideo) {
 		model.addAttribute("videoprojecteur", new VideoProjecteur());
@@ -129,6 +149,23 @@ public class TechnicienController {
 
 		videoprojecteur.setId(idVideo);
 		videoDAO.save(videoprojecteur);
+		return "redirect:./";
+	}
+
+	// ***********************Modifier dispo videoproj***************************
+	@GetMapping("/video/etat")
+	public String dispoVideo(Model model, @RequestParam("id") String idVideo) {
+
+		model.addAttribute("videoprojecteur", videoDAO.findById(idVideo).get());
+		return "dispoVideo";
+	}
+
+	@PostMapping("/video/etat")
+	public String dispoVideoprojecteur(@ModelAttribute("videoprojecteur") VideoProjecteur videoprojecteur,
+			@RequestParam("id") String idVideo, @RequestParam("date") Date date) {
+		VideoProjecteur video = videoDAO.findById(idVideo).get();
+		video.setDate(date);
+		videoDAO.save(video);
 		return "redirect:./";
 	}
 

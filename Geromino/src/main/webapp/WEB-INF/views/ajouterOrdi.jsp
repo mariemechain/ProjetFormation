@@ -6,14 +6,14 @@
     
 <tiles:insertDefinition name="app.layout">
 
-<tiles:putAttribute name="title" value="Ajouter ordi" />
+<tiles:putAttribute name="title" value="Ajouter un ordinateur" />
 
 <tiles:putAttribute name="content">
 
 <form:form method="POST" modelAttribute="ordinateur">
 <div class="container">
 
-<h3>Ajouter un ordinateur</h3>
+
 <br/>
 				<div class="form-group">
 					<label for="id">Identifiant :</label> 
@@ -47,7 +47,7 @@
 				</div>
 				
 				<div class="form-group">
-					<label for="achat">Date d'achat</label>
+					<label for="achat">Date d'achat (aaaa/mm/jj)</label>
 					<input name="achat"
 						type="text" class="form-control" id="date"
 						value="${ordinateur.achat}" placeholder="achat">
@@ -60,16 +60,8 @@
 						value="${ordinateur.cout}" placeholder="Cout d'utilisation">
 				</div>
 
-				<div class="form-group">
-					<label for="date">Date de retour</label>
-					<c:if test="${ordinateur.id != null}"> 
-					<input name="date"
-						type="text" class="form-control" id="date"
-						value="${ordinateur.date}" placeholder="Date de retour">
-				</c:if>		
-				<label>${ordinateur.date}</label>
-				</div>
-
+				
+				
 				<button type="submit" class="btn btn-primary">Submit</button>
 			</div>
 		</form:form>

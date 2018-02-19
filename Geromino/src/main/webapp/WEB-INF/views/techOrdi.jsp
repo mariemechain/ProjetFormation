@@ -14,37 +14,43 @@
 
 		<div class="container-fluid">
 			<h3>Liste d'ordinateurs disponibles</h3>
-			<br/>
+			<br />
 			<table class="table table-striped">
-<thead>
-				<tr>
-				<th>Identifiant</th>
-				<th>Processeur</th>
-				<th>RAM</th>
-				<th>Stockage</th>
-				<th>Date d'achat</th>
-				<th>Cout journalier</th>
-				<th>Date retour</th>
-				
-				<th>Option</th>
-				</tr>
+				<thead>
+					<tr>
+						<th>Identifiant</th>
+						<th>Processeur</th>
+						<th>RAM</th>
+						<th>Stockage</th>
+						<th>Date d'achat</th>
+						<th>Cout journalier</th>
+						<th>Date retour</th>
+						<th>Option</th>
+					</tr>
 				</thead>
 				<c:forEach items="${ ordinateurs }" var="ordinateur">
-				
+
 					<tr>
 						<td>${ ordinateur.id }</td>
 						<td>${ ordinateur.processeur }</td>
 						<td>${ ordinateur.ram }</td>
 						<td>${ ordinateur.stockage }</td>
-						 <td>${ ordinateur.achat }</td>
-						  <td>${ ordinateur.cout }</td>  
-						   <td>${ ordinateur.date }</td> 
-						<td><a href="/Geromino/technicien/ordi/modifier?id=${ordinateur.id}"
+						<td>${ ordinateur.achat }</td>
+						<td>${ ordinateur.cout }€</td>
+						<td>${ ordinateur.date }</td>
+						<td><a
+							href="/Geromino/technicien/ordi/modifier?id=${ordinateur.id}"
 							class="btn btn-success">Modifier</a></td>
-						<td><a href="/Geromino/technicien/ordi/supprimer?id=${ordinateur.id}"
-							class="btn btn-danger">X</a></td>
-						<td><a href="/Geromino/technicien/ordi/allouer?id=${ordinateur.id}"
+
+						<td><a
+							href="/Geromino/technicien/ordi/allouer?id=${ordinateur.id}"
 							class="btn btn-dark">Allouer</a></td>
+						<td><a
+							href="/Geromino/technicien/ordi/etat?id=${ordinateur.id}"
+							class="btn btn-warning">OUT</a> <a
+							href="/Geromino/technicien/ordi/supprimer?id=${ordinateur.id}"
+							class="btn btn-danger">X</a></td>
+					
 					</tr>
 				</c:forEach>
 

@@ -6,14 +6,13 @@
      
 <tiles:insertDefinition name="app.layout"> 
  
-<tiles:putAttribute name="title" value="Ajouter ordi" /> 
+<tiles:putAttribute name="title" value="Ajouter un videoprojecteur" /> 
  
 <tiles:putAttribute name="content"> 
  
 <form:form method="POST" modelAttribute="videoprojecteur"> 
 <div class="container"> 
- 
-<h3>Ajouter un videoprojecteur</h3> 
+
 <br/> 
       <div class="form-group"> 
           <label for="id">Identifiant :</label> 
@@ -31,7 +30,7 @@
 				</div>
 
 				<div class="form-group">
-					<label for="date">Date de retour</label>
+					<label for="date">Date de retour (aaaa/mm/jj)</label>
 					<c:if test="${videoprojecteur.id != null}"> 
 					<input name="date"
 						type="text" class="form-control" id="date"
