@@ -47,12 +47,28 @@
 				</div>
 				
 				<div class="form-group">
-					<label for="date">Date</label>
+					<label for="achat">Date d'achat</label>
 					<input name="achat"
 						type="text" class="form-control" id="date"
 						value="${ordinateur.achat}" placeholder="achat">
 				</div> 
+				
+				<div class="form-group">
+					<label for="cout">Coût d'utilisation journalier</label>
+					<input name="cout"
+						type="number" class="form-control" id="cout"
+						value="${ordinateur.cout}" placeholder="Cout d'utilisation">
+				</div>
 
+				<div class="form-group">
+					<label for="date">Date de retour</label>
+					<c:if test="${ordinateur.id != null}"> 
+					<input name="date"
+						type="text" class="form-control" id="date"
+						value="${ordinateur.date}" placeholder="Date de retour">
+				</c:if>		
+				<label>${ordinateur.date}</label>
+				</div>
 
 				<button type="submit" class="btn btn-primary">Submit</button>
 			</div>

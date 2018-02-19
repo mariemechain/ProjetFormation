@@ -22,6 +22,23 @@
  			</c:if>
            <label>${videoprojecteur.id}</label>
         </div> 
+        
+        <div class="form-group">
+					<label for="cout">Coût d'utilisation journalier</label>
+					<input name="cout"
+						type="number" class="form-control" id="cout"
+						value="${videoprojecteur.cout}" placeholder="Cout d'utilisation">
+				</div>
+
+				<div class="form-group">
+					<label for="date">Date de retour</label>
+					<c:if test="${videoprojecteur.id != null}"> 
+					<input name="date"
+						type="text" class="form-control" id="date"
+						value="${videoprojecteur.date}" placeholder="Date de retour">
+				</c:if>		
+				<label>${videoprojecteur.date}</label>
+				</div>
  
  
         <button type="submit" class="btn btn-primary">Submit</button> 
