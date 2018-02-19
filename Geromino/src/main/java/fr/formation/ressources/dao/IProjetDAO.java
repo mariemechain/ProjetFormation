@@ -1,5 +1,9 @@
 package fr.formation.ressources.dao;
 
-public class IProjetDAO {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import fr.formation.ressources.metier.Projet;
+
+public interface IProjetDAO extends JpaRepository<Projet, Integer>{
 
 }
