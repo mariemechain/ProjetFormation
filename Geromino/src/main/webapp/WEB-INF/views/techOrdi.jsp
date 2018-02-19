@@ -50,7 +50,7 @@
 							class="btn btn-warning">OUT</a> <a
 							href="/Geromino/technicien/ordi/supprimer?id=${ordinateur.id}"
 							class="btn btn-danger">X</a></td>
-					
+
 					</tr>
 				</c:forEach>
 
@@ -60,6 +60,8 @@
 			<a href="/Geromino/technicien/ordi/ajouter" class="btn btn-primary">Ajouter</a>
 
 		</div>
+		
+
 	</tiles:putAttribute>
 
 

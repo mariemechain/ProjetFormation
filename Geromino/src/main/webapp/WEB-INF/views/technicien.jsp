@@ -12,11 +12,11 @@
 	<tiles:putAttribute name="content">
 
 
-<div class="container">
-<br/>
-
-<br/>
-<a href="/Geromino/technicien/ordi" class="btn btn-secondary mr-4">Liste ordinateurs</a><a href="/Geromino/technicien/video" class="btn btn-secondary">Liste vidéoprojecteurs</a>
+		<div class="container">
+			<br /> <br /> <a href="/Geromino/technicien/ordi"
+				class="btn btn-secondary mr-4">Liste ordinateurs</a><a
+				href="/Geromino/technicien/video" class="btn btn-secondary">Liste
+				vidéoprojecteurs</a>
 
 
 
