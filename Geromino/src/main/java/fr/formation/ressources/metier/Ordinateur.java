@@ -6,6 +6,9 @@ import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -13,6 +16,8 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="ordinateur")
@@ -31,8 +36,19 @@ public class Ordinateur extends Materiel {
 	@Column(name="ORD_ACHAT", columnDefinition="DATE")
 	@Temporal(TemporalType.DATE)
 	private Date achat;
-		
+	@JsonIgnoreProperties("ordinateur") 
+	@OneToMany(mappedBy= "ordinateur")
+	private List<Stagiaire> stagiaires;
 	
+	
+
+	public List<Stagiaire> getStagiaires() {
+		return stagiaires;
+	}
+
+	public void setStagiaires(List<Stagiaire> stagiaires) {
+		this.stagiaires = stagiaires;
+	}
 
 	public String getProcesseur() {
 		return processeur;

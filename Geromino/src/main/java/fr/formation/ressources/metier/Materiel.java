@@ -71,10 +71,22 @@ public class Materiel implements Serializable{
 	public void setCout(int cout) {
 		this.cout = cout;
 	}
+	
 
 
 
-//	public List<Projet> getDispo() {
+
+public Date getDate() {
+		return date;
+	}
+
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+
+	//	public List<Projet> getDispo() {
 //		return dispo;
 //	}
 //

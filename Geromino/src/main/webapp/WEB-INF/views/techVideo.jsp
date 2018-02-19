@@ -21,6 +21,8 @@
 <thead>
 				<tr>
 				<th>Identifiant</th>
+				<th>Cout journalier</th>
+				<th>Date retour</th>
 				<th>Option</th>
 				</tr>
 				</thead>
@@ -28,6 +30,8 @@
 
 <tr>
 <td>${ videoprojecteur.id }  </td> 
+ <td>${ videoprojecteur.cout }</td>
+ <td>${ videoprojecteur.date }</td> 
 <td><a href="/Geromino/technicien/video/modifier?id=${videoprojecteur.id}" class="btn btn-outline-success">Modifier</a>
 </td>
 <td><a href="/Geromino/technicien/video/supprimer?id=${videoprojecteur.id}" class="btn btn-outline-danger">Supprimer</a>
