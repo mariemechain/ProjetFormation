@@ -22,7 +22,8 @@ public class Matiere implements Serializable{
 	private int id;
 	@Column(name="MAT_NOM")
 	private String nom;
-	
+	@Column(name="MAT_DUREE")
+	private int duree;
 
 
 	public int getId() {
@@ -41,9 +42,12 @@ public class Matiere implements Serializable{
 		this.nom = nom;
 	}
 
+	public int getDuree() {
+		return duree;
+	}
 
-	
-	
-	
+	public void setDuree(int duree) {
+		this.duree = duree;
+	}
 	
 }

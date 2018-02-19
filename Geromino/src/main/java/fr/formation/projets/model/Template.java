@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -34,15 +35,14 @@ public class Template implements Serializable{
 	@Column(name="TEM_NOM")
 	private String nom;
 	
-	/*--------------------------------------------- A modifier avec Matiere et IMatiereDAO
-	@ManyToMany
+
+	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(
 		name="contenu",
 		joinColumns=@JoinColumn(name="CON_TEMPLATE_ID", referencedColumnName="TEM_ID"),
 		inverseJoinColumns=@JoinColumn(name="CON_MATIERE_ID", referencedColumnName="MAT_ID")
 	)
 	private List<Matiere> matieres;
-	*/
 	
 	/*
 	 * Getters et setters
@@ -64,7 +64,7 @@ public class Template implements Serializable{
 		this.nom = nom;
 	}
 	
-	/*--------------------------------------------- A modifier avec Matiere et IMatiereDAO
+
 	public List<Matiere> getMatieres() {
 		return matieres;
 	}
@@ -72,10 +72,8 @@ public class Template implements Serializable{
 	public void setMatieres(List<Matiere> matieres) {
 		this.matieres = matieres;
 	}
-	*/
 
-	@Override
 	public String toString() {
-		return "Template [id=" + id + ", nom=" + nom + "]";
+		return "Template [id=" + id + ", nom=" + nom + "matieres=" + matieres + "]";
 	}
 }
