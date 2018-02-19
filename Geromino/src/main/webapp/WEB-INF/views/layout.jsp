@@ -6,14 +6,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet"
-	href="/eshop-mvc-rest/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <title>Insert title here</title>
 </head>
 <body>
-	<script type="js/jquery-3.1.1.min.js"></script>
-	<script type="js/popper.min.js"></script>
-	<script type="js/bootsrap.min.js"></script>
+	<script type="assets/js/jquery-3.1.1.min.js"></script>
+	<script type="assets/js/popper.min.js"></script>
+	<script type="assets/js/bootsrap.min.js"></script>
 
 
 
