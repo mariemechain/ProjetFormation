@@ -1,18 +1,18 @@
 package fr.formation.disponibilite.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Disponibilite {
 
-	private Date date;
+	private LocalDate date;
 	private Double etatSalle;
 	private Double etatOrdi;
 	private Double etatVideoProj;
 	
-	public Date getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(LocalDate date) {
 		this.date = date;
 	}
 	public Double getEtatSalle() {
