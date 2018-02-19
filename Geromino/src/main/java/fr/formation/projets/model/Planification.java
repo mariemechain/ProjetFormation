@@ -23,6 +23,7 @@ import fr.formation.ressources.model.Matiere;
 @Entity
 @Table(name = "planification")
 public class Planification implements Serializable{
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -19,15 +19,14 @@ public class Salle extends Materiel{
 	@Column(name="SAL_ADRESSE")
 	private String adresse;
 	
-	
 	@ManyToOne
 	@JoinColumn(name="SAL_CONTACT_ID")
 	private Personne contact;
 
-
 	@Column(name="SAL_VIDEOPROJECTEUR")
 	private VideoProjecteur videoprojecteur;
-
+	
+	//@OneToOne(mappedBy="salle") private Projet projet; 
 	
 	public int getPlaces() {
 		return places;

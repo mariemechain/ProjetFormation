@@ -1,22 +1,29 @@
 package fr.formation.projets.main;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import fr.formation.config.AppConfig;
-import fr.formation.projets.dao.IProjetDAO;
-import fr.formation.projets.dao.ITemplateDAO;
-import fr.formation.projets.model.Template;
+import fr.formation.projets.dao.IGestionnairerDAO;
 import fr.formation.projets.dao.IMatiereDAO;
+import fr.formation.projets.dao.IProjetDAO;
+import fr.formation.projets.dao.ISalleDAO;
+import fr.formation.projets.dao.ITemplateDAO;
+import fr.formation.projets.model.Projet;
+import fr.formation.projets.model.Template;
+import fr.formation.ressources.metier.Gestionnaire;
+import fr.formation.ressources.metier.Salle;
 import fr.formation.ressources.model.Matiere;
 
 public class TestMain {
 	
     public static void main( String[] args )
     {
-    	testModif();
+//    	testModif();
+    	testDAOProjet(); 
     }
     
     /*
@@ -102,13 +109,35 @@ AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationCo
     static void testDAOProjet() {
 		AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationContext(AppConfig.class);
 		
-		IProjetDAO pdao = myContext.getBean(IProjetDAO.class);
-    	
-    	List listProjet = pdao.findAll();
-    	
-    	System.out.println(listProjet);
-    	
-    	
+		
+//		Gestionnaire g = new Gestionnaire();
+//		g.setNom("MBAE");
+//		g.setPrenom("Saïd");
+//		g.setAdresse("66 cours charlemagne");
+//		IGestionnairerDAO daoG = myContext.getBean(IGestionnairerDAO.class); 
+//		daoG.save(g); 
+			
+		Salle s = new Salle(); 
+		s.setId("Salle 201");
+		s.setAdresse("66 cours charlemagne - etage 1");
+		s.setPlaces(15);
+		s.setCout(500);
+		s.setVideoprojecteur(null);
+		s.setContact(null);
+		ISalleDAO daoS = myContext.getBean(ISalleDAO.class); 
+		daoS.save(s);
+		
+//		Projet p = new Projet(); 
+//		p.setDebut(new Date());
+//		p.setDuree(400);
+//		p.setNom("Formation #WaterDance");
+//		p.setGestionnaire(g);
+//		p.setSalle(s);
+//		IProjetDAO pdao = myContext.getBean(IProjetDAO.class);
+//    	pdao.save(p); 
+		
+//    	System.out.println(pdao.findAll());
+
     }
     
 

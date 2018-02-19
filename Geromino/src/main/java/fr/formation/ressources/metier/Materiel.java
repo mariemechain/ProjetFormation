@@ -3,6 +3,7 @@ package fr.formation.ressources.metier;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Cacheable;
 import javax.persistence.Column;
@@ -10,12 +11,15 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+import fr.formation.projets.model.Projet;
 
 @Entity
 @Table(name = "materiel")
@@ -33,9 +37,9 @@ public class Materiel implements Serializable{
 	@Column(name = "MAT_ETAT", columnDefinition = "DATE")
 	@Temporal(TemporalType.DATE)
 	private Date date;
-//	@ManyToMany(mappedBy = "materiels")
-//	private List<Projet> dispo;
-//	
+	@ManyToMany(mappedBy = "materiels")
+	private List<Projet> dispo;
+	
 	
 	// Constructeur par defaut	
 	public Materiel() {
