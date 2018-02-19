@@ -103,7 +103,14 @@ public class MatiereController {
 	
 	@GetMapping("/information")
 	public String information(@RequestParam("id") int id, Model model) {
-		model.addAttribute("detailMatiere", daoMatiere.findById(id));
+		
+		Matiere detailMatiere = daoMatiere.findById(id);
+		List prerequis = new ArrayList();
+		for(Matiere m : detailMatiere.getPrerequis()) {
+				prerequis.add(m.getTitre());
+		}
+		model.addAttribute("Prerequis", prerequis);
+		model.addAttribute("detailMatiere", detailMatiere);
 		model.addAttribute("matieres", daoMatiere.findAll());
 		return "matiere";
 	}

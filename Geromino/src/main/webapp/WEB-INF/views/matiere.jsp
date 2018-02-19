@@ -50,13 +50,15 @@
 								<p>Prérequis de la matière : aucun</p>
 							</c:if>
 							<c:if test="${detailMatiere.prerequis!='[]'}">
-								<p>Prérequis de la matière : ${detailMatiere.prerequis}</p>
+			    				<p> Prérequis de la matière :</p>
+			    				<c:forEach items="${Prerequis}" var = "matierePrerequis">
+			    					<p>- ${matierePrerequis}</p>
+			    				 </c:forEach>
 							</c:if>
 							<p>Contenu de la matière : ${detailMatiere.contenu}</p>
 						</c:if>
 					</span>
 				</div>
-
 			</div>
 		</div>
 
