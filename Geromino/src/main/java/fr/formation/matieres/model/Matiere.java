@@ -15,6 +15,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
 
@@ -31,13 +32,13 @@ public class Matiere {
 	private int id;
 	
 	@Column(name="MAT_TITRE")
-	//@NotEmpty(message="le titre de la matiere ne peut pas etre nul")
+	@NotEmpty(message="le titre de la matiere est obligatoire")
 	private String titre;
 	
 	
 	@Column(name="MAT_DUREE")
-	//@NotEmpty(message="la duree de la matiere ne peut pas etre nul")
-	//@Positive(message="la duree de la matiere doit etre une valeur positive")
+	@NotNull(message="la duree de la matiere est obligatoire")
+	@Positive(message="la duree de la matiere doit etre une valeur positive")
 	private int duree;
 	
 	@Column(name="MAT_OBJECTIF")
