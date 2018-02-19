@@ -204,13 +204,12 @@ public class GestionnaireController {
 				}
 
 				@PostMapping("/gestionnaireAjouterContact")
-				public String ajouterContact(@ModelAttribute("contact") Contact contact, Model model) {
-//					if(result.hasErrors()) {
-//						model.addAttribute("fournisseurs", daoFournisseur.findAll());
-//					
-//					}
-					model.addAttribute("contacts", daoContact.findAll());
-					
+				public String ajouterContact(@Valid @ModelAttribute("contact") Contact contact, BindingResult result, Model model) {
+					if(result.hasErrors()) {
+						model.addAttribute("contacts", daoContact.findAll());
+						return "gestionnaireAjouterContact";	
+					}
+//					model.addAttribute("contacts", daoContact.findAll());		
 					daoContact.save(contact);	
 					return "redirect:./gestionnaireContact";
 				}
@@ -226,14 +225,13 @@ public class GestionnaireController {
 				}
 				
 				@PostMapping("/gestionnaireEditerContact")
-				public String editerContact( @ModelAttribute("contact") Contact contact,  @RequestParam("id") int id, Model model) {
-//					if(result.hasErrors()) {
-//						System.out.println(result.getAllErrors());
-//						model.addAttribute("fournisseurs", daoFournisseur.findAll());
-//						return "gestionnaireAjouterSalle";
-//					}
-//					model.addAttribute("contacts", daoContact.findAll());
-//					model.addAttribute("videoprojecteurs", daoVideoProjecteur.findAll());
+				public String editerContact(@Valid @ModelAttribute("contact") Contact contact,  @RequestParam("id") int id, BindingResult result, Model model) {
+					if(result.hasErrors()) {
+						model.addAttribute("contact", daoContact.findById(id).get());
+						return "gestionnaireAjouterContact";
+					}
+					model.addAttribute("contacts", daoContact.findAll());
+					
 					contact.setId(id);
 					daoContact.save(contact);		
 					//return "gestionnaireSalle";

@@ -14,6 +14,10 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.lang.Nullable;
 
 @Entity
 @Table(name = "personne")
@@ -27,23 +31,29 @@ public class Personne implements Serializable {
 	private int id;
 
 	@Column(name = "PER_NOM", columnDefinition = "VARCHAR(50)") // => VARCHAR(50)
-	@NotEmpty
+	@NotEmpty(message = "Veuillez indiquer le nom")
 	private String nom;
 
 	@Column(name = "PER_PRENOM")
+	@NotEmpty(message = "Veuillez indiquer le prénom")
 	private String prenom;
 
 	@Column(name = "PER_EMAIL", columnDefinition = "VARCHAR(50)") // => VARCHAR(50)
+	@NotEmpty(message = "Veuillez indiquer l'email")
 	private String email;
 
 	@Column(name = "PER_TELEPHONE", columnDefinition = "VARCHAR(50)")
+	@NotEmpty(message = "Veuillez indiquer le numéro")
 	private String telephone;
 
 	@Column(name = "PER_DATEDENAISSANCE", columnDefinition = "DATE")
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	@NotNull(message = "Veuillez indiquer la date de naissance")
 	private Date date;
 
 	@Column(name = "PER_ADRESSE", columnDefinition = "VARCHAR(50)")
+	@NotEmpty(message = "Veuillez indiquer l'adresse")
 	private String adresse;
 
 	@Column(name = "PER_LOGIN")
