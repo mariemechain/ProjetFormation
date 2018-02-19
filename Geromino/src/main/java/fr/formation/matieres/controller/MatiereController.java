@@ -44,7 +44,11 @@ public class MatiereController {
 	}
 
 	@PostMapping("/ajouter")
-	public String ajouter(@ModelAttribute("matiere") Matiere matiere, Model model, HttpServletRequest req) {
+	public String ajouter(@Valid@ModelAttribute("matiere") Matiere matiere, BindingResult result, Model model, HttpServletRequest req) {
+		
+		if (result.hasErrors()) {
+			return "ajouterMatiere";
+		}
 		
 		//checkbox � r�cup�rer !
 		List<Matiere> liste = daoMatiere.findAll();
@@ -73,7 +77,7 @@ public class MatiereController {
 	@PostMapping("/editer")
 	public String editer(@Valid@ModelAttribute("matiere") Matiere matiere, BindingResult result, Model model, @RequestParam("id") int id) {
 		if (result.hasErrors()) {
-			return "editer";
+			return "ajouterMatiere";
 		}
 		daoMatiere.save(matiere);
 		return "redirect:./";

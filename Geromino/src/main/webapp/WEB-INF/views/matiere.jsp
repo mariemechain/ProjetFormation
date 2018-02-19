@@ -50,7 +50,7 @@
 			</div>
 		</div>
 		
-		<button type="button" class="btn btn-outline-primary" href="/Geromino/matiere/ajouter">Ajouter une nouvelle matière</button>
+		<a href="/Geromino/matiere/ajouter" class="btn btn-outline-primary" role="button" aria-pressed="true">Ajouter une nouvelle matière</a>
 		
 	</tiles:putAttribute>
 	

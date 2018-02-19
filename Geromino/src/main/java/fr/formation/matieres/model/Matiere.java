@@ -37,9 +37,9 @@ public class Matiere {
 	
 	
 	@Column(name="MAT_DUREE")
-	@NotNull(message="la duree de la matiere est obligatoire")
+	@NotNull(message="la duree de la matiere est null")
 	@Positive(message="la duree de la matiere doit etre une valeur positive")
-	private int duree;
+	private Integer duree;
 	
 	@Column(name="MAT_OBJECTIF")
 	private String objectif;
@@ -77,10 +77,10 @@ public class Matiere {
 	public void setTitre(String titre) {
 		this.titre = titre;
 	}
-	public int getDuree() {
+	public Integer getDuree() {
 		return duree;
 	}
-	public void setDuree(int duree) {
+	public void setDuree(Integer duree) {
 		this.duree = duree;
 	}
 	public String getContenu() {

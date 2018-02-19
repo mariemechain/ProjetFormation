@@ -65,7 +65,7 @@
 
 				<div>
 					<button type="submit" class="btn btn-outline-success"
-						value="Ajouter">Ajouter une matière</button>
+						value="Ajouter">Valider</button>
 				</div>
 
 			</form:form>
