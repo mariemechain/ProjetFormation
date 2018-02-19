@@ -46,18 +46,15 @@ public class MatiereController {
 		//checkbox à récupérer !
 		List<Matiere> liste = daoMatiere.findAll();
 		List<Matiere> prerequis = new ArrayList<Matiere>();
+		
 		for (Matiere m : liste) {
-			int id = m.getId();
-			if(req.getAttribute("prerequis_"+id) != null) {
-				//model.addAttribute(m);
-				System.out.println(req.getAttribute("prerequis_"+id));
+			if(req.getParameter("test_"+m.getId()) != null)
 				prerequis.add(m);
-			}
 		}
 		
+		System.out.println(prerequis);
+		
 		matiere.setPrerequis(prerequis);
-		
-		
 		
 		daoMatiere.save(matiere);
 		return "redirect:./";
