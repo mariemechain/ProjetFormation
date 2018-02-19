@@ -24,9 +24,9 @@
 					<li class="nav-item active"><a class="nav-link" href="home">Home
 							<span class="sr-only">(current)</span>
 					</a></li>
-					<li class="nav-item"><a class="nav-link" href="techniciens">Techniciens</a></li>
+					<li class="nav-item"><a class="nav-link" href="technicien">Techniciens</a></li>
 					<li class="nav-item"><a class="nav-link" href="gestionnaire">Gestionnaire</a></li>
-					<li class="nav-item"><a class="nav-link" href="technicien">Matière</a></li>
+					<li class="nav-item"><a class="nav-link" href="technicien">Matières</a></li>
 					<li class="nav-item"><a class="nav-link" href="deconnexion">Déconnexion</a></li>
 				</ul>
 			</c:if>
@@ -39,7 +39,7 @@
 						href="technicien">Techniciens <span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="gestionnaire">Gestionnaire</a></li>
-					<li class="nav-item"><a class="nav-link" href="technicien">Matière</a></li>
+					<li class="nav-item"><a class="nav-link" href="technicien">Matières</a></li>
 					<li class="nav-item"><a class="nav-link" href="deconnexion">Déconnexion</a></li>
 				</ul>
 			</c:if>
