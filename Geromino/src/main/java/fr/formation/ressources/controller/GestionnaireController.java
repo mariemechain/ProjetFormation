@@ -60,21 +60,21 @@ public class GestionnaireController {
 	
 	@GetMapping("/gestionnaireSalle")
 	public String listeSalle(Model model) {
-		model.addAttribute("salles", daoSalle.findAll());
+		model.addAttribute("salle", daoSalle.findAll());
 		return "gestionnaireSalle";
 	}
 	
 	//************************************************** Ajouter une salle***************************
 	@GetMapping("/gestionnaireAjouterSalle")
 	public String ajouterSalle(Model model) {
-		model.addAttribute("salles", new Salle());
+		model.addAttribute("salle", new Salle());
 		model.addAttribute("contacts", daoContact.findAll());
 		model.addAttribute("videoprojecteurs", daoVideoProjecteur.findAll());
 		return "gestionnaireAjouterSalle";
 	}
 
 	@PostMapping("/gestionnaireAjouterSalle")
-	public String ajouter(@ModelAttribute("salles") Salle salle, Model model) {
+	public String ajouter(@ModelAttribute("salle") Salle salle, Model model) {
 //		if(result.hasErrors()) {
 //			model.addAttribute("fournisseurs", daoFournisseur.findAll());
 //		
@@ -88,14 +88,14 @@ public class GestionnaireController {
 	//************************************************** Editer une salle***************************
 	@GetMapping("/gestionnaireEditerSalle")
 	public String editerSalle( @RequestParam("id") String id, Model model) {
-		model.addAttribute("salles", daoSalle.findById(id).get());
+		model.addAttribute("salle", daoSalle.findById(id).get());
 		model.addAttribute("contacts", daoContact.findAll());
 		model.addAttribute("videoprojecteurs", daoVideoProjecteur.findAll());
 		return "gestionnaireAjouterSalle";
 	}
 	
 	@PostMapping("/gestionnaireEditerSalle")
-	public String editerSalle( @ModelAttribute("salles") Salle salle,  @RequestParam("id") String id, Model model) {
+	public String editerSalle( @ModelAttribute("salle") Salle salle,  @RequestParam("id") String id, Model model) {
 //		if(result.hasErrors()) {
 //			System.out.println(result.getAllErrors());
 //			model.addAttribute("fournisseurs", daoFournisseur.findAll());
