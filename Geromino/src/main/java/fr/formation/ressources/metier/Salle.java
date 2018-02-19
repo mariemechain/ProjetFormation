@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
@@ -24,7 +25,8 @@ public class Salle extends Materiel{
 	private Personne contact;
 
 
-	@Column(name="SAL_VIDEOPROJECTEUR")
+	@OneToOne
+	@JoinColumn(name="SAL_VIDEOPROJECTEUR_ID")
 	private VideoProjecteur videoprojecteur;
 
 	
