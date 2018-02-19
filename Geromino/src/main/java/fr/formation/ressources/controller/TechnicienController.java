@@ -43,18 +43,18 @@ public class TechnicienController {
 		return "technicien";
 	}
 	
+	
+	//***********************************************************************************************
+	//****************************ORDI**************************************************************
+	//***********************************************************************************************
+	
 	@GetMapping("/ordi")
 	public String listeOrdi(Model model) {
 		model.addAttribute("ordinateurs", ordiDAO.findAll());
 		return "techOrdi";
 	}
-	
-	@GetMapping("/video")
-	public String listeVideo(Model model) {
-		model.addAttribute("videoprojecteurs", videoDAO.findAll());
-		return "techVideo";
-	}
-	
+		
+	//************************************************** Ajouter un ordi***************************
 	@GetMapping("/ordi/ajouter")
 	public String ajouterOrdi(Model model) {
 		model.addAttribute("ordinateur", new Ordinateur());
@@ -69,6 +69,41 @@ public class TechnicienController {
 		return "redirect:./";
 	}
 	
+	//************************************************** Modifier un ordi***************************
+	@GetMapping("/ordi/modifier")
+	public String modifOrdi(Model model, @RequestParam("id") String idOrdi) {
+		model.addAttribute("ordinateur", new Ordinateur());
+		model.addAttribute("ordinateur", ordiDAO.findById(idOrdi).get());
+		return "ajouterOrdi";
+	}
+	
+	@PostMapping("/ordi/modifier")
+	public String modifierOrdi(@ModelAttribute("ordinateur") Ordinateur ordinateur, 
+			 Model model, @RequestParam("id") String idOrdi) {
+		ordinateur.setId(idOrdi);
+		ordiDAO.save(ordinateur);
+		return "redirect:./";
+	}
+	
+	
+	//**************************************************Supprimer un ordi***************************
+	@GetMapping("/ordi/supprimer") 
+	  public String deleteOrdi(@RequestParam("id") String idOrdi) { 
+	    ordiDAO.deleteById(idOrdi); 
+	    return "redirect:./"; 
+	  } 
+	
+	//***********************************************************************************************
+	//****************************VIDEO**************************************************************
+	//***********************************************************************************************
+		
+	@GetMapping("/video")
+	public String listeVideo(Model model) {
+		model.addAttribute("videoprojecteurs", videoDAO.findAll());
+		return "techVideo";
+	}
+	
+	//************************************************** Ajouter un videoproj***************************
 	 @GetMapping("/video/ajouter") 
 	  public String ajouterVideo(Model model) { 
 	    model.addAttribute("videoprojecteur", new VideoProjecteur()); 
@@ -81,13 +116,23 @@ public class TechnicienController {
 	    videoDAO.save(videoprojecteur); 
 	    return "redirect:./"; 
 	  } 
-	   
-	  @GetMapping("/ordi/supprimer") 
-	  public String deleteOrdi(@RequestParam("id") String idOrdi) { 
-	    ordiDAO.deleteById(idOrdi); 
-	    return "redirect:./"; 
-	  } 
-	   
+	  
+	//************************************************** Modifier un videoproj***************************
+		@GetMapping("/video/modifier")
+		public String modifVideoprojecteur(Model model, @RequestParam("id") String idVideo) {
+			model.addAttribute("videoprojecteur", new VideoProjecteur());
+			model.addAttribute("videoprojecteur", videoDAO.findById(idVideo).get());
+			return "ajouterVideo";
+		}
+		
+		@PostMapping("/video/modifier")
+		public String modifierOrdi(@ModelAttribute("videoprojecteur") VideoProjecteur videoprojecteur,
+				 Model model,  @RequestParam("id") String idVideo) {
+			 videoDAO.save(videoprojecteur); 
+			return "redirect:./";
+		}   
+	  
+	//**************************************************Supprimer un videoproj*************************** 
 	  @GetMapping("/video/supprimer") 
 	  public String deleteVideo(@RequestParam("id") String idVideo) { 
 	    videoDAO.deleteById(idVideo); 

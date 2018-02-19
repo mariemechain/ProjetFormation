@@ -29,12 +29,12 @@
 				<c:forEach items="${ ordinateurs }" var="ordinateur">
 				
 					<tr>
-					<td>${ ordinateur.id }</td>
+						<td>${ ordinateur.id }</td>
 						<td>${ ordinateur.processeur }</td>
 						<td>${ ordinateur.ram }</td>
 						<td>${ ordinateur.stockage }</td>
 						 <td>${ ordinateur.achat }</td> 
-						<td><a href="/Geromino/technicien/ordi/edit?id=${ordinateur.id}"
+						<td><a href="/Geromino/technicien/ordi/modifier?id=${ordinateur.id}"
 							class="btn btn-outline-success">Modifier</a></td>
 						<td><a href="/Geromino/technicien/ordi/supprimer?id=${ordinateur.id}"
 							class="btn btn-outline-danger">Supprimer</a></td>
