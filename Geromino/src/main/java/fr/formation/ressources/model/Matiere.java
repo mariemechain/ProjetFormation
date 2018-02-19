@@ -41,6 +41,4 @@ public class Matiere implements Serializable{
 
 	
 	
-	
-	
 }
