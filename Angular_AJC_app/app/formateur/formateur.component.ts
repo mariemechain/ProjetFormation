@@ -9,4 +9,5 @@ templateUrl: 'app/formateur/formateur.component.html'
 
 export class FormateurComponent {
 
+
 }

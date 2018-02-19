@@ -17,8 +17,8 @@ import fr.formation.formateur.dao.IFormateurDAO;
 import fr.formation.formateur.dao.IMatiereDAOPourTest;
 import fr.formation.formateur.model.Expertise;
 import fr.formation.formateur.model.Formateur;
-import fr.formation.formateur.model.Matiere;
 import fr.formation.formateur.model.Niveau;
+import fr.formation.test.Matiere;
 
 @Controller
 @RequestMapping("/formateur")

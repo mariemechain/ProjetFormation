@@ -4,11 +4,11 @@ import { AppConfigService } from '../app-config.service';
 import { Formateur } from './formateur';
 
 @Injectable()
-export class FormateurService {
+export class DispoService {
      private formateurs: Array<Formateur>;
 
     constructor(private appConfig: AppConfigService, private http: Http) {
-      
+
     }
 
 
@@ -50,4 +50,3 @@ export class FormateurService {
     public delete(formateur: Formateur) {
          this.http.delete(this.appConfig.uri + "/formateur/" + formateur.id).subscribe(resp => this.refresh());
     }
-}
