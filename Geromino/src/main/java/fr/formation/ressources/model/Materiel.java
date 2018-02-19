@@ -5,9 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name ="materiel")
+
 public class Materiel {
+	
 	
 	
 	

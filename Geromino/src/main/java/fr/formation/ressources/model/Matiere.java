@@ -1,5 +1,8 @@
 package fr.formation.ressources.model;
 
+import java.io.Serializable;
+
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,13 +12,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "matiere")
-public class Matiere {
+public class Matiere implements Serializable{
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="MAT_ID")
 	private int id;
-	
 	@Column(name="MAT_NOM")
 	private String nom;
 	
@@ -37,10 +39,7 @@ public class Matiere {
 		this.nom = nom;
 	}
 
-	@Override
-	public String toString() {
-		return "Matiere [id=" + id + ", nom=" + nom + "]";
-	}
+	
 	
 	
 	

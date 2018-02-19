@@ -1,4 +1,3 @@
-/*
 package fr.formation.projets.listener;
 
 import java.util.ArrayList;
@@ -16,21 +15,21 @@ public class ListenerMatiere implements ServletContextListener {
 
 	
 	private List<Matiere> myMatieres = new ArrayList<Matiere>();
-	@Override
 	public void contextDestroyed(ServletContextEvent arg0) {
-		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void contextInitialized(ServletContextEvent sce) {
 		
 		Matiere m1 = new Matiere();
 		Matiere m2 = new Matiere();
 		Matiere m3 = new Matiere();
 
+		m1.setId(1);
 		m1.setNom("JAVA");
+		m2.setId(2);
 		m2.setNom("ANGULAR");
+		m3.setId(3);
 		m3.setNom("SPRING");
 		
 		myMatieres.add(m1);
@@ -43,4 +42,3 @@ public class ListenerMatiere implements ServletContextListener {
 	}
 
 }
-*/

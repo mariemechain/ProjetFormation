@@ -1,6 +1,8 @@
 /*
 package fr.formation.projets.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 
 
@@ -15,22 +17,21 @@ import org.springframework.stereotype.Component;
 import fr.formation.ressources.model.Formateur;
 import fr.formation.ressources.model.Matiere;
 
-//@Entity
-//@Table(name = "plannification")
-@Component
-public class Planification {
+@Entity
+@Table(name = "plannification")
+public class Planification implements Serializable{
 
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
-//	@Column(name = "PLA_ID")
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "PLA_ID")
 	private int id;
 
-//	@Column(name = "PLA_MATIERE")
+	@Column(name = "PLA_MATIERE")
 	private Matiere matiere;
-//	@Column(name = "PLA_FORMATEUR")
+	@Column(name = "PLA_FORMATEUR")
 	private Formateur formateur;
-//	@Column(name = "PLA_PROJET")
-//	private Projet projet;
+	@Column(name = "PLA_PROJET")
+	private Projet projet;
 
 	public Planification() {
 

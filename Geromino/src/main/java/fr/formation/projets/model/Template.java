@@ -3,6 +3,7 @@
 
 package fr.formation.projets.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -19,7 +20,7 @@ import fr.formation.ressources.model.Matiere;
 
 @Entity
 @Table(name="template")
-public class Template {
+public class Template implements Serializable{
 	
 	/*
 	 * Attributs

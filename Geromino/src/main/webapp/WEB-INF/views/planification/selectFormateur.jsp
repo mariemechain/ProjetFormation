@@ -5,18 +5,18 @@
 	<tiles:putAttribute name="title" value="Selection Fournisseur" />
 	<tiles:putAttribute name="content">
 
+		<form method="post">
 
-		<div>
-			<!-- Selection formateur -->
+			<div>
+				<!-- Selection formateur -->
 
-			<select>
-				<c:forEach items="${formateurs }" var="formateur">
-					<option>${formateur}
-					<option>
-				</c:forEach>
-			</select>
-		</div>
-
-
+				<select name="selectForm">
+					<c:forEach items="${formateurs }" var="formateur">
+						<option value="${formateur }">${formateur.nom}</option>
+					</c:forEach>
+				</select>
+			</div>
+			<button name="" type="submit" class="btn btn-primary btn-info">Valider</button>
+		</form>
 	</tiles:putAttribute>
 </tiles:insertDefinition>
