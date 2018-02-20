@@ -18,6 +18,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -35,8 +36,11 @@ public class Materiel implements Serializable{
 	@Column(name = "MAT_ID")
 	@NotEmpty(message = "Veuillez indiquer l''ID")
 	private String id;
+	
 	@Column(name = "MAT_COUT", columnDefinition = "INTEGER")
-	private int cout;
+	@NotNull(message = "Veuillez indiquer le prix")
+	private Integer cout;
+	
 	@Column(name = "MAT_ETAT", columnDefinition = "DATE")
 	@Temporal(TemporalType.DATE)
 	private Date date;
@@ -63,13 +67,13 @@ public class Materiel implements Serializable{
 
 
 
-	public int getCout() {
+	public Integer getCout() {
 		return cout;
 	}
 
 
 
-	public void setCout(int cout) {
+	public void setCout(Integer cout) {
 		this.cout = cout;
 	}
 	

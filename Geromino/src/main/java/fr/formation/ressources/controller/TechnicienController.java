@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -55,8 +56,7 @@ public class TechnicienController {
 		return "techOrdi";
 	}
 
-	// ************************************************** Ajouter un
-	// ordi***************************
+	// *********************** Ajouter un ordi*********************
 	@GetMapping("/ordi/ajouter")
 	public String ajouterOrdi(Model model) {
 		model.addAttribute("ordinateur", new Ordinateur());
@@ -64,29 +64,36 @@ public class TechnicienController {
 	}
 
 	@PostMapping("/ordi/ajouter")
-	public String sauvegardeOrdi(@Valid @ModelAttribute("ordinateur") Ordinateur ordinateur, Model model) {
-
+	public String sauvegardeOrdi(@Valid @ModelAttribute("ordinateur") Ordinateur ordinateur, BindingResult result,
+			Model model) {
+		if (result.hasErrors()) {
+			return "ajouterOrdi";
+		}
 		ordiDAO.save(ordinateur);
 		return "redirect:./";
 	}
 
-	// ******************** Modifier un ordi***************************
+	// ******************** Modifier un ordi**************************
 	@GetMapping("/ordi/modifier")
 	public String modifOrdi(Model model, @RequestParam("id") String idOrdi) {
-		model.addAttribute("ordinateur", new Ordinateur());
+		//model.addAttribute("ordinateur", new Ordinateur());
 		model.addAttribute("ordinateur", ordiDAO.findById(idOrdi).get());
 		return "ajouterOrdi";
 	}
 
 	@PostMapping("/ordi/modifier")
-	public String modifierOrdi(@ModelAttribute("ordinateur") Ordinateur ordinateur, Model model,
-			@RequestParam("id") String idOrdi) {
-		ordinateur.setId(idOrdi);
+	public String modifierOrdi(@Valid @ModelAttribute("ordinateur") Ordinateur ordinateur, 
+			 BindingResult result, Model model) {
+		if (result.hasErrors()) {
+			//model.addAttribute("ordinateur", ordiDAO.findById(idOrdi).get());
+			return "ajouterOrdi";
+		}
+		//ordinateur.setId(idOrdi);
 		ordiDAO.save(ordinateur);
 		return "redirect:./";
 	}
 
-	// ***********************Modifier dispo ordinateur***************************
+	// ********************Modifier dispoordinateur******************
 	@GetMapping("/ordi/etat")
 	public String dispoOrdi(Model model, @RequestParam("id") String idOrdi) {
 
@@ -128,8 +135,12 @@ public class TechnicienController {
 	}
 
 	@PostMapping("/video/ajouter")
-	public String sauvegardeVideo(@Valid @ModelAttribute("videoprojecteur") VideoProjecteur videoprojecteur,
+	public String sauvegardeVideo(@Valid @ModelAttribute("videoprojecteur") VideoProjecteur videoprojecteur, BindingResult result,
 			Model model) {
+		if (result.hasErrors()) {
+			model.addAttribute("videoprojecteur", new VideoProjecteur());
+			return "techVideo";
+		}
 		videoDAO.save(videoprojecteur);
 		return "redirect:./";
 	}
@@ -144,15 +155,19 @@ public class TechnicienController {
 	}
 
 	@PostMapping("/video/modifier")
-	public String modifierOrdi(@ModelAttribute("videoprojecteur") VideoProjecteur videoprojecteur, Model model,
+	public String modifierOrdi(@ModelAttribute("videoprojecteur") VideoProjecteur videoprojecteur, BindingResult result, Model model,
 			@RequestParam("id") String idVideo) {
-
+		if (result.hasErrors()) {
+			model.addAttribute("videoprojecteur", videoDAO.findById(idVideo).get());
+			return "ajouterVideo";
+		}
 		videoprojecteur.setId(idVideo);
 		videoDAO.save(videoprojecteur);
 		return "redirect:./";
 	}
 
-	// ***********************Modifier dispo videoproj***************************
+	// ***********************Modifier dispo
+	// videoproj***************************
 	@GetMapping("/video/etat")
 	public String dispoVideo(Model model, @RequestParam("id") String idVideo) {
 
@@ -177,7 +192,8 @@ public class TechnicienController {
 	}
 
 	// ***************************************************************************
-	// ****************************Allouer ORDI***********************************
+	// ****************************Allouer
+	// ORDI***********************************
 	// ***************************************************************************
 
 	@GetMapping("/ordi/allouer")
@@ -185,7 +201,7 @@ public class TechnicienController {
 		model.addAttribute("ordinateur", new Ordinateur());
 		model.addAttribute("ordinateur", ordiDAO.findById(idOrdi).get());
 		model.addAttribute("stagiaire", new Stagiaire());
-		model.addAttribute("stagiaires", stagDAO.findAll()); 
+		model.addAttribute("stagiaires", stagDAO.findAll());
 		return "allouerOrdi";
 	}
 

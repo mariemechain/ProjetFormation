@@ -13,9 +13,12 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -26,16 +29,26 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @PrimaryKeyJoinColumn(name="ORD_ID", referencedColumnName="MAT_ID")
 public class Ordinateur extends Materiel {
 	
+	private static final long serialVersionUID = 1L;
 	
 	@Column(name = "ORD_PROCESSEUR")
+	@NotEmpty(message = "Veuillez indiquer le processeur")
 	private String processeur;
+	
 	@Column(name="ORD_RAM")
-	private int ram;
+	@NotNull(message = "Veuillez indiquer la quantité de RAM")
+	private Integer ram;
+	
 	@Column(name="ORD_STOCKAGE")
-	private int stockage;
+	@NotNull(message = "Veuillez indiquer la quantité de mémoire")
+	private Integer stockage;
+	
 	@Column(name="ORD_ACHAT", columnDefinition="DATE")
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	@NotNull(message = "Veuillez indiquer la date d'achat")
 	private Date achat;
+	
 	@JsonIgnoreProperties("ordinateur") 
 	@OneToMany(mappedBy= "ordinateur")
 	private List<Stagiaire> stagiaires;
@@ -58,19 +71,19 @@ public class Ordinateur extends Materiel {
 		this.processeur = processeur;
 	}
 
-	public int getRam() {
+	public Integer getRam() {
 		return ram;
 	}
 
-	public void setRam(int ram) {
+	public void setRam(Integer ram) {
 		this.ram = ram;
 	}
 
-	public int getStockage() {
+	public Integer getStockage() {
 		return stockage;
 	}
 
-	public void setStockage(int stockage) {
+	public void setStockage(Integer stockage) {
 		this.stockage = stockage;
 	}
 
@@ -86,7 +99,7 @@ public class Ordinateur extends Materiel {
 		
 	}
 	
-	public Ordinateur(String processeur, int ram, int stockage, Date achat) {
+	public Ordinateur(String processeur, Integer ram, Integer stockage, Date achat) {
 		super();
 		this.processeur = processeur;
 		this.ram = ram;
