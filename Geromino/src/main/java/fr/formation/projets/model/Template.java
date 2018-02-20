@@ -4,7 +4,6 @@
 package fr.formation.projets.model;
 
 import java.io.Serializable;
-
 import java.util.List;
 
 import javax.persistence.Column;
@@ -17,6 +16,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 import fr.formation.matieres.model.Matiere;
 
@@ -35,6 +35,7 @@ public class Template implements Serializable{
 	private int id;
 	
 	@Column(name="TEM_NOM")
+	@NotEmpty(message = "Le nom du cursus est obligatoire")
 	private String nom;
 	
 
