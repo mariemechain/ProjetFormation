@@ -39,30 +39,38 @@ public class DisponibiliteController {
 		List<Disponibilite> dispo = new ArrayList<Disponibilite>();
 		
 		LocalDate debut = LocalDate.now(); //date du jour
-		System.out.println(debut);
-		LocalDate fin = debut.plusMonths(1); //date dans 1 mois
+		LocalDate fin = debut.plusMonths(6); //date dans 1 mois
 		double duree = ChronoUnit.DAYS.between(debut, fin);
 		
 		//Ne prend pas le dernier jour du mois par exemple du 20/02/2018 au 19/03/2018
 		for(int i=0;i<duree;i++) {
-			System.out.println("debut for");
 			Disponibilite infoDate = new Disponibilite();
-			
 			LocalDate date = debut.plusDays(i);
-			System.out.println(date);
-			infoDate.setDate(date);
+			Period p = Period.between(debut, date);
+			int nbrMois = p.getMonths();
 			
+			infoDate.setDate(date);
+			infoDate.setId(nbrMois+1);			
 			infoDate.setEtatOrdi(getPourcentageOrdi(date));
-			//infoDate.setEtatSalle(getPourcentageSalle(date));
-			//infoDate.setEtatVideoProj(getPourcentageProjecteur(date));
-			System.out.println("fin for");
+			infoDate.setEtatSalle(getPourcentageSalle(date));
+			infoDate.setEtatVideoProj(getPourcentageProjecteur(date));
+			dispo.add(infoDate);
 		}
-				
+		
+		System.out.println(dispo);
 		model.addAttribute("liste", dispo);
+
 		return "disponibilite";
 	}
 	
-	
+	private List<Disponibilite> getListeDispo(double duree, LocalDate debut, int id)  {
+		
+		List<Disponibilite> dispo = new ArrayList<Disponibilite>();
+		
+		
+		return dispo;
+		
+	}
 
 	
 	//Pour les ordinateurs
@@ -85,7 +93,12 @@ public class DisponibiliteController {
 				}
 			}
 		}
-		return 100*(ordinateurs.size()-compteurOrdiIndispo)/ordinateurs.size();
+		if(ordinateurs.size()!=0) {
+			return 100*(ordinateurs.size()-compteurOrdiIndispo)/ordinateurs.size();
+		}
+		else
+			return 0;
+		
 	}
 	
 	
@@ -111,7 +124,10 @@ public class DisponibiliteController {
 			}
 		}
 		
-		return 100*(salles.size()- compteurSalleIndispo)/salles.size();
+		if(salles.size() != 0)
+			return 100*(salles.size()- compteurSalleIndispo)/salles.size();
+		else
+			return 0;
 	}
 	
 	
@@ -136,8 +152,10 @@ public class DisponibiliteController {
 				}
 			}
 		}
-		
-		return 100*(videoProjecteurs.size()- compteurProjoIndispo)/videoProjecteurs.size();
+		if(videoProjecteurs.size() != 0)
+			return 100*(videoProjecteurs.size()- compteurProjoIndispo)/videoProjecteurs.size();
+		else
+			return 0;
 	}
 	
 	
