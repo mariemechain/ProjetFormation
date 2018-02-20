@@ -13,7 +13,7 @@
 		<div class="form-group">
 					<label for="stagiaires">Type :</label>
 					<c:if test="${personnel.id != null}"> 
-					<select onChange="test(Formateur)" name="personnels">
+					<select onchange="changementType();" id="personnels" name="personnels">
 					
 					<option value="null">--</option>
 					 <option value="Formateur">Formateur</option>
@@ -99,7 +99,7 @@
 					cssClass="alert alert-danger" />
 			</div>
 			
-			<div class="form-group">
+			<div class="form-group" id="titre">
 				<label>Titre :</label>
 				<input  type="text" class="form-control"
 					name="titre" aria-describedby="Help" placeholder="titre"
