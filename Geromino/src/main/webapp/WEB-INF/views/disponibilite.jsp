@@ -56,7 +56,7 @@
 											</c:if>
 											<c:if test="${liste.etatSalle > 30}">
 												<td class="text-success">
-													<div class="border border-warning rounded">Bon état du stock</div>
+													<div class="border border-success rounded">Bon état du stock</div>
 												</td>
 											</c:if>
 											<!-- 										Ordinateurs -->
@@ -72,7 +72,7 @@
 											</c:if>
 											<c:if test="${liste.etatOrdi > 30}">
 												<td class="text-success">
-													<div class="border border-warning rounded">Bon état du stock</div>
+													<div class="border border-success rounded">Bon état du stock</div>
 												</td>
 											</c:if>
 											<!-- 										VideoProjecteurs -->
@@ -88,7 +88,7 @@
 											</c:if>
 											<c:if test="${liste.etatVideoProj > 30}">
 												<td class="text-success">
-													<div class="border border-warning rounded">Bon état du stock</div>
+													<div class="border border-success rounded">Bon état du stock</div>
 												</td>
 											</c:if>
 
@@ -130,7 +130,7 @@
 											</c:if>
 											<c:if test="${liste.etatSalle > 30}">
 												<td class="text-success">
-													<div class="border border-warning rounded">Bon état du stock</div>
+													<div class="border border-success rounded">Bon état du stock</div>
 												</td>
 											</c:if>
 											<!-- 										Ordinateurs -->
@@ -146,7 +146,7 @@
 											</c:if>
 											<c:if test="${liste.etatOrdi > 30}">
 												<td class="text-success">
-													<div class="border border-warning rounded">Bon état du stock</div>
+													<div class="border border-success rounded">Bon état du stock</div>
 												</td>
 											</c:if>
 											<!-- 										VideoProjecteurs -->
@@ -162,7 +162,7 @@
 											</c:if>
 											<c:if test="${liste.etatVideoProj > 30}">
 												<td class="text-success">
-													<div class="border border-warning rounded">Bon état du stock</div>
+													<div class="border border-success rounded">Bon état du stock</div>
 												</td>
 											</c:if>
 
@@ -203,7 +203,7 @@
 											</c:if>
 											<c:if test="${liste.etatSalle > 30}">
 												<td class="text-success">
-													<div class="border border-warning rounded">Bon état du stock</div>
+													<div class="border border-success rounded">Bon état du stock</div>
 												</td>
 											</c:if>
 											<!-- 										Ordinateurs -->
@@ -219,7 +219,7 @@
 											</c:if>
 											<c:if test="${liste.etatOrdi > 30}">
 												<td class="text-success">
-													<div class="border border-warning rounded">Bon état du stock</div>
+													<div class="border border-success rounded">Bon état du stock</div>
 												</td>
 											</c:if>
 											<!-- 										VideoProjecteurs -->
@@ -235,7 +235,7 @@
 											</c:if>
 											<c:if test="${liste.etatVideoProj > 30}">
 												<td class="text-success">
-													<div class="border border-warning rounded">Bon état du stock</div>
+													<div class="border border-success rounded">Bon état du stock</div>
 												</td>
 											</c:if>
 
@@ -276,7 +276,7 @@
 											</c:if>
 											<c:if test="${liste.etatSalle > 30}">
 												<td class="text-success">
-													<div class="border border-warning rounded">Bon état du stock</div>
+													<div class="border border-success rounded">Bon état du stock</div>
 												</td>
 											</c:if>
 											<!-- 										Ordinateurs -->
@@ -292,7 +292,7 @@
 											</c:if>
 											<c:if test="${liste.etatOrdi > 30}">
 												<td class="text-success">
-													<div class="border border-warning rounded">Bon état du stock</div>
+													<div class="border border-success rounded">Bon état du stock</div>
 												</td>
 											</c:if>
 											<!-- 										VideoProjecteurs -->
@@ -308,7 +308,7 @@
 											</c:if>
 											<c:if test="${liste.etatVideoProj > 30}">
 												<td class="text-success">
-													<div class="border border-warning rounded">Bon état du stock</div>
+													<div class="border border-success rounded">Bon état du stock</div>
 												</td>
 											</c:if>
 
@@ -349,7 +349,7 @@
 											</c:if>
 											<c:if test="${liste.etatSalle > 30}">
 												<td class="text-success">
-													<div class="border border-warning rounded">Bon état du stock</div>
+													<div class="border border-success rounded">Bon état du stock</div>
 												</td>
 											</c:if>
 											<!-- 										Ordinateurs -->
@@ -365,7 +365,7 @@
 											</c:if>
 											<c:if test="${liste.etatOrdi > 30}">
 												<td class="text-success">
-													<div class="border border-warning rounded">Bon état du stock</div>
+													<div class="border border-success rounded">Bon état du stock</div>
 												</td>
 											</c:if>
 											<!-- 										VideoProjecteurs -->
@@ -381,7 +381,7 @@
 											</c:if>
 											<c:if test="${liste.etatVideoProj > 30}">
 												<td class="text-success">
-													<div class="border border-warning rounded">Bon état du stock</div>
+													<div class="border border-success rounded">Bon état du stock</div>
 												</td>
 											</c:if>
 
@@ -422,7 +422,7 @@
 											</c:if>
 											<c:if test="${liste.etatSalle > 30}">
 												<td class="text-success">
-													<div class="border border-warning rounded">Bon état du stock</div>
+													<div class="border border-success rounded">Bon état du stock</div>
 												</td>
 											</c:if>
 											<!-- 										Ordinateurs -->
@@ -438,7 +438,7 @@
 											</c:if>
 											<c:if test="${liste.etatOrdi > 30}">
 												<td class="text-success">
-													<div class="border border-warning rounded">Bon état du stock</div>
+													<div class="border border-success rounded">Bon état du stock</div>
 												</td>
 											</c:if>
 											<!-- 										VideoProjecteurs -->
@@ -454,7 +454,7 @@
 											</c:if>
 											<c:if test="${liste.etatVideoProj > 30}">
 												<td class="text-success">
-													<div class="border border-warning rounded">Bon état du stock</div>
+													<div class="border border-success rounded">Bon état du stock</div>
 												</td>
 											</c:if>
 
