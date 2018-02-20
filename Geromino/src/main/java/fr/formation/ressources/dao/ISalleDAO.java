@@ -8,6 +8,6 @@ import org.springframework.data.jpa.repository.Query;
 import fr.formation.ressources.metier.Salle;
 
 public interface ISalleDAO extends JpaRepository<Salle, String> {
-	@Query("from Salle s left join fetch s.dispo")
+	//@Query("from Salle s left join fetch s.dispo")
     public List<Salle> findAll();
 }

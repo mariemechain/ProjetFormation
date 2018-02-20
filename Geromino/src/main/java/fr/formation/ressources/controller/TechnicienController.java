@@ -110,6 +110,8 @@ public class TechnicienController {
         return "redirect:./";
     }
 
+
+
 	// ***********************Supprimer un ordi***************************
 	@GetMapping("/ordi/supprimer")
 	public String deleteOrdi(@RequestParam("id") String idOrdi) {
@@ -172,8 +174,7 @@ public class TechnicienController {
 	}
 
 	@PostMapping("/video/etat")
-	public String dispoVideoprojecteur(@ModelAttribute("videoprojecteur") VideoProjecteur videoprojecteur,
-			@RequestParam("id") String idVideo, @RequestParam("date") Date date) {
+	public String dispoVideoprojecteur(@RequestParam("id") String idVideo, @RequestParam("date") Date date) {
 		VideoProjecteur video = videoDAO.findById(idVideo).get();
 		video.setDate(date);
 		videoDAO.save(video);

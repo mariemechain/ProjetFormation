@@ -3,6 +3,9 @@
 	pageEncoding="UTF-8"%>
 <%@  taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+
 
 
 <tiles:insertDefinition name="app.layout">
@@ -21,9 +24,12 @@
 				</div>
 
 				<div class="form-group">
-					<label for="date">Veuillez indiquer la date de retour de réparation estimé du matériel (aaaa-mm-jj) :</label> <input name="date"
-						type="text" class="form-control" id="date"
-						value="${ordinateur.date}" placeholder="Date de retour">
+					<label id="date" for="date">Veuillez indiquer la date de retour de
+						réparation estimé du matériel :</label> 
+					<input name="date" type="date" class="form-control" id="date"
+						value="${ordinateur.date}" placeholder="date de retour">
+
+				
 
 
 				</div>

@@ -34,6 +34,24 @@
 						cssClass="alert alert-danger" />
 				</div>
 
+<<<<<<< Updated upstream
+=======
+				<c:if
+					test="${videoprojecteur.id != null && videoprojecteur.id== '' }">
+					<div class="form-group">
+						<label for="date">Date de retour</label> <input
+							name="date" type="date" class="form-control" id="date"
+							value="${videoprojecteur.date}" placeholder="Date de retour">
+						<form:errors path="date" element="div"
+							cssClass="alert alert-danger" />
+
+						<%-- <c:if test="${ videoprojecteur.id== ''}">
+					<label>${videoprojecteur.date}</label>
+					</c:if> --%>
+					</div>
+				</c:if>
+
+>>>>>>> Stashed changes
 				<button type="submit" class="btn btn-primary">Ajouter</button>
 				<a href="/Geromino/technicien/video">
 					<button type="button" class="btn btn-danger">Revenir au

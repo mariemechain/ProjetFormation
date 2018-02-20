@@ -71,7 +71,7 @@
 				</div> --%>
 
 				<div class="form-group">
-					<label for="achat">Date d'achat (aaaa-mm-jj)</label> <input
+					<label for="achat">Date d'achat </label> <input
 						name="achat" type="date" class="form-control" id="date"
 						value="${ordinateur.achat}" placeholder="date d'achat">
 					<form:errors path="achat" element="div"

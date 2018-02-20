@@ -21,9 +21,9 @@
 				</div>
 
 				<div class="form-group">
-					<label for="date">Veuillez indiquer la date de retour de réparation estimé du matériel (aaaa-mm-jj) :</label> <input name="date"
-						type="text" class="form-control" id="date"
-						value="${ordinateur.date}" placeholder="Date de retour">
+					<label for="date">Veuillez indiquer la date de retour de réparation estimé du matériel :</label> <input name="date"
+						type="date" class="form-control" id="date"
+						value="${videoprojecteur.date}" placeholder="Date de retour">
 
 
 				</div>

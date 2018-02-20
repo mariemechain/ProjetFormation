@@ -22,6 +22,7 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "materiel")
@@ -43,6 +44,7 @@ public class Materiel implements Serializable{
 	
 	@Column(name = "MAT_ETAT", columnDefinition = "DATE")
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date date;
 //	@ManyToMany(mappedBy = "materiels")
 //	private List<Projet> dispo;

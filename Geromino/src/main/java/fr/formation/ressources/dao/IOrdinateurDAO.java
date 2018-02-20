@@ -11,6 +11,6 @@ import fr.formation.ressources.metier.Ordinateur;
 
 public interface IOrdinateurDAO extends JpaRepository<Ordinateur, String>
 {
-	 @Query("from Ordinateur o left join fetch o.dispo")
+	// @Query("from Ordinateur o left join fetch o.dispo")
 	    public List<Ordinateur> findAll();
 }
