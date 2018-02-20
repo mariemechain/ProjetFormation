@@ -51,7 +51,6 @@ public class DisponibiliteController {
 			Disponibilite infoDate = new Disponibilite();
 			LocalDate date = debut.plusDays(i);
 			Period p = Period.between(debut, date);
-			int nbrMois = p.getMonths();
 			
 			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/YYYY");
 			Date date2 = Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant());
@@ -60,7 +59,7 @@ public class DisponibiliteController {
 			if(debut.getMonthValue()==date.getMonthValue())
 				infoDate.setId(1);
 			else
-				infoDate.setId((date.getMonthValue()-debut.getMonthValue())%12+1);	
+				infoDate.setId((12 + date.getMonthValue()- debut.getMonthValue())%12 + 1);	
 			
 			infoDate.setEtatOrdi(getPourcentageOrdi(date));
 			infoDate.setEtatSalle(getPourcentageSalle(date));
@@ -68,19 +67,9 @@ public class DisponibiliteController {
 			dispo.add(infoDate);
 		}
 		
-		
 		model.addAttribute("liste", dispo);
-
+		
 		return "disponibilite";
-	}
-	
-	private List<Disponibilite> getListeDispo(double duree, LocalDate debut, int id)  {
-		
-		List<Disponibilite> dispo = new ArrayList<Disponibilite>();
-		
-		
-		return dispo;
-		
 	}
 
 	
@@ -112,8 +101,6 @@ public class DisponibiliteController {
 		
 	}
 	
-	
-	
 	//Pour les salles
 	private double getPourcentageSalle(LocalDate d1) {
 		List<Salle> salles = salleDao.findAll();
@@ -123,7 +110,7 @@ public class DisponibiliteController {
 			List<Projet> projets = s.getDispo(); //La liste des projets de chaque ordinateur [nom de méthode à verifier]
 			for(Projet p : projets) {
 				Date dateD = p. getDebut();
-	java.sql.Date dateDebut = (java.sql.Date) dateD;
+				java.sql.Date dateDebut = (java.sql.Date) dateD;
 				int duree = p.getDuree();
 				List<LocalDate> listeIndisponibilite = obtenirListeIndisponibilite(dateDebut,duree);
 				
@@ -134,16 +121,12 @@ public class DisponibiliteController {
 				}
 			}
 		}
-		int val= (1-12)%12+1;
-		System.err.println(val);
 		
 		if(salles.size() != 0)
 			return 100*(salles.size()- compteurSalleIndispo)/salles.size();
 		else
 			return 0;
 	}
-	
-	
 	
 	//Pour les videos projecteurs
 	private double getPourcentageProjecteur(LocalDate d1) {

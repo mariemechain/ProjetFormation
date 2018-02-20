@@ -24,11 +24,12 @@
 					<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
 					<li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
 					<li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
-					<li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+					<li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
 
 				</ol>
 				<div class="carousel-inner">
 					<div class="carousel-item active">
+						<h2>Mois 1</h2>
 						<table class="table table-sm">
 
 							<thead>
@@ -107,6 +108,7 @@
 					</div>
 
 					<div class="carousel-item">
+						<h2>Mois 2</h2>
 						<table class="table table-sm">
 
 							<thead>
@@ -184,6 +186,7 @@
 						</table>
 					</div>
 					<div class="carousel-item">
+						<h2>Mois 3</h2>
 						<table class="table table-sm">
 
 							<thead>
@@ -261,6 +264,7 @@
 						</table>
 					</div>
 					<div class="carousel-item">
+						<h2>Mois 4</h2>
 						<table class="table table-sm">
 
 							<thead>
@@ -338,6 +342,7 @@
 						</table>
 					</div>
 					<div class="carousel-item">
+						<h2>Mois 5</h2>
 						<table class="table table-sm">
 
 							<thead>
@@ -415,6 +420,7 @@
 						</table>
 					</div>
 					<div class="carousel-item">
+						<h2>Mois 6</h2>
 						<table class="table table-sm">
 
 							<thead>
@@ -492,6 +498,7 @@
 						</table>
 					</div>
 					<div class="carousel-item">
+						<h2>Mois 7</h2>
 						<table class="table table-sm">
 
 							<thead>
