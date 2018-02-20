@@ -35,10 +35,10 @@
 						<td>${ personnel.email }</td>
 						<td>${personnel.type}</td>
 						<td><a
-							href="/Geromino/technicien/ordi/modifier?id=${personnel.id}"
+							href="/Geromino/adminEditerPersonnel?id=${personnel.id}"
 							class="btn btn-success">Modifier</a>
 							<a
-							href="/Geromino/technicien/ordi/supprimer?id=${personnel.id}"
+							href="/Geromino/adminSupprimerPersonnel?id=${personnel.id}"
 							class="btn btn-danger">X</a></td>
 
 

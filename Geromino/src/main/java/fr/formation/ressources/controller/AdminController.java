@@ -1,8 +1,11 @@
 package fr.formation.ressources.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +19,7 @@ import fr.formation.ressources.dao.ITechnicienDAO;
 import fr.formation.ressources.metier.Admin;
 import fr.formation.ressources.metier.Gestionnaire;
 import fr.formation.ressources.metier.Personnel;
+import fr.formation.ressources.metier.Salle;
 import fr.formation.ressources.metier.Technicien;
 
 @Controller
@@ -43,11 +47,15 @@ public class AdminController {
 		return "personnels";
 	}
 	
+	
+	
 	@GetMapping("/adminAjouterPersonnel")
 	public String formulaireAjout(Model model) {
 		model.addAttribute("personnel", new Personnel());
 		return "ajouterPersonnel";
 	}
+	
+	//************************************************** Ajouter un personnel***************************
 	
 	@PostMapping("/adminAjouterPersonnel")
 	public String ajouterPersonnel(@ModelAttribute("personne") Personnel personnel, @RequestParam("personnels") String type) {
@@ -114,7 +122,44 @@ public class AdminController {
 
 		
 		
-		return "adminAjouterPersonnel";
+		return "redirect:./admin";
 	}
 	
+	//************************************************** Editer un Personnel***************************
+	@GetMapping("/adminEditerPersonnel")
+	public String editerPersonnel( @RequestParam("id") int id, Model model) {
+		model.addAttribute("personnel", daoPersonnel.findById(id).get());
+		
+		return "ajouterPersonnel";
+	}
+	
+	@PostMapping("/adminEditerPersonnel")
+	public String editerPersonnel(@ModelAttribute("personne") Personnel personnel,  @RequestParam("id") int id, Model model) {
+		
+		Personnel pnl= daoPersonnel.findById(id).get();
+		pnl.setNom(personnel.getNom());
+		pnl.setPrenom(personnel.getPrenom());
+		pnl.setAdresse(personnel.getAdresse());
+		pnl.setDate(personnel.getDate());
+		pnl.setEmail(personnel.getEmail());
+		pnl.setLogin(personnel.getLogin());
+		pnl.setMotDePasse(personnel.getMotDePasse());
+		pnl.setTelephone(personnel.getTelephone());
+//		if(daoPersonnel.findById(id).get().getType().equals("Formateur")) {
+//			pnl.setTitre(personnel.getTitre());
+//		}
+		
+		daoPersonnel.save(pnl);
+		
+		return "redirect:./admin";	
+	}
+	
+	
+	//************************************************** Supprimer un personnel***************************
+	@GetMapping("/adminSupprimerPersonnel")
+	public String supprimerPersonnel(@RequestParam("id") int id) {
+		
+		daoPersonnel.delete(daoPersonnel.findById(id).get());	
+		return "redirect:./admin";
+	}
 }
