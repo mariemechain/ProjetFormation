@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { AppConfigService } from '../app-config.service';
 import { Formateur } from './formateur';
-
+import { Disponibilite } from './disponibilite';
 @Injectable()
 export class DispoService {
      private disponibilites: Array<Disponibilite>;

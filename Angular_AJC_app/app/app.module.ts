@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormateurModule } from './formateur/formateur.module'
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
-
-
 
 import { AppConfigService } from './app-config.service';
 
@@ -13,6 +11,8 @@ import { AppConfigService } from './app-config.service';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home.component';
+
+
 
 
 
@@ -26,9 +26,11 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes),
     HttpModule,
     FormateurModule,
+
   ],
   providers: [
     AppConfigService,
@@ -37,6 +39,7 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
+
   ],
 
   bootstrap: [ AppComponent ]

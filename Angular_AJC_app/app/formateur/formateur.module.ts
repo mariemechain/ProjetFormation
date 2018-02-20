@@ -11,9 +11,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { NgbdDatepickerRange } from './datepicker-range';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const routesFormateur: Routes = [
 { path: 'formateur', component: FormateurComponent },
+{ path: 'formateur/dispo', component: DispoComponent },
 // { path: 'formateur/:nom/:prenom/:ca', component:FormateurComponent }
 ];
 
@@ -23,6 +26,8 @@ const routesFormateur: Routes = [
       BrowserModule,
       RouterModule.forChild(routesFormateur),
       HttpModule,
+      NgbModule.forRoot()
+
     ],
     providers: [
 
@@ -35,8 +40,8 @@ const routesFormateur: Routes = [
     declarations: [
 
         FormateurComponent,
-        DispoComponent
-        // ClientPipe,
+        DispoComponent,
+        NgbdDatepickerRange
 
 
     ],

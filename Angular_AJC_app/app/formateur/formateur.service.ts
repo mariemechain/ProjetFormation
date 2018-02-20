@@ -12,11 +12,11 @@ export class FormateurService {
     }
 
 
-    public findById(id: number) {
-      this.http.get(this.appConfig.uri + "/formateur/"+id).subscribe(resp => this.formateur =  resp.json());
-      this.expertises = this.formateur.expertises;
-      return this.expertises;
-    }
+    // public findById(id: number) {
+    //   this.http.get(this.appConfig.uri + "/formateur/"+id).subscribe(resp => this.formateur =  resp.json());
+    //   this.expertises = this.formateur.expertises;
+    //   return this.expertises;
+    // }
 
 
 
