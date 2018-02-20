@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import fr.formation.ressources.metier.Personne;
+import fr.formation.ressources.metier.Personnel;
 
 
 @Controller
@@ -22,8 +23,8 @@ public class HomeController {
 	@GetMapping(value = { "/home", "/home/{login}" })
 	public String home(@PathVariable(value="login", required=false) String login, Model model, HttpSession ses) {
 		model.addAttribute("login", login);
-		Personne p = (Personne) ses.getAttribute("utilisateur");
-		model.addAttribute("personne",p);
+		Personnel p = (Personnel) ses.getAttribute("utilisateur");
+		model.addAttribute("personnel",p);
 		return "home";
 	}
 }

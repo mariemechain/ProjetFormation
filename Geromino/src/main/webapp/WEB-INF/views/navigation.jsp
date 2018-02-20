@@ -26,7 +26,7 @@
 					</a></li>
 					<li class="nav-item"><a class="nav-link" href="technicien">Techniciens</a></li>
 					<li class="nav-item"><a class="nav-link" href="gestionnaire">Gestionnaire</a></li>
-					<li class="nav-item"><a class="nav-link" href="technicien">Matières</a></li>
+					<li class="nav-item"><a class="nav-link" href="personnels">Personnels</a></li>
 					<li class="nav-item"><a class="nav-link" href="deconnexion">Déconnexion</a></li>
 				</ul>
 			</c:if>
@@ -39,7 +39,7 @@
 						href="technicien">Techniciens <span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="gestionnaire">Gestionnaire</a></li>
-					<li class="nav-item"><a class="nav-link" href="technicien">Matières</a></li>
+					<li class="nav-item"><a class="nav-link" href="personnels">Personnels</a></li>
 					<li class="nav-item"><a class="nav-link" href="deconnexion">Déconnexion</a></li>
 				</ul>
 			</c:if>
@@ -52,28 +52,25 @@
 					<li class="nav-item active"><a class="nav-link"
 						href="gestionnaire">Gestionnaire<span class="sr-only">(current)</span></a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="technicien">Matières</a></li>
+					<li class="nav-item"><a class="nav-link" href="personnels">Personnels</a></li>
 					<li class="nav-item"><a class="nav-link" href="deconnexion">Déconnexion</a></li>
 				</ul>
 			</c:if>
 
-			<c:if test="${page == 'matiere'}">
+			<c:if test="${page == 'personnels'}">
 				<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 					<li class="nav-item"><a class="nav-link" href="home">Home</a></li>
 					<li class="nav-item"><a class="nav-link" href="technicien">Techniciens
 					</a></li>
 					<li class="nav-item"><a class="nav-link" href="gestionnaire">Gestionnaire</a></li>
 					<li class="nav-item active"><a class="nav-link"
-						href="gestionnaire">Matières <span class="sr-only">(current)</span></a>
+						href="Personnels">Personnels <span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="deconnexion">Déconnexion</a></li>
 				</ul>
 			</c:if>
-			<form class="form-inline my-2 my-lg-0">
-				<input class="form-control mr-sm-2" type="search"
-					placeholder="Search" aria-label="Search">
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Chercher!</button>
-			</form>
+			
+
 		</div>
 	</nav>
 
