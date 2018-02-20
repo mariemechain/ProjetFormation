@@ -13,6 +13,7 @@ import fr.formation.ressources.dao.ISalleDAO;
 import fr.formation.ressources.dao.IStagiaireDAO;
 import fr.formation.ressources.dao.ITechnicienDAO;
 import fr.formation.ressources.dao.IVideoProjecteurDAO;
+import fr.formation.ressources.metier.Salle;
 
 
 public class Test {
@@ -29,6 +30,9 @@ public class Test {
 		 IVideoProjecteurDAO vdao=myContext.getBean(IVideoProjecteurDAO.class);
 		 IProjetDAO pdao = myContext.getBean(IProjetDAO.class);
 		 
+		 Salle s = new Salle();
+		 s.setId("s456");
+		 sdao.save(s);
 	}
 		 
 	        

@@ -47,7 +47,7 @@
 				</div>
 				
 				<div class="form-group">
-					<label for="achat">Date d'achat (aaaa/mm/jj)</label>
+					<label for="achat">Date d'achat (aaaa-mm-jj)</label>
 					<input name="achat"
 						type="text" class="form-control" id="date"
 						value="${ordinateur.achat}" placeholder="achat">

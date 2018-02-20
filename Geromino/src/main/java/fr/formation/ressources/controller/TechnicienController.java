@@ -185,7 +185,7 @@ public class TechnicienController {
 		model.addAttribute("ordinateur", new Ordinateur());
 		model.addAttribute("ordinateur", ordiDAO.findById(idOrdi).get());
 		model.addAttribute("stagiaire", new Stagiaire());
-		model.addAttribute("stagiaires", stagDAO.findAll());
+		model.addAttribute("stagiaires", stagDAO.findAll()); 
 		return "allouerOrdi";
 	}
 

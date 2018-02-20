@@ -30,7 +30,7 @@
 				</div>
 
 				<div class="form-group">
-					<label for="date">Date de retour (aaaa/mm/jj)</label>
+					<label for="date">Date de retour (aaaa-mm-jj)</label>
 					<c:if test="${videoprojecteur.id != null}"> 
 					<input name="date"
 						type="text" class="form-control" id="date"
