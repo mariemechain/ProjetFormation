@@ -1,8 +1,11 @@
 package fr.formation.disponibilite.controller;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Date;
@@ -49,7 +52,12 @@ public class DisponibiliteController {
 			Period p = Period.between(debut, date);
 			int nbrMois = p.getMonths();
 			
-			infoDate.setDate(date);
+			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/YYYY");
+			Date date2 = Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant());
+			
+			System.out.println(formatter.format(date2) + "           " + date);
+			
+			infoDate.setDate(formatter.format(date2));
 			infoDate.setId(nbrMois+1);			
 			infoDate.setEtatOrdi(getPourcentageOrdi(date));
 			infoDate.setEtatSalle(getPourcentageSalle(date));
@@ -57,7 +65,7 @@ public class DisponibiliteController {
 			dispo.add(infoDate);
 		}
 		
-		System.out.println(dispo);
+		
 		model.addAttribute("liste", dispo);
 
 		return "disponibilite";

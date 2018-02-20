@@ -1,11 +1,11 @@
 package fr.formation.disponibilite.model;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 public class Disponibilite {
 	
 	private int id;
-	private LocalDate date;
+	private String date;
 	private Double etatSalle;
 	private Double etatOrdi;
 	private Double etatVideoProj;
@@ -16,10 +16,10 @@ public class Disponibilite {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public LocalDate getDate() {
+	public String getDate() {
 		return date;
 	}
-	public void setDate(LocalDate date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	public Double getEtatSalle() {
