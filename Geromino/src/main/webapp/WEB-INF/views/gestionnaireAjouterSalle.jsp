@@ -35,6 +35,15 @@
 				<form:errors path="places" element="div"
 					cssClass="alert alert-danger" />
 			</div>
+			
+			<div class="form-group">
+				<form:label path="cout">Coût journalier :</form:label>
+				<form:input path="cout" type="number" class="form-control"
+					name="cout" id="exampleInputPassword1" placeholder="Coût"
+					value="${salle.cout }" />
+				<form:errors path="cout" element="div"
+					cssClass="alert alert-danger" />
+			</div>
 
 			<div class="form-group">
 				<form:label path="adresse">Adresse :</form:label>

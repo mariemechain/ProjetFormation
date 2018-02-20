@@ -21,6 +21,7 @@ import fr.formation.ressources.dao.IVideoProjecteurDAO;
 import fr.formation.ressources.metier.Contact;
 import fr.formation.ressources.metier.Projet;
 import fr.formation.ressources.metier.Salle;
+import fr.formation.ressources.metier.Stagiaire;
 
 @Controller
 @RequestMapping("/gestionnaire")
@@ -247,4 +248,68 @@ public class GestionnaireController {
 					daoContact.deleteById(id);	
 					return "redirect:./gestionnaireContact";
 				}
+				
+				//***********************************************************************************************
+				//****************************STAGIAIRE*************************************************************
+				//***********************************************************************************************
+				
+				@GetMapping("/gestionnaireStagiaires")
+				public String listeStagiaire(Model model) {
+					model.addAttribute("stagiaires", daoStagiaire.findAll());
+					return "gestionnaireStagiaires";
+				}
+				
+				//************************************************** Ajouter un stagiaire***************************
+						@GetMapping("/gestionnaireAjouterStagiaire")
+						public String ajouterStagiaire(Model model) {
+							model.addAttribute("stagiaire", new Stagiaire());
+							model.addAttribute("stagiaires", daoStagiaire.findAll());
+							
+							return "gestionnaireAjouterStagiaire";
+						}
+
+						@PostMapping("/gestionnaireAjouterStagiaire")
+						public String ajouterStagiaire(@Valid @ModelAttribute("stagiaire") Stagiaire stagiaire, BindingResult result, Model model) {
+							if(result.hasErrors()) {
+								model.addAttribute("stagiaires", daoStagiaire.findAll());
+								return "gestionnaireAjouterStagiaire";	
+							}
+//							model.addAttribute("contacts", daoContact.findAll());		
+							daoStagiaire.save(stagiaire);	
+							return "redirect:./gestionnaireStagiaires";
+						}
+						
+						//************************************************** Editer un stagiaire***************************
+						@GetMapping("/gestionnaireEditerStagiaire")
+						public String editerStagiaire( @RequestParam("id") int id, Model model) {
+							model.addAttribute("stagiaire", daoStagiaire.findById(id).get());
+							System.out.println(id);
+							
+							
+							return "gestionnaireAjouterStagiaire";
+						}
+						
+						@PostMapping("/gestionnaireEditerStagiaire")
+						public String editerStagiaire(@Valid @ModelAttribute("stagiaire") Stagiaire stagiaire,  @RequestParam("id") int id, BindingResult result, Model model) {
+							if(result.hasErrors()) {
+								model.addAttribute("stagiaire", daoStagiaire.findById(id).get());
+								return "gestionnaireAjouterStagiaire";
+							}
+							model.addAttribute("stagiaires", daoStagiaire.findAll());
+							
+							stagiaire.setId(id);
+							daoStagiaire.save(stagiaire);		
+							//return "gestionnaireSalle";
+							return "redirect:./gestionnaireStagiaires";	
+						}
+						
+						
+						
+						//************************************************** Supprimer un contact***************************	
+						
+						@GetMapping("/gestionnaireSupprimerStagiaire")
+						public String supprimerStagiaire(@RequestParam("id") int id) {
+							daoStagiaire.deleteById(id);	
+							return "redirect:./gestionnaireStagiaires";
+						}
 }

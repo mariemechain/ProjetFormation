@@ -6,7 +6,7 @@
 
 
 <tiles:insertDefinition name="app.layout">
-	<tiles:putAttribute name="title" value="Gestion des contacts" />
+	<tiles:putAttribute name="title" value="Gestion des stagiaires" />
 	<tiles:putAttribute name="content">
 
 
@@ -20,34 +20,36 @@
 					<th>Nom</th>
 					<th>Prenom</th>
 					<th>Téléphone</th>
+					<th>Ordinateur</th>
 
 				</tr>
 			</thead>
-			<c:forEach items="${contacts}" var="contact">
+			<c:forEach items="${stagiaires}" var="stagiaire">
 				<tr>
-					<td>${contact.id }</td>
+					<td>${stagiaire.id }</td>
 					<%-- <td>${projet.XXX }</td>--%>
- 					<td>${contact.adresse }</td>		
-					<td>${contact.date}</td>
-					<td>${contact.email}</td>
-					<td>${contact.nom}</td>
-					<td>${contact.prenom}</td>
-					<td>${contact.telephone}</td>
+ 					<td>${stagiaire.adresse }</td>		
+					<td>${stagiaire.date}</td>
+					<td>${stagiaire.email}</td>
+					<td>${stagiaire.nom}</td>
+					<td>${stagiaire.prenom}</td>
+					<td>${stagiaire.telephone}</td>
+					<td>${stagiaire.ordinateur.id}</td>
 					<td><a
-						href="/Geromino/gestionnaire/gestionnaireEditerContact?id=${contact.id }"><button
+						href="/Geromino/gestionnaire/gestionnaireEditerStagiaire?id=${stagiaire.id }"><button
 								type="button" class="btn btn-outline-primary">modifier</button></a>
 					</td>
 					<td><a
-						href="/Geromino/gestionnaire/gestionnaireSupprimerContact?id=${contact.id }"><button
+						href="/Geromino/gestionnaire/gestionnaireSupprimerStagiaire?id=${stagiaire.id }"><button
 								type="button" class="btn btn-danger">X</button></a></td>
 				</tr>
 			</c:forEach>
 		</table>
 
 		<div>
-			<a href="/Geromino/gestionnaire/gestionnaireAjouterContact"><button
+			<a href="/Geromino/gestionnaire/gestionnaireAjouterStagiaire"><button
 					type="button" class="btn btn-success">Ajouter un nouveau
-					Contact</button></a>
+					Stagiaire</button></a>
 		</div>
 
 	</tiles:putAttribute>
