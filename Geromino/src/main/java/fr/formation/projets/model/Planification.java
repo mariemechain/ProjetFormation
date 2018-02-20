@@ -16,9 +16,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
+import fr.formation.matieres.model.Matiere;
 import fr.formation.ressources.model.Formateur;
-import fr.formation.ressources.model.Matiere;
 
 @Entity
 @Table(name = "planification")

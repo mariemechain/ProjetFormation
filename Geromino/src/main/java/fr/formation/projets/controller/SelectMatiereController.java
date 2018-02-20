@@ -2,6 +2,7 @@ package fr.formation.projets.controller;
 
 import java.util.List;
 
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +14,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import fr.formation.projets.dao.IMatiereDAO;
-import fr.formation.ressources.model.Matiere;
+import fr.formation.matieres.dao.IMatiereDAO;
+import fr.formation.matieres.model.Matiere;
 
 @Controller
 @RequestMapping("/selectMatiere")
@@ -34,8 +35,8 @@ public class SelectMatiereController {
 
 	@PostMapping("")
 	public String selectMatiere(@RequestParam("selectMat") int idMatiere) {
-		Matiere matiere = daoMAt.findById(idMatiere).get();
-		System.out.println("id : "+matiere.getId()+" nom "+ matiere.getNom());
+		Matiere matiere = daoMAt.findById(idMatiere);
+		System.out.println("id : "+matiere.getId()+" nom "+ matiere.getTitre());
 		return "redirect:./selectMatiere";
 	}
 }

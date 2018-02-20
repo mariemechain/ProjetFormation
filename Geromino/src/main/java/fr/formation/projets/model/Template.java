@@ -4,6 +4,7 @@
 package fr.formation.projets.model;
 
 import java.io.Serializable;
+
 import java.util.List;
 
 import javax.persistence.Column;
@@ -17,7 +18,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-import fr.formation.ressources.model.Matiere;
+import fr.formation.matieres.model.Matiere;
+
 
 @Entity
 @Table(name="template")

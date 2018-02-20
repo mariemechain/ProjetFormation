@@ -25,7 +25,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @PropertySource("classpath:data.properties")
 @EnableTransactionManagement
-@EnableJpaRepositories("fr.formation.projets.dao")
+@EnableJpaRepositories({ "fr.formation.matieres.dao", "fr.formation.projets.dao" })
+@ComponentScan("fr.formation.matieres")
 public class AppConfig
 {
 	@Autowired
@@ -51,7 +52,7 @@ public class AppConfig
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory(BasicDataSource dataSource) {
 		LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
 		emf.setDataSource(dataSource);
-		emf.setPackagesToScan("fr.formation.projets.model","fr.formation.ressources.model","fr.formation.ressources.metier");
+		emf.setPackagesToScan("fr.formation.projets.model","fr.formation.ressources.model","fr.formation.ressources.metier","fr.formation.matieres");
 
 		JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		emf.setJpaVendorAdapter(vendorAdapter);

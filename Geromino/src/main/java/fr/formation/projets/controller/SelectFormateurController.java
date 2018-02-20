@@ -2,6 +2,7 @@ package fr.formation.projets.controller;
 
 import java.util.List;
 
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,6 @@ import fr.formation.projets.dao.IFormateurDAO;
 import fr.formation.projets.dao.IPlanificationDAO;
 import fr.formation.projets.model.Planification;
 import fr.formation.ressources.model.Formateur;
-import fr.formation.ressources.model.Matiere;
 
 @Controller
 @RequestMapping("selectFormateur")

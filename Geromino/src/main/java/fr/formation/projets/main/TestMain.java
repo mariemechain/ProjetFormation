@@ -1,14 +1,16 @@
 package fr.formation.projets.main;
 
 import java.util.ArrayList;
+
 import java.util.Date;
 import java.util.List;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import fr.formation.config.AppConfig;
+import fr.formation.matieres.dao.IMatiereDAO;
+import fr.formation.matieres.model.Matiere;
 import fr.formation.projets.dao.IGestionnairerDAO;
-import fr.formation.projets.dao.IMatiereDAO;
 import fr.formation.projets.dao.IProjetDAO;
 import fr.formation.projets.dao.ISalleDAO;
 import fr.formation.projets.dao.ITemplateDAO;
@@ -16,7 +18,6 @@ import fr.formation.projets.model.Projet;
 import fr.formation.projets.model.Template;
 import fr.formation.ressources.metier.Gestionnaire;
 import fr.formation.ressources.metier.Salle;
-import fr.formation.ressources.model.Matiere;
 
 public class TestMain {
 	
@@ -50,9 +51,9 @@ public class TestMain {
     	Template template = new Template();
     	template.setNom("test-Lien");
     	
-    	Matiere matiere1 = mdao.findById(4).get();
-    	Matiere matiere2 = mdao.findById(5).get();
-    	Matiere matiere3 = mdao.findById(6).get();
+    	Matiere matiere1 = mdao.findById(4);
+    	Matiere matiere2 = mdao.findById(5);
+    	Matiere matiere3 = mdao.findById(6);
     	
     	List<Matiere> matieres = new ArrayList<Matiere>();
     	matieres.add(matiere1);
