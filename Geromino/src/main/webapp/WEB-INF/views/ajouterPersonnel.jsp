@@ -12,7 +12,7 @@
 		
 		<div class="form-group">
 					<label for="stagiaires">Type :</label>
-					<c:if test="${personnel.id != null}"> 
+					<c:if test="${personnel.id == 0}"> 
 					<select onchange="changementType();" id="personnels" name="personnels">
 					
 					<option value="null">--</option>
@@ -20,11 +20,13 @@
 					 <option value="Technicien">Technicien</option>
 					 <option value="Gestionnaire">Gestionnaire</option>
 					 <option value="Administrateur">Admin</option>
-					 
-									 
+					 						 
 					
 					</select>
-</c:if>
+				</c:if>
+				<c:if test="${personnel.id != 0}"> 
+				<label>${personnel.type }</label>
+				</c:if>
 				</div>
 
 			
@@ -40,7 +42,7 @@
 
 			<div class="form-group">
 				<form:label path="date">Date de naissance :</form:label>
-				<form:input path="date" type="text" class="form-control"
+				<form:input path="date" type="date" class="form-control"
 					name="date" aria-describedby="Help" placeholder="Date de naissance"
 					value="${personnel.date}" />
 				<form:errors path="date" element="div"

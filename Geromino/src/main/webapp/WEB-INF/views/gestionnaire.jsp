@@ -36,6 +36,9 @@
 				<td><a href="/Geromino/gestionnaire/gestionnaireCursus"><button
 							type="button" class="btn btn-warning ">Gestion des
 							cursus</button></a></td>
+				<td><a href="/Geromino/gestionnaire/gestionnaireStagiaires"><button
+							type="button" class="btn btn-dark ">Gestion des
+							stagiaires</button></a></td>
 		</table>
 
 	</tiles:putAttribute>

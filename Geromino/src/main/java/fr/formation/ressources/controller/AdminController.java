@@ -58,9 +58,11 @@ public class AdminController {
 	//************************************************** Ajouter un personnel***************************
 	
 	@PostMapping("/adminAjouterPersonnel")
-	public String ajouterPersonnel(@ModelAttribute("personne") Personnel personnel, @RequestParam("personnels") String type) {
+	public String ajouterPersonnel(@Valid @ModelAttribute("personne") Personnel personnel, BindingResult result, @RequestParam("personnels") String type) {
 		
-		
+		if (result.hasErrors()) {
+			return "ajouterPersonnel";
+		}	
 		
 		
 		if(type.equals("Gestionnaire")){
@@ -134,7 +136,11 @@ public class AdminController {
 	}
 	
 	@PostMapping("/adminEditerPersonnel")
-	public String editerPersonnel(@ModelAttribute("personne") Personnel personnel,  @RequestParam("id") int id, Model model) {
+	public String editerPersonnel(@Valid @ModelAttribute("personne") Personnel personnel, BindingResult result,  @RequestParam("id") int id, Model model) {
+		
+		if (result.hasErrors()) {
+			return "ajouterPersonnel";
+		}
 		
 		Personnel pnl= daoPersonnel.findById(id).get();
 		pnl.setNom(personnel.getNom());

@@ -48,7 +48,7 @@
 
 
 			</table>
-			<a href="/Geromino/technicien/ordi/ajouter" class="btn btn-primary">Ajouter</a>
+			<a href="/Geromino/adminAjouterPersonnel" class="btn btn-primary">Ajouter</a>
 
 		</div>
 		
