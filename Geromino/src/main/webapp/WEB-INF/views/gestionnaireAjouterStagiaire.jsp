@@ -23,7 +23,7 @@
 
 			<div class="form-group">
 				<form:label path="date">Date de naissance :</form:label>
-				<form:input path="date" type="text" class="form-control"
+				<form:input path="date" type="date" class="form-control"
 					name="date" aria-describedby="Help" placeholder="Date de naissance"
 					value="${stagiaire.date}" />
 				<form:errors path="date" element="div"
