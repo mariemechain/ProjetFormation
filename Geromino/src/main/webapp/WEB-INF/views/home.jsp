@@ -9,10 +9,10 @@
 	<tiles:putAttribute name="content">
 		<p></p>
 		<p>Bonjour et bienvenue ${login} sur ta page d'accueil</p>
-		<p> Votre id est : ${personnel.id}</p>
-		<p> Votre prénom est: ${personnel.prenom }</p>
-		<p> Votre nom est: ${personnel.nom} </p>
-		<p> Votre fonction est: ${personnel.type}</p>
+		<p> Votre id est : ${utilisateur.id}</p>
+		<p> Votre prénom est: ${utilisateur.prenom }</p>
+		<p> Votre nom est: ${utilisateur.nom} </p>
+		<p> Votre fonction est: ${utilisateur.type}</p>
 
 
 	</tiles:putAttribute>

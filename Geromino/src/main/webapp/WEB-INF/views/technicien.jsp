@@ -6,9 +6,12 @@
 
 
 <tiles:insertDefinition name="app.layout">
-
-	<tiles:putAttribute name="title" value="Menu du Technicien" />
-
+<c:if test="${utilisateur.type == 'Gestionnaire'}">
+	<tiles:putAttribute name="title" value="Gestion du Technicien" />
+</c:if>
+<c:if test="${utilisateur.type != 'Gestionnaire'}">
+<tiles:putAttribute name="title" value="Menu du Technicien" />
+</c:if>
 	<tiles:putAttribute name="content">
 
 

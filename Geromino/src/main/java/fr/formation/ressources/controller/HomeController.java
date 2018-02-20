@@ -22,9 +22,6 @@ public class HomeController {
 	
 	@GetMapping(value = { "/home", "/home/{login}" })
 	public String home(@PathVariable(value="login", required=false) String login, Model model, HttpSession ses) {
-		model.addAttribute("login", login);
-		Personnel p = (Personnel) ses.getAttribute("utilisateur");
-		model.addAttribute("personnel",p);
 		return "home";
 	}
 }
