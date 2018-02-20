@@ -8,11 +8,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import fr.formation.ressources.dao.IAdminDAO;
 import fr.formation.ressources.dao.IGestionnaireDAO;
 import fr.formation.ressources.dao.IPersonneDAO;
+import fr.formation.ressources.dao.IPersonnelDAO;
 import fr.formation.ressources.dao.ITechnicienDAO;
+import fr.formation.ressources.metier.Admin;
 import fr.formation.ressources.metier.Gestionnaire;
-import fr.formation.ressources.metier.Personne;
+import fr.formation.ressources.metier.Personnel;
 import fr.formation.ressources.metier.Technicien;
 
 @Controller
@@ -23,36 +26,96 @@ public class AdminController {
 	private IPersonneDAO daoPersonne;
 	@Autowired
 	private IGestionnaireDAO daoGestionnaire;
+	
 	@Autowired
 	private ITechnicienDAO daoTechnicien;
 	
-//	@GetMapping("/adminPersonnel")
-//	public String listeContact(Model model) {
-//		model.addAttribute("contacts", daoContact.findAll());
-//		return "Personnels";
-//	}
+	@Autowired
+	private IAdminDAO daoAdmin;
+	
+	@Autowired
+	private IPersonnelDAO daoPersonnel;
+	
+	@GetMapping("/admin")
+	public String listeContact(Model model) {
+		model.addAttribute("personnels", daoPersonnel.findAll());
+		return "personnels";
+	}
 	
 	@GetMapping("/adminAjouterPersonnel")
-	public String ajouterContact(Model model) {
-		model.addAttribute("personnel", new Personne());
-		model.addAttribute("personnels", daoPersonne.findAll());
+	public String formulaireAjout(Model model) {
+		model.addAttribute("personnel", new Personnel());
+		
 		
 		return "ajouterPersonnel";
 	}
 	
 	@PostMapping("/adminAjouterPersonnel")
-	public String ajouterContact2(@ModelAttribute("personnel") Personne personne, @RequestParam("personnels") String type,Model model) {
+	public String ajouterPersonnel(@ModelAttribute("personne") Personnel personnel, @RequestParam("personnels") String type) {
+		
+		
+		
+		
 		if(type.equals("Gestionnaire")){
-			Gestionnaire gestionnaire = (Gestionnaire)personne;
+			Gestionnaire gestionnaire =new Gestionnaire();
+			gestionnaire.setNom(personnel.getNom());
+			gestionnaire.setPrenom(personnel.getPrenom());
+			gestionnaire.setAdresse(personnel.getAdresse());
+			gestionnaire.setDate(personnel.getDate());
+			gestionnaire.setEmail(personnel.getEmail());
+			gestionnaire.setLogin(personnel.getLogin());
+			gestionnaire.setMotDePasse(personnel.getMotDePasse());
+			gestionnaire.setTelephone(personnel.getTelephone());
 			daoGestionnaire.save(gestionnaire);
 		}
 		if(type.equals("Technicien")){
-			Technicien technicien = (Technicien)personne;
+			Technicien technicien = new Technicien();
+			technicien.setNom(personnel.getNom());
+			technicien.setPrenom(personnel.getPrenom());
+			technicien.setAdresse(personnel.getAdresse());
+			technicien.setDate(personnel.getDate());
+			technicien.setEmail(personnel.getEmail());
+			technicien.setLogin(personnel.getLogin());
+			technicien.setMotDePasse(personnel.getMotDePasse());
+			technicien.setTelephone(personnel.getTelephone());
 			daoTechnicien.save(technicien);
+//			
+//			technicien.setNom(personne.getNom());
+//			daoTechnicien.save(technicien);
 		}
+		if(type.equals("Formateur")){
+//			Formateur formateur = new Formateur();
+//			formateur.setNom(personnel.getNom());
+//			formateur.setPrenom(personnel.getPrenom());
+//			formateur.setAdresse(personnel.getAdresse());
+//			formateur.setDate(personnel.getDate());
+//			formateur.setEmail(personnel.getEmail());
+//			formateur.setLogin(personnel.getLogin());
+//			formateur.setMotDePasse(personnel.getMotDePasse());
+//			formateur.setTelephone(personnel.getTelephone());
+//			daoFormateur.save(formateur);
+			
+
+		}
+		if(type.equals("Admin")){
+			Admin admin = new Admin();
+			admin.setNom(personnel.getNom());
+			admin.setPrenom(personnel.getPrenom());
+			admin.setAdresse(personnel.getAdresse());
+			admin.setDate(personnel.getDate());
+			admin.setEmail(personnel.getEmail());
+			admin.setLogin(personnel.getLogin());
+			admin.setMotDePasse(personnel.getMotDePasse());
+			admin.setTelephone(personnel.getTelephone());
+			daoAdmin.save(admin);
+//			
+//			technicien.setNom(personne.getNom());
+//			daoTechnicien.save(technicien);
+		}
+
 		
 		
-		return "ajouterPersonnel";
+		return "adminAjouterPersonnel";
 	}
 	
 }
