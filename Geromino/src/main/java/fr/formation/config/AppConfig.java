@@ -52,7 +52,7 @@ public class AppConfig
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory(BasicDataSource dataSource) {
 		LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
 		emf.setDataSource(dataSource);
-		emf.setPackagesToScan("fr.formation.projets.model","fr.formation.formateur.model","fr.formation.ressources.metier","fr.formation.matieres.model");
+		emf.setPackagesToScan("fr.formation.projets.model","fr.formation.formateur.model","fr.formation.ressources.metier","fr.formation.matieres");
 
 		JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		emf.setJpaVendorAdapter(vendorAdapter);

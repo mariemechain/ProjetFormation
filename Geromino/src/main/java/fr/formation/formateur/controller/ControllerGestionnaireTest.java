@@ -100,7 +100,7 @@ public String getSuppFormateur(@RequestParam("idf") int idFormateur, Model model
 	Formateur formateur = new Formateur();
 	formateur = daoFormateur.findById(idFormateur).get();
 	daoFormateur.delete(formateur);
-return "redirect:./";
+return "redirect:../formateurs";
 }
 
 
@@ -131,7 +131,7 @@ public String postAjouterFormateur(@RequestParam("titre") String titre,@RequestP
 	daoFormateur.save(formateur);
 	
 	
-return "redirect:./";
+return "redirect:../formateurs";
 }
 
 
@@ -165,7 +165,7 @@ public String postModifierFormateur(@RequestParam("idf") int idFormateur,@Reques
 	//Sauvegarde du formateur modifié
 		daoFormateur.save(formateur);
 	
-return "redirect:./";
+return "redirect:../formateurs";
 }
 
 }

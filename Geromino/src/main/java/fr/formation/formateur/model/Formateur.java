@@ -11,23 +11,27 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-
 @Entity
-@Table(name="formateur")
-@PrimaryKeyJoinColumn(name="FOR_ID", referencedColumnName="PER_ID")
-public class Formateur extends Personne{
-	
-	@Column(name="FOR_TITRE")
+@Table(name = "formateur")
+@PrimaryKeyJoinColumn(name = "FOR_ID", referencedColumnName = "PER_ID")
+public class Formateur extends Personne {
+
+	@Column(name = "FOR_TITRE")
 	private String titre;
-	
-	@Column(name="FOR_PATIENCE")
+
+	@Column(name = "FOR_NOM")
+	private String nom;
+	@Column(name = "For_PRENOM")
+	private String prenom;
+
+	@Column(name = "FOR_PATIENCE")
 	private double patience;
-	
-	@OneToMany(mappedBy="formateur")
+
+	@OneToMany(mappedBy = "formateur")
 	@JsonIgnoreProperties("formateur")
 	private List<Disponibilite> disponibilites;
-	
-	@OneToMany(mappedBy="formateur",fetch= FetchType.EAGER)
+
+	@OneToMany(mappedBy = "formateur", fetch = FetchType.EAGER)
 	@JsonIgnoreProperties("formateur")
 	private List<Expertise> expertises;
 
@@ -61,9 +65,14 @@ public class Formateur extends Personne{
 
 	public void setExpertises(List<Expertise> expertises) {
 		this.expertises = expertises;
-	}	
-	
-	
-	
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
 
 }

@@ -12,10 +12,11 @@
 				<select name="selectMat">
 					<c:forEach items="${matieres}" var="matiere">
 						<!-- Ce que j'ai dans value est la valeur que je recupere en parametre dans mon url pour la recuperer avec requestParam dans le controller -->
-						<option value="${matiere.id}">${matiere.nom}</option>
+						<option value="${matiere.id}">${matiere.titre}</option>
 					</c:forEach>
 				</select>
 			</div>
+			<br>
 			<button name="" type="submit" class="btn btn-primary btn-info">Valider</button>
 		</form>
 
