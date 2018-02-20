@@ -1,0 +1,54 @@
+table th, td {
+	min-width: 150px;
+	text-align: center;
+}
+
+ol.carousel-indicators {
+	position: absolute;
+	bottom: 0;
+	margin: 0;
+	left: 0;
+	right: 0;
+	width: auto;
+}
+
+ol.carousel-indicators li, ol.carousel-indicators li.active {
+	float: left;
+	width: 10%;
+	height: 10px;
+	margin: 0;
+	border-radius: 0;
+	border: solid 1px;
+	background: transparent;
+}
+
+ol.carousel-indicators li.active {
+	background: #d7d7d7;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+	height: 100px;
+	width: 100px;
+	outline: black;
+	background-size: 100%, 100%;
+	/* 	border-radius: 50%; */
+	/* 	border: 1px solid black; */
+	background-image: none;
+}
+
+.carousel-control-next-icon:after {
+	content: '>';
+	font-size: 55px;
+	color: silver;
+	
+	position : relative;
+	top: 50px;
+}
+
+.carousel-control-prev-icon:after {
+	content: '<';
+	font-size: 55px;
+	color: silver;
+	position : relative;
+	top: 50px;
+}
