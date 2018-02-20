@@ -53,7 +53,7 @@ public class SecurityFilter implements Filter{
 		}
 		else if (metier.equals("Technicien")) {
 			if (myPath.startsWith("/gestionnaire") ) {
-				resp.sendRedirect(myProjectPath + "/connexion");
+				resp.sendRedirect(myProjectPath + "/mauvaiseRequete");
 				return;
 			}
 			chain.doFilter(request, response);
