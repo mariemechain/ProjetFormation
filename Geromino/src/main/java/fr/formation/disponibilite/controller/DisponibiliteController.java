@@ -39,6 +39,7 @@ public class DisponibiliteController {
 
 	@GetMapping("")
 	public String afficheSemaine(Model model) {
+		
 		List<Disponibilite> dispo = new ArrayList<Disponibilite>();
 		
 		LocalDate debut = LocalDate.now(); //date du jour
@@ -54,11 +55,13 @@ public class DisponibiliteController {
 			
 			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/YYYY");
 			Date date2 = Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant());
-			
-			System.out.println(formatter.format(date2) + "           " + date);
-			
 			infoDate.setDate(formatter.format(date2));
-			infoDate.setId(nbrMois+1);			
+			
+			if(debut.getMonthValue()==date.getMonthValue())
+				infoDate.setId(1);
+			else
+				infoDate.setId((date.getMonthValue()-debut.getMonthValue())%12+1);	
+			
 			infoDate.setEtatOrdi(getPourcentageOrdi(date));
 			infoDate.setEtatSalle(getPourcentageSalle(date));
 			infoDate.setEtatVideoProj(getPourcentageProjecteur(date));
@@ -131,6 +134,8 @@ public class DisponibiliteController {
 				}
 			}
 		}
+		int val= (1-12)%12+1;
+		System.err.println(val);
 		
 		if(salles.size() != 0)
 			return 100*(salles.size()- compteurSalleIndispo)/salles.size();
