@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -85,15 +86,11 @@ public class TechnicienController {
 	
 	public String modifierOrdi(@Valid @ModelAttribute("ordinateur") Ordinateur ordinateur, 
 			 BindingResult result, Model model, @RequestParam("id") String idOrdi) {
-
 		if (result.hasErrors()) {
 			return "ajouterOrdi";
 		}
-
-
 		//ordinateur.setId(idOrdi);
 		ordinateur.setDate(ordiDAO.findById(idOrdi).get().getDate());
-
 		ordiDAO.save(ordinateur);
 		return "redirect:./";
 	}
@@ -101,19 +98,17 @@ public class TechnicienController {
 	// ********************Modifier dispo ordinateur******************
 	@GetMapping("/ordi/etat")
 	public String dispoOrdi(Model model, @RequestParam("id") String idOrdi) {
-
 		model.addAttribute("ordinateur", ordiDAO.findById(idOrdi).get());
 		return "dispoOrdi";
 	}
 
 	@PostMapping("/ordi/etat")
-	public String dispoOrdinateur(@ModelAttribute("ordinateur") Ordinateur ordinateur,
-			@RequestParam("id") String idOrdi, @RequestParam("date") Date date) {
-		Ordinateur ordi = ordiDAO.findById(idOrdi).get();
-		ordi.setDate(date);
-		ordiDAO.save(ordi);
-		return "redirect:./";
-	}
+    public String dispoOrdinateur(@RequestParam("id") String idOrdi, @RequestParam("date") @DateTimeFormat(pattern="yyyy-MM-dd") Date date) {
+        Ordinateur ordi = ordiDAO.findById(idOrdi).get();
+        ordi.setDate(date);
+        ordiDAO.save(ordi);
+        return "redirect:./";
+    }
 
 	// ***********************Supprimer un ordi***************************
 	@GetMapping("/ordi/supprimer")
@@ -152,16 +147,15 @@ public class TechnicienController {
 	// ***************** Modifier un videoproj*****************
 	@GetMapping("/video/modifier")
 	public String modifVideoprojecteur(Model model, @RequestParam("id") String idVideo) {
-		model.addAttribute("videoprojecteur", new VideoProjecteur());
 		model.addAttribute("videoprojecteur", videoDAO.findById(idVideo).get());
 		return "ajouterVideo";
 	}
 
 	@PostMapping("/video/modifier")
-	public String modifierOrdi(@Valid @ModelAttribute("videoprojecteur") VideoProjecteur videoprojecteur,
-			 @RequestParam("id") String idVideo, BindingResult result, Model model) {
+	public String  modifVideoprojecteur(@Valid @ModelAttribute("videoprojecteur") VideoProjecteur videoprojecteur, BindingResult result,
+			 @RequestParam("id") String idVideo, Model model) {
 		if (result.hasErrors()) {
-			model.addAttribute("videoprojecteur", videoDAO.findById(idVideo).get());
+			//model.addAttribute("videoprojecteur", videoDAO.findById(idVideo).get());
 			return "ajouterVideo";
 		}
 		videoprojecteur.setId(idVideo);

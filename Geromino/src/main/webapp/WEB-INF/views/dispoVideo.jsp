@@ -28,6 +28,10 @@
 
 				</div>
 				<button type="submit" class="btn btn-primary">Submit</button>
+				<a href="/Geromino/technicien/video">
+					<button type="button" class="btn btn-danger">Revenir au
+						menu précédent</button>
+				</a>
 			</div>
 		</form:form>
 	</tiles:putAttribute>
