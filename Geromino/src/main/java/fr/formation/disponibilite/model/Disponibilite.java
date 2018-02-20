@@ -10,6 +10,12 @@ public class Disponibilite {
 	private Double etatOrdi;
 	private Double etatVideoProj;
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public LocalDate getDate() {
 		return date;
 	}
@@ -34,6 +40,5 @@ public class Disponibilite {
 	public void setEtatVideoProj(Double etatVideoProj) {
 		this.etatVideoProj = etatVideoProj;
 	}
-	
 	
 }
