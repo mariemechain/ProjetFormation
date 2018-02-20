@@ -41,4 +41,5 @@ public class Disponibilite {
 		this.etatVideoProj = etatVideoProj;
 	}
 	
+	
 }

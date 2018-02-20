@@ -1,15 +1,17 @@
 package fr.formation.disponibilite.controller;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.Month;
 import java.time.Period;
 import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,6 +38,10 @@ public class DisponibiliteController {
 	IVideoProjecteurDAO videoProjDao;
 	@Autowired
 	ISalleDAO salleDao;
+	
+
+	private Month premierMois;
+	private Map<Integer, Month> mois = new HashMap<Integer, Month>();
 
 	@GetMapping("")
 	public String afficheSemaine(Model model) {
@@ -46,8 +52,16 @@ public class DisponibiliteController {
 		LocalDate fin = debut.plusMonths(6); //date dans 1 mois
 		double duree = ChronoUnit.DAYS.between(debut, fin);
 		
+		Locale.setDefault(Locale.FRENCH);
+		
+		premierMois = debut.getMonth();
+		model.addAttribute("premierMois", premierMois);
+		for (int i=0; i<6; i++)
+			mois.put(i+1, premierMois.plus(i+1));
+		model.addAttribute("listeMois", mois);
+		
 		//Ne prend pas le dernier jour du mois par exemple du 20/02/2018 au 19/03/2018
-		for(int i=0;i<duree;i++) {
+		for (int i=0; i<duree; i++) {
 			Disponibilite infoDate = new Disponibilite();
 			LocalDate date = debut.plusDays(i);
 			Period p = Period.between(debut, date);

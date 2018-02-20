@@ -27,9 +27,10 @@
 					<li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
 
 				</ol>
+				
 				<div class="carousel-inner">
 					<div class="carousel-item active">
-						<h2>Mois 1</h2>
+						<h2>${ premierMois }</h2>
 						<table class="table table-sm">
 
 							<thead>
@@ -107,8 +108,10 @@
 						</table>
 					</div>
 
+					<c:forEach items="${ listeMois }" var="listeMois">
+					
 					<div class="carousel-item">
-						<h2>Mois 2</h2>
+						<h2>${ listeMois.value }</h2>
 						<table class="table table-sm">
 
 							<thead>
@@ -122,7 +125,7 @@
 
 							<tbody>
 								<c:forEach items="${liste}" var="liste">
-									<c:if test="${liste.id == 2}">
+									<c:if test="${liste.id == listeMois.key+1}">
 										<tr>
 											<th scope="row">${liste.date}</th>
 											<!-- 										Salles -->
@@ -185,396 +188,477 @@
 
 						</table>
 					</div>
-					<div class="carousel-item">
-						<h2>Mois 3</h2>
-						<table class="table table-sm">
 
-							<thead>
-								<tr>
-									<th scope="col">Date</th>
-									<th scope="col">Salles</th>
-									<th scope="col">Ordinateurs</th>
-									<th scope="col">Vidéoprojecteurs</th>
-								</tr>
-							</thead>
+				</c:forEach>
 
-							<tbody>
-								<c:forEach items="${liste}" var="liste">
-									<c:if test="${liste.id == 3}">
-										<tr>
-											<th scope="row">${liste.date}</th>
-											<!-- 										Salles -->
-											<c:if test="${liste.etatSalle <= 10}">
-												<td class="text-danger">
-													<div class="border border-danger rounded">${ liste.etatSalle }%</div>
-												</td>
-											</c:if>
-											<c:if test="${liste.etatSalle > 10 && liste.etatSalle <= 30}">
-												<td class="text-warning">
-													<div class="border border-warning rounded">${ liste.etatSalle }%</div>
-												</td>
-											</c:if>
-											<c:if test="${liste.etatSalle > 30}">
-												<td class="text-success">
-													<div class="border border-success rounded">Bon état
-														du stock</div>
-												</td>
-											</c:if>
-											<!-- 										Ordinateurs -->
-											<c:if test="${liste.etatOrdi <= 10}">
-												<td class="text-danger">
-													<div class="border border-danger rounded">${ liste.etatOrdi }%</div>
-												</td>
-											</c:if>
-											<c:if test="${liste.etatOrdi > 10 && liste.etatOrdi <= 30}">
-												<td class="text-warning">
-													<div class="border border-warning rounded">${ liste.etatOrdi }%</div>
-												</td>
-											</c:if>
-											<c:if test="${liste.etatOrdi > 30}">
-												<td class="text-success">
-													<div class="border border-success rounded">Bon état
-														du stock</div>
-												</td>
-											</c:if>
-											<!-- 										VideoProjecteurs -->
-											<c:if test="${liste.etatVideoProj <= 10}">
-												<td class="text-danger">
-													<div class="border border-danger rounded">${ liste.etatVideoProj }%</div>
-												</td>
-											</c:if>
-											<c:if
-												test="${liste.etatVideoProj > 10 && liste.etatVideoProj <= 30}">
-												<td class="text-warning">
-													<div class="border border-warning rounded">${ liste.etatVideoProj }%</div>
-												</td>
-											</c:if>
-											<c:if test="${liste.etatVideoProj > 30}">
-												<td class="text-success">
-													<div class="border border-success rounded">Bon état
-														du stock</div>
-												</td>
-											</c:if>
+<!-- 					<div class="carousel-item"> -->
+<!-- 						<h2>Mois 2</h2> -->
+<!-- 						<table class="table table-sm"> -->
 
-										</tr>
-									</c:if>
-								</c:forEach>
-							</tbody>
+<!-- 							<thead> -->
+<!-- 								<tr> -->
+<!-- 									<th scope="col">Date</th> -->
+<!-- 									<th scope="col">Salles</th> -->
+<!-- 									<th scope="col">Ordinateurs</th> -->
+<!-- 									<th scope="col">Vidéoprojecteurs</th> -->
+<!-- 								</tr> -->
+<!-- 							</thead> -->
 
-						</table>
-					</div>
-					<div class="carousel-item">
-						<h2>Mois 4</h2>
-						<table class="table table-sm">
+<!-- 							<tbody> -->
+<%-- 								<c:forEach items="${liste}" var="liste"> --%>
+<%-- 									<c:if test="${liste.id == 2}"> --%>
+<!-- 										<tr> -->
+<%-- 											<th scope="row">${liste.date}</th> --%>
+<!-- 																					Salles -->
+<%-- 											<c:if test="${liste.etatSalle <= 10}"> --%>
+<!-- 												<td class="text-danger"> -->
+<%-- 													<div class="border border-danger rounded">${ liste.etatSalle }%</div> --%>
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<%-- 											<c:if test="${liste.etatSalle > 10 && liste.etatSalle <= 30}"> --%>
+<!-- 												<td class="text-warning"> -->
+<%-- 													<div class="border border-warning rounded">${ liste.etatSalle }%</div> --%>
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<%-- 											<c:if test="${liste.etatSalle > 30}"> --%>
+<!-- 												<td class="text-success"> -->
+<!-- 													<div class="border border-success rounded">Bon état -->
+<!-- 														du stock</div> -->
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<!-- 																					Ordinateurs -->
+<%-- 											<c:if test="${liste.etatOrdi <= 10}"> --%>
+<!-- 												<td class="text-danger"> -->
+<%-- 													<div class="border border-danger rounded">${ liste.etatOrdi }%</div> --%>
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<%-- 											<c:if test="${liste.etatOrdi > 10 && liste.etatOrdi <= 30}"> --%>
+<!-- 												<td class="text-warning"> -->
+<%-- 													<div class="border border-warning rounded">${ liste.etatOrdi }%</div> --%>
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<%-- 											<c:if test="${liste.etatOrdi > 30}"> --%>
+<!-- 												<td class="text-success"> -->
+<!-- 													<div class="border border-success rounded">Bon état -->
+<!-- 														du stock</div> -->
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<!-- 																					VideoProjecteurs -->
+<%-- 											<c:if test="${liste.etatVideoProj <= 10}"> --%>
+<!-- 												<td class="text-danger"> -->
+<%-- 													<div class="border border-danger rounded">${ liste.etatVideoProj }%</div> --%>
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<%-- 											<c:if --%>
+<%-- 												test="${liste.etatVideoProj > 10 && liste.etatVideoProj <= 30}"> --%>
+<!-- 												<td class="text-warning"> -->
+<%-- 													<div class="border border-warning rounded">${ liste.etatVideoProj }%</div> --%>
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<%-- 											<c:if test="${liste.etatVideoProj > 30}"> --%>
+<!-- 												<td class="text-success"> -->
+<!-- 													<div class="border border-success rounded">Bon état -->
+<!-- 														du stock</div> -->
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
 
-							<thead>
-								<tr>
-									<th scope="col">Date</th>
-									<th scope="col">Salles</th>
-									<th scope="col">Ordinateurs</th>
-									<th scope="col">Vidéoprojecteurs</th>
-								</tr>
-							</thead>
+<!-- 										</tr> -->
+<%-- 									</c:if> --%>
+<%-- 								</c:forEach> --%>
+<!-- 							</tbody> -->
 
-							<tbody>
-								<c:forEach items="${liste}" var="liste">
-									<c:if test="${liste.id == 4}">
-										<tr>
-											<th scope="row">${liste.date}</th>
-											<!-- 										Salles -->
-											<c:if test="${liste.etatSalle <= 10}">
-												<td class="text-danger">
-													<div class="border border-danger rounded">${ liste.etatSalle }%</div>
-												</td>
-											</c:if>
-											<c:if test="${liste.etatSalle > 10 && liste.etatSalle <= 30}">
-												<td class="text-warning">
-													<div class="border border-warning rounded">${ liste.etatSalle }%</div>
-												</td>
-											</c:if>
-											<c:if test="${liste.etatSalle > 30}">
-												<td class="text-success">
-													<div class="border border-success rounded">Bon état
-														du stock</div>
-												</td>
-											</c:if>
-											<!-- 										Ordinateurs -->
-											<c:if test="${liste.etatOrdi <= 10}">
-												<td class="text-danger">
-													<div class="border border-danger rounded">${ liste.etatOrdi }%</div>
-												</td>
-											</c:if>
-											<c:if test="${liste.etatOrdi > 10 && liste.etatOrdi <= 30}">
-												<td class="text-warning">
-													<div class="border border-warning rounded">${ liste.etatOrdi }%</div>
-												</td>
-											</c:if>
-											<c:if test="${liste.etatOrdi > 30}">
-												<td class="text-success">
-													<div class="border border-success rounded">Bon état
-														du stock</div>
-												</td>
-											</c:if>
-											<!-- 										VideoProjecteurs -->
-											<c:if test="${liste.etatVideoProj <= 10}">
-												<td class="text-danger">
-													<div class="border border-danger rounded">${ liste.etatVideoProj }%</div>
-												</td>
-											</c:if>
-											<c:if
-												test="${liste.etatVideoProj > 10 && liste.etatVideoProj <= 30}">
-												<td class="text-warning">
-													<div class="border border-warning rounded">${ liste.etatVideoProj }%</div>
-												</td>
-											</c:if>
-											<c:if test="${liste.etatVideoProj > 30}">
-												<td class="text-success">
-													<div class="border border-success rounded">Bon état
-														du stock</div>
-												</td>
-											</c:if>
+<!-- 						</table> -->
+<!-- 					</div> -->
+<!-- 					<div class="carousel-item"> -->
+<!-- 						<h2>Mois 3</h2> -->
+<!-- 						<table class="table table-sm"> -->
 
-										</tr>
-									</c:if>
-								</c:forEach>
-							</tbody>
+<!-- 							<thead> -->
+<!-- 								<tr> -->
+<!-- 									<th scope="col">Date</th> -->
+<!-- 									<th scope="col">Salles</th> -->
+<!-- 									<th scope="col">Ordinateurs</th> -->
+<!-- 									<th scope="col">Vidéoprojecteurs</th> -->
+<!-- 								</tr> -->
+<!-- 							</thead> -->
 
-						</table>
-					</div>
-					<div class="carousel-item">
-						<h2>Mois 5</h2>
-						<table class="table table-sm">
+<!-- 							<tbody> -->
+<%-- 								<c:forEach items="${liste}" var="liste"> --%>
+<%-- 									<c:if test="${liste.id == 3}"> --%>
+<!-- 										<tr> -->
+<%-- 											<th scope="row">${liste.date}</th> --%>
+<!-- 																					Salles -->
+<%-- 											<c:if test="${liste.etatSalle <= 10}"> --%>
+<!-- 												<td class="text-danger"> -->
+<%-- 													<div class="border border-danger rounded">${ liste.etatSalle }%</div> --%>
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<%-- 											<c:if test="${liste.etatSalle > 10 && liste.etatSalle <= 30}"> --%>
+<!-- 												<td class="text-warning"> -->
+<%-- 													<div class="border border-warning rounded">${ liste.etatSalle }%</div> --%>
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<%-- 											<c:if test="${liste.etatSalle > 30}"> --%>
+<!-- 												<td class="text-success"> -->
+<!-- 													<div class="border border-success rounded">Bon état -->
+<!-- 														du stock</div> -->
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<!-- 																					Ordinateurs -->
+<%-- 											<c:if test="${liste.etatOrdi <= 10}"> --%>
+<!-- 												<td class="text-danger"> -->
+<%-- 													<div class="border border-danger rounded">${ liste.etatOrdi }%</div> --%>
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<%-- 											<c:if test="${liste.etatOrdi > 10 && liste.etatOrdi <= 30}"> --%>
+<!-- 												<td class="text-warning"> -->
+<%-- 													<div class="border border-warning rounded">${ liste.etatOrdi }%</div> --%>
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<%-- 											<c:if test="${liste.etatOrdi > 30}"> --%>
+<!-- 												<td class="text-success"> -->
+<!-- 													<div class="border border-success rounded">Bon état -->
+<!-- 														du stock</div> -->
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<!-- 																					VideoProjecteurs -->
+<%-- 											<c:if test="${liste.etatVideoProj <= 10}"> --%>
+<!-- 												<td class="text-danger"> -->
+<%-- 													<div class="border border-danger rounded">${ liste.etatVideoProj }%</div> --%>
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<%-- 											<c:if --%>
+<%-- 												test="${liste.etatVideoProj > 10 && liste.etatVideoProj <= 30}"> --%>
+<!-- 												<td class="text-warning"> -->
+<%-- 													<div class="border border-warning rounded">${ liste.etatVideoProj }%</div> --%>
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<%-- 											<c:if test="${liste.etatVideoProj > 30}"> --%>
+<!-- 												<td class="text-success"> -->
+<!-- 													<div class="border border-success rounded">Bon état -->
+<!-- 														du stock</div> -->
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
 
-							<thead>
-								<tr>
-									<th scope="col">Date</th>
-									<th scope="col">Salles</th>
-									<th scope="col">Ordinateurs</th>
-									<th scope="col">Vidéoprojecteurs</th>
-								</tr>
-							</thead>
+<!-- 										</tr> -->
+<%-- 									</c:if> --%>
+<%-- 								</c:forEach> --%>
+<!-- 							</tbody> -->
 
-							<tbody>
-								<c:forEach items="${liste}" var="liste">
-									<c:if test="${liste.id == 5}">
-										<tr>
-											<th scope="row">${liste.date}</th>
-											<!-- 										Salles -->
-											<c:if test="${liste.etatSalle <= 10}">
-												<td class="text-danger">
-													<div class="border border-danger rounded">${ liste.etatSalle }%</div>
-												</td>
-											</c:if>
-											<c:if test="${liste.etatSalle > 10 && liste.etatSalle <= 30}">
-												<td class="text-warning">
-													<div class="border border-warning rounded">${ liste.etatSalle }%</div>
-												</td>
-											</c:if>
-											<c:if test="${liste.etatSalle > 30}">
-												<td class="text-success">
-													<div class="border border-success rounded">Bon état
-														du stock</div>
-												</td>
-											</c:if>
-											<!-- 										Ordinateurs -->
-											<c:if test="${liste.etatOrdi <= 10}">
-												<td class="text-danger">
-													<div class="border border-danger rounded">${ liste.etatOrdi }%</div>
-												</td>
-											</c:if>
-											<c:if test="${liste.etatOrdi > 10 && liste.etatOrdi <= 30}">
-												<td class="text-warning">
-													<div class="border border-warning rounded">${ liste.etatOrdi }%</div>
-												</td>
-											</c:if>
-											<c:if test="${liste.etatOrdi > 30}">
-												<td class="text-success">
-													<div class="border border-success rounded">Bon état
-														du stock</div>
-												</td>
-											</c:if>
-											<!-- 										VideoProjecteurs -->
-											<c:if test="${liste.etatVideoProj <= 10}">
-												<td class="text-danger">
-													<div class="border border-danger rounded">${ liste.etatVideoProj }%</div>
-												</td>
-											</c:if>
-											<c:if
-												test="${liste.etatVideoProj > 10 && liste.etatVideoProj <= 30}">
-												<td class="text-warning">
-													<div class="border border-warning rounded">${ liste.etatVideoProj }%</div>
-												</td>
-											</c:if>
-											<c:if test="${liste.etatVideoProj > 30}">
-												<td class="text-success">
-													<div class="border border-success rounded">Bon état
-														du stock</div>
-												</td>
-											</c:if>
+<!-- 						</table> -->
+<!-- 					</div> -->
+<!-- 					<div class="carousel-item"> -->
+<!-- 						<h2>Mois 4</h2> -->
+<!-- 						<table class="table table-sm"> -->
 
-										</tr>
-									</c:if>
-								</c:forEach>
-							</tbody>
+<!-- 							<thead> -->
+<!-- 								<tr> -->
+<!-- 									<th scope="col">Date</th> -->
+<!-- 									<th scope="col">Salles</th> -->
+<!-- 									<th scope="col">Ordinateurs</th> -->
+<!-- 									<th scope="col">Vidéoprojecteurs</th> -->
+<!-- 								</tr> -->
+<!-- 							</thead> -->
 
-						</table>
-					</div>
-					<div class="carousel-item">
-						<h2>Mois 6</h2>
-						<table class="table table-sm">
+<!-- 							<tbody> -->
+<%-- 								<c:forEach items="${liste}" var="liste"> --%>
+<%-- 									<c:if test="${liste.id == 4}"> --%>
+<!-- 										<tr> -->
+<%-- 											<th scope="row">${liste.date}</th> --%>
+<!-- 																					Salles -->
+<%-- 											<c:if test="${liste.etatSalle <= 10}"> --%>
+<!-- 												<td class="text-danger"> -->
+<%-- 													<div class="border border-danger rounded">${ liste.etatSalle }%</div> --%>
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<%-- 											<c:if test="${liste.etatSalle > 10 && liste.etatSalle <= 30}"> --%>
+<!-- 												<td class="text-warning"> -->
+<%-- 													<div class="border border-warning rounded">${ liste.etatSalle }%</div> --%>
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<%-- 											<c:if test="${liste.etatSalle > 30}"> --%>
+<!-- 												<td class="text-success"> -->
+<!-- 													<div class="border border-success rounded">Bon état -->
+<!-- 														du stock</div> -->
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<!-- 																					Ordinateurs -->
+<%-- 											<c:if test="${liste.etatOrdi <= 10}"> --%>
+<!-- 												<td class="text-danger"> -->
+<%-- 													<div class="border border-danger rounded">${ liste.etatOrdi }%</div> --%>
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<%-- 											<c:if test="${liste.etatOrdi > 10 && liste.etatOrdi <= 30}"> --%>
+<!-- 												<td class="text-warning"> -->
+<%-- 													<div class="border border-warning rounded">${ liste.etatOrdi }%</div> --%>
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<%-- 											<c:if test="${liste.etatOrdi > 30}"> --%>
+<!-- 												<td class="text-success"> -->
+<!-- 													<div class="border border-success rounded">Bon état -->
+<!-- 														du stock</div> -->
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<!-- 																					VideoProjecteurs -->
+<%-- 											<c:if test="${liste.etatVideoProj <= 10}"> --%>
+<!-- 												<td class="text-danger"> -->
+<%-- 													<div class="border border-danger rounded">${ liste.etatVideoProj }%</div> --%>
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<%-- 											<c:if --%>
+<%-- 												test="${liste.etatVideoProj > 10 && liste.etatVideoProj <= 30}"> --%>
+<!-- 												<td class="text-warning"> -->
+<%-- 													<div class="border border-warning rounded">${ liste.etatVideoProj }%</div> --%>
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<%-- 											<c:if test="${liste.etatVideoProj > 30}"> --%>
+<!-- 												<td class="text-success"> -->
+<!-- 													<div class="border border-success rounded">Bon état -->
+<!-- 														du stock</div> -->
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
 
-							<thead>
-								<tr>
-									<th scope="col">Date</th>
-									<th scope="col">Salles</th>
-									<th scope="col">Ordinateurs</th>
-									<th scope="col">Vidéoprojecteurs</th>
-								</tr>
-							</thead>
+<!-- 										</tr> -->
+<%-- 									</c:if> --%>
+<%-- 								</c:forEach> --%>
+<!-- 							</tbody> -->
 
-							<tbody>
-								<c:forEach items="${liste}" var="liste">
-									<c:if test="${liste.id == 6}">
-										<tr>
-											<th scope="row">${liste.date}</th>
-											<!-- 										Salles -->
-											<c:if test="${liste.etatSalle <= 10}">
-												<td class="text-danger">
-													<div class="border border-danger rounded">${ liste.etatSalle }%</div>
-												</td>
-											</c:if>
-											<c:if test="${liste.etatSalle > 10 && liste.etatSalle <= 30}">
-												<td class="text-warning">
-													<div class="border border-warning rounded">${ liste.etatSalle }%</div>
-												</td>
-											</c:if>
-											<c:if test="${liste.etatSalle > 30}">
-												<td class="text-success">
-													<div class="border border-success rounded">Bon état
-														du stock</div>
-												</td>
-											</c:if>
-											<!-- 										Ordinateurs -->
-											<c:if test="${liste.etatOrdi <= 10}">
-												<td class="text-danger">
-													<div class="border border-danger rounded">${ liste.etatOrdi }%</div>
-												</td>
-											</c:if>
-											<c:if test="${liste.etatOrdi > 10 && liste.etatOrdi <= 30}">
-												<td class="text-warning">
-													<div class="border border-warning rounded">${ liste.etatOrdi }%</div>
-												</td>
-											</c:if>
-											<c:if test="${liste.etatOrdi > 30}">
-												<td class="text-success">
-													<div class="border border-success rounded">Bon état
-														du stock</div>
-												</td>
-											</c:if>
-											<!-- 										VideoProjecteurs -->
-											<c:if test="${liste.etatVideoProj <= 10}">
-												<td class="text-danger">
-													<div class="border border-danger rounded">${ liste.etatVideoProj }%</div>
-												</td>
-											</c:if>
-											<c:if
-												test="${liste.etatVideoProj > 10 && liste.etatVideoProj <= 30}">
-												<td class="text-warning">
-													<div class="border border-warning rounded">${ liste.etatVideoProj }%</div>
-												</td>
-											</c:if>
-											<c:if test="${liste.etatVideoProj > 30}">
-												<td class="text-success">
-													<div class="border border-success rounded">Bon état
-														du stock</div>
-												</td>
-											</c:if>
+<!-- 						</table> -->
+<!-- 					</div> -->
+<!-- 					<div class="carousel-item"> -->
+<!-- 						<h2>Mois 5</h2> -->
+<!-- 						<table class="table table-sm"> -->
 
-										</tr>
-									</c:if>
-								</c:forEach>
-							</tbody>
+<!-- 							<thead> -->
+<!-- 								<tr> -->
+<!-- 									<th scope="col">Date</th> -->
+<!-- 									<th scope="col">Salles</th> -->
+<!-- 									<th scope="col">Ordinateurs</th> -->
+<!-- 									<th scope="col">Vidéoprojecteurs</th> -->
+<!-- 								</tr> -->
+<!-- 							</thead> -->
 
-						</table>
-					</div>
-					<div class="carousel-item">
-						<h2>Mois 7</h2>
-						<table class="table table-sm">
+<!-- 							<tbody> -->
+<%-- 								<c:forEach items="${liste}" var="liste"> --%>
+<%-- 									<c:if test="${liste.id == 5}"> --%>
+<!-- 										<tr> -->
+<%-- 											<th scope="row">${liste.date}</th> --%>
+<!-- 																					Salles -->
+<%-- 											<c:if test="${liste.etatSalle <= 10}"> --%>
+<!-- 												<td class="text-danger"> -->
+<%-- 													<div class="border border-danger rounded">${ liste.etatSalle }%</div> --%>
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<%-- 											<c:if test="${liste.etatSalle > 10 && liste.etatSalle <= 30}"> --%>
+<!-- 												<td class="text-warning"> -->
+<%-- 													<div class="border border-warning rounded">${ liste.etatSalle }%</div> --%>
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<%-- 											<c:if test="${liste.etatSalle > 30}"> --%>
+<!-- 												<td class="text-success"> -->
+<!-- 													<div class="border border-success rounded">Bon état -->
+<!-- 														du stock</div> -->
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<!-- 																					Ordinateurs -->
+<%-- 											<c:if test="${liste.etatOrdi <= 10}"> --%>
+<!-- 												<td class="text-danger"> -->
+<%-- 													<div class="border border-danger rounded">${ liste.etatOrdi }%</div> --%>
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<%-- 											<c:if test="${liste.etatOrdi > 10 && liste.etatOrdi <= 30}"> --%>
+<!-- 												<td class="text-warning"> -->
+<%-- 													<div class="border border-warning rounded">${ liste.etatOrdi }%</div> --%>
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<%-- 											<c:if test="${liste.etatOrdi > 30}"> --%>
+<!-- 												<td class="text-success"> -->
+<!-- 													<div class="border border-success rounded">Bon état -->
+<!-- 														du stock</div> -->
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<!-- 																					VideoProjecteurs -->
+<%-- 											<c:if test="${liste.etatVideoProj <= 10}"> --%>
+<!-- 												<td class="text-danger"> -->
+<%-- 													<div class="border border-danger rounded">${ liste.etatVideoProj }%</div> --%>
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<%-- 											<c:if --%>
+<%-- 												test="${liste.etatVideoProj > 10 && liste.etatVideoProj <= 30}"> --%>
+<!-- 												<td class="text-warning"> -->
+<%-- 													<div class="border border-warning rounded">${ liste.etatVideoProj }%</div> --%>
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<%-- 											<c:if test="${liste.etatVideoProj > 30}"> --%>
+<!-- 												<td class="text-success"> -->
+<!-- 													<div class="border border-success rounded">Bon état -->
+<!-- 														du stock</div> -->
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
 
-							<thead>
-								<tr>
-									<th scope="col">Date</th>
-									<th scope="col">Salles</th>
-									<th scope="col">Ordinateurs</th>
-									<th scope="col">Vidéoprojecteurs</th>
-								</tr>
-							</thead>
+<!-- 										</tr> -->
+<%-- 									</c:if> --%>
+<%-- 								</c:forEach> --%>
+<!-- 							</tbody> -->
 
-							<tbody>
-								<c:forEach items="${liste}" var="liste">
-									<c:if test="${liste.id == 7}">
-										<tr>
-											<th scope="row">${liste.date}</th>
-											<!-- 										Salles -->
-											<c:if test="${liste.etatSalle <= 10}">
-												<td class="text-danger">
-													<div class="border border-danger rounded">${ liste.etatSalle }%</div>
-												</td>
-											</c:if>
-											<c:if test="${liste.etatSalle > 10 && liste.etatSalle <= 30}">
-												<td class="text-warning">
-													<div class="border border-warning rounded">${ liste.etatSalle }%</div>
-												</td>
-											</c:if>
-											<c:if test="${liste.etatSalle > 30}">
-												<td class="text-success">
-													<div class="border border-success rounded">Bon état
-														du stock</div>
-												</td>
-											</c:if>
-											<!-- 										Ordinateurs -->
-											<c:if test="${liste.etatOrdi <= 10}">
-												<td class="text-danger">
-													<div class="border border-danger rounded">${ liste.etatOrdi }%</div>
-												</td>
-											</c:if>
-											<c:if test="${liste.etatOrdi > 10 && liste.etatOrdi <= 30}">
-												<td class="text-warning">
-													<div class="border border-warning rounded">${ liste.etatOrdi }%</div>
-												</td>
-											</c:if>
-											<c:if test="${liste.etatOrdi > 30}">
-												<td class="text-success">
-													<div class="border border-success rounded">Bon état
-														du stock</div>
-												</td>
-											</c:if>
-											<!-- 										VideoProjecteurs -->
-											<c:if test="${liste.etatVideoProj <= 10}">
-												<td class="text-danger">
-													<div class="border border-danger rounded">${ liste.etatVideoProj }%</div>
-												</td>
-											</c:if>
-											<c:if
-												test="${liste.etatVideoProj > 10 && liste.etatVideoProj <= 30}">
-												<td class="text-warning">
-													<div class="border border-warning rounded">${ liste.etatVideoProj }%</div>
-												</td>
-											</c:if>
-											<c:if test="${liste.etatVideoProj > 30}">
-												<td class="text-success">
-													<div class="border border-success rounded">Bon état
-														du stock</div>
-												</td>
-											</c:if>
+<!-- 						</table> -->
+<!-- 					</div> -->
+<!-- 					<div class="carousel-item"> -->
+<!-- 						<h2>Mois 6</h2> -->
+<!-- 						<table class="table table-sm"> -->
 
-										</tr>
-									</c:if>
-								</c:forEach>
-							</tbody>
+<!-- 							<thead> -->
+<!-- 								<tr> -->
+<!-- 									<th scope="col">Date</th> -->
+<!-- 									<th scope="col">Salles</th> -->
+<!-- 									<th scope="col">Ordinateurs</th> -->
+<!-- 									<th scope="col">Vidéoprojecteurs</th> -->
+<!-- 								</tr> -->
+<!-- 							</thead> -->
 
-						</table>
-					</div>
+<!-- 							<tbody> -->
+<%-- 								<c:forEach items="${liste}" var="liste"> --%>
+<%-- 									<c:if test="${liste.id == 6}"> --%>
+<!-- 										<tr> -->
+<%-- 											<th scope="row">${liste.date}</th> --%>
+<!-- 																					Salles -->
+<%-- 											<c:if test="${liste.etatSalle <= 10}"> --%>
+<!-- 												<td class="text-danger"> -->
+<%-- 													<div class="border border-danger rounded">${ liste.etatSalle }%</div> --%>
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<%-- 											<c:if test="${liste.etatSalle > 10 && liste.etatSalle <= 30}"> --%>
+<!-- 												<td class="text-warning"> -->
+<%-- 													<div class="border border-warning rounded">${ liste.etatSalle }%</div> --%>
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<%-- 											<c:if test="${liste.etatSalle > 30}"> --%>
+<!-- 												<td class="text-success"> -->
+<!-- 													<div class="border border-success rounded">Bon état -->
+<!-- 														du stock</div> -->
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<!-- 																					Ordinateurs -->
+<%-- 											<c:if test="${liste.etatOrdi <= 10}"> --%>
+<!-- 												<td class="text-danger"> -->
+<%-- 													<div class="border border-danger rounded">${ liste.etatOrdi }%</div> --%>
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<%-- 											<c:if test="${liste.etatOrdi > 10 && liste.etatOrdi <= 30}"> --%>
+<!-- 												<td class="text-warning"> -->
+<%-- 													<div class="border border-warning rounded">${ liste.etatOrdi }%</div> --%>
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<%-- 											<c:if test="${liste.etatOrdi > 30}"> --%>
+<!-- 												<td class="text-success"> -->
+<!-- 													<div class="border border-success rounded">Bon état -->
+<!-- 														du stock</div> -->
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<!-- 																					VideoProjecteurs -->
+<%-- 											<c:if test="${liste.etatVideoProj <= 10}"> --%>
+<!-- 												<td class="text-danger"> -->
+<%-- 													<div class="border border-danger rounded">${ liste.etatVideoProj }%</div> --%>
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<%-- 											<c:if --%>
+<%-- 												test="${liste.etatVideoProj > 10 && liste.etatVideoProj <= 30}"> --%>
+<!-- 												<td class="text-warning"> -->
+<%-- 													<div class="border border-warning rounded">${ liste.etatVideoProj }%</div> --%>
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<%-- 											<c:if test="${liste.etatVideoProj > 30}"> --%>
+<!-- 												<td class="text-success"> -->
+<!-- 													<div class="border border-success rounded">Bon état -->
+<!-- 														du stock</div> -->
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+
+<!-- 										</tr> -->
+<%-- 									</c:if> --%>
+<%-- 								</c:forEach> --%>
+<!-- 							</tbody> -->
+
+<!-- 						</table> -->
+<!-- 					</div> -->
+<!-- 					<div class="carousel-item"> -->
+<!-- 						<h2>Mois 7</h2> -->
+<!-- 						<table class="table table-sm"> -->
+
+<!-- 							<thead> -->
+<!-- 								<tr> -->
+<!-- 									<th scope="col">Date</th> -->
+<!-- 									<th scope="col">Salles</th> -->
+<!-- 									<th scope="col">Ordinateurs</th> -->
+<!-- 									<th scope="col">Vidéoprojecteurs</th> -->
+<!-- 								</tr> -->
+<!-- 							</thead> -->
+
+<!-- 							<tbody> -->
+<%-- 								<c:forEach items="${liste}" var="liste"> --%>
+<%-- 									<c:if test="${liste.id == 7}"> --%>
+<!-- 										<tr> -->
+<%-- 											<th scope="row">${liste.date}</th> --%>
+<!-- 																					Salles -->
+<%-- 											<c:if test="${liste.etatSalle <= 10}"> --%>
+<!-- 												<td class="text-danger"> -->
+<%-- 													<div class="border border-danger rounded">${ liste.etatSalle }%</div> --%>
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<%-- 											<c:if test="${liste.etatSalle > 10 && liste.etatSalle <= 30}"> --%>
+<!-- 												<td class="text-warning"> -->
+<%-- 													<div class="border border-warning rounded">${ liste.etatSalle }%</div> --%>
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<%-- 											<c:if test="${liste.etatSalle > 30}"> --%>
+<!-- 												<td class="text-success"> -->
+<!-- 													<div class="border border-success rounded">Bon état -->
+<!-- 														du stock</div> -->
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<!-- 																					Ordinateurs -->
+<%-- 											<c:if test="${liste.etatOrdi <= 10}"> --%>
+<!-- 												<td class="text-danger"> -->
+<%-- 													<div class="border border-danger rounded">${ liste.etatOrdi }%</div> --%>
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<%-- 											<c:if test="${liste.etatOrdi > 10 && liste.etatOrdi <= 30}"> --%>
+<!-- 												<td class="text-warning"> -->
+<%-- 													<div class="border border-warning rounded">${ liste.etatOrdi }%</div> --%>
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<%-- 											<c:if test="${liste.etatOrdi > 30}"> --%>
+<!-- 												<td class="text-success"> -->
+<!-- 													<div class="border border-success rounded">Bon état -->
+<!-- 														du stock</div> -->
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<!-- 																					VideoProjecteurs -->
+<%-- 											<c:if test="${liste.etatVideoProj <= 10}"> --%>
+<!-- 												<td class="text-danger"> -->
+<%-- 													<div class="border border-danger rounded">${ liste.etatVideoProj }%</div> --%>
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<%-- 											<c:if --%>
+<%-- 												test="${liste.etatVideoProj > 10 && liste.etatVideoProj <= 30}"> --%>
+<!-- 												<td class="text-warning"> -->
+<%-- 													<div class="border border-warning rounded">${ liste.etatVideoProj }%</div> --%>
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+<%-- 											<c:if test="${liste.etatVideoProj > 30}"> --%>
+<!-- 												<td class="text-success"> -->
+<!-- 													<div class="border border-success rounded">Bon état -->
+<!-- 														du stock</div> -->
+<!-- 												</td> -->
+<%-- 											</c:if> --%>
+
+<!-- 										</tr> -->
+<%-- 									</c:if> --%>
+<%-- 								</c:forEach> --%>
+<!-- 							</tbody> -->
+
+<!-- 						</table> -->
+<!-- 					</div> -->
 
 				</div>
 				<a class="carousel-control-prev" href="#carouselExampleControls"
