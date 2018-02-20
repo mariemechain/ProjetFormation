@@ -21,7 +21,7 @@
 						<tr>
 							<td>${ Matieres.nom }</td>
 							<td>${ Matieres.duree }</td>
-							<td><a class="btn btn-secondary" href="/Geromino/templates/modifier/${Templates.id}" role="button">Visualiser</a>
+							<td><a class="btn btn-secondary" href="/Geromino/templates/modifier/${Templates.id}" role="button">Modifier</a>
 							<a class="btn btn-danger" href="/Geromino/templates/supprimer/${Templates.id}"role="button">Supprimer</a></td>
 						</tr>
 					</c:forEach>

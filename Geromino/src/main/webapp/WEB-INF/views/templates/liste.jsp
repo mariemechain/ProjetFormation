@@ -14,7 +14,6 @@
 					<tr>
 						<th scope="col">#</th>
 						<th scope="col">Nom</th>
-						<th scope="col">Cursus</th>
 						<th scope="col"></th>
 					</tr>
 				</thead>
@@ -31,7 +30,7 @@
 			</table>
 
 			<div>
-				<a class="btn btn-primary" href="/Geromino/templates/ajouter" role="button">Ajouter un nouveau template</a>
+				<a class="btn btn-primary" href="/Geromino/templates/ajouter" role="button">Créer un nouveau template</a>
 			</div>
 
 	</tiles:putAttribute>
