@@ -24,6 +24,28 @@ public class Personne {
 	
 	@Column(name="PER_PRENOM")
 	protected String prenom;
+	
+	@Column(name="PER_LOGIN")
+	protected String login;
+	
+	@Column(name="PER_MOTDEPASSE")
+	protected String motDePasse;
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public String getMotDePasse() {
+		return motDePasse;
+	}
+
+	public void setMotDePasse(String motDePasse) {
+		this.motDePasse = motDePasse;
+	}
 
 	public int getId() {
 		return id;

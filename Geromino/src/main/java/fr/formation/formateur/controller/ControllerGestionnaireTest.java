@@ -116,7 +116,7 @@ public String getAjouterFormateur( Model model) {
 
 
 @PostMapping(value={ "/ajouter" })
-public String postAjouterFormateur(@RequestParam("niveau") String titre,@RequestParam("niveau") String nom,@RequestParam("niveau") String prenom, Model model) {
+public String postAjouterFormateur(@RequestParam("titre") String titre,@RequestParam("nom") String nom,@RequestParam("prenom") String prenom, Model model) {
 	
 	//Initialisation
 	Formateur formateur = new Formateur();
@@ -151,7 +151,7 @@ return "modifformateurstest";
 
 
 @PostMapping(value={ "/modifier" })
-public String postModifierFormateur(@RequestParam("idf") int idFormateur,@RequestParam("niveau") String nom,@RequestParam("niveau") String prenom,@RequestParam("niveau") String titre, Model model) {
+public String postModifierFormateur(@RequestParam("idf") int idFormateur,@RequestParam("nom") String nom,@RequestParam("prenom") String prenom,@RequestParam("titre") String titre, Model model) {
 	
 	
 	//Initialisation

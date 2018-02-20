@@ -26,7 +26,7 @@ public class RestControllerFormateur {
 
 	
 	//====================================INJECTION=====================================================
-	@Autowired(required=false)
+	@Autowired
 	IFormateurDAO daoFormateur;
 
 	//====================================FIND FORMATEUR==========================================================
@@ -37,9 +37,11 @@ public class RestControllerFormateur {
 	
 	
 	//====================================CONNEXION==========================================================
-	@GetMapping("/connexion/{login}/{motDePasse}")
+	@PostMapping("/connexion/{login}/{motDePasse}")
 	public Formateur findByAuthentification(@PathVariable String login,@PathVariable String motDePasse) {
 		return this.daoFormateur.findByAuthentification(login,motDePasse);
 	}
+	
+
 	
 }

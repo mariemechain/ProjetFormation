@@ -63,6 +63,10 @@ public List<Expertise> initListeExpertise() {
 return listeExpertises;
 }
 
+
+
+
+
 //====================================MATIERES FORMATEUR=====================================================
 @GetMapping ( value = {"/liste"})
 public String getListeExpertise (Model model,@RequestParam("idf") int idFormateur){

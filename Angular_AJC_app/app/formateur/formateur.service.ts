@@ -23,11 +23,16 @@ export class FormateurService {
 
 
     public connect(login: string, motDePasse: string){
-  		this.http.post(this.appConfig.uri +"formateur/connexion", {login: login}{motDePasse: motDePasse}).subscribe(resp=> {
-  																							this.formateur = resp.json().formateur;
-  																							this.router.navigate(['home']);
+  		this.http.post(this.appConfig.uri +"/formateur/connexion/" + login + "/" + motDePasse ).subscribe(resp=> {
+                                                if (resp._body != "" ){
+                                                  this.formateur = resp.json();
+                                                  this.router.navigate(['home']);
+                                                }
+
   																						});
   	}
+
+
 
 
 }
