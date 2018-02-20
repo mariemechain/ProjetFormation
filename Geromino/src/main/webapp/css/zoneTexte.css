@@ -1,0 +1,15 @@
+.d-block {
+	height: 500px;
+	border: solid 2px gray;
+	
+}
+
+table th.colonne1 {
+	min-width: 190px;
+	vertical-align: middle;
+	text-align: left;
+}
+
+.input-group-text {
+   width: 200px;
+}
