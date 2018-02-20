@@ -9,6 +9,8 @@
 	<tiles:putAttribute name="content">
 		<p></p>
 		<p>Bonjour et bienvenue ${login} sur ta page d'accueil</p>
+		<p> Votre id est : ${personne.id}</p>
+		<p> Votre nom est: ${personne.nom} </p>
 
 
 	</tiles:putAttribute>

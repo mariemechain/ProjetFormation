@@ -1,10 +1,14 @@
 package fr.formation.ressources.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+
+import fr.formation.ressources.metier.Personne;
 
 
 @Controller
@@ -16,9 +20,10 @@ public class HomeController {
     }
 	
 	@GetMapping(value = { "/home", "/home/{login}" })
-	public String home(@PathVariable(value="login", required=false) String login, Model model) {
+	public String home(@PathVariable(value="login", required=false) String login, Model model, HttpSession ses) {
 		model.addAttribute("login", login);
-		
+		Personne p = (Personne) ses.getAttribute("utilisateur");
+		model.addAttribute("personne",p);
 		return "home";
 	}
 }

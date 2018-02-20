@@ -44,6 +44,7 @@ public class ConnexionController {
 			model.addAttribute("utilisateur", daoAuthentification.auth(login, motDePasse));
 			//System.out.println(a);
 			model.addAttribute("login", login);
+			ses.setAttribute("utilisateur", p);
 			ses.setAttribute("login", login);
 			return "redirect:./home/{login}";
 		} else {
