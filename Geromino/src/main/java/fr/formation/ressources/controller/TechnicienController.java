@@ -76,19 +76,16 @@ public class TechnicienController {
 	// ******************** Modifier un ordi**************************
 	@GetMapping("/ordi/modifier")
 	public String modifOrdi(Model model, @RequestParam("id") String idOrdi) {
-		//model.addAttribute("ordinateur", new Ordinateur());
 		model.addAttribute("ordinateur", ordiDAO.findById(idOrdi).get());
 		return "ajouterOrdi";
 	}
 
 	@PostMapping("/ordi/modifier")
-	public String modifierOrdi(@Valid @ModelAttribute("ordinateur") Ordinateur ordinateur, 
-			 BindingResult result, Model model) {
+	public String modifierOrdi(@Valid @ModelAttribute("ordinateur") Ordinateur ordinateur, BindingResult result,
+			Model model) {
 		if (result.hasErrors()) {
-			//model.addAttribute("ordinateur", ordiDAO.findById(idOrdi).get());
 			return "ajouterOrdi";
 		}
-		//ordinateur.setId(idOrdi);
 		ordiDAO.save(ordinateur);
 		return "redirect:./";
 	}
@@ -135,18 +132,16 @@ public class TechnicienController {
 	}
 
 	@PostMapping("/video/ajouter")
-	public String sauvegardeVideo(@Valid @ModelAttribute("videoprojecteur") VideoProjecteur videoprojecteur, BindingResult result,
-			Model model) {
+	public String sauvegardeVideo(@Valid @ModelAttribute("videoprojecteur") VideoProjecteur videoprojecteur,
+			BindingResult result, Model model) {
 		if (result.hasErrors()) {
-			model.addAttribute("videoprojecteur", new VideoProjecteur());
-			return "techVideo";
+			return "ajouterVideo";
 		}
 		videoDAO.save(videoprojecteur);
 		return "redirect:./";
 	}
 
-	// ****************************** Modifier un
-	// videoproj***************************
+	// ***************** Modifier un videoproj*****************
 	@GetMapping("/video/modifier")
 	public String modifVideoprojecteur(Model model, @RequestParam("id") String idVideo) {
 		model.addAttribute("videoprojecteur", new VideoProjecteur());
@@ -155,8 +150,8 @@ public class TechnicienController {
 	}
 
 	@PostMapping("/video/modifier")
-	public String modifierOrdi(@ModelAttribute("videoprojecteur") VideoProjecteur videoprojecteur, BindingResult result, Model model,
-			@RequestParam("id") String idVideo) {
+	public String modifierOrdi(@Valid @ModelAttribute("videoprojecteur") VideoProjecteur videoprojecteur,
+			 @RequestParam("id") String idVideo, BindingResult result, Model model) {
 		if (result.hasErrors()) {
 			model.addAttribute("videoprojecteur", videoDAO.findById(idVideo).get());
 			return "ajouterVideo";
@@ -166,8 +161,7 @@ public class TechnicienController {
 		return "redirect:./";
 	}
 
-	// ***********************Modifier dispo
-	// videoproj***************************
+	// *************Modifier dispo videoproj*************
 	@GetMapping("/video/etat")
 	public String dispoVideo(Model model, @RequestParam("id") String idVideo) {
 
@@ -192,8 +186,7 @@ public class TechnicienController {
 	}
 
 	// ***************************************************************************
-	// ****************************Allouer
-	// ORDI***********************************
+	// ****************************Allouer ORDI*******************
 	// ***************************************************************************
 
 	@GetMapping("/ordi/allouer")

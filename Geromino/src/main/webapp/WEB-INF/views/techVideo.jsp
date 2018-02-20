@@ -38,23 +38,21 @@
 
 						<td><a
 							href="/Geromino/technicien/video/etat?id=${videoprojecteur.id}"
-							class="btn btn-warning">OUT</a>
-							<a
+							class="btn btn-warning">OUT</a> <a
 							href="/Geromino/technicien/video/supprimer?id=${videoprojecteur.id}"
 							class="btn btn-danger">X</a></td>
-						
+
 					</tr>
 				</c:forEach>
-
-
-
-
 
 			</table>
 
 
 			<a href="/Geromino/technicien/video/ajouter" class="btn btn-primary">Ajouter</a>
-
+			<a href="/Geromino/technicien">
+				<button type="button" class="btn btn-danger">Revenir au
+					menu précédent</button>
+			</a>
 		</div>
 	</tiles:putAttribute>
 
