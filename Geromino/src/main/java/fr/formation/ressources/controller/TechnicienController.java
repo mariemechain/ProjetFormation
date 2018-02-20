@@ -81,16 +81,24 @@ public class TechnicienController {
 	}
 
 	@PostMapping("/ordi/modifier")
-	public String modifierOrdi(@Valid @ModelAttribute("ordinateur") Ordinateur ordinateur, BindingResult result,
-			Model model) {
+
+	
+	public String modifierOrdi(@Valid @ModelAttribute("ordinateur") Ordinateur ordinateur, 
+			 BindingResult result, Model model, @RequestParam("id") String idOrdi) {
+
 		if (result.hasErrors()) {
 			return "ajouterOrdi";
 		}
+
+
+		//ordinateur.setId(idOrdi);
+		ordinateur.setDate(ordiDAO.findById(idOrdi).get().getDate());
+
 		ordiDAO.save(ordinateur);
 		return "redirect:./";
 	}
 
-	// ********************Modifier dispoordinateur******************
+	// ********************Modifier dispo ordinateur******************
 	@GetMapping("/ordi/etat")
 	public String dispoOrdi(Model model, @RequestParam("id") String idOrdi) {
 
