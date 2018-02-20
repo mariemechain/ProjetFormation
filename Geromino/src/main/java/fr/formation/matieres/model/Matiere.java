@@ -33,7 +33,6 @@ public class Matiere {
 	@NotEmpty(message="le titre de la matiere est obligatoire")
 	private String titre;
 	
-	
 	@Column(name="MAT_DUREE")
 	@NotNull(message="la duree de la matiere est null")
 	@Positive(message="la duree de la matiere doit etre une valeur positive")

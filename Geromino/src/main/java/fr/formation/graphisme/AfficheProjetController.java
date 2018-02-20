@@ -32,6 +32,7 @@ public class AfficheProjetController {
 	@GetMapping("")
 	public String afficher(@RequestParam("id") int id, Model model) {
 		model.addAttribute("projet", daoPro.findById(id).get());
+		System.out.println(daoPro.findById(id).get());
 		return "afficheProjet";
 	}
 }

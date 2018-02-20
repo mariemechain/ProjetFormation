@@ -26,5 +26,6 @@
 	<mvc:resources mapping="/images/**" location="/images/" />
 	
 	<context:component-scan base-package="fr.formation.matieres.controller"></context:component-scan>
+	<context:component-scan base-package="fr.formation.graphisme"></context:component-scan>
 
 </beans>

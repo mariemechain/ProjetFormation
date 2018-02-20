@@ -17,12 +17,17 @@
 					<th>Titres</th>
 				</tr>
 			</thead>
-			<c:forEach items="${produits}" var="produit">
-				<tr>
-					
-				</tr>
-			</c:forEach>
+			<tbody>
+				<c:forEach var="i" begin="1" end="12">
+					<tr>
+						<td colspan="6">
+							Item <c:out value="${i}" />
+						</td>
+					</tr>
+				</c:forEach>
+			</tbody>
 		</table>
 
 	</tiles:putAttribute>
-</tiles:insertDefinition>>
+</tiles:insertDefinition>
+>
