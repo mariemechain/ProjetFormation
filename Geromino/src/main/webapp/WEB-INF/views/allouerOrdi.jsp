@@ -63,7 +63,9 @@
 
 				</div>
 
-				<button type="submit" class="btn btn-primary">Submit</button>
+				<button type="submit" class="btn btn-primary">Envoyer</button>
+				<a href="/Geromino/technicien/ordi"><button
+					type="button" class="btn btn-danger">Revenir au menu précedent</button></a>
 			</div>
 		</form:form>
 
