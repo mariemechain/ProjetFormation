@@ -13,13 +13,29 @@
 <form method="POST" action="">
   <div class="form-group">
   	<input type="hidden" id="idf" name="idf" value="${formateur.id}">
-    <label for="niveau">Niveau:</label>
-    <input type="text" class="form-control" name="niveau" id="niveau">
-  </div>
-  <div class="form-group">
-    <label for="idM">Matiere:</label>
-    <input type="text" class="form-control" name="idM" id="idM">
+<!--     <label for="niveau">Niveau:</label> -->
+<!--     <input type="text" class="form-control" name="niveau" id="niveau"> -->
     
+    <label for="sel1">Niveaux:</label>
+  <select class="form-control" id="sel1" name="niveau">
+    <option value="Debutant">Debutant</option>
+    <option value="Intermediaire">Intermediaire</option>
+    <option value="Avance">Avance</option>
+    <option value="Expert">Expert</option>
+  </select>
+  </div>
+  
+ 
+  <div class="form-group">
+<!--     <label for="idM">Matiere:</label> -->
+<!--     <input type="text" class="form-control" name="idM" id="idM"> -->
+    
+    <label for="sel2">Matières:</label>
+  	<select class="form-control" id="sel2" name="idM">
+	  	<c:forEach items="${ listeMatiere }" var="Matieres">
+		<option value="${ Matieres.id }">${ Matieres.titre }</option>
+		</c:forEach>
+  	</select>
   </div>
   <button type="submit" class="btn btn-primary">Ajouter</button>
 </form>
@@ -30,19 +46,39 @@
 <form method="POST" action="">
   <div class="form-group">
   	<input type="hidden" id="idf" name="idf" value="${formateur.id}">
-    <label for="niveau">Niveau:</label>
-    <c:if test="${ expertise.id == 1 }">
-    <input type="text" class="form-control" name="niveau" id="niveau" value="Debutant">
-    </c:if>
-    <c:if test="${ expertise.id == 2 }">
-    <input type="text" class="form-control" name="niveau" id="niveau" value="Intermediaire">
-    </c:if>
-    <c:if test="${ expertise.id == 3 }">
-    <input type="text" class="form-control" name="niveau" id="niveau" value="Avance">
-    </c:if>
-    <c:if test="${ expertise.id == 4 }">
-    <input type="text" class="form-control" name="niveau" id="niveau" value="Expert">
-    </c:if>
+    
+        <label for="sel1">Editer Niveau:</label>
+	  <select class="form-control" id="sel1" name="niveau">
+	  
+	   <c:if test="${ nivexpertise == 'Debutant' }">
+	    <option value="Debutant" selected>Debutant</option>
+	     <option value="Intermediaire">Intermediaire</option>
+	    <option value="Avance">Avance</option>
+	    <option value="Expert">Expert</option>
+	    </c:if>
+	    
+	    <c:if test="${ nivexpertise == 'Intermediaire' }">
+	    <option value="Debutant">Debutant</option>
+	    <option value="Intermediaire" selected>Intermediaire</option>
+	    <option value="Avance">Avance</option>
+	    <option value="Expert">Expert</option>
+	    </c:if>
+	    
+	    <c:if test="${ nivexpertise == 'Avance' }">
+	    <option value="Debutant">Debutant</option>
+	     <option value="Intermediaire">Intermediaire</option>
+	    <option value="Avance" selected>Avance</option>
+	    <option value="Expert">Expert</option>
+	    </c:if>
+	    
+	    <c:if test="${ nivexpertise == 'Expert' }">
+	    <option value="Debutant">Debutant</option>
+	     <option value="Intermediaire">Intermediaire</option>
+	    <option value="Avance">Avance</option>
+	    <option value="Expert" selected>Expert</option>
+	    </c:if>
+	    
+	  </select>
     
   </div>
   <button type="submit" class="btn btn-primary">Editer</button>

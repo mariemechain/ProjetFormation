@@ -2,6 +2,7 @@ package fr.formation.formateur.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -10,8 +11,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-
 
 @Entity
 @Table(name="expertise")
@@ -22,12 +21,12 @@ public class Expertise {
 	@Column(name="EXP_ID")
 	private int id;
 	
-	@ManyToOne
+	@ManyToOne(fetch= FetchType.EAGER)
 	@JoinColumn(name="EXP_FORMATEUR_ID")
 	@JsonIgnoreProperties("expertises")
 	private Formateur formateur;
 	
-	@ManyToOne
+	@ManyToOne(fetch= FetchType.EAGER)
 	@JoinColumn(name="EXP_MATIERE_ID")
 	@JsonIgnoreProperties("expertises")
 	private Matiere matiere;

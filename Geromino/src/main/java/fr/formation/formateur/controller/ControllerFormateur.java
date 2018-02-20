@@ -17,8 +17,8 @@ import fr.formation.formateur.dao.IFormateurDAO;
 import fr.formation.formateur.dao.IMatiereDAOPourTest;
 import fr.formation.formateur.model.Expertise;
 import fr.formation.formateur.model.Formateur;
-import fr.formation.formateur.model.Matiere;
 import fr.formation.formateur.model.Niveau;
+import fr.formation.formateur.model.Matiere;
 
 
 @Controller
@@ -38,7 +38,8 @@ IExpertiseDAO daoExpertise;
 
 
 //====================================INITIALISATION=====================================================
-@ModelAttribute("modifexpertise")
+
+@ModelAttribute("formateur")
 public Formateur initFormateur() {
 	Formateur formateur = new Formateur();
 return formateur;
@@ -64,7 +65,8 @@ return listeExpertises;
 
 //====================================MATIERES FORMATEUR=====================================================
 @GetMapping ( value = {"/liste"})
-public String getModifExpertise (Model model,@RequestParam("idf") int idFormateur){
+public String getListeExpertise (Model model,@RequestParam("idf") int idFormateur){
+
 	model.addAttribute("formateur",daoFormateur.findById(idFormateur).get());
 	model.addAttribute("listeExpertises",daoFormateur.findById(idFormateur).get().getExpertises());
 	return "listeexpertise";
@@ -102,7 +104,9 @@ public String getAjouterExpertise(@RequestParam("idf") int idFormateur, Model mo
 	
 	//Statut: Ajout ==> afin d'afficher le bon contenu sur le formulaire
 	model.addAttribute("statut","ajout");
-	
+	//Allocation de la liste des matières à la liste d'attribut
+	model.addAttribute("listeMatiere",daoMatiere.findAll());
+		
 	return "modifexpertise";
 }
 
@@ -144,6 +148,8 @@ public String postAjouterExpertise(@RequestParam("idf") int idFormateur,@Request
 	}
 	}
 	
+	
+	
 	//Allocation de la matière de l'expertise
 	Matiere matiere = new Matiere();
 	matiere = daoMatiere.findById(idMatiere).get();
@@ -181,6 +187,7 @@ public String getModifierExpertise(@RequestParam("idf") int idFormateur,@Request
     model.addAttribute("statut","edition");
 	model.addAttribute("formateur",daoFormateur.findById(idFormateur).get());
 	model.addAttribute("expertise",daoExpertise.findById(idExpertise).get());
+	model.addAttribute("nivexpertise",daoExpertise.findById(idExpertise).get().getNiveau());
 	
 return "modifexpertise";
 }
@@ -199,7 +206,9 @@ public String postModifierExpertise(@RequestParam("idf") int idFormateur,@Reques
 		
 	//Statut: Edition ==> afin d'afficher le bon contenu sur le formulaire
 		model.addAttribute("statut","edition");
-	//Test Niveau Saisi
+		
+	
+	//Test Niveau Saisie
 		if (niveau != "")
 		{
 		switch (niveau){

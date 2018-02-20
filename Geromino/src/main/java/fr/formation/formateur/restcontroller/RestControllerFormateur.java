@@ -29,10 +29,17 @@ public class RestControllerFormateur {
 	@Autowired(required=false)
 	IFormateurDAO daoFormateur;
 
-	//====================================READ==========================================================
+	//====================================FIND FORMATEUR==========================================================
 	@GetMapping("/{id}")
 	public Formateur findById(@PathVariable int id) {
 		return this.daoFormateur.findById(id).get();
+	}
+	
+	
+	//====================================CONNEXION==========================================================
+	@GetMapping("/connexion/{login}/{motDePasse}")
+	public Formateur findByAuthentification(@PathVariable String login,@PathVariable String motDePasse) {
+		return this.daoFormateur.findByAuthentification(login,motDePasse);
 	}
 	
 }

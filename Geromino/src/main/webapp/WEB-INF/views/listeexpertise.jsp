@@ -9,10 +9,27 @@
 <tiles:putAttribute name="content">
 
 <!-- <div class="container"> -->
-  <h2>Liste des Compétences: ${formateur.nom}</h2>
-  
-  <a href="/Geromino/formateur/ajouter?idf=${formateur.id}" class="btn-success" > Ajouter + </a>
-  <table class="table table-dark table-striped">
+
+  <h2>Formateur: </h2>         
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Informations</th>
+      </tr>
+    </thead>
+    <tbody>
+     <tr>
+        <td>${formateur.nom}</td>
+      </tr>
+      <tr>
+        <td>${formateur.prenom}</td>
+      </tr>
+      </tbody>
+     </table>
+ 
+  <a href="/Geromino/formateur/ajouter?idf=${formateur.id}" class="btn btn-success btn-lg" > Ajouter une compétence</a>
+  <a href="/Geromino/formateurs/liste" class="btn btn-info">Retour</a>
+  <table class="table table-hover">
     <thead>
       <tr>
         <th>#</th>
@@ -25,7 +42,7 @@
      <c:forEach items="${ listeExpertises }" var="listeExpertises">
 			<tr>
 			<td>${ listeExpertises.id }</td>
-			<td>${ listeExpertises.matiere }</td>
+			<td>${ listeExpertises.matiere.titre }</td>
 			<td>${ listeExpertises.niveau }</td>
 			<td> <a href="/Geromino/formateur/modifier?idf=${formateur.id}&ide=${listeExpertises.id}" class="btn btn-primary">Editer</a><a href="/Geromino/formateur/supprimer?idf=${formateur.id}&ide=${listeExpertises.id}" class="btn btn-danger">Supprimer</a></td>
 			

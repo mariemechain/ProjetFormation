@@ -4,12 +4,12 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 
 
 @Entity
@@ -27,7 +27,7 @@ public class Formateur extends Personne{
 	@JsonIgnoreProperties("formateur")
 	private List<Disponibilite> disponibilites;
 	
-	@OneToMany(mappedBy="formateur")
+	@OneToMany(mappedBy="formateur",fetch= FetchType.EAGER)
 	@JsonIgnoreProperties("formateur")
 	private List<Expertise> expertises;
 
