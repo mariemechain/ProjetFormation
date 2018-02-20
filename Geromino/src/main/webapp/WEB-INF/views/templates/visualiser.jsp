@@ -5,7 +5,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 <tiles:insertDefinition name="app.layout">
-	<tiles:putAttribute name="title" value="Visualisation du cursus ${ Template.nom }" />
+	<tiles:putAttribute name="title" value="Cursus ${ Template.nom }" />
 	<tiles:putAttribute name="content">
 
      <table class="table table-striped">
@@ -20,7 +20,7 @@
 					<c:forEach items="${ Matieres }" var="Matieres">
 						<tr>
 							<td>${ Matieres.titre }</td>
-							<td>${ Matieres.duree }</td>
+							<td>${ Matieres.duree } jours</td>
 							<td><a class="btn btn-secondary" href="/Geromino/templates/modifier/${Templates.id}" role="button">Modifier</a>
 							<a class="btn btn-danger" href="/Geromino/templates/supprimer/${Templates.id}"role="button">Supprimer</a></td>
 						</tr>
@@ -29,7 +29,7 @@
 			</table>
 
 			<div>
-				<a class="btn btn-primary" href="/Geromino/templates/ajouter" role="button">Ajouter une matiere</a>
+				<a class="btn btn-primary" href="/Geromino/templates/ajouter" role="button">Modifier</a>
 			</div>
 
 	</tiles:putAttribute>

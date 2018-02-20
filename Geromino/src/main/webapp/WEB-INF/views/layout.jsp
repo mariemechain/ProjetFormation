@@ -9,7 +9,6 @@
 <link rel="stylesheet"
 	href="/Geromino/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-	href="/Geromino/css/bootstrap.min.css" />
 	<link rel="stylesheet"
 	href="/Geromino/css/zoneTexte.css" />
 <title>Insert title here</title>
