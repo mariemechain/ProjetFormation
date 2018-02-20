@@ -12,18 +12,19 @@
 		
 		<div class="form-group">
 					<label for="stagiaires">Type :</label>
-					<select  name="personnels">
+					<c:if test="${personnel.id != null}"> 
+					<select onChange="test(Formateur)" name="personnels">
 					
-					
-					 <option>Formateur</option>
-					 <option>Technicien</option>
-					 <option>Gestionnaire</option>
-					 <option>Admin</option>
+					<option value="null">--</option>
+					 <option value="Formateur">Formateur</option>
+					 <option value="Technicien">Technicien</option>
+					 <option value="Gestionnaire">Gestionnaire</option>
+					 <option value="Administrateur">Admin</option>
 					 
 									 
 					
 					</select>
-
+</c:if>
 				</div>
 
 			
