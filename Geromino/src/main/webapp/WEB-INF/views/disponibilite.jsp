@@ -27,7 +27,7 @@
 				</ol>
 				<div class="carousel-inner">
 					<div class="carousel-item active">
-						<table class="table table-bordered table-sm">
+						<table class="table table-sm">
 
 							<thead>
 								<tr>
@@ -45,34 +45,51 @@
 											<th scope="row">${liste.date}</th>
 											<!-- 										Salles -->
 											<c:if test="${liste.etatSalle <= 10}">
-												<td bgcolor=#ff0c0c>${ liste.etatSalle }%</td>
+												<td class="text-danger">
+													<div class="border border-danger rounded">${ liste.etatSalle }%</div>
+												</td>
 											</c:if>
 											<c:if test="${liste.etatSalle > 10 && liste.etatSalle <= 30}">
-												<td bgcolor="#ffef1c">${ liste.etatSalle }%</td>
+												<td class="text-warning">
+													<div class="border border-warning rounded">${ liste.etatSalle }%</div>
+												</td>
 											</c:if>
 											<c:if test="${liste.etatSalle > 30}">
-												<td bgcolor=#57f72e>Bon état du stock</td>
+												<td class="text-success">
+													<div class="border border-warning rounded">Bon état du stock</div>
+												</td>
 											</c:if>
 											<!-- 										Ordinateurs -->
 											<c:if test="${liste.etatOrdi <= 10}">
-												<td bgcolor=#ff0c0c>${ liste.etatOrdi }%</td>
+												<td class="text-danger">
+													<div class="border border-danger rounded">${ liste.etatOrdi }%</div>
+												</td>
 											</c:if>
 											<c:if test="${liste.etatOrdi > 10 && liste.etatOrdi <= 30}">
-												<td bgcolor="#ffef1c">${ liste.etatOrdi }%</td>
+												<td class="text-warning">
+													<div class="border border-warning rounded">${ liste.etatOrdi }%</div>
+												</td>
 											</c:if>
 											<c:if test="${liste.etatOrdi > 30}">
-												<td bgcolor=#57f72e>Bon état du stock</td>
+												<td class="text-success">
+													<div class="border border-warning rounded">Bon état du stock</div>
+												</td>
 											</c:if>
 											<!-- 										VideoProjecteurs -->
 											<c:if test="${liste.etatVideoProj <= 10}">
-												<td bgcolor=#ff0c0c>${ liste.etatVideoProj }%</td>
+												<td class="text-danger">
+													<div class="border border-danger rounded">${ liste.etatVideoProj }%</div>
+												</td>
 											</c:if>
-											<c:if
-												test="${liste.etatVideoProj > 10 && liste.etatVideoProj <= 30}">
-												<td bgcolor="#ffef1c">${ liste.etatVideoProj }%</td>
+											<c:if test="${liste.etatVideoProj > 10 && liste.etatVideoProj <= 30}">
+												<td class="text-warning">
+													<div class="border border-warning rounded">${ liste.etatVideoProj }%</div>
+												</td>
 											</c:if>
 											<c:if test="${liste.etatVideoProj > 30}">
-												<td bgcolor=#57f72e>Bon état du stock</td>
+												<td class="text-success">
+													<div class="border border-warning rounded">Bon état du stock</div>
+												</td>
 											</c:if>
 
 										</tr>
@@ -102,34 +119,51 @@
 											<th scope="row">${liste.date}</th>
 											<!-- 										Salles -->
 											<c:if test="${liste.etatSalle <= 10}">
-												<td bgcolor=#ff0c0c>${ liste.etatSalle }%</td>
+												<td class="text-danger">
+													<div class="border border-danger rounded">${ liste.etatSalle }%</div>
+												</td>
 											</c:if>
 											<c:if test="${liste.etatSalle > 10 && liste.etatSalle <= 30}">
-												<td bgcolor="#ffef1c">${ liste.etatSalle }%</td>
+												<td class="text-warning">
+													<div class="border border-warning rounded">${ liste.etatSalle }%</div>
+												</td>
 											</c:if>
 											<c:if test="${liste.etatSalle > 30}">
-												<td bgcolor=#57f72e>Bon état du stock</td>
+												<td class="text-success">
+													<div class="border border-warning rounded">Bon état du stock</div>
+												</td>
 											</c:if>
 											<!-- 										Ordinateurs -->
 											<c:if test="${liste.etatOrdi <= 10}">
-												<td bgcolor=#ff0c0c>${ liste.etatOrdi }%</td>
+												<td class="text-danger">
+													<div class="border border-danger rounded">${ liste.etatOrdi }%</div>
+												</td>
 											</c:if>
 											<c:if test="${liste.etatOrdi > 10 && liste.etatOrdi <= 30}">
-												<td bgcolor="#ffef1c">${ liste.etatOrdi }%</td>
+												<td class="text-warning">
+													<div class="border border-warning rounded">${ liste.etatOrdi }%</div>
+												</td>
 											</c:if>
 											<c:if test="${liste.etatOrdi > 30}">
-												<td bgcolor=#57f72e>Bon état du stock</td>
+												<td class="text-success">
+													<div class="border border-warning rounded">Bon état du stock</div>
+												</td>
 											</c:if>
 											<!-- 										VideoProjecteurs -->
 											<c:if test="${liste.etatVideoProj <= 10}">
-												<td bgcolor=#ff0c0c>${ liste.etatVideoProj }%</td>
+												<td class="text-danger">
+													<div class="border border-danger rounded">${ liste.etatVideoProj }%</div>
+												</td>
 											</c:if>
-											<c:if
-												test="${liste.etatVideoProj > 10 && liste.etatVideoProj <= 30}">
-												<td bgcolor="#ffef1c">${ liste.etatVideoProj }%</td>
+											<c:if test="${liste.etatVideoProj > 10 && liste.etatVideoProj <= 30}">
+												<td class="text-warning">
+													<div class="border border-warning rounded">${ liste.etatVideoProj }%</div>
+												</td>
 											</c:if>
 											<c:if test="${liste.etatVideoProj > 30}">
-												<td bgcolor=#57f72e>Bon état du stock</td>
+												<td class="text-success">
+													<div class="border border-warning rounded">Bon état du stock</div>
+												</td>
 											</c:if>
 
 										</tr>
@@ -158,34 +192,51 @@
 											<th scope="row">${liste.date}</th>
 											<!-- 										Salles -->
 											<c:if test="${liste.etatSalle <= 10}">
-												<td bgcolor=#ff0c0c>${ liste.etatSalle }%</td>
+												<td class="text-danger">
+													<div class="border border-danger rounded">${ liste.etatSalle }%</div>
+												</td>
 											</c:if>
 											<c:if test="${liste.etatSalle > 10 && liste.etatSalle <= 30}">
-												<td bgcolor="#ffef1c">${ liste.etatSalle }%</td>
+												<td class="text-warning">
+													<div class="border border-warning rounded">${ liste.etatSalle }%</div>
+												</td>
 											</c:if>
 											<c:if test="${liste.etatSalle > 30}">
-												<td bgcolor=#57f72e>Bon état du stock</td>
+												<td class="text-success">
+													<div class="border border-warning rounded">Bon état du stock</div>
+												</td>
 											</c:if>
 											<!-- 										Ordinateurs -->
 											<c:if test="${liste.etatOrdi <= 10}">
-												<td bgcolor=#ff0c0c>${ liste.etatOrdi }%</td>
+												<td class="text-danger">
+													<div class="border border-danger rounded">${ liste.etatOrdi }%</div>
+												</td>
 											</c:if>
 											<c:if test="${liste.etatOrdi > 10 && liste.etatOrdi <= 30}">
-												<td bgcolor="#ffef1c">${ liste.etatOrdi }%</td>
+												<td class="text-warning">
+													<div class="border border-warning rounded">${ liste.etatOrdi }%</div>
+												</td>
 											</c:if>
 											<c:if test="${liste.etatOrdi > 30}">
-												<td bgcolor=#57f72e>Bon état du stock</td>
+												<td class="text-success">
+													<div class="border border-warning rounded">Bon état du stock</div>
+												</td>
 											</c:if>
 											<!-- 										VideoProjecteurs -->
 											<c:if test="${liste.etatVideoProj <= 10}">
-												<td bgcolor=#ff0c0c>${ liste.etatVideoProj }%</td>
+												<td class="text-danger">
+													<div class="border border-danger rounded">${ liste.etatVideoProj }%</div>
+												</td>
 											</c:if>
-											<c:if
-												test="${liste.etatVideoProj > 10 && liste.etatVideoProj <= 30}">
-												<td bgcolor="#ffef1c">${ liste.etatVideoProj }%</td>
+											<c:if test="${liste.etatVideoProj > 10 && liste.etatVideoProj <= 30}">
+												<td class="text-warning">
+													<div class="border border-warning rounded">${ liste.etatVideoProj }%</div>
+												</td>
 											</c:if>
 											<c:if test="${liste.etatVideoProj > 30}">
-												<td bgcolor=#57f72e>Bon état du stock</td>
+												<td class="text-success">
+													<div class="border border-warning rounded">Bon état du stock</div>
+												</td>
 											</c:if>
 
 										</tr>
@@ -214,34 +265,51 @@
 											<th scope="row">${liste.date}</th>
 											<!-- 										Salles -->
 											<c:if test="${liste.etatSalle <= 10}">
-												<td bgcolor=#ff0c0c>${ liste.etatSalle }%</td>
+												<td class="text-danger">
+													<div class="border border-danger rounded">${ liste.etatSalle }%</div>
+												</td>
 											</c:if>
 											<c:if test="${liste.etatSalle > 10 && liste.etatSalle <= 30}">
-												<td bgcolor="#ffef1c">${ liste.etatSalle }%</td>
+												<td class="text-warning">
+													<div class="border border-warning rounded">${ liste.etatSalle }%</div>
+												</td>
 											</c:if>
 											<c:if test="${liste.etatSalle > 30}">
-												<td bgcolor=#57f72e>Bon état du stock</td>
+												<td class="text-success">
+													<div class="border border-warning rounded">Bon état du stock</div>
+												</td>
 											</c:if>
 											<!-- 										Ordinateurs -->
 											<c:if test="${liste.etatOrdi <= 10}">
-												<td bgcolor=#ff0c0c>${ liste.etatOrdi }%</td>
+												<td class="text-danger">
+													<div class="border border-danger rounded">${ liste.etatOrdi }%</div>
+												</td>
 											</c:if>
 											<c:if test="${liste.etatOrdi > 10 && liste.etatOrdi <= 30}">
-												<td bgcolor="#ffef1c">${ liste.etatOrdi }%</td>
+												<td class="text-warning">
+													<div class="border border-warning rounded">${ liste.etatOrdi }%</div>
+												</td>
 											</c:if>
 											<c:if test="${liste.etatOrdi > 30}">
-												<td bgcolor=#57f72e>Bon état du stock</td>
+												<td class="text-success">
+													<div class="border border-warning rounded">Bon état du stock</div>
+												</td>
 											</c:if>
 											<!-- 										VideoProjecteurs -->
 											<c:if test="${liste.etatVideoProj <= 10}">
-												<td bgcolor=#ff0c0c>${ liste.etatVideoProj }%</td>
+												<td class="text-danger">
+													<div class="border border-danger rounded">${ liste.etatVideoProj }%</div>
+												</td>
 											</c:if>
-											<c:if
-												test="${liste.etatVideoProj > 10 && liste.etatVideoProj <= 30}">
-												<td bgcolor="#ffef1c">${ liste.etatVideoProj }%</td>
+											<c:if test="${liste.etatVideoProj > 10 && liste.etatVideoProj <= 30}">
+												<td class="text-warning">
+													<div class="border border-warning rounded">${ liste.etatVideoProj }%</div>
+												</td>
 											</c:if>
 											<c:if test="${liste.etatVideoProj > 30}">
-												<td bgcolor=#57f72e>Bon état du stock</td>
+												<td class="text-success">
+													<div class="border border-warning rounded">Bon état du stock</div>
+												</td>
 											</c:if>
 
 										</tr>
@@ -270,34 +338,51 @@
 											<th scope="row">${liste.date}</th>
 											<!-- 										Salles -->
 											<c:if test="${liste.etatSalle <= 10}">
-												<td bgcolor=#ff0c0c>${ liste.etatSalle }%</td>
+												<td class="text-danger">
+													<div class="border border-danger rounded">${ liste.etatSalle }%</div>
+												</td>
 											</c:if>
 											<c:if test="${liste.etatSalle > 10 && liste.etatSalle <= 30}">
-												<td bgcolor="#ffef1c">${ liste.etatSalle }%</td>
+												<td class="text-warning">
+													<div class="border border-warning rounded">${ liste.etatSalle }%</div>
+												</td>
 											</c:if>
 											<c:if test="${liste.etatSalle > 30}">
-												<td bgcolor=#57f72e>Bon état du stock</td>
+												<td class="text-success">
+													<div class="border border-warning rounded">Bon état du stock</div>
+												</td>
 											</c:if>
 											<!-- 										Ordinateurs -->
 											<c:if test="${liste.etatOrdi <= 10}">
-												<td bgcolor=#ff0c0c>${ liste.etatOrdi }%</td>
+												<td class="text-danger">
+													<div class="border border-danger rounded">${ liste.etatOrdi }%</div>
+												</td>
 											</c:if>
 											<c:if test="${liste.etatOrdi > 10 && liste.etatOrdi <= 30}">
-												<td bgcolor="#ffef1c">${ liste.etatOrdi }%</td>
+												<td class="text-warning">
+													<div class="border border-warning rounded">${ liste.etatOrdi }%</div>
+												</td>
 											</c:if>
 											<c:if test="${liste.etatOrdi > 30}">
-												<td bgcolor=#57f72e>Bon état du stock</td>
+												<td class="text-success">
+													<div class="border border-warning rounded">Bon état du stock</div>
+												</td>
 											</c:if>
 											<!-- 										VideoProjecteurs -->
 											<c:if test="${liste.etatVideoProj <= 10}">
-												<td bgcolor=#ff0c0c>${ liste.etatVideoProj }%</td>
+												<td class="text-danger">
+													<div class="border border-danger rounded">${ liste.etatVideoProj }%</div>
+												</td>
 											</c:if>
-											<c:if
-												test="${liste.etatVideoProj > 10 && liste.etatVideoProj <= 30}">
-												<td bgcolor="#ffef1c">${ liste.etatVideoProj }%</td>
+											<c:if test="${liste.etatVideoProj > 10 && liste.etatVideoProj <= 30}">
+												<td class="text-warning">
+													<div class="border border-warning rounded">${ liste.etatVideoProj }%</div>
+												</td>
 											</c:if>
 											<c:if test="${liste.etatVideoProj > 30}">
-												<td bgcolor=#57f72e>Bon état du stock</td>
+												<td class="text-success">
+													<div class="border border-warning rounded">Bon état du stock</div>
+												</td>
 											</c:if>
 
 										</tr>
@@ -326,34 +411,51 @@
 											<th scope="row">${liste.date}</th>
 											<!-- 										Salles -->
 											<c:if test="${liste.etatSalle <= 10}">
-												<td bgcolor=#ff0c0c>${ liste.etatSalle }%</td>
+												<td class="text-danger">
+													<div class="border border-danger rounded">${ liste.etatSalle }%</div>
+												</td>
 											</c:if>
 											<c:if test="${liste.etatSalle > 10 && liste.etatSalle <= 30}">
-												<td bgcolor="#ffef1c">${ liste.etatSalle }%</td>
+												<td class="text-warning">
+													<div class="border border-warning rounded">${ liste.etatSalle }%</div>
+												</td>
 											</c:if>
 											<c:if test="${liste.etatSalle > 30}">
-												<td bgcolor=#57f72e>Bon état du stock</td>
+												<td class="text-success">
+													<div class="border border-warning rounded">Bon état du stock</div>
+												</td>
 											</c:if>
 											<!-- 										Ordinateurs -->
 											<c:if test="${liste.etatOrdi <= 10}">
-												<td bgcolor=#ff0c0c>${ liste.etatOrdi }%</td>
+												<td class="text-danger">
+													<div class="border border-danger rounded">${ liste.etatOrdi }%</div>
+												</td>
 											</c:if>
 											<c:if test="${liste.etatOrdi > 10 && liste.etatOrdi <= 30}">
-												<td bgcolor="#ffef1c">${ liste.etatOrdi }%</td>
+												<td class="text-warning">
+													<div class="border border-warning rounded">${ liste.etatOrdi }%</div>
+												</td>
 											</c:if>
 											<c:if test="${liste.etatOrdi > 30}">
-												<td bgcolor=#57f72e>Bon état du stock</td>
+												<td class="text-success">
+													<div class="border border-warning rounded">Bon état du stock</div>
+												</td>
 											</c:if>
 											<!-- 										VideoProjecteurs -->
 											<c:if test="${liste.etatVideoProj <= 10}">
-												<td bgcolor=#ff0c0c>${ liste.etatVideoProj }%</td>
+												<td class="text-danger">
+													<div class="border border-danger rounded">${ liste.etatVideoProj }%</div>
+												</td>
 											</c:if>
-											<c:if
-												test="${liste.etatVideoProj > 10 && liste.etatVideoProj <= 30}">
-												<td bgcolor="#ffef1c">${ liste.etatVideoProj }%</td>
+											<c:if test="${liste.etatVideoProj > 10 && liste.etatVideoProj <= 30}">
+												<td class="text-warning">
+													<div class="border border-warning rounded">${ liste.etatVideoProj }%</div>
+												</td>
 											</c:if>
 											<c:if test="${liste.etatVideoProj > 30}">
-												<td bgcolor=#57f72e>Bon état du stock</td>
+												<td class="text-success">
+													<div class="border border-warning rounded">Bon état du stock</div>
+												</td>
 											</c:if>
 
 										</tr>
