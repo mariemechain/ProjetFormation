@@ -19,13 +19,7 @@
 			</thead>
 			<c:forEach items="${produits}" var="produit">
 				<tr>
-					<td>${produit.libelle }</td>
-					<td>${produit.prix }£</td>
-					<td>${produit.fournisseur.societe}</td>
-					<td><a href="/Mvc/produits/editer?id=${produit.id }"><button
-								type="button" class="btn btn-outline-primary">modifier</button></a>
-						<a href="/Mvc/produits/supprimer?id=${produit.id }"><button
-								type="button" class="btn btn-danger">X</button></a></td>
+					
 				</tr>
 			</c:forEach>
 		</table>
