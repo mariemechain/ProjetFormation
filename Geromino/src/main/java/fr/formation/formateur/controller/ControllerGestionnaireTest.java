@@ -56,14 +56,14 @@ return listeMatiere;
 }
 
 //====================================LISTE FORMATEURS=====================================================
-@GetMapping ( value = {"/liste"})
+@GetMapping ( value = {""})
 public String getListeFormateur (Model model){
 	model.addAttribute("listeMatiere",daoMatiere.findAll());
 	model.addAttribute("listeformateurs",daoFormateur.findAll());
 	return "listeformateurtest";
 }
 
-@PostMapping(value={ "/liste" })
+@PostMapping(value={ "" })
 public String setListeFormateurFilter (Model model,@RequestParam("niveau") String niveaufilter,@RequestParam("matiere") int matierefilter){
 	model.addAttribute("listeMatiere",daoMatiere.findAll());
 	
@@ -100,7 +100,7 @@ public String getSuppFormateur(@RequestParam("idf") int idFormateur, Model model
 	Formateur formateur = new Formateur();
 	formateur = daoFormateur.findById(idFormateur).get();
 	daoFormateur.delete(formateur);
-return "redirect:./liste";
+return "redirect:./";
 }
 
 
@@ -117,7 +117,7 @@ public String getAjouterFormateur( Model model) {
 
 
 @PostMapping(value={ "/ajouter" })
-public String postAjouterFormateur(@RequestParam("niveau") String titre,@RequestParam("niveau") String nom,@RequestParam("niveau") String prenom, Model model) {
+public String postAjouterFormateur(@RequestParam("titre") String titre,@RequestParam("nom") String nom,@RequestParam("prenom") String prenom, Model model) {
 	
 	//Initialisation
 	Formateur formateur = new Formateur();
@@ -131,7 +131,7 @@ public String postAjouterFormateur(@RequestParam("niveau") String titre,@Request
 	daoFormateur.save(formateur);
 	
 	
-return "redirect:./liste";
+return "redirect:./";
 }
 
 
@@ -152,7 +152,7 @@ return "modifformateurstest";
 
 
 @PostMapping(value={ "/modifier" })
-public String postModifierFormateur(@RequestParam("idf") int idFormateur,@RequestParam("niveau") String nom,@RequestParam("niveau") String prenom,@RequestParam("niveau") String titre, Model model) {
+public String postModifierFormateur(@RequestParam("idf") int idFormateur,@RequestParam("nom") String nom,@RequestParam("prenom") String prenom,@RequestParam("titre") String titre, Model model) {
 	
 	
 	//Initialisation
@@ -165,7 +165,7 @@ public String postModifierFormateur(@RequestParam("idf") int idFormateur,@Reques
 	//Sauvegarde du formateur modifié
 		daoFormateur.save(formateur);
 	
-return "redirect:./liste";
+return "redirect:./";
 }
 
 }

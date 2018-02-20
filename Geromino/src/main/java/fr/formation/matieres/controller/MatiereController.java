@@ -50,7 +50,7 @@ public class MatiereController {
 		if (result.hasErrors()) {
 			model.addAttribute("matieres", daoMatiere.findAll());
 
-			return "ajouterMatiere";
+			return "matiere";
 		}
 		
 		List<Matiere> liste = daoMatiere.findAll();

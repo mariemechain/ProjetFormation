@@ -42,7 +42,7 @@
   	</div>
   
 	<button type="submit" class="btn btn-primary">Filtrer</button>
-	<a href="/Geromino/formateurs/liste" class="btn btn-primary" > Annuler Filtre </a>
+	<a href="/Geromino/formateurs" class="btn btn-primary" > Annuler Filtre </a>
 	</div>
 	</form>
  

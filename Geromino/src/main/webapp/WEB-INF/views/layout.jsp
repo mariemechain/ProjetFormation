@@ -22,6 +22,7 @@
 <a href="matiere"> matiere</a>
 <a href="planification"> planification</a>
 <a href="templates"> templates</a>
+<a href="formateurs"> filtre formateur</a>
 </head>
 
 
