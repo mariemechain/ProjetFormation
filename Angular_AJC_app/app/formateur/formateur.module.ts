@@ -5,6 +5,9 @@ import { FormateurComponent } from './formateur.component';
 import { DispoComponent } from './dispo.component';
 import { DispoService } from './dispo.service';
 import { ExpertiseService } from './expertise.service';
+import { ConnexionComponent } from './connexion.component';
+
+
 
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
@@ -14,9 +17,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgbdDatepickerRange } from './datepicker-range';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+
+
 const routesFormateur: Routes = [
 { path: 'formateur', component: FormateurComponent },
 { path: 'formateur/dispo', component: DispoComponent },
+{ path: 'formateur/connexion', component: ConnexionComponent}
 // { path: 'formateur/:nom/:prenom/:ca', component:FormateurComponent }
 ];
 
@@ -41,7 +47,8 @@ const routesFormateur: Routes = [
 
         FormateurComponent,
         DispoComponent,
-        NgbdDatepickerRange
+        ConnexionComponent,
+        NgbdDatepickerRange,
 
 
     ],
