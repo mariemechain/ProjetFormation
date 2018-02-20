@@ -50,6 +50,10 @@
 			<a href="/Geromino/gestionnaire/gestionnaireAjouterStagiaire"><button
 					type="button" class="btn btn-success">Ajouter un nouveau
 					Stagiaire</button></a>
+					<a href="/Geromino/gestionnaire/">
+					<button type="button" class="btn btn-danger">Revenir au
+						menu précédent</button>
+				</a>
 		</div>
 
 	</tiles:putAttribute>

@@ -48,6 +48,10 @@
 			<a href="/Geromino/gestionnaire/gestionnaireAjouterContact"><button
 					type="button" class="btn btn-success">Ajouter un nouveau
 					Contact</button></a>
+					<a href="/Geromino/gestionnaire/">
+					<button type="button" class="btn btn-danger">Revenir au
+						menu précédent</button>
+				</a>
 		</div>
 
 	</tiles:putAttribute>

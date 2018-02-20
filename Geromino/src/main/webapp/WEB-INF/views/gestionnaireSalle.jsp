@@ -30,7 +30,7 @@
 					<td>${salle.adresse }</td>
 					<td>${salle.contact.nom }</td>
 					<td>${salle.videoprojecteur.id }</td>
-					<td>${salle.cout }</td>
+					 <td>${salle.cout}</td> 
 					<td><a
 						href="/Geromino/gestionnaire/gestionnaireEditerSalle?id=${salle.id }"><button
 								type="button" class="btn btn-outline-primary">modifier</button></a>
@@ -45,6 +45,10 @@
 		<div>
 			<a href="/Geromino/gestionnaire/gestionnaireAjouterSalle"><button
 					type="button" class="btn btn-success">Ajouter une salle</button></a>
+					<a href="/Geromino/gestionnaire/">
+					<button type="button" class="btn btn-danger">Revenir au
+						menu précédent</button>
+				</a>
 		</div>
 
 	</tiles:putAttribute>
