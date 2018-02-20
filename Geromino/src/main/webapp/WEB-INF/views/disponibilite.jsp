@@ -4,72 +4,380 @@
 <%@  taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
-<link rel="stylesheet" href="/Geromino/css/dispo.css" />
+
 
 <tiles:insertDefinition name="app.layout">
 
 	<tiles:putAttribute name="title" value="Disponibilité du matériel" />
 
+
 	<tiles:putAttribute name="content">
 		<div class="container">
-		
-			<c:forEach var = "i" begin = "1" end = "6">
-			
-				<table class="table table-bordered table-sm">
-				
-					<thead>
-						<tr>
-							<th scope="col">Date</th>
-							<th scope="col">Salles</th>
-							<th scope="col">Ordinateurs</th>
-							<th scope="col">Vidéoprojecteurs</th>
-						</tr>
-					</thead>
-				  
-					<tbody>
-						<c:forEach items="${liste}" var="liste">
-							<c:if test="${liste.id == i}">
-								<tr>
-									<th scope="row">${liste.date}</th>
-<!-- 										Salles -->
-										<c:if test="${liste.etatSalle <= 10}">
-											<td bgcolor=#ff0c0c>${ liste.etatSalle }%</td>
-										</c:if>
-										<c:if test="${liste.etatSalle > 10 && liste.etatSalle <= 30}">
-											<td bgcolor="#ffef1c" >${ liste.etatSalle }%</td>
-										</c:if>
-										<c:if test="${liste.etatSalle > 30}">
-											<td bgcolor=#57f72e >Bon état du stock</td>
-										</c:if>
-<!-- 										Ordinateurs -->
-										<c:if test="${liste.etatOrdi <= 10}">
-											<td bgcolor=#ff0c0c >${ liste.etatOrdi }%</td>
-										</c:if>
-										<c:if test="${liste.etatOrdi > 10 && liste.etatOrdi <= 30}">
-											<td bgcolor="#ffef1c" >${ liste.etatOrdi }%</td>
-										</c:if>
-										<c:if test="${liste.etatOrdi > 30}">
-											<td bgcolor=#57f72e >Bon état du stock</td>
-										</c:if>
-<!-- 										VideoProjecteurs -->
-										<c:if test="${liste.etatVideoProj <= 10}">
-											<td bgcolor=#ff0c0c >${ liste.etatVideoProj }%</td>
-										</c:if>
-										<c:if test="${liste.etatVideoProj > 10 && liste.etatVideoProj <= 30}">
-											<td bgcolor="#ffef1c" >${ liste.etatVideoProj }%</td>
-										</c:if>
-										<c:if test="${liste.etatVideoProj > 30}">
-											<td bgcolor=#57f72e >Bon état du stock</td>
-										</c:if>
 
-							    </tr>
-							</c:if>
-					   	</c:forEach>
-					</tbody>
-				 
-				</table>
-			</c:forEach>
+			<div id="carouselExampleControls" class="carousel slide"
+				data-ride="carousel" data-interval="false">
+				<ol class="carousel-indicators">
+					<li data-target="#carouselExampleIndicators" data-slide-to="0"
+						class="active"></li>
+					<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+					<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+					<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+					<li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+					<li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+				</ol>
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<table class="table table-bordered table-sm">
+
+							<thead>
+								<tr>
+									<th scope="col">Date</th>
+									<th scope="col">Salles</th>
+									<th scope="col">Ordinateurs</th>
+									<th scope="col">Vidéoprojecteurs</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<c:forEach items="${liste}" var="liste">
+									<c:if test="${liste.id == 1}">
+										<tr>
+											<th scope="row">${liste.date}</th>
+											<!-- 										Salles -->
+											<c:if test="${liste.etatSalle <= 10}">
+												<td bgcolor=#ff0c0c>${ liste.etatSalle }%</td>
+											</c:if>
+											<c:if test="${liste.etatSalle > 10 && liste.etatSalle <= 30}">
+												<td bgcolor="#ffef1c">${ liste.etatSalle }%</td>
+											</c:if>
+											<c:if test="${liste.etatSalle > 30}">
+												<td bgcolor=#57f72e>Bon état du stock</td>
+											</c:if>
+											<!-- 										Ordinateurs -->
+											<c:if test="${liste.etatOrdi <= 10}">
+												<td bgcolor=#ff0c0c>${ liste.etatOrdi }%</td>
+											</c:if>
+											<c:if test="${liste.etatOrdi > 10 && liste.etatOrdi <= 30}">
+												<td bgcolor="#ffef1c">${ liste.etatOrdi }%</td>
+											</c:if>
+											<c:if test="${liste.etatOrdi > 30}">
+												<td bgcolor=#57f72e>Bon état du stock</td>
+											</c:if>
+											<!-- 										VideoProjecteurs -->
+											<c:if test="${liste.etatVideoProj <= 10}">
+												<td bgcolor=#ff0c0c>${ liste.etatVideoProj }%</td>
+											</c:if>
+											<c:if
+												test="${liste.etatVideoProj > 10 && liste.etatVideoProj <= 30}">
+												<td bgcolor="#ffef1c">${ liste.etatVideoProj }%</td>
+											</c:if>
+											<c:if test="${liste.etatVideoProj > 30}">
+												<td bgcolor=#57f72e>Bon état du stock</td>
+											</c:if>
+
+										</tr>
+									</c:if>
+								</c:forEach>
+							</tbody>
+
+						</table>
+					</div>
+
+					<div class="carousel-item">
+						<table class="table table-bordered table-sm">
+
+							<thead>
+								<tr>
+									<th scope="col">Date</th>
+									<th scope="col">Salles</th>
+									<th scope="col">Ordinateurs</th>
+									<th scope="col">Vidéoprojecteurs</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<c:forEach items="${liste}" var="liste">
+									<c:if test="${liste.id == 2}">
+										<tr>
+											<th scope="row">${liste.date}</th>
+											<!-- 										Salles -->
+											<c:if test="${liste.etatSalle <= 10}">
+												<td bgcolor=#ff0c0c>${ liste.etatSalle }%</td>
+											</c:if>
+											<c:if test="${liste.etatSalle > 10 && liste.etatSalle <= 30}">
+												<td bgcolor="#ffef1c">${ liste.etatSalle }%</td>
+											</c:if>
+											<c:if test="${liste.etatSalle > 30}">
+												<td bgcolor=#57f72e>Bon état du stock</td>
+											</c:if>
+											<!-- 										Ordinateurs -->
+											<c:if test="${liste.etatOrdi <= 10}">
+												<td bgcolor=#ff0c0c>${ liste.etatOrdi }%</td>
+											</c:if>
+											<c:if test="${liste.etatOrdi > 10 && liste.etatOrdi <= 30}">
+												<td bgcolor="#ffef1c">${ liste.etatOrdi }%</td>
+											</c:if>
+											<c:if test="${liste.etatOrdi > 30}">
+												<td bgcolor=#57f72e>Bon état du stock</td>
+											</c:if>
+											<!-- 										VideoProjecteurs -->
+											<c:if test="${liste.etatVideoProj <= 10}">
+												<td bgcolor=#ff0c0c>${ liste.etatVideoProj }%</td>
+											</c:if>
+											<c:if
+												test="${liste.etatVideoProj > 10 && liste.etatVideoProj <= 30}">
+												<td bgcolor="#ffef1c">${ liste.etatVideoProj }%</td>
+											</c:if>
+											<c:if test="${liste.etatVideoProj > 30}">
+												<td bgcolor=#57f72e>Bon état du stock</td>
+											</c:if>
+
+										</tr>
+									</c:if>
+								</c:forEach>
+							</tbody>
+
+						</table>
+					</div>
+					<div class="carousel-item">
+						<table class="table table-bordered table-sm">
+
+							<thead>
+								<tr>
+									<th scope="col">Date</th>
+									<th scope="col">Salles</th>
+									<th scope="col">Ordinateurs</th>
+									<th scope="col">Vidéoprojecteurs</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<c:forEach items="${liste}" var="liste">
+									<c:if test="${liste.id == 3}">
+										<tr>
+											<th scope="row">${liste.date}</th>
+											<!-- 										Salles -->
+											<c:if test="${liste.etatSalle <= 10}">
+												<td bgcolor=#ff0c0c>${ liste.etatSalle }%</td>
+											</c:if>
+											<c:if test="${liste.etatSalle > 10 && liste.etatSalle <= 30}">
+												<td bgcolor="#ffef1c">${ liste.etatSalle }%</td>
+											</c:if>
+											<c:if test="${liste.etatSalle > 30}">
+												<td bgcolor=#57f72e>Bon état du stock</td>
+											</c:if>
+											<!-- 										Ordinateurs -->
+											<c:if test="${liste.etatOrdi <= 10}">
+												<td bgcolor=#ff0c0c>${ liste.etatOrdi }%</td>
+											</c:if>
+											<c:if test="${liste.etatOrdi > 10 && liste.etatOrdi <= 30}">
+												<td bgcolor="#ffef1c">${ liste.etatOrdi }%</td>
+											</c:if>
+											<c:if test="${liste.etatOrdi > 30}">
+												<td bgcolor=#57f72e>Bon état du stock</td>
+											</c:if>
+											<!-- 										VideoProjecteurs -->
+											<c:if test="${liste.etatVideoProj <= 10}">
+												<td bgcolor=#ff0c0c>${ liste.etatVideoProj }%</td>
+											</c:if>
+											<c:if
+												test="${liste.etatVideoProj > 10 && liste.etatVideoProj <= 30}">
+												<td bgcolor="#ffef1c">${ liste.etatVideoProj }%</td>
+											</c:if>
+											<c:if test="${liste.etatVideoProj > 30}">
+												<td bgcolor=#57f72e>Bon état du stock</td>
+											</c:if>
+
+										</tr>
+									</c:if>
+								</c:forEach>
+							</tbody>
+
+						</table>
+					</div>
+					<div class="carousel-item">
+						<table class="table table-bordered table-sm">
+
+							<thead>
+								<tr>
+									<th scope="col">Date</th>
+									<th scope="col">Salles</th>
+									<th scope="col">Ordinateurs</th>
+									<th scope="col">Vidéoprojecteurs</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<c:forEach items="${liste}" var="liste">
+									<c:if test="${liste.id == 4}">
+										<tr>
+											<th scope="row">${liste.date}</th>
+											<!-- 										Salles -->
+											<c:if test="${liste.etatSalle <= 10}">
+												<td bgcolor=#ff0c0c>${ liste.etatSalle }%</td>
+											</c:if>
+											<c:if test="${liste.etatSalle > 10 && liste.etatSalle <= 30}">
+												<td bgcolor="#ffef1c">${ liste.etatSalle }%</td>
+											</c:if>
+											<c:if test="${liste.etatSalle > 30}">
+												<td bgcolor=#57f72e>Bon état du stock</td>
+											</c:if>
+											<!-- 										Ordinateurs -->
+											<c:if test="${liste.etatOrdi <= 10}">
+												<td bgcolor=#ff0c0c>${ liste.etatOrdi }%</td>
+											</c:if>
+											<c:if test="${liste.etatOrdi > 10 && liste.etatOrdi <= 30}">
+												<td bgcolor="#ffef1c">${ liste.etatOrdi }%</td>
+											</c:if>
+											<c:if test="${liste.etatOrdi > 30}">
+												<td bgcolor=#57f72e>Bon état du stock</td>
+											</c:if>
+											<!-- 										VideoProjecteurs -->
+											<c:if test="${liste.etatVideoProj <= 10}">
+												<td bgcolor=#ff0c0c>${ liste.etatVideoProj }%</td>
+											</c:if>
+											<c:if
+												test="${liste.etatVideoProj > 10 && liste.etatVideoProj <= 30}">
+												<td bgcolor="#ffef1c">${ liste.etatVideoProj }%</td>
+											</c:if>
+											<c:if test="${liste.etatVideoProj > 30}">
+												<td bgcolor=#57f72e>Bon état du stock</td>
+											</c:if>
+
+										</tr>
+									</c:if>
+								</c:forEach>
+							</tbody>
+
+						</table>
+					</div>
+					<div class="carousel-item">
+						<table class="table table-bordered table-sm">
+
+							<thead>
+								<tr>
+									<th scope="col">Date</th>
+									<th scope="col">Salles</th>
+									<th scope="col">Ordinateurs</th>
+									<th scope="col">Vidéoprojecteurs</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<c:forEach items="${liste}" var="liste">
+									<c:if test="${liste.id == 5}">
+										<tr>
+											<th scope="row">${liste.date}</th>
+											<!-- 										Salles -->
+											<c:if test="${liste.etatSalle <= 10}">
+												<td bgcolor=#ff0c0c>${ liste.etatSalle }%</td>
+											</c:if>
+											<c:if test="${liste.etatSalle > 10 && liste.etatSalle <= 30}">
+												<td bgcolor="#ffef1c">${ liste.etatSalle }%</td>
+											</c:if>
+											<c:if test="${liste.etatSalle > 30}">
+												<td bgcolor=#57f72e>Bon état du stock</td>
+											</c:if>
+											<!-- 										Ordinateurs -->
+											<c:if test="${liste.etatOrdi <= 10}">
+												<td bgcolor=#ff0c0c>${ liste.etatOrdi }%</td>
+											</c:if>
+											<c:if test="${liste.etatOrdi > 10 && liste.etatOrdi <= 30}">
+												<td bgcolor="#ffef1c">${ liste.etatOrdi }%</td>
+											</c:if>
+											<c:if test="${liste.etatOrdi > 30}">
+												<td bgcolor=#57f72e>Bon état du stock</td>
+											</c:if>
+											<!-- 										VideoProjecteurs -->
+											<c:if test="${liste.etatVideoProj <= 10}">
+												<td bgcolor=#ff0c0c>${ liste.etatVideoProj }%</td>
+											</c:if>
+											<c:if
+												test="${liste.etatVideoProj > 10 && liste.etatVideoProj <= 30}">
+												<td bgcolor="#ffef1c">${ liste.etatVideoProj }%</td>
+											</c:if>
+											<c:if test="${liste.etatVideoProj > 30}">
+												<td bgcolor=#57f72e>Bon état du stock</td>
+											</c:if>
+
+										</tr>
+									</c:if>
+								</c:forEach>
+							</tbody>
+
+						</table>
+					</div>
+					<div class="carousel-item">
+						<table class="table table-bordered table-sm">
+
+							<thead>
+								<tr>
+									<th scope="col">Date</th>
+									<th scope="col">Salles</th>
+									<th scope="col">Ordinateurs</th>
+									<th scope="col">Vidéoprojecteurs</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<c:forEach items="${liste}" var="liste">
+									<c:if test="${liste.id == 6}">
+										<tr>
+											<th scope="row">${liste.date}</th>
+											<!-- 										Salles -->
+											<c:if test="${liste.etatSalle <= 10}">
+												<td bgcolor=#ff0c0c>${ liste.etatSalle }%</td>
+											</c:if>
+											<c:if test="${liste.etatSalle > 10 && liste.etatSalle <= 30}">
+												<td bgcolor="#ffef1c">${ liste.etatSalle }%</td>
+											</c:if>
+											<c:if test="${liste.etatSalle > 30}">
+												<td bgcolor=#57f72e>Bon état du stock</td>
+											</c:if>
+											<!-- 										Ordinateurs -->
+											<c:if test="${liste.etatOrdi <= 10}">
+												<td bgcolor=#ff0c0c>${ liste.etatOrdi }%</td>
+											</c:if>
+											<c:if test="${liste.etatOrdi > 10 && liste.etatOrdi <= 30}">
+												<td bgcolor="#ffef1c">${ liste.etatOrdi }%</td>
+											</c:if>
+											<c:if test="${liste.etatOrdi > 30}">
+												<td bgcolor=#57f72e>Bon état du stock</td>
+											</c:if>
+											<!-- 										VideoProjecteurs -->
+											<c:if test="${liste.etatVideoProj <= 10}">
+												<td bgcolor=#ff0c0c>${ liste.etatVideoProj }%</td>
+											</c:if>
+											<c:if
+												test="${liste.etatVideoProj > 10 && liste.etatVideoProj <= 30}">
+												<td bgcolor="#ffef1c">${ liste.etatVideoProj }%</td>
+											</c:if>
+											<c:if test="${liste.etatVideoProj > 30}">
+												<td bgcolor=#57f72e>Bon état du stock</td>
+											</c:if>
+
+										</tr>
+									</c:if>
+								</c:forEach>
+							</tbody>
+
+						</table>
+					</div>
+
+				</div>
+				<a class="carousel-control-prev" href="#carouselExampleControls"
+					role="button" data-slide="prev"> <span
+					class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+					class="sr-only">Previous</span>
+				</a> <a class="carousel-control-next" href="#carouselExampleControls"
+					role="button" data-slide="next"> <span
+					class="carousel-control-next-icon" aria-hidden="true"></span> <span
+					class="sr-only">Next</span>
+				</a>
+			</div>
 		</div>
+
+
 	</tiles:putAttribute>
 
 </tiles:insertDefinition>
