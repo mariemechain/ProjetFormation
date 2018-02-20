@@ -36,7 +36,7 @@
 					<%-- 	<td>${ projet.stagiaires}</td>  --%>
 						
 						<td>
-						<a href="projet/editer/${ projet.id }" class="btn btn-primary">Editer</a>             
+						<a href="projet/editer?id=${ projet.id }" class="btn btn-primary">Editer</a>             
 						<a href="projet/supprimer?id=${ projet.id }" class="btn btn-danger">Supprimer</a>
 						</td>
 					</tr>

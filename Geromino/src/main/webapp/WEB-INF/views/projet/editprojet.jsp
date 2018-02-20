@@ -76,6 +76,11 @@
 				</div>
 			</div>
 			--%>
+			
+			<!--Reorientation sur /Geromino/planification  -->
+			<td><a href="../planification?id=${projet.id }"
+				class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span>
+					Planification</a>
 
 
 	            <button type="submit" class="btn btn-success">Modifier</button>

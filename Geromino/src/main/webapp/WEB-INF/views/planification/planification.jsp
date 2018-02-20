@@ -12,6 +12,7 @@
 		<div class=" container">
 
 
+
 			<table class="table table-striped">
 				<thead>
 					<tr>
@@ -40,12 +41,20 @@
 									class="glyphicon glyphicon-pencil"></span> Edit Formateur</a> <!-- Excecution des methodes du controller avec un mapping "/delete" -->
 								<a href="planification/delete?id=${planif.id }"
 								class="btn btn-sm btn-danger"><span
-									class="glyphicon glyphicon-remove"></span> Delete Formateur </a>
+									class="glyphicon glyphicon-remove"></span> Delete Formateur </a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
 
 			</table>
+
+			<div>
+				<a href="templates">Select Template de matiere</a>
+			</div>
+
+			<div>
+				<a href="projet">Valider</a>
+			</div>
 
 		</div>
 

@@ -3,9 +3,9 @@ package fr.formation.projets.model;
 
 import java.io.Serializable;
 
+import java.util.List;
 
 import javax.persistence.Column;
-
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,6 +13,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -22,24 +24,25 @@ import fr.formation.matieres.model.Matiere;
 
 @Entity
 @Table(name = "planification")
-public class Planification implements Serializable{
+public class Planification implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "PLA_ID")
 	private int id;
+	
 
-	@ManyToOne/*(fetch=FetchType.EAGER)*/
+	@ManyToOne /* (fetch=FetchType.EAGER) */
 	@JoinColumn(name = "PLA_MATIER_ID")
 	private Matiere matiere;
-	
-	@ManyToOne/*(fetch=FetchType.EAGER)*/
+
+	@ManyToOne /* (fetch=FetchType.EAGER) */
 	@JoinColumn(name = "PLA_FORMATEUR_ID")
 	private Formateur formateur;
-	
+
 	@ManyToOne
-	@JoinColumn(name = "PLA_PROJET_ID")
+	@JoinColumn(name="PLA_PROJET_ID")
 	private Projet projet;
 
 	public Planification() {
@@ -69,6 +72,15 @@ public class Planification implements Serializable{
 	public void setFormateur(Formateur formateur) {
 		this.formateur = formateur;
 	}
+
+	public Projet getProjet() {
+		return projet;
+	}
+
+	public void setProjet(Projet projet) {
+		this.projet = projet;
+	}
+
 
 
 

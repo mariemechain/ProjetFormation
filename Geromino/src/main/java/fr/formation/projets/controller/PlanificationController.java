@@ -2,9 +2,6 @@ package fr.formation.projets.controller;
 
 import java.util.List;
 
-
-
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,9 +29,8 @@ public class PlanificationController {
 	private IPlanificationDAO daoPlan;
 
 	@GetMapping("")
-	public String getMatieres(HttpServletRequest req, Model model) {
-		System.out.println("LISTE");
-		System.out.println(daoPlan.count());
+	public String getMatieres(@RequestParam("id") int idProjet, HttpServletRequest req, Model model) {
+		
 		for (Planification p : daoPlan.findAll()) {
 			System.out.println(p.getId());
 		}
@@ -43,20 +39,20 @@ public class PlanificationController {
 		return "planification/planification";
 	}
 
+	/**
+	 * Récupérer l'id de la planif 
+	 * Récupérer la planif 
+	 * Supprimer le formateur
+	 * associé setFormateur(null) 
+	 * Save de la planif
+	 */
 	@GetMapping("/delete")
 	public String deleteFormateur(@RequestParam("id") int idPlanification) {
-		// Récupérer l'id de la planif
-		// Récupérer la planif
-		// Supprimer le formateur associé setFormateur(null)
-		// Save de la planif
-
+		
 		Planification planification = daoPlan.findById(idPlanification).get();
-
 		planification.setFormateur(null);
-		System.out.println(planification.getId() + " " + planification.getFormateur());
-
-
 		daoPlan.save(planification);
+		
 		return "redirect:../planification";
 	}
 

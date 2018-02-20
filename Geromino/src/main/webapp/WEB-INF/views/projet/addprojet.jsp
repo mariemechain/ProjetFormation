@@ -72,7 +72,11 @@
 				</div>
 			</div>
 
-
+			<br>
+			<!--Reorientation sur /Geromino/planification  -->
+			<td><a href="../planification?id=${projet.id }"
+				class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span>
+					Planification</a>
 		</form:form>
 
 	</tiles:putAttribute>

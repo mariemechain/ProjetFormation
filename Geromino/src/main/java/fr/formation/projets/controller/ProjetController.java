@@ -2,8 +2,6 @@ package fr.formation.projets.controller;
 
 import javax.validation.Valid;
 
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,79 +21,79 @@ import fr.formation.projets.dao.ISalleDAO;
 import fr.formation.projets.dao.ITemplateDAO;
 import fr.formation.projets.model.Projet;
 
-
-
 @Controller
 @RequestMapping("/projet")
 public class ProjetController {
 
-	
 	@Autowired
 	private IProjetDAO daoProjet;
-	
+
 	@Autowired
 	private ISalleDAO daoSalle;
-	
+
 	@Autowired
 	private ITemplateDAO daoTemplate;
-	
+
 	@Autowired
 	private IFormateurDAO daoFormateur;
-	
+
 	@Autowired
 	private IMatiereDAO daoMatiere;
-	
-//	@Autowired
-//	private IStagiaireDAO daoStagiaire;
-	
-	// Recupere la liste des projets en base de D
+
+	/**
+	 * Recupere la liste des projets
+	 */
 	@GetMapping("")
 	public String liste(Model model) {
 		model.addAttribute("Projet", daoProjet.findAll());
 		return "projet/listeprojet";
-		}
-	
+	}
+
 	// Ajout de projet en choissisant les matières et formateurs
 	@GetMapping("/ajouter")
 	public String ajouter(Model model) {
 		model.addAttribute("projet", new Projet());
 		return "projet/addprojet";
 	}
-	
 
 	@PostMapping("/ajouter")
 	public String ajouter(@ModelAttribute("projet") Projet projet, Model model) {
-		
+
 		daoProjet.save(projet);
 		return "redirect:../projet";
 	}
-	
 
-	
+	/**
+	 * // EDITION @GetMapping("/editer/{id}") public String editer(@PathVariable
+	 * int id, Model model) { model.addAttribute("projet",
+	 * daoProjet.findById(id).get()); return "projet/editprojet"; }
+	 * 
+	 * @PostMapping("/editer/{id}") public String
+	 * editer(@ModelAttribute("projet") Projet projet, @PathVariable int id,
+	 * Model model) { { daoProjet.save(projet); return "redirect:../../projet";
+	 * } }
+	 * 
+	 */
 	// EDITION
-	@GetMapping("/editer/{id}")
-	public String editer(@PathVariable int id, Model model) {
+	@GetMapping("/editer")
+	public String editer(@RequestParam("id") int id, Model model) {
 		model.addAttribute("projet", daoProjet.findById(id).get());
-		return "editprojet";
+		return "projet/editprojet";
 	}
-	
 
-	@PostMapping("/editer/{id}")
-	public String editer(@ModelAttribute("projet") Projet projet, @PathVariable int id, Model model) {
-	{
+	@PostMapping("/editer")
+	public String editer(@RequestParam("id") int id,@ModelAttribute("projet") Projet projet,  Model model) {
+		{
 			daoProjet.save(projet);
-			return "redirect:../../projet";
+			return "redirect:../projet";
+		}
 	}
-	}
-	
-	
-// SUPRESSION
+
+	// SUPRESSION
 	@GetMapping("/supprimer")
 	public String supprimer(@RequestParam("id") int idProjet) {
 		daoProjet.deleteById(idProjet);
 		return "redirect:../projet";
 	}
-	
+
 }
-
-
