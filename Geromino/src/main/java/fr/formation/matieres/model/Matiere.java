@@ -10,8 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotEmpty;
@@ -60,8 +58,7 @@ public class Matiere {
 	
 	public String getTitre() {
 		return titre;
-	}
-	
+	}	
 	public int getId() {
 		return id;
 	}
@@ -88,13 +85,10 @@ public class Matiere {
 	}
 	public void setContenu(String contenu) {
 		this.contenu = contenu;
-	}
-
-	
+	}	
 	public List<Matiere> getPrerequis() {
 		return prerequis;
 	}
-
 	public void setPrerequis(List<Matiere> prerequis) {
 		this.prerequis = prerequis;
 	}
