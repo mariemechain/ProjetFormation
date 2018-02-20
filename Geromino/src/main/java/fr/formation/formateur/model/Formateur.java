@@ -1,16 +1,9 @@
 package fr.formation.formateur.model;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-
 
 @Entity
 @Table(name="formateur")
