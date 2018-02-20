@@ -23,8 +23,7 @@ public class TestMain {
 	
     public static void main( String[] args )
     {
-//    	testModif();
-    	testFindAll(); 
+    	testSave(); 
     }
     
     /*
@@ -72,7 +71,7 @@ public class TestMain {
     	
 		ITemplateDAO tdao = myContext.getBean(ITemplateDAO.class);
 		
-    	Template template = tdao.findById(5).get();
+    	Template template = tdao.findById(10).get();
     	
     	tdao.delete(template);
     	

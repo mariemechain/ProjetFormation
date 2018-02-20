@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.formation.projets.dao.IFormateurDAO;
-import fr.formation.projets.dao.IMatiereDAO;
+import fr.formation.matieres.dao.IMatiereDAO;
 import fr.formation.projets.dao.IProjetDAO;
 import fr.formation.projets.dao.ISalleDAO;
 //import fr.formation.projets.dao.IStagiaireDAO;

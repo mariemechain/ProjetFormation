@@ -19,7 +19,7 @@
 				<tbody>
 					<c:forEach items="${ Matieres }" var="Matieres">
 						<tr>
-							<td>${ Matieres.nom }</td>
+							<td>${ Matieres.titre }</td>
 							<td>${ Matieres.duree }</td>
 							<td><a class="btn btn-secondary" href="/Geromino/templates/modifier/${Templates.id}" role="button">Modifier</a>
 							<a class="btn btn-danger" href="/Geromino/templates/supprimer/${Templates.id}"role="button">Supprimer</a></td>
