@@ -18,11 +18,16 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="i" begin="1" end="12">
+				<c:forEach var="i" begin="0" end="${duree}">
 					<tr>
-						<td colspan="6">
-							Item <c:out value="${i}" />
-						</td>
+						<td>${mois[i]}</td>
+						<td>${dates[i].getDate()}</td>
+						<td>${jours[i]}</td>
+						<td>plup</td>
+						<c:if test="${i==0}">
+							<td rowspan="${duree}">PAPA</td>
+							<td rowspan="${duree}">MAMAN</td>
+						</c:if>
 					</tr>
 				</c:forEach>
 			</tbody>

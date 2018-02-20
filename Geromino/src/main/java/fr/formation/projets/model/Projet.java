@@ -79,11 +79,11 @@ public class Projet {
 		this.duree = duree;
 	}
 
-	public Date getDebut() {
+	public Date getDateDebut() {
 		return dateDebut;
 	}
 
-	public void setDebut(Date debut) {
+	public void setDateDebut(Date debut) {
 		this.dateDebut = debut;
 	}
 
