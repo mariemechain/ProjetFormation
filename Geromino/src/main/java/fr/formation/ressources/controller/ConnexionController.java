@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.formation.ressources.dao.IPersonnelDAO;
-import fr.formation.ressources.metier.Personne;
+import fr.formation.ressources.metier.Personnel;
+import fr.formation.ressources.metier.Technicien;
 
 
 @Controller
@@ -36,8 +37,7 @@ public class ConnexionController {
 	@PostMapping("/connexion")
 	public String connect(HttpSession ses, @RequestParam("login") String login, @RequestParam("motDePasse") String motDePasse, Model model) {
 
-		
-		Personne p = daoAuthentification.auth(login, motDePasse);
+		Personnel p = daoAuthentification.auth(login, motDePasse);
 		
 
 		if (p != null) {
