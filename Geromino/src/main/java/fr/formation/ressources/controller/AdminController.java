@@ -30,6 +30,7 @@ public class AdminController {
 	@Autowired
 	private ITechnicienDAO daoTechnicien;
 	
+<<<<<<< Updated upstream
 	@Autowired
 	private IAdminDAO daoAdmin;
 	
@@ -39,6 +40,12 @@ public class AdminController {
 	@GetMapping("/admin")
 	public String listeContact(Model model) {
 		model.addAttribute("personnels", daoPersonnel.findAll());
+=======
+	
+	@GetMapping("/adminPersonnel")
+	public String listeContact(Model model) {
+		model.addAttribute("personnels", daoPersonne.findAll());
+>>>>>>> Stashed changes
 		return "personnels";
 	}
 	
@@ -47,7 +54,7 @@ public class AdminController {
 		model.addAttribute("personnel", new Personnel());
 		
 		
-		return "ajouterPersonnel";
+		return "personnels";
 	}
 	
 	@PostMapping("/adminAjouterPersonnel")
