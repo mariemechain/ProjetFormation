@@ -1,5 +1,7 @@
 package fr.formation.disponibilite.annexe;
 
+import java.util.List;
+
 import javax.persistence.Cacheable;
 import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
@@ -14,5 +16,4 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @Cache(usage=CacheConcurrencyStrategy.READ_WRITE)
 @PrimaryKeyJoinColumn(name="VID_ID", referencedColumnName="MAT_ID")
 public class VideoProjecteur extends Materiel {
-
 }

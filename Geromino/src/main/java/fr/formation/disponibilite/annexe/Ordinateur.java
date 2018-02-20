@@ -3,13 +3,22 @@ package fr.formation.disponibilite.annexe;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Cacheable;
 import javax.persistence.Column;
-import javax.persistence.OneToMany;
+import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
+@Entity
+@Table(name="ordinateur")
+@Cacheable
+@Cache(usage=CacheConcurrencyStrategy.READ_WRITE)
+@PrimaryKeyJoinColumn(name="ORD_ID", referencedColumnName="MAT_ID")
 public class Ordinateur extends Materiel {
 
 	@Column(name = "ORD_PROCESSEUR")
@@ -25,7 +34,7 @@ public class Ordinateur extends Materiel {
 //	@OneToMany(mappedBy= "ordinateur")
 //	private List<Stagiaire> stagiaires;
 	
-	
+
 
 //	public List<Stagiaire> getStagiaires() {
 //		return stagiaires;
@@ -34,6 +43,7 @@ public class Ordinateur extends Materiel {
 //	public void setStagiaires(List<Stagiaire> stagiaires) {
 //		this.stagiaires = stagiaires;
 //	}
+
 
 	public String getProcesseur() {
 		return processeur;

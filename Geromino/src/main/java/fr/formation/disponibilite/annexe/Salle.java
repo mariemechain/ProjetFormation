@@ -2,6 +2,8 @@ package fr.formation.disponibilite.annexe;
 
 
 
+import java.util.List;
+
 import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -37,12 +39,12 @@ public class Salle extends Materiel {
 //	@JoinColumn(name="SAL_CONTACT_ID")
 //	private Personne contact;
 
-
+	
 	@OneToOne
 	@JoinColumn(name="SAL_VIDEOPROJECTEUR_ID")
 	private VideoProjecteur videoprojecteur;
-
 	
+
 	public Integer getPlaces() {
 		return places;
 	}

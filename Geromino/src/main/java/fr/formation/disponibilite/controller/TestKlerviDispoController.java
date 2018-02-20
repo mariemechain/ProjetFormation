@@ -11,11 +11,11 @@ import fr.formation.disponibilite.model.Disponibilite;
 @Controller
 public class TestKlerviDispoController {
 
-	@GetMapping("/disponibilite" )
-	public String produit(Model model) {
-		ArrayList liste = new ArrayList<Disponibilite>();
-		model.addAttribute("liste", liste);
-		return "/disponibilite";
-	}
-	
+//	@GetMapping("/disponibilite" )
+//	public String produit(Model model) {
+//		ArrayList liste = new ArrayList<Disponibilite>();
+//		model.addAttribute("liste", liste);
+//		return "/disponibilite";
+//	}
+//	
 }

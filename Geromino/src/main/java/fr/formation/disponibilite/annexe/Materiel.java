@@ -2,6 +2,7 @@ package fr.formation.disponibilite.annexe;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Cacheable;
 import javax.persistence.Column;
@@ -9,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -36,9 +38,9 @@ private static final long serialVersionUID = 1L;
 	@Column(name = "MAT_ETAT", columnDefinition = "DATE")
 	@Temporal(TemporalType.DATE)
 	private Date date;
-//	@ManyToMany(mappedBy = "materiels")
-//	private List<Projet> dispo;
-//	
+	@ManyToMany(mappedBy = "materiels")
+	private List<Projet> dispo;
+	
 	
 	// Constructeur par defaut	
 	public Materiel() {
@@ -83,18 +85,18 @@ public Date getDate() {
 	}
 
 
-	//	public List<Projet> getDispo() {
-//		return dispo;
-//	}
-//
-//
-//
-//	public void setDispo(List<Projet> dispo) {
-//		this.dispo = dispo;
-//	}
-//
-//
-//
+		public List<Projet> getDispo() {
+		return dispo;
+	}
+
+
+
+	public void setDispo(List<Projet> dispo) {
+		this.dispo = dispo;
+	}
+
+
+
 	@Override
 	public String toString() {
 		return "Materiel [id = " + id + " - cout = " + cout +"]";
