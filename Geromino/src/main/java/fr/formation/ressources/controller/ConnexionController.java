@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import fr.formation.ressources.dao.IPersonneDAO;
+import fr.formation.ressources.dao.IPersonnelDAO;
 import fr.formation.ressources.metier.Personne;
 
 
@@ -19,7 +19,7 @@ import fr.formation.ressources.metier.Personne;
 public class ConnexionController {
 	
 	@Autowired
-	private IPersonneDAO daoAuthentification;
+	private IPersonnelDAO daoAuthentification;
 	
 	@GetMapping(value = { "/connexion" })
 	public String connexion(Model model) {

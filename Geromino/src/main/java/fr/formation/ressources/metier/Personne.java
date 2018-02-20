@@ -56,12 +56,6 @@ public class Personne implements Serializable {
 	@NotEmpty(message = "Veuillez indiquer l'adresse")
 	private String adresse;
 
-	@Column(name = "PER_LOGIN")
-	private String login;
-
-	@Column(name = "PER_MOTDEPASSE")
-	private String motDePasse;
-
 	
 	
 
