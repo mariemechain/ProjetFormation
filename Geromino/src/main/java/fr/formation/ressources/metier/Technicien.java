@@ -12,11 +12,16 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @Table(name = "technicien")
 @Cacheable
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-@PrimaryKeyJoinColumn(name = "TEC_ID", referencedColumnName = "PER_ID")
-public class Technicien extends Personne {
+@PrimaryKeyJoinColumn(name = "TEC_ID", referencedColumnName = "PNL_ID")
+public class Technicien extends Personnel {
 
 	public Technicien() {
 		super();
+	}
+	
+	@Override
+	public String getType() {
+		return "Technicien";
 	}
 
 }

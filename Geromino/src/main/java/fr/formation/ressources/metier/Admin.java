@@ -6,8 +6,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="admin")
-@PrimaryKeyJoinColumn(name="ADM_ID", referencedColumnName="PER_ID")
-public class Admin extends Personne{
+@PrimaryKeyJoinColumn(name="ADM_ID", referencedColumnName="PNL_ID")
+public class Admin extends Personnel {
 	private static final long serialVersionUID = 1L;
 
+	@Override
+	public String getType() {
+		return "Administrateur";
+	}
 }

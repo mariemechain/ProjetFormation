@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="contact")
 @PrimaryKeyJoinColumn(name="CON_ID", referencedColumnName="PER_ID")
-public class Contact extends Personne{
+public class Contact extends Personne {
 	
 	@Column
 	@OneToMany(mappedBy="contact")

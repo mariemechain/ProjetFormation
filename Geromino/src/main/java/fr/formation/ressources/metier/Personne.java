@@ -63,21 +63,7 @@ public class Personne implements Serializable {
 	private String motDePasse;
 
 	
-	public String getLogin() {
-		return login;
-	}
-
-	public void setLogin(String login) {
-		this.login = login;
-	}
-
-	public String getPassword() {
-		return motDePasse;
-	}
-
-	public void setPassword(String motDePasse) {
-		this.motDePasse = motDePasse;
-	}
+	
 
 	public String getEmail() {
 		return email;
