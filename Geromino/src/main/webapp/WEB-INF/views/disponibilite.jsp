@@ -101,7 +101,7 @@
 					</div>
 
 					<div class="carousel-item">
-						<table class="table table-bordered table-sm">
+						<table class="table table-sm">
 
 							<thead>
 								<tr>
@@ -174,7 +174,7 @@
 						</table>
 					</div>
 					<div class="carousel-item">
-						<table class="table table-bordered table-sm">
+						<table class="table table-sm">
 
 							<thead>
 								<tr>
@@ -247,7 +247,7 @@
 						</table>
 					</div>
 					<div class="carousel-item">
-						<table class="table table-bordered table-sm">
+						<table class="table table-sm">
 
 							<thead>
 								<tr>
@@ -320,7 +320,7 @@
 						</table>
 					</div>
 					<div class="carousel-item">
-						<table class="table table-bordered table-sm">
+						<table class="table table-sm">
 
 							<thead>
 								<tr>
@@ -393,7 +393,7 @@
 						</table>
 					</div>
 					<div class="carousel-item">
-						<table class="table table-bordered table-sm">
+						<table class="table table-sm">
 
 							<thead>
 								<tr>
