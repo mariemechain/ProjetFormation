@@ -2,6 +2,8 @@ package fr.formation.projets.controller;
 
 import javax.validation.Valid;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,8 +15,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import fr.formation.projets.dao.IFormateurDAO;
-import fr.formation.projets.dao.IMatiereDAO;
+import fr.formation.formateur.dao.IFormateurDAO;
+import fr.formation.matieres.dao.IMatiereDAO;
 import fr.formation.projets.dao.IProjetDAO;
 import fr.formation.projets.dao.ISalleDAO;
 //import fr.formation.projets.dao.IStagiaireDAO;
@@ -47,17 +49,17 @@ public class ProjetController {
 //	private IStagiaireDAO daoStagiaire;
 	
 	// Recupere la liste des projets en base de D
-	@GetMapping("/listeprojet")
+	@GetMapping("")
 	public String liste(Model model) {
 		model.addAttribute("Projet", daoProjet.findAll());
-		return "listeprojet";
+		return "projet/listeprojet";
 		}
 	
 	// Ajout de projet en choissisant les matières et formateurs
 	@GetMapping("/ajouter")
 	public String ajouter(Model model) {
 		model.addAttribute("projet", new Projet());
-		return "addprojet";
+		return "projet/addprojet";
 	}
 	
 
@@ -65,7 +67,7 @@ public class ProjetController {
 	public String ajouter(@ModelAttribute("projet") Projet projet, Model model) {
 		
 		daoProjet.save(projet);
-		return "redirect:./listeprojet";
+		return "redirect:../projet";
 	}
 	
 
@@ -82,7 +84,7 @@ public class ProjetController {
 	public String editer(@ModelAttribute("projet") Projet projet, @PathVariable int id, Model model) {
 	{
 			daoProjet.save(projet);
-			return "redirect:../listeprojet";
+			return "redirect:../../projet";
 	}
 	}
 	
@@ -91,7 +93,7 @@ public class ProjetController {
 	@GetMapping("/supprimer")
 	public String supprimer(@RequestParam("id") int idProjet) {
 		daoProjet.deleteById(idProjet);
-		return "redirect:./listeprojet";
+		return "redirect:../projet";
 	}
 	
 }

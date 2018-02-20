@@ -3,6 +3,7 @@ package fr.formation.projets.model;
 
 import java.io.Serializable;
 
+
 import javax.persistence.Column;
 
 
@@ -16,8 +17,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import fr.formation.formateur.model.Formateur;
 import fr.formation.matieres.model.Matiere;
-import fr.formation.ressources.model.Formateur;
 
 @Entity
 @Table(name = "planification")

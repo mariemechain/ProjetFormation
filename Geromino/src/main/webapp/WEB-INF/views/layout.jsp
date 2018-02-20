@@ -6,29 +6,35 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="/Geromino/css/bootstrap.min.css" />
 <link rel="stylesheet"
-	href="/Geromino/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-	href="/Geromino/css/bootstrap.min.css" />
-	<link rel="stylesheet"
-	href="/Geromino/css/zoneTexte.css" />
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<href ="/Geromino/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/Geromino/css/zoneTexte.css" />
 <title>Insert title here</title>
 </head>
 <body>
 	<script type="assets/js/jquery-3.1.1.min.js"></script>
 	<script type="assets/js/popper.min.js"></script>
 	<script type="assets/js/bootsrap.min.js"></script>
+<head>
+<a href="projet"> Projet</a>
+<a href="matiere"> matiere</a>
+<a href="planification"> planification</a>
+<a href="templates"> templates</a>
+</head>
 
 
 
-	<div class="container">
-		<h1>
-			<tiles:insertAttribute name="title" />
-		</h1>
 
-		<br>
-		<tiles:insertAttribute name="content" />
-	</div>
+<div class="container">
+	<h1>
+		<tiles:insertAttribute name="title" />
+	</h1>
+
+	<br>
+	<tiles:insertAttribute name="content" />
+</div>
 
 
 

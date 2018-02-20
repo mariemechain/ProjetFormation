@@ -17,7 +17,7 @@ public class TemplateController {
 	@Autowired
 	private ITemplateDAO daoTemplate;
 	
-	@GetMapping("/liste")
+	@GetMapping("")
 	public String AfficherListe(Model model) {
 		model.addAttribute("Templates",daoTemplate.findAll());
 		System.out.println("toto");

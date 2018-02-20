@@ -1,13 +1,15 @@
 package fr.formation.projets.listener;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
-import fr.formation.ressources.model.Formateur;
+import fr.formation.formateur.model.Formateur;
+
 
 @WebListener
 public class ListenerFormateur implements ServletContextListener {

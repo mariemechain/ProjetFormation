@@ -8,7 +8,7 @@
 	<tiles:putAttribute name="title" value="Liste des projets" />
 
 	<tiles:putAttribute name="content">
-		<a href="ajouter" class="btn btn-success">+</a>
+		<a href="projet/ajouter" class="btn btn-success">+</a>
 
 
 		<table class="table table-striped">
@@ -36,8 +36,8 @@
 					<%-- 	<td>${ projet.stagiaires}</td>  --%>
 						
 						<td>
-						<a href="editer/${ projet.id }" class="btn btn-primary">Editer</a>             
-						<a href="supprimer?id=${ projet.id }" class="btn btn-danger">Supprimer</a>
+						<a href="projet/editer/${ projet.id }" class="btn btn-primary">Editer</a>             
+						<a href="projet/supprimer?id=${ projet.id }" class="btn btn-danger">Supprimer</a>
 						</td>
 					</tr>
 				</c:forEach>
