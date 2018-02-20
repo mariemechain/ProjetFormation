@@ -49,7 +49,7 @@ public class ProjetController {
 		return "projet/listeprojet";
 	}
 
-	// Ajout de projet en choissisant les matières et formateurs
+	// Ajout de projet en choissisant les matiï¿½res et formateurs
 	@GetMapping("/ajouter")
 	public String ajouter(Model model) {
 		model.addAttribute("projet", new Projet());

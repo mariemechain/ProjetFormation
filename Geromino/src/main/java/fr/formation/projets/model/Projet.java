@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,6 +23,8 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import fr.formation.ressources.metier.Gestionnaire;
 import fr.formation.ressources.metier.Materiel;
@@ -52,17 +55,19 @@ public class Projet {
 	@JoinColumn(name="PRO_GESTIONNAIRE_ID") 
 	private Gestionnaire gestionnaire; 
 
-	@OneToMany(mappedBy="projet")
-	private List<Planification> planifications = new ArrayList<Planification>();
+	@OneToMany(mappedBy="projet", fetch=FetchType.EAGER) 
+	private List<Planification> planifications;
 	
-	@ManyToMany
+	@ManyToMany//(fetch=FetchType.EAGER) 
+	@LazyCollection(LazyCollectionOption.FALSE)
 	@JoinTable(
 			name="participation", 
 			joinColumns = @JoinColumn(name="PAR_PROJET_ID", referencedColumnName="PRO_ID"),
 			inverseJoinColumns = @JoinColumn(name="PAR_STAGIAIRE_ID", referencedColumnName="STA_ID")
 	) private List<Stagiaire> stagiaires; 
 	
-	@ManyToMany
+	@ManyToMany//(fetch=FetchType.EAGER) 
+	@LazyCollection(LazyCollectionOption.FALSE)
 	@JoinTable(
 		name="reservation", 
 		joinColumns = @JoinColumn(name="RES_PROJET_ID", referencedColumnName="PRO_ID"),
