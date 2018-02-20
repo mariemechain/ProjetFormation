@@ -11,9 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<script type="js/jquery-3.1.1.min.js"></script>
-	<script type="js/popper.min.js"></script>
-	<script type="js/bootsrap.min.js"></script>
+
 
 
 
@@ -27,6 +25,8 @@
 	</div>
 
 
-
+	<script src="/Geromino/js/jquery-3.1.1.min.js"></script>
+	<script src="/Geromino/js/popper.min.js"></script>
+	<script src="/Geromino/js/bootstrap.min.js"></script>
 </body>
 </html>
