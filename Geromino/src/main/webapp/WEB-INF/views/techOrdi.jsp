@@ -58,9 +58,12 @@
 
 			</table>
 			<a href="/Geromino/technicien/ordi/ajouter" class="btn btn-primary">Ajouter</a>
-
+			<a href="/Geromino/technicien">
+				<button type="button" class="btn btn-danger">Revenir au
+					menu précédent</button>
+			</a>
 		</div>
-		
+
 
 	</tiles:putAttribute>
 
