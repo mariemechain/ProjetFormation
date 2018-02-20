@@ -12,7 +12,7 @@
 		<div class="container">
 
 			<div id="carouselExampleControls" class="carousel slide"
-				data-ride="carousel">
+				data-ride="carousel" data-interval="false">
 				<div class="carousel-inner">
 					<div class="carousel-item active">
 						<img class="d-block w-100"
@@ -25,7 +25,7 @@
 					</div>
 					<div class="carousel-item">
 						<img class="d-block w-100"
-							src="https://www.imgbase.info/images/safe-wallpapers/miscellaneous/funny/45042_funny_wtf.jpg"
+							src="https://www.imgbase.info/images/safe-wallpapers/miscellaneous/funny/46358_funny_wtf.jpg"
 							alt="Third slide">
 					</div>
 				</div>
