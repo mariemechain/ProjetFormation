@@ -13,6 +13,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import fr.formation.disponibilite.annexe.Ordinateur;
+import fr.formation.disponibilite.annexe.Projet;
+import fr.formation.disponibilite.annexe.Salle;
+import fr.formation.disponibilite.annexe.VideoProjecteur;
 import fr.formation.disponibilite.model.Disponibilite;
 
 @Controller
@@ -52,7 +56,7 @@ public class DisponibiliteController {
 	
 	//Pour les ordinateurs
 	private double getPourcentageOrdi(LocalDate d1) {
-		List<Ordinateur> ordinateurs =ordiDao.findAll();
+		List<Ordinateur> ordinateurs = this.ordiDao.findAll();
 		int compteurOrdiDispo = ordinateurs.size(); //Le nombre maxi d'ordinateur dispo
 		
 		for(Ordinateur o : ordinateurs) {
