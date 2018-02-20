@@ -8,6 +8,7 @@
 <base href="/Geromino/" /> 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="css/bootstrap.min.css" />
+
 <title>Insert title here</title>
 </head>
 <body>
@@ -23,9 +24,10 @@
 	</div>
 
 
-	<script type="js/jquery-3.1.1.min.js"></script>
-	<script type="js/popper.min.js"></script>
-	<script type="js/bootsrap.min.js"></script>
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/ajouterFormateur.js"></script>
 
 </body>
 </html>

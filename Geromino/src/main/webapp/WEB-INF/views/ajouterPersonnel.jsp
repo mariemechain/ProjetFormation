@@ -12,17 +12,19 @@
 		
 		<div class="form-group">
 					<label for="stagiaires">Type :</label>
-					<select  name="personnels">
+					<c:if test="${personnel.id != null}"> 
+					<select onchange="changementType();" id="personnels" name="personnels">
 					
-					
-					 <option>Formateur</option>
-					 <option>Technicien</option>
-					 <option>Gestionnaire</option>
+					<option value="null">--</option>
+					 <option value="Formateur">Formateur</option>
+					 <option value="Technicien">Technicien</option>
+					 <option value="Gestionnaire">Gestionnaire</option>
+					 <option value="Administrateur">Admin</option>
 					 
 									 
 					
 					</select>
-
+</c:if>
 				</div>
 
 			
@@ -80,23 +82,38 @@
 				<form:errors path="telephone" element="div"
 					cssClass="alert alert-danger" />
 			</div>
-			
-			<%-- <div class="form-group">
-				<form:label path="titre">Titre :</form:label>
-				<form:input path="titre" type="text" class="form-control"
-					name="titre" aria-describedby="Help" placeholder="titre"
-					value="${personnel.titre}" />
-				<form:errors path="telephone" element="div"
+			<div class="form-group">
+				<form:label path="login">Login :</form:label>
+				<form:input path="login" type="text" class="form-control"
+					name="login" aria-describedby="Help" placeholder="Login"
+					value="${personnel.login}" />
+				<form:errors path="login" element="div"
 					cssClass="alert alert-danger" />
-			</div> --%>
+			</div>
+			<div class="form-group">
+				<form:label path="motDePasse">Password :</form:label>
+				<form:input path="motDePasse" type="text" class="form-control"
+					name="motDePasse" aria-describedby="Help" placeholder="Password"
+					value="${personnel.motDePasse}" />
+				<form:errors path="motDePasse" element="div"
+					cssClass="alert alert-danger" />
+			</div>
 			
+			<div class="form-group" id="titre">
+				<label>Titre :</label>
+				<input  type="text" class="form-control"
+					name="titre" aria-describedby="Help" placeholder="titre"
+					/>
+				
+			</div>
+			 
 
 
 
 
 
 			<button type="submit" class="btn btn-danger">Ajouter</button>
-			<a href="gestionnaire/gestionnairepersonnel">
+			<a href="gestionnaire/">
 			<button type="button" class="btn btn-success">Revenir au menu précédent</button></a>
 
 

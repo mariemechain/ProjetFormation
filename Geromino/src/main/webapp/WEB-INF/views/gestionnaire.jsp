@@ -9,16 +9,34 @@
 	<tiles:putAttribute name="title" value="Menu du gestionnaire" />
 	<tiles:putAttribute name="content">
 
-		<div class="container">
-			 <a href="/Geromino/gestionnaire/gestionnaireSalle"><button
-					type="button" class="btn btn-success">Gestion des salles</button></a> <a
-				href="/Geromino/gestionnaire/gestionnaireProjet"><button
-					type="button" class="btn btn-info">Gestion des projets</button></a> <a
-				href="/Geromino/gestionnaire/gestionnaireFormateur"><button
-					type="button" class="btn btn-danger ">Gestion des
-					formateurs</button></a> <a href="/Geromino/gestionnaire/gestionnaireContact"><button
-					type="button" class="btn btn-warning ">Gestion des contacts</button></a>
-		</div>
+
+		<table class="table table-striped">
+
+			<thead>
+				<tr>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tr>
+				<td><a href="/Geromino/gestionnaire/gestionnaireSalle"><button
+							type="button" class="btn btn-success">Gestion des salles</button></a>
+				</td>
+				<td><a href="/Geromino/gestionnaire/gestionnaireProjet"><button
+							type="button" class="btn btn-info">Gestion des projets</button></a></td>
+				<td><a href="/Geromino/gestionnaire/gestionnaireFormateur"><button
+							type="button" class="btn btn-danger ">Gestion des
+							formateurs</button></a></td>
+				<td><a href="/Geromino/gestionnaire/gestionnaireContact"><button
+							type="button" class="btn btn-warning ">Gestion des
+							contacts</button></a></td>
+				<td><a href="/Geromino/gestionnaire/gestionnaireCursus"><button
+							type="button" class="btn btn-warning ">Gestion des
+							cursus</button></a></td>
+		</table>
 
 	</tiles:putAttribute>
 </tiles:insertDefinition>

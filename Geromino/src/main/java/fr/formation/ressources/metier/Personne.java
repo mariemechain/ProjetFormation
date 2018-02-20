@@ -56,9 +56,6 @@ public class Personne implements Serializable {
 	@NotEmpty(message = "Veuillez indiquer l'adresse")
 	private String adresse;
 
-	
-	
-
 	public String getEmail() {
 		return email;
 	}
