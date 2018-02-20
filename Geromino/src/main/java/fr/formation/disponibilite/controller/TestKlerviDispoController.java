@@ -12,15 +12,6 @@ import fr.formation.disponibilite.model.Disponibilite;
 @Controller
 public class TestKlerviDispoController {
 
-<<<<<<< HEAD
-//	@GetMapping("/disponibilite" )
-//	public String produit(Model model) {
-//		ArrayList liste = new ArrayList<Disponibilite>();
-//		model.addAttribute("liste", liste);
-//		return "/disponibilite";
-//	}
-//	
-=======
 	@GetMapping("/disponibilite" )
 	public String produit(Model model) {
 		ArrayList<Disponibilite> liste = new ArrayList<Disponibilite>();
@@ -34,6 +25,4 @@ public class TestKlerviDispoController {
 		model.addAttribute("liste", liste);
 		return "/disponibilite";
 	}
-	
->>>>>>> Module_disponibilite
 }
