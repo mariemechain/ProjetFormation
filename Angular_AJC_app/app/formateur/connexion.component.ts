@@ -9,8 +9,8 @@ templateUrl: 'app/formateur/connexion.component.html'
 
 export class ConnexionComponent {
 
-  public login: string = "";
-  public motDePasse: string = "";
+  public login: string = "root";
+  public motDePasse: string = "root";
 
   constructor(private formateurService: FormateurService) {
       }

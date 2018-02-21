@@ -1,26 +1,37 @@
 import { Router } from '@angular/router';
-import { Component} from '@angular/core';
+import { Component, ElementRef} from '@angular/core';
 import { Disponibilite } from './disponibilite';
 import { DispoService } from './dispo.service';
 import { FormateurService } from './formateur.service';
+import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { NgbdDatepickerRange } from './datepicker-range';
+
 
 @Component({
   templateUrl: 'app/formateur/dispo.component.html'
 })
 
 export class DispoComponent {
-  private dated: Date = new Date(118, 1, 19);
-  private datef: Date = new Date(118, 1, 20);
-  private dispo: Disponibilite = new Disponibilite(this.dated,this.datef);
+  private dated: Date ;
+  private datef: Date ;
+  private dispo: Disponibilite;
 
 
-
-  constructor(private dispoService: DispoService, private formateurService: FormateurService) { }
+  constructor(private dispoService: DispoService, private service: FormateurService, private el: ElementRef) {
+    //console.log(el.nativeElement.querySelector('ngbd-datepicker-range'));
+  }
 
 
   public addDispo() {
-    this.dispoService.save(this.dispo);
-    this.dispo = new Disponibilite(this.dated,this.datef);
+    // this.picker.save();
+    // console.log(this.picker.fromDate);
+    // this.dated = this.picker.fromDate;
+    // this.datef = this.picker.toDate;
+    // this.dispo = new Disponibilite(this.dated,this.datef);
+    // this.dispo.formateur = this.service.formateur;
+    // this.dispo.formateur.id = this.service.formateur.id;
+    // // this.dispoService.save(this.dispo);
+
   }
 
 

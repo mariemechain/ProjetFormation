@@ -1,5 +1,7 @@
 package fr.formation.formateur.restcontroller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -11,8 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
-
 
 import fr.formation.formateur.dao.IDisponibiliteDAO;
 import fr.formation.formateur.model.Disponibilite;
@@ -28,11 +28,17 @@ public class RestControllerDisponibilite {
 	@Autowired(required=false)
 	IDisponibiliteDAO daoDisponiblite;
 
+//	//====================================READ==========================================================
+//	@GetMapping("/{id}")
+//	public Disponibilite findById(@PathVariable int id) {
+//		return this.daoDisponiblite.findById(id).get();
+//	}
+	
 	//====================================READ==========================================================
-	@GetMapping("/{id}")
-	public Disponibilite findById(@PathVariable int id) {
-		return this.daoDisponiblite.findById(id).get();
-	}
+		@GetMapping("/{id}")
+		public List<Disponibilite> findByIdFetch(@PathVariable int id) {
+			return this.daoDisponiblite.findByIdFetch(id);
+		}
 	
 	//====================================CREATE==========================================================
 	@PostMapping("")

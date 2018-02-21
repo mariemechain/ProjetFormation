@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { AppConfigService } from '../app-config.service';
 import { Formateur } from './formateur';
+import { FormateurService } from './formateur.service';
 import { Disponibilite } from './disponibilite';
 @Injectable()
 export class DispoService {
      private disponibilites: Array<Disponibilite>;
 
-    constructor(private appConfig: AppConfigService, private http: Http) {
+    constructor(private appConfig: AppConfigService, private http: Http,private service: FormateurService ) {
 
     }
 
@@ -24,8 +25,9 @@ export class DispoService {
     }
     public refresh(){
       this.http
-      .get(this.appConfig.uri +"/formateur/dispo")
+      .get(this.appConfig.uri +"/formateur/dispo/"+this.service.formateur.id)
       .subscribe(resp => this.disponibilites = resp.json());
+
     }
 
     public findById(id: number) {
@@ -43,11 +45,11 @@ export class DispoService {
       if(d.id == null){
         this.http.post(this.appConfig.uri + "/formateur/dispo", d).subscribe(resp => this.refresh());
       }else{
-          this.http.put(this.appConfig.uri + "/formateur/dispo"+d.id, d).subscribe(resp => this.refresh());
+          this.http.put(this.appConfig.uri + "/formateur/dispo/"+d.id, d).subscribe(resp => this.refresh());
       }
     }
 
     public delete(d: Disponibilite) {
-         this.http.delete(this.appConfig.uri + "/formateur/dispo" + d.id).subscribe(resp => this.refresh());
+         this.http.delete(this.appConfig.uri + "/formateur/dispo/" + d.id).subscribe(resp => this.refresh());
     }
 }

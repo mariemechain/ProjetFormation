@@ -11,13 +11,13 @@ import { AppConfigService } from './app-config.service';
 import { LoginRouteGuard } from './formateur/login-route-guard';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home.component';
-
+import { NgbdDatepickerRange } from './formateur/datepicker-range';
 
 
 
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent,canActivate: [LoginRouteGuard] }
+  { path: 'home', component: HomeComponent, /*canActivate: [LoginRouteGuard]*/ }
   //{ path: '', redirectTo: 'home', pathMatch: 'full' },
   // { path: '**', component: PageNotFoundComponent }
 ];
@@ -35,6 +35,7 @@ const routes: Routes = [
   providers: [
     AppConfigService,
     LoginRouteGuard,
+    NgbdDatepickerRange
 
   ],
 

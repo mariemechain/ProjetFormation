@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class FormateurService {
      public formateur: Formateur;
      public IsConnected: boolean = false;
+     
     constructor(private appConfig: AppConfigService, private http: Http, private router: Router) {
 
     }

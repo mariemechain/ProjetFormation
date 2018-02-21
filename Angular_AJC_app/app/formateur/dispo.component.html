@@ -5,14 +5,11 @@
 <ngbd-datepicker-range></ngbd-datepicker-range>
 
 
-<div class="row mb-2 col-auto">
-  <button (click)="addDispo()" class="btn btn-success">AJOUTER</button>
-</div>
-</div>
 
 
-<div class="container">
-  <h2>Liste des clients</h2>
+
+<!-- <div class="container">
+  <h2>Liste des disponibilités</h2>
 
   <table class="table table-striped">
     <thead>
@@ -25,12 +22,12 @@
     </thead>
 
     <tbody>
-      <tr *ngFor="let dispo of formateurService.formateur.disponibilites">
-        <td>{{dispo.id}}</td>
-        <td>{{dispo.date_debut}}</td>
-        <td>{{dispo.date_fin}}</td>
-        <td>nulz</td>
-      </tr>
+      <tr *ngFor="let dispo of service.formateur.disponibilites">
+       <td>{{dispo.id}}</td>
+       <td>{{dispo.date_debut | date:'d MMMM y' }}</td>
+       <td>{{dispo.date_fin | date:'d MMMM y'}}</td>
+
+     </tr>
     </tbody>
   </table>
-</div>
+</div> -->

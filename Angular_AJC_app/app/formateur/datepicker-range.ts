@@ -1,5 +1,10 @@
 import {Component} from '@angular/core';
 import {NgbDateStruct, NgbCalendar} from '@ng-bootstrap/ng-bootstrap';
+import { Disponibilite } from './disponibilite';
+import { DispoService } from './dispo.service';
+import { FormateurService } from './formateur.service';
+import { Router } from '@angular/router';
+
 
 const equals = (one: NgbDateStruct, two: NgbDateStruct) =>
   one && two && two.year === one.year && two.month === one.month && two.day === one.day;
@@ -39,12 +44,35 @@ export class NgbdDatepickerRange {
 
   hoveredDate: NgbDateStruct;
 
-  fromDate: NgbDateStruct;
-  toDate: NgbDateStruct;
+  public fromDate: NgbDateStruct;
+  public toDate: NgbDateStruct;
+  private dispo: Disponibilite;
+  private dated: Date;
+  private datef: Date;
 
-  constructor(calendar: NgbCalendar) {
+
+  constructor(calendar: NgbCalendar,private dispoService: DispoService, private service: FormateurService, private router: Router) {
     this.fromDate = calendar.getToday();
     this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
+  }
+
+  public addDispo() {
+
+    this.dated = new Date(this.fromDate.year + "-" + this.fromDate.month + "-" + this.fromDate.day);
+    this.datef = new Date(this.toDate.year + "-" + this.toDate.month + "-" + this.toDate.day);
+    this.dispo = new Disponibilite(this.dated,this.datef);
+    this.dispo.formateur = this.service.formateur;
+    this.dispo.formateur.id = this.service.formateur.id;
+    this.dispoService.save(this.dispo);
+
+  }
+
+
+
+
+  public deleteDispo(d: Disponibilite) {
+    console.log(d.id);
+    this.dispoService.delete(d);
   }
 
   onDateChange(date: NgbDateStruct) {
@@ -56,6 +84,11 @@ export class NgbdDatepickerRange {
       this.toDate = null;
       this.fromDate = date;
     }
+  }
+
+
+  public save() {
+    console.log(this.fromDate);
   }
 
   isHovered = date => this.fromDate && !this.toDate && this.hoveredDate && after(date, this.fromDate) && before(date, this.hoveredDate);
