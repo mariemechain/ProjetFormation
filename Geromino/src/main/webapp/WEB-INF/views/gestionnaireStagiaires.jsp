@@ -10,7 +10,7 @@
 	<tiles:putAttribute name="content">
 
 
-		<table class="table table-striped">
+		<table class="table table-striped" style="text-align:center">
 			<thead>
 				<tr>
 					<th>Id</th>
