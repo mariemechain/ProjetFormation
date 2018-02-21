@@ -48,6 +48,11 @@ public class AdminController {
 	}
 	
 	
+	@ModelAttribute("page")
+    public String page() {
+        return "admin";
+    }
+	
 	
 	@GetMapping("/adminAjouterPersonnel")
 	public String formulaireAjout(Model model) {
