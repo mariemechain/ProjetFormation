@@ -34,7 +34,7 @@
 						<td>${ videoprojecteur.date }</td>
 						<td><a
 							href="/Geromino/technicien/video/modifier?id=${videoprojecteur.id}"
-							class="btn btn-success">Modifier</a></td>
+							class="btn btn-primary">Modifier</a></td>
 
 						<td><a
 							href="/Geromino/technicien/video/etat?id=${videoprojecteur.id}"
@@ -48,7 +48,7 @@
 			</table>
 
 
-			<a href="/Geromino/technicien/video/ajouter" class="btn btn-primary">Ajouter</a>
+			<a href="/Geromino/technicien/video/ajouter" class="btn btn-success">Ajouter un vidéoprojecteur</a>
 			<a href="/Geromino/technicien">
 				<button type="button" class="btn btn-danger">Revenir au
 					menu précédent</button>

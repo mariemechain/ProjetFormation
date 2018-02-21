@@ -34,7 +34,7 @@
 						cssClass="alert alert-danger" />
 				</div>
 
-				<button type="submit" class="btn btn-primary">Ajouter</button>
+				<button type="submit" class="btn btn-success">Ajouter</button>
 				<a href="/Geromino/technicien/video">
 					<button type="button" class="btn btn-danger">Revenir au
 						menu précédent</button>

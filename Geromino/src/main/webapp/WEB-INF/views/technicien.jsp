@@ -6,25 +6,34 @@
 
 
 <tiles:insertDefinition name="app.layout">
-<c:if test="${utilisateur.type == 'Gestionnaire'}">
-	<tiles:putAttribute name="title" value="Gestion du Technicien" />
-</c:if>
-<c:if test="${utilisateur.type != 'Gestionnaire'}">
-<tiles:putAttribute name="title" value="Menu du Technicien" />
-</c:if>
+	<c:if test="${utilisateur.type == 'Gestionnaire'}">
+		<tiles:putAttribute name="title" value="Gestion du Technicien" />
+	</c:if>
+	<c:if test="${utilisateur.type != 'Gestionnaire'}">
+		<tiles:putAttribute name="title" value="Menu du Technicien" />
+	</c:if>
 	<tiles:putAttribute name="content">
 
 
 		<div class="container">
-			<br /> <br /> <a href="/Geromino/technicien/ordi"
-				class="btn btn-success mr-4">Liste ordinateurs</a><a
-				href="/Geromino/technicien/video" class="btn btn-info">Liste
-				vidéoprojecteurs</a>
 
+			<table class="table table-striped" style="text-align:center">
 
-
-
-
+				<thead>
+					<tr>
+						<th></th>
+						<th></th>
+						
+					</tr>
+				</thead>
+				<tr>
+					<td><a href="/Geromino/technicien/ordi"
+						class="btn btn-success mr-4">Gestion des ordinateurs</a></td>
+					<td><a href="/Geromino/technicien/video" class="btn btn-info">Gestion
+							des vidéoprojecteurs</a></td>
+							
+		</tr>
+		</table>					
 		</div>
 
 	</tiles:putAttribute>
