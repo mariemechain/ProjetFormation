@@ -19,6 +19,8 @@
 					<th>Contact</th>
 					<th>VideoProjecteur</th>
 					<th>Coût d'utilisation journalier</th>
+					<th></th>
+					<th></th>
 					
 
 				</tr>

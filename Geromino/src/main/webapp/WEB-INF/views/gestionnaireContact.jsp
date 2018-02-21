@@ -20,6 +20,8 @@
 					<th>Nom</th>
 					<th>Prenom</th>
 					<th>Téléphone</th>
+					<th></th>
+					<th></th>
 
 				</tr>
 			</thead>

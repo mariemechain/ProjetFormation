@@ -10,7 +10,7 @@
 	<tiles:putAttribute name="content">
 
 
-		<table class="table table-striped" style="text-align:center">
+		<table class="table table-striped" style="text-align: center">
 			<thead>
 				<tr>
 					<th>Id</th>
@@ -21,6 +21,8 @@
 					<th>Prenom</th>
 					<th>Téléphone</th>
 					<th>Ordinateur</th>
+					<th></th>
+					<th></th>
 
 				</tr>
 			</thead>
@@ -28,7 +30,7 @@
 				<tr>
 					<td>${stagiaire.id }</td>
 					<%-- <td>${projet.XXX }</td>--%>
- 					<td>${stagiaire.adresse }</td>		
+					<td>${stagiaire.adresse }</td>
 					<td>${stagiaire.date}</td>
 					<td>${stagiaire.email}</td>
 					<td>${stagiaire.nom}</td>
@@ -37,8 +39,7 @@
 					<td>${stagiaire.ordinateur.id}</td>
 					<td><a
 						href="/Geromino/gestionnaire/gestionnaireEditerStagiaire?id=${stagiaire.id }"><button
-								type="button" class="btn btn-primary">Modifier</button></a>
-					</td>
+								type="button" class="btn btn-primary">Modifier</button></a></td>
 					<td><a
 						href="/Geromino/gestionnaire/gestionnaireSupprimerStagiaire?id=${stagiaire.id }"><button
 								type="button" class="btn btn-danger">X</button></a></td>
@@ -49,11 +50,10 @@
 		<div>
 			<a href="/Geromino/gestionnaire/gestionnaireAjouterStagiaire"><button
 					type="button" class="btn btn-success">Ajouter un nouveau
-					Stagiaire</button></a>
-					<a href="/Geromino/gestionnaire/">
-					<button type="button" class="btn btn-danger">Revenir au
-						menu précédent</button>
-				</a>
+					Stagiaire</button></a> <a href="/Geromino/gestionnaire/">
+				<button type="button" class="btn btn-danger">Revenir au
+					menu précédent</button>
+			</a>
 		</div>
 
 	</tiles:putAttribute>
