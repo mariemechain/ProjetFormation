@@ -40,8 +40,8 @@ public class DisponibiliteController {
 	ISalleDAO salleDao;
 	
 
-	private Month premierMois;
-	private Map<Integer, Month> mois = new HashMap<Integer, Month>();
+	private String premierMois;
+	private Map<Integer, String> mois = new HashMap<Integer, String>();
 
 	@GetMapping("")
 	public String afficheSemaine(Model model) {
@@ -52,12 +52,11 @@ public class DisponibiliteController {
 		LocalDate fin = debut.plusMonths(6); //date dans 1 mois
 		double duree = ChronoUnit.DAYS.between(debut, fin);
 		
-		Locale.setDefault(Locale.FRENCH);
-		
-		premierMois = debut.getMonth();
+		premierMois = moisFrancais(debut.getMonth());
 		model.addAttribute("premierMois", premierMois);
 		for (int i=0; i<6; i++)
-			mois.put(i+1, premierMois.plus(i+1));
+			mois.put(i+1, moisFrancais(debut.getMonth().plus(i+1)));
+		model.addAttribute("premierMois", premierMois);
 		model.addAttribute("listeMois", mois);
 		
 		//Ne prend pas le dernier jour du mois par exemple du 20/02/2018 au 19/03/2018
@@ -178,4 +177,48 @@ public class DisponibiliteController {
 		}
 		return listeDate;
 	}
+	
+	private String moisFrancais(Month moisAnglais) {
+		String mois = "";
+		switch ( moisAnglais ) {
+			case JANUARY :
+				mois = "Janvier";
+				break;
+			case FEBRUARY :
+				mois = "Février";
+				break;
+			case MARCH :
+				mois = "Mars";
+				break;
+			case APRIL :
+				mois = "Avril";
+				break;
+			case MAY :
+				mois = "Mai";
+				break;
+			case JUNE :
+				mois = "Juin";
+				break;
+			case JULY :
+				mois = "Juillet";
+				break;
+			case AUGUST :
+				mois = "Août";
+				break;
+			case SEPTEMBER :
+				mois = "Septembre";
+				break;
+			case OCTOBER :
+				mois = "Octobre";
+				break;
+			case NOVEMBER :
+				mois = "Novembre";
+				break;
+			case DECEMBER :
+				mois = "Decembre";
+				break;
+		}
+		return mois;
+	}
+	
 }
