@@ -18,7 +18,7 @@
 					<th>Adresse</th>
 					<th>Contact</th>
 					<th>VideoProjecteur</th>
-					<th>Coût</th>
+					<th>Coût d'utilisation journalier</th>
 					
 
 				</tr>
@@ -30,7 +30,7 @@
 					<td>${salle.adresse }</td>
 					<td>${salle.contact.nom }</td>
 					<td>${salle.videoprojecteur.id }</td>
-					 <td>${salle.cout}</td> 
+					 <td>${salle.cout}€</td> 
 					<td><a
 						href="/Geromino/gestionnaire/gestionnaireEditerSalle?id=${salle.id }"><button
 								type="button" class="btn btn-outline-primary">modifier</button></a>
