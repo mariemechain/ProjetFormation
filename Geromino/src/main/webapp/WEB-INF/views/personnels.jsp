@@ -15,7 +15,7 @@
 		<div class="container-fluid">
 			<h3>Liste personnels</h3>
 			<br />
-			<table class="table table-striped">
+			<table class="table table-striped" style="text-align:center">
 				<thead>
 					<tr>
 						<th>Identifiant</th>
