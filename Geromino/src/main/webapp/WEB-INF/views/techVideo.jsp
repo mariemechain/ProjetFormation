@@ -23,7 +23,8 @@
 						<th>Identifiant</th>
 						<th>Cout journalier</th>
 						<th>Date retour</th>
-						<th>Option</th>
+						<th></th>
+						<th></th>
 					</tr>
 				</thead>
 				<c:forEach items="${ videoprojecteurs }" var="videoprojecteur">
