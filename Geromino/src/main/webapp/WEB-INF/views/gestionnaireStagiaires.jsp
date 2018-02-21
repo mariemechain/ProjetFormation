@@ -21,6 +21,7 @@
 					<th>Prenom</th>
 					<th>Téléphone</th>
 					<th>Ordinateur</th>
+					<th>Formation</th>
 					<th></th>
 					<th></th>
 
@@ -37,6 +38,7 @@
 					<td>${stagiaire.prenom}</td>
 					<td>${stagiaire.telephone}</td>
 					<td>${stagiaire.ordinateur.id}</td>
+					<td>${stagiaire.formation.nom}</td>
 					<td><a
 						href="/Geromino/gestionnaire/gestionnaireEditerStagiaire?id=${stagiaire.id }"><button
 								type="button" class="btn btn-primary">Modifier</button></a></td>
