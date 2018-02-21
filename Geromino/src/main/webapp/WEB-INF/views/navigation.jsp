@@ -23,7 +23,7 @@
 				</a>
 				<c:if test="${page == 'home'}">
 					<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-						<li class="nav-item active"><a class="nav-link" href="home">Home
+						<li class="nav-item active"><a class="nav-link" href="home">Accueil
 								<span class="sr-only">(current)</span>
 						</a></li>
 						<li class="nav-item"><a class="nav-link" href="technicien">Techniciens</a></li>
@@ -36,7 +36,7 @@
 
 				<c:if test="${page == 'technicien'}">
 					<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-						<li class="nav-item"><a class="nav-link" href="home">Home</a></li>
+						<li class="nav-item"><a class="nav-link" href="home">Accueil</a></li>
 						<li class="nav-item active"><a class="nav-link"
 							href="technicien">Techniciens <span class="sr-only">(current)</span></a>
 						</li>
@@ -48,7 +48,7 @@
 
 				<c:if test="${page == 'gestionnaire'}">
 					<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-						<li class="nav-item"><a class="nav-link" href="home">Home</a></li>
+						<li class="nav-item"><a class="nav-link" href="home">Accueil</a></li>
 						<li class="nav-item"><a class="nav-link" href="technicien">Techniciens
 						</a></li>
 						<li class="nav-item active"><a class="nav-link"
@@ -61,7 +61,7 @@
 
 				<c:if test="${page == 'admin'}">
 					<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-						<li class="nav-item"><a class="nav-link" href="home">Home</a></li>
+						<li class="nav-item"><a class="nav-link" href="home">Accueil</a></li>
 						<li class="nav-item"><a class="nav-link" href="technicien">Techniciens
 						</a></li>
 						<li class="nav-item"><a class="nav-link" href="gestionnaire">Gestionnaire</a></li>
@@ -95,7 +95,7 @@
 				</a>
 				<c:if test="${page == 'home'}">
 					<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-						<li class="nav-item active"><a class="nav-link" href="home">Home
+						<li class="nav-item active"><a class="nav-link" href="home">Accueil
 								<span class="sr-only">(current)</span>
 						</a></li>
 						<li class="nav-item"><a class="nav-link" href="technicien">Techniciens</a></li>
@@ -107,7 +107,7 @@
 
 				<c:if test="${page == 'technicien'}">
 					<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-						<li class="nav-item"><a class="nav-link" href="home">Home</a></li>
+						<li class="nav-item"><a class="nav-link" href="home">Accueil</a></li>
 						<li class="nav-item active"><a class="nav-link"
 							href="technicien">Techniciens <span class="sr-only">(current)</span></a>
 						</li>
@@ -118,7 +118,7 @@
 
 				<c:if test="${page == 'gestionnaire'}">
 					<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-						<li class="nav-item"><a class="nav-link" href="home">Home</a></li>
+						<li class="nav-item"><a class="nav-link" href="home">Accueil</a></li>
 						<li class="nav-item"><a class="nav-link" href="technicien">Techniciens
 						</a></li>
 						<li class="nav-item active"><a class="nav-link"
@@ -150,7 +150,7 @@
 				</a>
 				<c:if test="${page == 'home'}">
 					<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-						<li class="nav-item active"><a class="nav-link" href="home">Home
+						<li class="nav-item active"><a class="nav-link" href="home">Accueil
 								<span class="sr-only">(current)</span>
 						</a></li>
 						<li class="nav-item"><a class="nav-link" href="technicien">Techniciens</a></li>
@@ -179,7 +179,7 @@
 				</a>
 				<c:if test="${page == 'home'}">
 					<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-						<li class="nav-item active"><a class="nav-link" href="home">Home
+						<li class="nav-item active"><a class="nav-link" href="home">Accueil
 								<span class="sr-only">(current)</span>
 						</a></li>
 						<li class="nav-item"><a class="nav-link" href="technicien">Techniciens</a></li>
@@ -190,7 +190,7 @@
 
 				<c:if test="${page == 'technicien'}">
 					<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-						<li class="nav-item"><a class="nav-link" href="home">Home</a></li>
+						<li class="nav-item"><a class="nav-link" href="home">Accueil</a></li>
 						<li class="nav-item active"><a class="nav-link"
 							href="technicien">Techniciens <span class="sr-only">(current)</span></a>
 						</li>

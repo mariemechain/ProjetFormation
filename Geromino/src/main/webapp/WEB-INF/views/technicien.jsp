@@ -7,7 +7,7 @@
 
 <tiles:insertDefinition name="app.layout">
 	<c:if test="${utilisateur.type == 'Gestionnaire'}">
-		<tiles:putAttribute name="title" value="Gestion du Technicien" />
+		<tiles:putAttribute name="title" value="Gestion des Techniciens" />
 	</c:if>
 	<c:if test="${utilisateur.type != 'Gestionnaire'}">
 		<tiles:putAttribute name="title" value="Menu du Technicien" />
