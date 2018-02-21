@@ -58,7 +58,7 @@ public class AdminController {
 	//************************************************** Ajouter un personnel***************************
 	
 	@PostMapping("/adminAjouterPersonnel")
-	public String ajouterPersonnel(@Valid @ModelAttribute("personne") Personnel personnel, BindingResult result, @RequestParam("personnels") String type) {
+	public String ajouterPersonnel(@Valid @ModelAttribute("personnel") Personnel personnel, BindingResult result, @RequestParam("personnels") String type) {
 		
 		if (result.hasErrors()) {
 			return "ajouterPersonnel";
@@ -136,7 +136,7 @@ public class AdminController {
 	}
 	
 	@PostMapping("/adminEditerPersonnel")
-	public String editerPersonnel(@Valid @ModelAttribute("personne") Personnel personnel, BindingResult result,  @RequestParam("id") int id, Model model) {
+	public String editerPersonnel(@Valid @ModelAttribute("personnel") Personnel personnel, BindingResult result,  @RequestParam("id") int id, Model model) {
 		
 		if (result.hasErrors()) {
 			return "ajouterPersonnel";
