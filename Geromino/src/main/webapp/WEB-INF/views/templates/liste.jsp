@@ -12,18 +12,16 @@
 			<table class="table table-striped">
 				<thead>
 					<tr>
-						<th scope="col">#</th>
 						<th scope="col">Nom</th>
 						<th scope="col"></th>
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach items="${ Templates }" var="Templates">
+					<c:forEach items="${ Templates }" var="Template">
 						<tr>
-							<td>${ Templates.id }</td>
-							<td>${ Templates.nom }</td>
-							<td><a class="btn btn-success" href="/Geromino/templates/visualiser/${Templates.id}" role="button">Visualiser</a>
-							<a class="btn btn-danger" href="/Geromino/templates/supprimer/${Templates.id}"role="button">Supprimer</a></td>
+							<td>${ Template.nom }</td>
+							<td><a class="btn btn-success" href="/Geromino/templates/visualiser/${Template.id}" role="button">Visualiser</a>
+							<a class="btn btn-danger" href="/Geromino/templates/supprimer/${Template.id}"role="button">Supprimer</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

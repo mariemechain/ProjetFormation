@@ -23,7 +23,7 @@ public class TestMain {
 	
     public static void main( String[] args )
     {
-    	testSave(); 
+    	testSaveMatiere(); 
     }
     
     /*
@@ -40,7 +40,7 @@ public class TestMain {
     	System.out.println(listTemplate);
     }
     
-    
+    /*
     static void testSave() {
 		AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationContext(AppConfig.class);
 		
@@ -64,7 +64,7 @@ public class TestMain {
     	tdao.save(template);
     	
     	System.out.println("Sauvegarde OK");
-    }
+    }*/
     
     static void testDelete() {
 		AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationContext(AppConfig.class);
@@ -88,18 +88,21 @@ public class TestMain {
     	System.out.println(template);
     }
     
-    static void testModif() {
-AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationContext(AppConfig.class);
+    /*
+     * Test Matiere DAO
+     */
+    
+    static void testSaveMatiere() {
+    	
+		AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationContext(AppConfig.class);
 		
-		ITemplateDAO  tdao = myContext.getBean(ITemplateDAO .class);
+		IMatiereDAO  mdao = myContext.getBean(IMatiereDAO .class);
     	
-    	Template template = tdao.findById(6).get();
- 
-    	template.setNom("test-mofif");
+    	Matiere matiere1 = mdao.findById(1);
     	
-    	tdao.save(template);
+    	matiere1.setTitre("Java EE");
     	
-    	System.out.println("modif OK");
+    	mdao.save(matiere1);
     }
     
     /*

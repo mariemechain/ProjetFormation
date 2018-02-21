@@ -13,23 +13,21 @@
 					<tr>
 						<th scope="col">Matière</th>
 						<th scope="col">durée</th>
-						<th scope="col"></th>
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach items="${ Matieres }" var="Matieres">
+					<c:forEach items="${ ordreMatieres }" var="ordreMatiere">
 						<tr>
-							<td>${ Matieres.titre }</td>
-							<td>${ Matieres.duree } jours</td>
-							<td><a class="btn btn-secondary" href="/Geromino/templates/modifier/${Templates.id}" role="button">Modifier</a>
-							<a class="btn btn-danger" href="/Geromino/templates/supprimer/${Templates.id}"role="button">Supprimer</a></td>
+							<td>${ ordreMatiere.matiere.titre }</td>
+							<td>${ ordreMatiere.matiere.duree } jours</td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 
 			<div>
-				<a class="btn btn-primary" href="/Geromino/templates/ajouter" role="button">Modifier</a>
+				<a class="btn btn-primary" href="/Geromino/templates/modifier/${ Template.id }" role="button">Modifier</a>
+				<a class="btn btn-secondary" href="/Geromino/templates" role="button">Retour</a>
 			</div>
 
 	</tiles:putAttribute>

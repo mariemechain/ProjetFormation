@@ -6,23 +6,26 @@ package fr.formation.projets.model;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
-import fr.formation.matieres.model.Matiere;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 
 @Entity
 @Table(name="template")
+@Cacheable
+@Cache(usage=CacheConcurrencyStrategy.READ_WRITE)
 public class Template implements Serializable{
 	
 	/*
@@ -38,14 +41,9 @@ public class Template implements Serializable{
 	@NotEmpty(message = "Le nom du cursus est obligatoire")
 	private String nom;
 	
-
-	@ManyToMany(fetch=FetchType.EAGER)
-	@JoinTable(
-		name="contenu",
-		joinColumns=@JoinColumn(name="CON_TEMPLATE_ID", referencedColumnName="TEM_ID"),
-		inverseJoinColumns=@JoinColumn(name="CON_MATIERE_ID", referencedColumnName="MAT_ID")
-	)
-	private List<Matiere> matieres;
+	@OneToMany(mappedBy="template", fetch=FetchType.EAGER)
+	@OrderBy("ordre")
+	private List<OrdreMatiere> ordreMatieres;
 	
 	/*
 	 * Getters et setters
@@ -68,15 +66,15 @@ public class Template implements Serializable{
 	}
 	
 
-	public List<Matiere> getMatieres() {
-		return matieres;
+	public List<OrdreMatiere> getOrdreMatieres() {
+		return ordreMatieres;
 	}
-	
-	public void setMatieres(List<Matiere> matieres) {
-		this.matieres = matieres;
+
+	public void setOrdreMatieres(List<OrdreMatiere> ordreMatieres) {
+		this.ordreMatieres = ordreMatieres;
 	}
 
 	public String toString() {
-		return "Template [id=" + id + ", nom=" + nom + "matieres=" + matieres + "]";
+		return "Template [id=" + id + ", nom=" + nom + " ordreMatieres=" + ordreMatieres + "]";
 	}
 }
