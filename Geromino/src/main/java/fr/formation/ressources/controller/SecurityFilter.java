@@ -49,10 +49,15 @@ public class SecurityFilter implements Filter{
 			chain.doFilter(request, response);
 		}
 		else if (metier.equals("Gestionnaire")) {
+			if (myPath.startsWith("/admin") ) {
+				resp.sendRedirect(myProjectPath + "/mauvaiseRequete");
+				return;
+			}
 			chain.doFilter(request, response);
 		}
+		
 		else if (metier.equals("Technicien")) {
-			if (myPath.startsWith("/gestionnaire") ) {
+			if (myPath.startsWith("/gestionnaire") && myPath.startsWith("/admin") ) {
 				resp.sendRedirect(myProjectPath + "/mauvaiseRequete");
 				return;
 			}
