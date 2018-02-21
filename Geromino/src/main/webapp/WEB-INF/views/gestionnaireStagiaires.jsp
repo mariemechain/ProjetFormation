@@ -37,7 +37,7 @@
 					<td>${stagiaire.ordinateur.id}</td>
 					<td><a
 						href="/Geromino/gestionnaire/gestionnaireEditerStagiaire?id=${stagiaire.id }"><button
-								type="button" class="btn btn-outline-primary">modifier</button></a>
+								type="button" class="btn btn-primary">Modifier</button></a>
 					</td>
 					<td><a
 						href="/Geromino/gestionnaire/gestionnaireSupprimerStagiaire?id=${stagiaire.id }"><button

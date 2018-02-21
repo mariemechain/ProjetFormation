@@ -35,7 +35,7 @@
 					<td>${contact.telephone}</td>
 					<td><a
 						href="/Geromino/gestionnaire/gestionnaireEditerContact?id=${contact.id }"><button
-								type="button" class="btn btn-outline-primary">modifier</button></a>
+								type="button" class="btn btn-primary">Modifier</button></a>
 					</td>
 					<td><a
 						href="/Geromino/gestionnaire/gestionnaireSupprimerContact?id=${contact.id }"><button

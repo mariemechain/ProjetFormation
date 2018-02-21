@@ -33,7 +33,7 @@
 					 <td>${salle.cout}€</td> 
 					<td><a
 						href="/Geromino/gestionnaire/gestionnaireEditerSalle?id=${salle.id }"><button
-								type="button" class="btn btn-outline-primary">modifier</button></a>
+								type="button" class="btn btn-primary">Modifier</button></a>
 					</td>
 					<td><a
 						href="/Geromino/gestionnaire/gestionnaireSupprimerSalle?id=${salle.id }"><button
