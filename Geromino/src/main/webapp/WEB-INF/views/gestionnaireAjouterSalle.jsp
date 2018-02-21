@@ -39,7 +39,7 @@
 			<div class="form-group">
 				<form:label path="cout">Coût journalier :</form:label>
 				<form:input path="cout" type="number" class="form-control"
-					name="cout" id="exampleInputPassword1" placeholder="Coût"
+					name="cout" step="0.01" id="exampleInputPassword1" placeholder="Coût"
 					value="${salle.cout }" />
 				<form:errors path="cout" element="div"
 					cssClass="alert alert-danger" />

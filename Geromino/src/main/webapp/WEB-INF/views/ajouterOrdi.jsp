@@ -80,7 +80,7 @@
 
 				<div class="form-group">
 					<label for="cout">Coût d'utilisation journalier</label> <input
-						name="cout" type="number" class="form-control" id="cout"
+						name="cout" type="number" step="0.01" class="form-control" id="cout"
 						value="${ordinateur.cout}" placeholder="Cout d'utilisation">
 					<form:errors path="cout" element="div"
 						cssClass="alert alert-danger" />

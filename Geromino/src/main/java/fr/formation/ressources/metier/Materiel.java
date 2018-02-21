@@ -38,9 +38,9 @@ public class Materiel implements Serializable{
 	@NotEmpty(message = "Veuillez indiquer l''ID")
 	private String id;
 	
-	@Column(name = "MAT_COUT", columnDefinition = "INTEGER")
+	@Column(name = "MAT_COUT", columnDefinition = "DOUBLE")
 	@NotNull(message = "Veuillez indiquer le prix")
-	private Integer cout;
+	private Double cout;
 	
 	@Column(name = "MAT_ETAT", columnDefinition = "DATE")
 	@Temporal(TemporalType.DATE)
@@ -69,13 +69,13 @@ public class Materiel implements Serializable{
 
 
 
-	public Integer getCout() {
+	public Double getCout() {
 		return cout;
 	}
 
 
 
-	public void setCout(Integer cout) {
+	public void setCout(Double cout) {
 		this.cout = cout;
 	}
 	
