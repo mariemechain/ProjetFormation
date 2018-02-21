@@ -77,52 +77,83 @@ public class AfficheProjetController {
 			jours.add(res);
 		}
 		model.addAttribute("jours", jours);
-
+		List<Integer> duree_mois = new ArrayList<Integer>();
 		List<String> mois = new ArrayList<String>();
 		for (int i = 0; i < projet.getDuree(); i++) {
 			String res = "";
+			int res2 = 0;
 			switch (dates.get(i).getMonth()) {
 			case 0:
 				res = "Janvier";
+				res2 = 31;
 				break;
 			case 1:
 				res = "Février";
+				if ((date.getYear() + 1900) % 400 == 0) {
+					res2 = 29;
+				} else if ((date.getYear() + 1900) % 100 == 0) {
+					res2 = 28;
+				} else if ((date.getYear() + 1900) % 4 == 0) {
+					res2 = 29;
+				} else {
+					res2 = 28;
+				}
 				break;
 			case 2:
 				res = "Mars";
+				res2 = 31;
 				break;
 			case 3:
 				res = "Avril";
+				res2 = 30;
 				break;
 			case 4:
 				res = "Mai";
+				res2 = 31;
 				break;
 			case 5:
 				res = "Juin";
+				res2 = 30;
 				break;
 			case 6:
 				res = "Juillet";
+				res2 = 31;
 				break;
 			case 7:
 				res = "Aout";
+				res2 = 31;
 				break;
 			case 8:
 				res = "Septembre";
+				res2 = 30;
 				break;
 			case 9:
 				res = "Octobre";
+				res2 = 31;
 				break;
 			case 10:
 				res = "Novembre";
+				res2 = 30;
 				break;
 			case 11:
 				res = "Decembre";
+				res2 = 31;
 				break;
-
 			}
 			mois.add(res);
+			duree_mois.add(res2);
 		}
+		Date date_fin = dates.get(projet.getDuree() - 1);
+		int moi = date.getMonth();
+		if (date_fin.getMonth() == moi) {
+			duree_mois.set(0, date_fin.getDate() - date.getDate());
+		} else {
+			duree_mois.set(0, duree_mois.get(moi) - date.getDate());
+			duree_mois.set(date_fin.getMonth()-date.getMonth(), date_fin.getDate());
+		}
+		
 		model.addAttribute("mois", mois);
+		model.addAttribute("duree_mois", duree_mois);
 
 		model.addAttribute("projet", projet);
 		model.addAttribute("duree", projet.getDuree());

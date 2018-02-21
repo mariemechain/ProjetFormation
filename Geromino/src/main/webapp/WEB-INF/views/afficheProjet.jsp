@@ -18,9 +18,25 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="i" begin="0" end="${duree}">
+				<c:forEach var="i" begin="0" end="${duree-1}">
 					<tr>
-						<td>${mois[i]}</td>
+						<c:choose>
+							<c:when test="${i==0}">
+								<td rowspan="${duree_mois[0]+1}">${mois[0]}</td>
+							</c:when>
+							<c:when test="${i==duree_mois[0]+1}">
+								<td rowspan="${duree_mois[duree_mois[0]+1]}">${mois[duree_mois[0]+1]}</td>
+							</c:when>
+							<c:when test="${i==duree_mois[1]+duree_mois[0]+1}">
+								<td rowspan="${duree_mois[duree_mois[1]+duree_mois[0]+1]}">C${mois[duree_mois[1]+duree_mois[0]+1]}</td>
+							</c:when>
+							<c:when test="${i==duree_mois[2]+duree_mois[1]+duree_mois[0]+1}">
+								<td rowspan="${duree_mois[duree_mois[2]+duree_mois[1]+duree_mois[0]+1]}">${duree_mois[2]+duree_mois[1]+duree_mois[0]+1}</td>
+							</c:when>
+							<c:when test="${i==duree_mois[3]+duree_mois[2]+duree_mois[1]+duree_mois[0]+1}">
+								<td rowspan="${duree_mois[4]}">${mois[4]}</td>
+							</c:when>
+						</c:choose>
 						<td>${dates[i].getDate()}</td>
 						<td>${jours[i]}</td>
 						<td>plup</td>
