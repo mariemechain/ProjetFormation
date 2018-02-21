@@ -39,7 +39,12 @@
 							class="btn btn-success">Modifier</a>
 							<a
 							href="/Geromino/adminSupprimerPersonnel?id=${personnel.id}"
-							class="btn btn-danger">X</a></td>
+							class="btn btn-danger">X</a>
+							<c:if test="${personnel.type == 'Formateur'}">
+							<a
+							href="/Geromino/formateur/liste?idf=${personnel.id}"
+							class="btn btn-dark">Expertise</a>
+							</c:if></td>
 
 
 					</tr>
