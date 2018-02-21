@@ -41,13 +41,12 @@ const routesFormateur: Routes = [
         DispoService,
         ExpertiseService,
         LoginRouteGuard
-        // NgbdDatepickerRange
-
+        
     ],
 
     declarations: [
 
-      
+
         DispoComponent,
         ConnexionComponent,
         NgbdDatepickerRange,

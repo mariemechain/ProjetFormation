@@ -6,18 +6,18 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppConfigService } from './app-config.service';
-
+import { LOCALE_ID } from '@angular/core';
 
 import { LoginRouteGuard } from './formateur/login-route-guard';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home.component';
-import { NgbdDatepickerRange } from './formateur/datepicker-range';
+
 
 
 
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent, /*canActivate: [LoginRouteGuard]*/ }
+  { path: 'home', component: HomeComponent,canActivate: [LoginRouteGuard] }
   //{ path: '', redirectTo: 'home', pathMatch: 'full' },
   // { path: '**', component: PageNotFoundComponent }
 ];
@@ -35,8 +35,7 @@ const routes: Routes = [
   providers: [
     AppConfigService,
     LoginRouteGuard,
-    NgbdDatepickerRange
-
+    {provide: LOCALE_ID, useValue: 'fr-FR'}
   ],
 
   declarations: [
