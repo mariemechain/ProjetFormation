@@ -86,7 +86,7 @@
 					<td>${stagiaire.formation.nom}</td>
 					
 					<td><a
-						href="/Geromino/gestionnaire/gestionnaireSupprimerStagiaire?id=${stagiaire.id }"><button
+						href="/Geromino/gestionnaire/gestionnaireProjetStagiairesSupprimer?id=${stagiaire.id }"><button
 								type="button" class="btn btn-danger">X</button></a></td>
 				</tr>
 			</c:forEach>

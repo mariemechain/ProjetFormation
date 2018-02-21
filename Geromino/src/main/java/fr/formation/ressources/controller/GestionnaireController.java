@@ -172,10 +172,26 @@ public class GestionnaireController {
 			Projet projet = daoProjet.findById(id);
 			projet.setId(id);
 			projet.getStagiaires().add(daoStagiaire.findById(idStagiaire).get());
-			
+			Stagiaire stagiaire = daoStagiaire.findById(idStagiaire).get();
+			stagiaire.setFormation(projet);
+			daoStagiaire.save(stagiaire);
 			daoProjet.save(projet);
 			return "redirect:./gestionnaireProjetStagiaires?id="+id;
 				}
+		
+		//*********************************Supprimer un stagiaire à projet***************************
+		@GetMapping("/gestionnaireProjetStagiairesSupprimer")
+		public String supprimerStagiaire(@RequestParam("id") int id, @RequestParam("idStagiaire") int idStagiaire) {
+			Projet projet = daoProjet.findById(id);
+			projet.setId(id);
+			// FAIRE UNE BOUCLE POUR SUPPRIMER UN STAGIAIRE DANS LISTE SELON INDEX
+			//projet.getStagiaires().delete(daoStagiaire.findById(idStagiaire).get());
+//			Stagiaire stagiaire = daoStagiaire.findById(idStagiaire).get();
+//			stagiaire.setFormation(projet);
+//			daoStagiaire.save(stagiaire);
+			daoProjet.save(projet);
+			return "redirect:./gestionnaireProjetStagiaires?id="+id;
+	}
 		
 		//************************************************** Editer un projet***************************
 		@GetMapping("/gestionnaireEditerProjet")
