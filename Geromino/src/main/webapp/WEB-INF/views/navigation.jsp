@@ -8,7 +8,7 @@
 <c:if test="${login != null}">
 
 	<c:if test="${utilisateur.type == 'Administrateur' }">
-		<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarTogglerDemo01"
 				aria-controls="navbarTogglerDemo01" aria-expanded="false"

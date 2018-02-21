@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="css/bootstrap.min.css" />
 <link rel="stylesheet" href="css/filtrerTable.css" />
 
+
 <title>Site professionnel</title>
 </head>
 <body>
@@ -31,6 +32,7 @@
 	<script src="js/ajouterFormateur.js"></script>
 	<script src="js/filtrerTable.js"></script>
 	<script src="js/meteoScript.js"></script>
+	
 	<script src="js/ajouterFormateur.js"></script>
 </body>
 </html>

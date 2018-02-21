@@ -71,9 +71,9 @@
 
 
 
-			<button type="submit" class="btn btn-danger">Ajouter</button>
+			<button type="submit" class="btn btn-success">Ajouter</button>
 			<a href="gestionnaire/gestionnaireStagiaires">
-			<button type="button" class="btn btn-success">Revenir au menu précédent</button></a>
+			<button type="button" class="btn btn-danger">Revenir au menu précédent</button></a>
 
 
 

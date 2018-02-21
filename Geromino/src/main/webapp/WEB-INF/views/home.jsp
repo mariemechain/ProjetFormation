@@ -4,10 +4,11 @@
 	pageEncoding="UTF-8"%>
 
 
-<tiles:insertDefinition name="app.layout">
+	<tiles:insertDefinition name="app.layout">
 	<tiles:putAttribute name="title" value="Accueil" />
 	<tiles:putAttribute name="content">
-	<h3></h3>
+
+
 	
 			<div id="container">
  <!-- Code generated at https://WeatherWidget.io -->  
