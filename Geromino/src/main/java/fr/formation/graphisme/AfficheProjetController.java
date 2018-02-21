@@ -39,7 +39,7 @@ public class AfficheProjetController {
 	@GetMapping("")
 	public String afficher(@RequestParam("id") int id, Model model) {
 		Projet projet = daoPro.findById(id).get();
-		Date date = projet.getDateDebut();
+		Date date = projet.getDebut();
 
 		List<Date> dates = new ArrayList<Date>();
 		LocalDate local_date = ((java.sql.Date) date).toLocalDate();
@@ -48,6 +48,13 @@ public class AfficheProjetController {
 		}
 		model.addAttribute("dates", dates);
 
+		List<String> matieres = new ArrayList<String>();
+		List<Integer> matieres_duree = new ArrayList<Integer>();
+		for(int i=0; i<projet.getPlanifications().size();i++){
+			matieres.add(projet.getPlanifications().get(i).getMatiere().getTitre());
+			matieres_duree.add(projet.getPlanifications().get(i).getMatiere().getDuree());
+		}
+		
 		List<String> jours = new ArrayList<String>();
 		for (int i = 0; i < projet.getDuree(); i++) {
 			String res = "";
@@ -57,6 +64,7 @@ public class AfficheProjetController {
 				break;
 			case 1:
 				res = "Lundi";
+				
 				break;
 			case 2:
 				res = "Mardi";
@@ -79,6 +87,7 @@ public class AfficheProjetController {
 		model.addAttribute("jours", jours);
 		List<Integer> duree_mois = new ArrayList<Integer>();
 		List<String> mois = new ArrayList<String>();
+
 		for (int i = 0; i < projet.getDuree(); i++) {
 			String res = "";
 			int res2 = 0;
@@ -154,10 +163,13 @@ public class AfficheProjetController {
 		
 		model.addAttribute("mois", mois);
 		model.addAttribute("duree_mois", duree_mois);
+		
+		model.addAttribute("matieres", matieres);
+		model.addAttribute("matieres_duree", matieres_duree);
 
 		model.addAttribute("projet", projet);
 		model.addAttribute("duree", projet.getDuree());
-		model.addAttribute("date", projet.getDateDebut().getDate());
+		model.addAttribute("date", projet.getDebut().getDate());
 
 		return "afficheProjet";
 	}

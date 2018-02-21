@@ -42,7 +42,7 @@
 							</c:choose>
 							<td>${dates[i].getDate()}</td>
 							<td>${jours[i]}</td>
-							<td>plup</td>
+							<td>${matieres[i]}</td>
 							<c:if test="${i==0}">
 								<td rowspan="${duree}">PAPA</td>
 								<td rowspan="${duree}">MAMAN</td>
