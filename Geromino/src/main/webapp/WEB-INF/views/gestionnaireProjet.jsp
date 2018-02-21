@@ -18,6 +18,7 @@
 					<th>Durée</th>
 					<th>Salle</th>
 					<th>Date de début</th>
+					<th>Gestionnaire</th>
 					<th>Option</th>
 
 				</tr>
@@ -31,6 +32,7 @@
  					<td>${projet.salle.id }</td>		
 					<%-- <td>${projet.gestionnaire.nom }</td> --%>
 					<td>${projet.dateDebut }</td> 
+					<td>${projet.gestionnaire.nom }</td> 
 					<td><a
 						href="/Geromino/gestionnaire/gestionnaireEditerProjet?id=${projet.id }"><button
 								type="button" class="btn btn-outline-primary">modifier</button></a>

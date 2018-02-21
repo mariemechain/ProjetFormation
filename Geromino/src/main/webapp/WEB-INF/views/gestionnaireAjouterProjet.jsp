@@ -33,7 +33,7 @@
 				</div>
 			</div>
 
-			<div class="form-group row">
+			<%-- <div class="form-group row">
 				<label for="salles" class="col-sm-2 col-form-label">Salle</label> 
 				<div class="col-sm-10">
 					<select name="idSalle" class="form-control">
@@ -41,6 +41,30 @@
 							<option value="${ salle.id }">${ salle.id}</option>
 						</c:forEach>
 					</select>
+				</div>
+			</div> --%>
+			<div class="form-group row">
+				<label for="prix" class="col-sm-2 col-form-label">Salle</label></br>
+				<div class="col-sm-10>">
+					<form:select path="salle.id" items="${salles}"
+						itemLabel="id" itemValue="id" cssClass="form-control" />
+				</div>
+			</div>
+		<%-- 	<div class="form-group row">
+				<label for="gestionnaires" class="col-sm-2 col-form-label">Gestionnaire</label> 
+				<div class="col-sm-10">
+					<select name="idGestionnaire" class="form-control">
+						<c:forEach items="${ gestionnaires }" var="gestionnaire">
+							<option value="${ gestionnaire.id }">${ gestionnaire.nom}</option>
+						</c:forEach>
+					</select>
+				</div>
+			</div> --%>
+			<div class="form-group row">
+				<label for="prix" class="col-sm-2 col-form-label">Gestionnaire</label></br>
+				<div class="col-sm-10>">
+					<form:select path="gestionnaire.id" items="${gestionnaires}"
+						itemLabel="nom" itemValue="id" cssClass="form-control" />
 				</div>
 			</div>
 

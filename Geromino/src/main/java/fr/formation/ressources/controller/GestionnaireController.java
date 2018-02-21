@@ -141,18 +141,20 @@ public class GestionnaireController {
 			model.addAttribute("stagiaires", daoStagiaire.findAll());
 			model.addAttribute("gestionnaires", daoGestionnaire.findAll());
 			model.addAttribute("salles", daoSalle.findAll());
+			
 			return "gestionnaireAjouterProjet";
 		}
 
 		@PostMapping("/gestionnaireAjouterProjet")
-		public String ajouter(@Valid@ModelAttribute("projet") Projet projet, BindingResult result, Model model, @RequestParam("idSalle") String id) {
+		public String ajouter(@Valid@ModelAttribute("projet") Projet projet, BindingResult result, Model model) {
 			if(result.hasErrors()) {
 				return "gestionnaireAjouterProjet";
 			
 			}
 			model.addAttribute("stagiaires", daoStagiaire.findAll());
 			model.addAttribute("gestionnaires", daoGestionnaire.findAll());
-			projet.setSalle(daoSalle.findById(id).get());
+//			projet.setSalle(daoSalle.findById(id).get());
+//			projet.setGestionnaire(daoGestionnaire.findById(idGestionnaire).get());
 			daoProjet.save(projet);	
 			return "redirect:./gestionnaireProjet";
 		}
@@ -168,7 +170,7 @@ public class GestionnaireController {
 		}
 		
 		@PostMapping("/gestionnaireEditerProjet")
-		public String editerProjet( @Valid@ModelAttribute("projet") Projet projet,BindingResult result,  @RequestParam("id") int id, Model model, @RequestParam("idSalle") String idSalle) {
+		public String editerProjet( @Valid@ModelAttribute("projet") Projet projet,BindingResult result,  @RequestParam("id") int id, Model model) {
 			if(result.hasErrors()) {
 				System.out.println(result.getAllErrors());
 				model.addAttribute("stagiaires", daoStagiaire.findAll());
@@ -177,7 +179,8 @@ public class GestionnaireController {
 				return "gestionnaireAjouterSalle";
 			}
 			projet.setId(id);
-			projet.setSalle(daoSalle.findById(idSalle).get());
+//			projet.setSalle(daoSalle.findById(idSalle).get());
+//			projet.setGestionnaire(daoGestionnaire.findById(idGestionnaire).get());
 			daoProjet.save(projet);		
 			//return "gestionnaireSalle";
 			return "redirect:./gestionnaireProjet";	
