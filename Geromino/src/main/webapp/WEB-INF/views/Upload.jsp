@@ -6,7 +6,7 @@
 
 <tiles:insertDefinition name="app.layout">
 
-	<tiles:putAttribute name="title" value="Liste des matieres" />
+	<tiles:putAttribute name="title" value="Upload" />
 
 	<tiles:putAttribute name="content">
 
@@ -14,26 +14,27 @@
 		<div class="container">
 
 			<div align="center">
-				<h1>Spring MVC - Hibernate File Upload to Database Demo</h1>
+				<h1>Mettre en ligne un fichier</h1>
 				<form method="post" action="doUpload" enctype="multipart/form-data">
 					<table border="0">
 						<tr>
-							<td>Pick file #1:</td>
+							<td>Fichier #1:</td>
 							<td><input type="file" name="fileUpload" size="50" /></td>
 						</tr>
-						<tr>
-							<td>Pick file #2:</td>
-							<td><input type="file" name="fileUpload" size="50" /></td>
-						</tr>
+
 						<tr>
 							<td colspan="2" align="center"><input type="submit"
-								value="Upload" /></td>
+								value="Mettre en ligne" /></td>
 						</tr>
 					</table>
 				</form>
+
+				<a href="/Geromino/matiere/" class="btn btn-outline-primary"
+					role="button" aria-pressed="true">Retour aux matières</a>
+
 			</div>
-			
-			
+
+
 		</div>
 
 

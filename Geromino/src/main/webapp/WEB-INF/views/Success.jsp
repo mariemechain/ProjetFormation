@@ -6,7 +6,7 @@
 
 <tiles:insertDefinition name="app.layout">
 
-	<tiles:putAttribute name="title" value="Liste des matieres" />
+	<tiles:putAttribute name="title" value="Success" />
 
 	<tiles:putAttribute name="content">
 
@@ -14,8 +14,11 @@
 		<div class="container">
 
 			<div align="center">
-				<h1>Files have been uploaded successfully!</h1>
+				<h1>Le fichier a bien été envoyé</h1>
 			</div>
+
+			<a href="/Geromino/matiere/" class="btn btn-outline-primary"
+				role="button" aria-pressed="true">Retour aux matières</a>
 
 		</div>
 

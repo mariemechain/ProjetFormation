@@ -20,8 +20,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
-import fr.formation.matieres.dao.FileUploadDAO;
 import fr.formation.matieres.dao.IMatiereDAO;
+import fr.formation.matieres.dao.IUploadFileDAO;
 import fr.formation.matieres.model.Matiere;
 import fr.formation.matieres.model.UploadFile;
 
@@ -122,31 +122,31 @@ public class MatiereController {
 
 	// **********************UPLOAD*****************************
 
-	@Autowired
-	private FileUploadDAO fileUploadDao;
-
-	@RequestMapping(value = "/upload", method = RequestMethod.GET)
-	public String showUploadForm(HttpServletRequest request) {
-		return "Upload";
-	}
-
-	@RequestMapping(value = "/doUpload", method = RequestMethod.POST)
-	public String handleFileUpload(HttpServletRequest request, @RequestParam CommonsMultipartFile[] fileUpload)
-			throws Exception {
-
-		if (fileUpload != null && fileUpload.length > 0) {
-			for (CommonsMultipartFile aFile : fileUpload) {
-
-				System.out.println("Saving file: " + aFile.getOriginalFilename());
-
-				UploadFile uploadFile = new UploadFile();
-				uploadFile.setFileName(aFile.getOriginalFilename());
-				uploadFile.setData(aFile.getBytes());
-				fileUploadDao.save(uploadFile);
-			}
-		}
-
-		return "Success";
-	}
+//	@Autowired
+//	private IUploadFileDAO fileUploadDao;
+//
+//	@GetMapping("/upload")
+//	public String showUploadForm(HttpServletRequest request) {
+//		return "Upload";
+//	}
+//
+//	@RequestMapping(value = "/doUpload", method = RequestMethod.POST)
+//	public String handleFileUpload(HttpServletRequest request, @RequestParam CommonsMultipartFile[] fileUpload)
+//			throws Exception {
+//
+//		if (fileUpload != null && fileUpload.length > 0) {
+//			for (CommonsMultipartFile aFile : fileUpload) {
+//
+//				System.out.println("Saving file: " + aFile.getOriginalFilename());
+//
+//				UploadFile uploadFile = new UploadFile();
+//				uploadFile.setFileName(aFile.getOriginalFilename());
+//				uploadFile.setData(aFile.getBytes());
+//				fileUploadDao.save(uploadFile);
+//			}
+//		}
+//
+//		return "Success";
+//	}
 
 }

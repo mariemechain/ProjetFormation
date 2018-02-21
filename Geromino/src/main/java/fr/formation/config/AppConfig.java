@@ -21,9 +21,6 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
-import fr.formation.matieres.dao.FileUploadDAO;
-import fr.formation.matieres.dao.FileUploadDAOImpl;
-
 
 
 
@@ -81,11 +78,11 @@ public class AppConfig
 	}
 	
 	
-	@Autowired
-	@Bean(name = "fileUploadDao")
-	public FileUploadDAO getUserDao(SessionFactory sessionFactory) {
-	    return new FileUploadDAOImpl(sessionFactory);
-	}
+//	@Autowired
+//	@Bean(name = "fileUploadDao")
+//	public FileUploadDAO getUserDao(SessionFactory sessionFactory) {
+//	    return new FileUploadDAOImpl(sessionFactory);
+//	}
 	
 	@Bean(name = "multipartResolver")
 	public CommonsMultipartResolver getCommonsMultipartResolver() {
