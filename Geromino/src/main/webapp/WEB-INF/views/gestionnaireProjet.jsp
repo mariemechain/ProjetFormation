@@ -14,7 +14,7 @@
 			<thead>
 				<tr>
 					<th>Id</th>
-					
+					<th>Nom</th>
 					<th>Durée</th>
 					<th>Salle</th>
 					<th>Date de début</th>
@@ -25,6 +25,7 @@
 			<c:forEach items="${projet}" var="projet">
 				<tr>
 					<td>${projet.id }</td>
+					<td>${projet.nom }</td>
 					<%-- <td>${projet.XXX }</td>--%>
  					<td>${projet.duree }</td>	
  					<td>${projet.salle.id }</td>		
