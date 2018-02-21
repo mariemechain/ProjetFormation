@@ -14,12 +14,11 @@
 			<thead>
 				<tr>
 					<th>Id</th>
-					<th>Cursus</th>
+					
 					<th>Durée</th>
 					<th>Salle</th>
-					<th>Stagiaires</th>
-					<th>Gestionnaires</th>
 					<th>Date de début</th>
+					<th>Option</th>
 
 				</tr>
 			</thead>
@@ -27,17 +26,18 @@
 				<tr>
 					<td>${projet.id }</td>
 					<%-- <td>${projet.XXX }</td>--%>
- 					<td>${projet.duree }</td>		
-					<td>${projet.stagiaire.nom }</td>
-					<td>${projet.gestionnaire.nom }</td>
-					<td>${projet.debut }</td>
+ 					<td>${projet.duree }</td>	
+ 					<td>${projet.salle.id }</td>		
+					<%-- <td>${projet.gestionnaire.nom }</td> --%>
+					<td>${projet.dateDebut }</td> 
 					<td><a
 						href="/Geromino/gestionnaire/gestionnaireEditerProjet?id=${projet.id }"><button
 								type="button" class="btn btn-outline-primary">modifier</button></a>
-					</td>
-					<td><a
+								<a
 						href="/Geromino/gestionnaire/gestionnaireSupprimerProjet?id=${projet.id }"><button
-								type="button" class="btn btn-danger">X</button></a></td>
+								type="button" class="btn btn-danger">X</button></a>
+					</td>
+					
 				</tr>
 			</c:forEach>
 		</table>

@@ -140,17 +140,19 @@ public class GestionnaireController {
 			model.addAttribute("projet", new Projet());
 			model.addAttribute("stagiaires", daoStagiaire.findAll());
 			model.addAttribute("gestionnaires", daoGestionnaire.findAll());
+			model.addAttribute("salles", daoSalle.findAll());
 			return "gestionnaireAjouterProjet";
 		}
 
 		@PostMapping("/gestionnaireAjouterProjet")
-		public String ajouter(@ModelAttribute("projet") Projet projet, Model model) {
-//			if(result.hasErrors()) {
-//				model.addAttribute("fournisseurs", daoFournisseur.findAll());
-//			
-//			}
+		public String ajouter(@Valid@ModelAttribute("projet") Projet projet, BindingResult result, Model model, @RequestParam("idSalle") String id) {
+			if(result.hasErrors()) {
+				return "gestionnaireAjouterProjet";
+			
+			}
 			model.addAttribute("stagiaires", daoStagiaire.findAll());
 			model.addAttribute("gestionnaires", daoGestionnaire.findAll());
+			projet.setSalle(daoSalle.findById(id).get());
 			daoProjet.save(projet);	
 			return "redirect:./gestionnaireProjet";
 		}
@@ -158,21 +160,24 @@ public class GestionnaireController {
 		//************************************************** Editer un projet***************************
 		@GetMapping("/gestionnaireEditerProjet")
 		public String editerProjet( @RequestParam("id") int id, Model model) {
-			model.addAttribute("projet", new Projet());
+			model.addAttribute("projet", daoProjet.findById(id).get());
 			model.addAttribute("stagiaires", daoStagiaire.findAll());
 			model.addAttribute("gestionnaires", daoGestionnaire.findAll());
+			model.addAttribute("salles", daoSalle.findAll());
 			return "gestionnaireAjouterProjet";
 		}
 		
 		@PostMapping("/gestionnaireEditerProjet")
-		public String editerProjet( @ModelAttribute("projet") Projet projet,  @RequestParam("id") int id, Model model) {
-//			if(result.hasErrors()) {
-//				System.out.println(result.getAllErrors());
-//				model.addAttribute("fournisseurs", daoFournisseur.findAll());
-//				return "gestionnaireAjouterSalle";
-//			}
-//			model.addAttribute("contacts", daoContact.findAll());
-//			model.addAttribute("videoprojecteurs", daoVideoProjecteur.findAll());
+		public String editerProjet( @Valid@ModelAttribute("projet") Projet projet,BindingResult result,  @RequestParam("id") int id, Model model, @RequestParam("idSalle") String idSalle) {
+			if(result.hasErrors()) {
+				System.out.println(result.getAllErrors());
+				model.addAttribute("stagiaires", daoStagiaire.findAll());
+				model.addAttribute("gestionnaires", daoGestionnaire.findAll());
+				
+				return "gestionnaireAjouterSalle";
+			}
+			projet.setId(id);
+			projet.setSalle(daoSalle.findById(idSalle).get());
 			daoProjet.save(projet);		
 			//return "gestionnaireSalle";
 			return "redirect:./gestionnaireProjet";	
