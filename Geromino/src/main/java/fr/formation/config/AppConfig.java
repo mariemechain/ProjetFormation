@@ -31,9 +31,7 @@ public class AppConfig
 {
 	@Autowired
 	private Environment env;
-	
-	
-	
+
 	@Bean
 	public BasicDataSource dataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
@@ -46,7 +44,6 @@ public class AppConfig
 		
 		return dataSource;
 	}
-	
 	
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory(BasicDataSource dataSource) {
@@ -61,7 +58,6 @@ public class AppConfig
 		return emf;
 	}
 	
-	
 	@Bean
 	public JpaTransactionManager transactionManager(EntityManagerFactory emf) {
 		JpaTransactionManager transactionManager = new JpaTransactionManager();
@@ -75,14 +71,12 @@ public class AppConfig
 		return new PersistenceExceptionTranslationPostProcessor();
 	}
 	
-	
-	
 	private Properties hibernateProperties() {
 		Properties properties = new Properties();
 		
 		properties.setProperty("hibernate.hbm2ddl.auto", "update");
 		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5InnoDBDialect");
-		properties.setProperty("hibernate.show_sql", "true");
+		properties.setProperty("hibernate.show_sql", "false");
 		properties.setProperty("hibernate.format_sql", "true");
 		properties.setProperty("hibernate.cache.use_second_level_cache", "true");
 		properties.setProperty("hibernate.cache.region.factory_class", "org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory");
