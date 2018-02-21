@@ -12,14 +12,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.formation.ressources.dao.IAdminDAO;
+import fr.formation.ressources.dao.IFormateurDAO;
 import fr.formation.ressources.dao.IGestionnaireDAO;
 import fr.formation.ressources.dao.IPersonneDAO;
 import fr.formation.ressources.dao.IPersonnelDAO;
 import fr.formation.ressources.dao.ITechnicienDAO;
 import fr.formation.ressources.metier.Admin;
+import fr.formation.ressources.metier.Formateur;
 import fr.formation.ressources.metier.Gestionnaire;
 import fr.formation.ressources.metier.Personnel;
-import fr.formation.ressources.metier.Salle;
 import fr.formation.ressources.metier.Technicien;
 
 @Controller
@@ -40,6 +41,9 @@ public class AdminController {
 	
 	@Autowired
 	private IPersonnelDAO daoPersonnel;
+	
+	@Autowired
+	private IFormateurDAO daoFormateur;
 	
 	@GetMapping("/admin")
 	public String listeContact(Model model) {
@@ -63,7 +67,7 @@ public class AdminController {
 	//************************************************** Ajouter un personnel***************************
 	
 	@PostMapping("/adminAjouterPersonnel")
-	public String ajouterPersonnel(@Valid @ModelAttribute("personnel") Personnel personnel, BindingResult result, @RequestParam("personnels") String type) {
+	public String ajouterPersonnel(@Valid @ModelAttribute("personnel") Personnel personnel, BindingResult result, @RequestParam("personnels") String type, @RequestParam("titre") String titre) {
 		
 		if (result.hasErrors()) {
 			return "ajouterPersonnel";
@@ -98,16 +102,17 @@ public class AdminController {
 //			daoTechnicien.save(technicien);
 		}
 		if(type.equals("Formateur")){
-//			Formateur formateur = new Formateur();
-//			formateur.setNom(personnel.getNom());
-//			formateur.setPrenom(personnel.getPrenom());
-//			formateur.setAdresse(personnel.getAdresse());
-//			formateur.setDate(personnel.getDate());
-//			formateur.setEmail(personnel.getEmail());
-//			formateur.setLogin(personnel.getLogin());
-//			formateur.setMotDePasse(personnel.getMotDePasse());
-//			formateur.setTelephone(personnel.getTelephone());
-//			daoFormateur.save(formateur);
+			Formateur formateur = new Formateur();
+			formateur.setNom(personnel.getNom());
+			formateur.setPrenom(personnel.getPrenom());
+			formateur.setAdresse(personnel.getAdresse());
+			formateur.setDate(personnel.getDate());
+			formateur.setEmail(personnel.getEmail());
+			formateur.setLogin(personnel.getLogin());
+			formateur.setMotDePasse(personnel.getMotDePasse());
+			formateur.setTelephone(personnel.getTelephone());
+			formateur.setTitre(titre);
+			daoFormateur.save(formateur);
 			
 
 		}
