@@ -7,8 +7,12 @@
 <tiles:insertDefinition name="app.layout">
 	<tiles:putAttribute name="title" value="Mauvaise Requête" />
 	<tiles:putAttribute name="content">
-	
-	<img src="img/giphy.gif" alt="Loading" />
+
+		<img src="img/giphy.gif" alt="Loading" />
+		<br/>
+		<a href="home">
+			<button type="button" class="btn btn-danger mt-4">Revenir au menu principal</button>
+		</a>
 
 
 	</tiles:putAttribute>
