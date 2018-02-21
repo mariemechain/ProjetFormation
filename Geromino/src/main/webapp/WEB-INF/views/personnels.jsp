@@ -17,15 +17,14 @@
 			<br />
 			<table style="width:100%" class="table table-striped"  id="myTable" >
 				<thead style ="text-align:center; vertical-align:middle">
-					<tr>
-						<th style="width:5%">Id</br><input type="text" id="myInput1" onkeyup="myFunction1()" size="3" ></th>
-						<th style="width:10%">Nom </br><input type="text" id="myInput2" onkeyup="myFunction2()"  size="8"></th>
-						<th style="width:10%">Prénom</br><input type="text" id="myInput3" onkeyup="myFunction3()"  size="8"></th>
-						<th style="width:20%">E-Mail</br><input type="text" id="myInput4" onkeyup="myFunction4()" size="30"></th>
-						<th style="width:20%">Type</br><input type="text" id="myInput5" onkeyup="myFunction5()" size="20"></th>
+					<tr id="colonneP">
+						<th style="width:5%"> <p onclick="visi1()">Id</p><input type="text" type = "hidden" id="myInput1" onkeyup="myFunction1()" size="3" ></th>
+						<th style="width:10%"> <p onclick="visi2()">Nom </p><input type="text" id="myInput2" onkeyup="myFunction2()"  size="8" id="foo"></th>
+						<th style="width:10%"> <p onclick="visi3()">Prénom</p><input type="text" id="myInput3" onkeyup="myFunction3()"  size="8"></th>
+						<th style="width:20%"> <p onclick="visi4()">E-Mail</p><input type="text" id="myInput4" onkeyup="myFunction4()" size="15"></th>
+						<th style="width:20%"> <p onclick="visi5()">Type</p><input type="text" id="myInput5" onkeyup="myFunction5()" size="15"></th>
 						<th style="width:35%"></th>
-						<!-- <th></th>
-						<th size="30"></th> -->
+
 					</tr>
 				</thead>
 				<c:forEach items="${ personnels }" var="personnel">
@@ -55,7 +54,7 @@
 
 
 			</table>
-			<a href="/Geromino/adminAjouterPersonnel" class="btn btn-success">Ajouter</a>
+			<a href="/Geromino/adminAjouterPersonnel" class="btn btn-success">Ajouter un personnel</a>
 			<a href="gestionnaire/"> <a href="/Geromino/admin">
 					<button type="button" class="btn btn-danger">Revenir au
 						menu précédent</button>
