@@ -20,7 +20,7 @@
       <header class="jumbotron my-4">
         <h1 class="display-3">Bonjour et bienvenue ${utilisateur.prenom} sur votre page d'accueil!</h1>
         <p class="lead">En tant qu' ${utilisateur.type}, vous êtes la pierre angulaire. A l'image de Monique, vous inspirez crainte et terreur auprès de vos sbires et des stagiaires. Vous possedez aussi le contrôle sur tout. Agréable n'est-ce pas?</p>
-        <a href="gestionnaire" class="btn btn-primary btn-lg">Je contrôle!</a>
+        <a href="admin" class="btn btn-primary btn-lg">Je contrôle!</a>
       </header>
 </c:if>	
 		

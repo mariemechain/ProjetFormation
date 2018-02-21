@@ -9,7 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="css/bootstrap.min.css" />
 
-<title>proF E S S ionalisme</title>
+<title>Site professionnel</title>
 </head>
 <body>
 	<nav> <tiles:insertAttribute name="navigation" /> </nav>
