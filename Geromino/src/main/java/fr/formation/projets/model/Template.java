@@ -29,8 +29,6 @@ public class Template implements Serializable{
 	 * Attributs
 	 */
 	
-	private static final long serialVersionUID = -112987932813929403L;
-
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="TEM_ID")
