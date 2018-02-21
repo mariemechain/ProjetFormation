@@ -17,7 +17,7 @@
 
 			<h3>Liste de videoprojecteurs disponibles</h3>
 			<br />
-			<table class="table table-striped">
+			<table class="table table-striped" style="text-align:center">
 				<thead>
 					<tr>
 						<th>Identifiant</th>
