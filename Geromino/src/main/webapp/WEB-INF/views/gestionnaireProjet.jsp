@@ -19,6 +19,7 @@
 					<th>Salle</th>
 					<th>Date de début</th>
 					<th>Gestionnaire</th>
+					<th>Stagiaires</th>
 					<th>Option</th>
 
 				</tr>
@@ -33,6 +34,9 @@
 					<%-- <td>${projet.gestionnaire.nom }</td> --%>
 					<td>${projet.dateDebut }</td> 
 					<td>${projet.gestionnaire.nom }</td> 
+					<td><a
+						href="/Geromino/gestionnaire/gestionnaireProjetStagiaires?id=${projet.id }"><button
+								type="button" class="btn btn-dark">Voir liste</button></a></td> 
 					<td><a
 						href="/Geromino/gestionnaire/gestionnaireEditerProjet?id=${projet.id }"><button
 								type="button" class="btn btn-outline-primary">modifier</button></a>
