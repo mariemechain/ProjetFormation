@@ -50,6 +50,8 @@ public class GestionnaireController {
 	
 	@Autowired
 	private IGestionnaireDAO daoGestionnaire;
+	
+	
 
 	@GetMapping("")
 	public String gestionnaire() {
@@ -298,6 +300,7 @@ public class GestionnaireController {
 							model.addAttribute("stagiaires", daoStagiaire.findAll());
 							
 							stagiaire.setId(id);
+							stagiaire.setOrdinateur(daoStagiaire.findById(id).get().getOrdinateur());
 							daoStagiaire.save(stagiaire);		
 							//return "gestionnaireSalle";
 							return "redirect:./gestionnaireStagiaires";	
@@ -305,7 +308,7 @@ public class GestionnaireController {
 						
 						
 						
-						//************************************************** Supprimer un contact***************************	
+						//************************************************** Supprimer un stagiaire***************************	
 						
 						@GetMapping("/gestionnaireSupprimerStagiaire")
 						public String supprimerStagiaire(@RequestParam("id") int id) {
