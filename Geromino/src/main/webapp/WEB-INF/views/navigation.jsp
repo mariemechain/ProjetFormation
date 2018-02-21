@@ -17,8 +17,10 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 
-				<a class="navbar-brand" href="home">SITE DE QUALITE
-					PROFESSIONNELLE</a>
+				<a class="navbar-brand" href="home"> <img
+					src="img/logo.png" width="50" height="50"
+					class="d-inline-block align-center mr-2" alt="">SITE DE QUALITE PROFESSIONNELLE
+				</a>
 				<c:if test="${page == 'home'}">
 					<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 						<li class="nav-item active"><a class="nav-link" href="home">Home
@@ -63,7 +65,8 @@
 						<li class="nav-item"><a class="nav-link" href="technicien">Techniciens
 						</a></li>
 						<li class="nav-item"><a class="nav-link" href="gestionnaire">Gestionnaire</a></li>
-						<li class="nav-item active"><a class="nav-link" href="admin">Administrateur<span class="sr-only">(current)</span></a></li>
+						<li class="nav-item active"><a class="nav-link" href="admin">Administrateur<span
+								class="sr-only">(current)</span></a></li>
 						<li class="nav-item"><a class="nav-link" href="deconnexion">Déconnexion</a></li>
 					</ul>
 				</c:if>
@@ -86,8 +89,10 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 
-				<a class="navbar-brand" href="home">MONIQUE PASSION GESTION DE
-					FORMATION</a>
+				<a class="navbar-brand" href="home"> <img
+					src="img/logo.png" width="50" height="50"
+					class="d-inline-block align-center mr-2" alt="">SITE DE QUALITE PROFESSIONNELLE
+				</a>
 				<c:if test="${page == 'home'}">
 					<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 						<li class="nav-item active"><a class="nav-link" href="home">Home
@@ -139,8 +144,10 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 
-				<a class="navbar-brand" href="home">MONIQUE PASSION GESTION DE
-					FORMATION</a>
+				<a class="navbar-brand" href="home"> <img
+					src="img/logo.png" width="50" height="50"
+					class="d-inline-block align-center mr-2" alt="">SITE DE QUALITE PROFESSIONNELLE
+				</a>
 				<c:if test="${page == 'home'}">
 					<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 						<li class="nav-item active"><a class="nav-link" href="home">Home
@@ -151,7 +158,10 @@
 						<li class="nav-item"><a class="nav-link" href="deconnexion">Déconnexion</a></li>
 					</ul>
 				</c:if>
+				</div>
+		</nav>
 	</c:if>
+	
 
 	<c:if test="${utilisateur.type == 'Technicien' }">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
@@ -163,8 +173,10 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 
-				<a class="navbar-brand" href="home">MONIQUE PASSION GESTION DE
-					FORMATION</a>
+					<a class="navbar-brand" href="home"> <img
+					src="img/logo.png" width="50" height="50"
+					class="d-inline-block align-center mr-2" alt="">SITE DE QUALITE PROFESSIONNELLE
+				</a>
 				<c:if test="${page == 'home'}">
 					<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 						<li class="nav-item active"><a class="nav-link" href="home">Home
