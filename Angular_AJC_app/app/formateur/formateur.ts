@@ -11,6 +11,10 @@ public patience: number;
 public prenom: string;
 public nom: string;
 public id: number;
+public email: string = "inconnu";
+public tel: string = "inconnu";
+public dateNaissance: string = "inconnu";
+public adresse: string ="22 rue de l'inconnu";
 
   constructor() {
 }

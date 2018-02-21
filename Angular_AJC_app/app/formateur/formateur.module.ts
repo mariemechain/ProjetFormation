@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import { FormateurService } from './formateur.service';
-import { FormateurComponent } from './formateur.component';
+
 import { DispoComponent } from './dispo.component';
 import { DispoService } from './dispo.service';
 import { ExpertiseService } from './expertise.service';
@@ -20,7 +20,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 const routesFormateur: Routes = [
-{ path: 'formateur', component: FormateurComponent,canActivate: [LoginRouteGuard] },
 { path: 'formateur/dispo', component: DispoComponent,canActivate: [LoginRouteGuard] },
 { path: 'formateur/connexion', component: ConnexionComponent},
 { path: '',redirectTo: 'formateur/connexion',pathMatch: 'full'}
@@ -48,7 +47,7 @@ const routesFormateur: Routes = [
 
     declarations: [
 
-        FormateurComponent,
+      
         DispoComponent,
         ConnexionComponent,
         NgbdDatepickerRange,
