@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 @Injectable()
 export class FormateurService {
      private formateur: Formateur;
-
+     public IsConnected: boolean = false;
     constructor(private appConfig: AppConfigService, private http: Http, private router: Router) {
 
     }
@@ -23,16 +23,25 @@ export class FormateurService {
 
 
     public connect(login: string, motDePasse: string){
-  		this.http.post(this.appConfig.uri +"/formateur/connexion/" + login + "/" + motDePasse ).subscribe(resp=> {
-                                                if (resp._body != "" ){
+  		this.http.post(this.appConfig.uri +"/formateur/connexion/" + login + "/" + motDePasse,{} ).subscribe(resp=> {
+                                                if (resp["_body"] != "" ){
                                                   this.formateur = resp.json();
+                                                  this.IsConnected = true;
                                                   this.router.navigate(['home']);
+
                                                 }
 
   																						});
   	}
 
+    public Deconnexion(){
+      this.IsConnected = false;
+      this.router.navigate(['']);
+    }
 
+    public isConnectedIn(){
+      return this.IsConnected;
+    }
 
 
 }

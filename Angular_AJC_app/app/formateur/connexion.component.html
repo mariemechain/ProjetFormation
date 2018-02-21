@@ -1,4 +1,6 @@
 
+
+<div *ngIf="formateurService.IsConnected == false">
 <div class="container">
   <div class="form-group">
 
@@ -16,4 +18,9 @@
     </label>
   </div>
   <button type="submit" class="btn btn-primary" (click)="connexion()">Connexion</button>
+</div>
+</div>
+
+<div *ngIf="formateurService.IsConnected == true">
+<button class="btn btn-primary" (click)="formateurService.Deconnexion()">Se déconnecter</button>
 </div>

@@ -7,7 +7,7 @@ import { DispoService } from './dispo.service';
 import { ExpertiseService } from './expertise.service';
 import { ConnexionComponent } from './connexion.component';
 
-
+import { LoginRouteGuard } from './login-route-guard';
 
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
@@ -20,9 +20,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 const routesFormateur: Routes = [
-{ path: 'formateur', component: FormateurComponent },
-{ path: 'formateur/dispo', component: DispoComponent },
-{ path: 'formateur/connexion', component: ConnexionComponent}
+{ path: 'formateur', component: FormateurComponent,canActivate: [LoginRouteGuard] },
+{ path: 'formateur/dispo', component: DispoComponent,canActivate: [LoginRouteGuard] },
+{ path: 'formateur/connexion', component: ConnexionComponent},
+{ path: '',redirectTo: 'formateur/connexion',pathMatch: 'full'}
 // { path: 'formateur/:nom/:prenom/:ca', component:FormateurComponent }
 ];
 

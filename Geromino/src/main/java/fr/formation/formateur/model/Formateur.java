@@ -1,5 +1,6 @@
 package fr.formation.formateur.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -16,6 +17,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Table(name="formateur")
 @PrimaryKeyJoinColumn(name="FOR_ID", referencedColumnName="PER_ID")
 public class Formateur extends Personne{
+	
 	
 	@Column(name="FOR_TITRE")
 	private String titre;

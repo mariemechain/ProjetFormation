@@ -53,6 +53,14 @@ public class Disponibilite {
 		return date_fin;
 	}
 
+	public Formateur getFormateur() {
+		return formateur;
+	}
+
+	public void setFormateur(Formateur formateur) {
+		this.formateur = formateur;
+	}
+
 	public void setDate_fin(Date date_fin) {
 		this.date_fin = date_fin;
 	}
