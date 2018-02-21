@@ -16,10 +16,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+import fr.formation.matieres.dao.FileUploadDAO;
 import fr.formation.matieres.dao.IMatiereDAO;
 import fr.formation.matieres.model.Matiere;
+import fr.formation.matieres.model.UploadFile;
 
 @Controller
 @RequestMapping(value = "/matiere")
@@ -37,31 +41,31 @@ public class MatiereController {
 	@GetMapping("/ajouter")
 	public String ajouter(Model model) {
 
-		
 		model.addAttribute("matieres", daoMatiere.findAll());
 		model.addAttribute("matiere", new Matiere());
 		return "ajouterMatiere";
 	}
 
 	@PostMapping("/ajouter")
-	public String ajouter(@Valid@ModelAttribute("matiere") Matiere matiere, BindingResult result, Model model, HttpServletRequest req) {
-		
+	public String ajouter(@Valid @ModelAttribute("matiere") Matiere matiere, BindingResult result, Model model,
+			HttpServletRequest req) {
+
 		if (result.hasErrors()) {
 			model.addAttribute("matieres", daoMatiere.findAll());
 
 			return "ajouterMatiere";
 		}
-		
+
 		List<Matiere> liste = daoMatiere.findAll();
 		List<Matiere> prerequis = new ArrayList<Matiere>();
-		
+
 		for (Matiere m : liste) {
-			if(req.getParameter("test_"+m.getId()) != null)
+			if (req.getParameter("test_" + m.getId()) != null)
 				prerequis.add(m);
 		}
-		
+
 		matiere.setPrerequis(prerequis);
-		
+
 		daoMatiere.save(matiere);
 		return "redirect:./";
 	}
@@ -74,23 +78,24 @@ public class MatiereController {
 	}
 
 	@PostMapping("/editer")
-	public String editer(@Valid@ModelAttribute("matiere") Matiere matiere, BindingResult result, Model model, @RequestParam("id") int id, HttpServletRequest req) {
+	public String editer(@Valid @ModelAttribute("matiere") Matiere matiere, BindingResult result, Model model,
+			@RequestParam("id") int id, HttpServletRequest req) {
 		if (result.hasErrors()) {
 			model.addAttribute("matieres", daoMatiere.findAll());
 
 			return "ajouterMatiere";
 		}
-		
+
 		List<Matiere> liste = daoMatiere.findAll();
 		List<Matiere> prerequis = new ArrayList<Matiere>();
-		
+
 		for (Matiere m : liste) {
-			if(req.getParameter("test_"+m.getId()) != null)
+			if (req.getParameter("test_" + m.getId()) != null)
 				prerequis.add(m);
 		}
-		
+
 		matiere.setPrerequis(prerequis);
-		
+
 		daoMatiere.save(matiere);
 		return "redirect:./";
 	}
@@ -100,19 +105,48 @@ public class MatiereController {
 		daoMatiere.deleteById(id);
 		return "redirect:./";
 	}
-	
+
 	@GetMapping("/information")
 	public String information(@RequestParam("id") int id, Model model) {
-		
+
 		Matiere detailMatiere = daoMatiere.findById(id);
 		List prerequis = new ArrayList();
-		for(Matiere m : detailMatiere.getPrerequis()) {
-				prerequis.add(m.getTitre());
+		for (Matiere m : detailMatiere.getPrerequis()) {
+			prerequis.add(m.getTitre());
 		}
 		model.addAttribute("Prerequis", prerequis);
 		model.addAttribute("detailMatiere", detailMatiere);
 		model.addAttribute("matieres", daoMatiere.findAll());
 		return "matiere";
+	}
+
+	// **********************UPLOAD*****************************
+
+	@Autowired
+	private FileUploadDAO fileUploadDao;
+
+	@RequestMapping(value = "/upload", method = RequestMethod.GET)
+	public String showUploadForm(HttpServletRequest request) {
+		return "Upload";
+	}
+
+	@RequestMapping(value = "/doUpload", method = RequestMethod.POST)
+	public String handleFileUpload(HttpServletRequest request, @RequestParam CommonsMultipartFile[] fileUpload)
+			throws Exception {
+
+		if (fileUpload != null && fileUpload.length > 0) {
+			for (CommonsMultipartFile aFile : fileUpload) {
+
+				System.out.println("Saving file: " + aFile.getOriginalFilename());
+
+				UploadFile uploadFile = new UploadFile();
+				uploadFile.setFileName(aFile.getOriginalFilename());
+				uploadFile.setData(aFile.getBytes());
+				fileUploadDao.save(uploadFile);
+			}
+		}
+
+		return "Success";
 	}
 
 }
