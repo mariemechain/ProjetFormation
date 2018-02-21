@@ -23,35 +23,38 @@
 						<tr>
 							<c:choose>
 								<c:when test="${i==0}">
-									<td rowspan="${duree_mois[0]+1}">${mois[0]}</td>
+									<td rowspan="${duree_mois[i+1]+1}">${mois[i]}</td>
 								</c:when>
-								<c:when test="${i==duree_mois[0]+1}">
-									<td rowspan="${duree_mois[duree_mois[0]+1]}">${mois[duree_mois[0]+1]}</td>
+								<c:when test="${i==duree_mois[1]+1}">
+									<td rowspan="${duree_mois[i+1]+1}">${mois[i]}</td>
 								</c:when>
-								<c:when test="${i==duree_mois[1]+duree_mois[0]+1}">
-									<td rowspan="${duree_mois[duree_mois[1]+duree_mois[0]+1]}">C${mois[duree_mois[1]+duree_mois[0]+1]}</td>
+								<c:when test="${i==duree_mois[2]+1}">
+									<td rowspan="${duree_mois[i+1]+1}">${mois[i]}</td>
 								</c:when>
-								<c:when test="${i==duree_mois[2]+duree_mois[1]+duree_mois[0]+1}">
-									<td
-										rowspan="${duree_mois[duree_mois[2]+duree_mois[1]+duree_mois[0]+1]}">${duree_mois[2]+duree_mois[1]+duree_mois[0]+1}</td>
+								<c:when test="${i==duree_mois[3]+1}">
+									<td rowspan="${duree_mois[i+1]+1}">${mois[i]}</td>
 								</c:when>
-								<c:when
-									test="${i==duree_mois[3]+duree_mois[2]+duree_mois[1]+duree_mois[0]+1}">
-									<td rowspan="${duree_mois[4]}">${mois[4]}</td>
+								<c:when test="${i==duree_mois[4]+1}">
+									<td rowspan="${duree_mois[i+1]+1}">${mois[i]}</td>
 								</c:when>
 							</c:choose>
 							<td>${dates[i].getDate()}</td>
 							<td>${jours[i]}</td>
-							<td>${matieres[i]}</td>
 							<c:if test="${i==0}">
-								<td rowspan="${duree}">PAPA</td>
-								<td rowspan="${duree}">MAMAN</td>
+								<td rowspan="${matieres_duree[i]}">${matieres[i]}</td>
+							</c:if>
+							<c:if test="${i==0}">
+								<td rowspan="${matieres_duree[i]}">PAPA</td>
+								<td rowspan="${matieres_duree[i]}">MAMAN</td>
 							</c:if>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 		</div>
+		<div>
+			Gros bouton export PDF
+		</div>
 	</tiles:putAttribute>
 </tiles:insertDefinition>
->
+

@@ -39,25 +39,18 @@ public class AfficheProjetController {
 	@GetMapping("")
 	public String afficher(@RequestParam("id") int id, Model model) {
 		Projet projet = daoPro.findById(id).get();
-		Date date = projet.getDebut();
 
+		Date date = projet.getDebut();
 		List<Date> dates = new ArrayList<Date>();
 		LocalDate local_date = ((java.sql.Date) date).toLocalDate();
-		for (int i = 0; i < projet.getDuree(); i++) {
-			dates.add((Date) java.sql.Date.valueOf(local_date.plusDays(i)));
-		}
-		model.addAttribute("dates", dates);
-
-		List<String> matieres = new ArrayList<String>();
-		List<Integer> matieres_duree = new ArrayList<Integer>();
-		for(int i=0; i<projet.getPlanifications().size();i++){
-			matieres.add(projet.getPlanifications().get(i).getMatiere().getTitre());
-			matieres_duree.add(projet.getPlanifications().get(i).getMatiere().getDuree());
-		}
-		
 		List<String> jours = new ArrayList<String>();
+		List<Integer> duree_mois = new ArrayList<Integer>();
+		List<String> mois = new ArrayList<String>();
+		duree_mois.add(0);
 		for (int i = 0; i < projet.getDuree(); i++) {
 			String res = "";
+			int res2 = 0;
+			dates.add((Date) java.sql.Date.valueOf(local_date.plusDays(i)));
 			switch (dates.get(i).getDay()) {
 			case 0:
 				res = "Dimanche";
@@ -83,14 +76,6 @@ public class AfficheProjetController {
 				break;
 			}
 			jours.add(res);
-		}
-		model.addAttribute("jours", jours);
-		List<Integer> duree_mois = new ArrayList<Integer>();
-		List<String> mois = new ArrayList<String>();
-
-		for (int i = 0; i < projet.getDuree(); i++) {
-			String res = "";
-			int res2 = 0;
 			switch (dates.get(i).getMonth()) {
 			case 0:
 				res = "Janvier";
@@ -150,16 +135,33 @@ public class AfficheProjetController {
 				break;
 			}
 			mois.add(res);
-			duree_mois.add(res2);
+			duree_mois.add(res2+duree_mois.get(i));
 		}
+		
 		Date date_fin = dates.get(projet.getDuree() - 1);
 		int moi = date.getMonth();
 		if (date_fin.getMonth() == moi) {
-			duree_mois.set(0, date_fin.getDate() - date.getDate());
+			duree_mois.set(1, date_fin.getDate()-date.getDate());
 		} else {
-			duree_mois.set(0, duree_mois.get(moi) - date.getDate());
-			duree_mois.set(date_fin.getMonth()-date.getMonth(), date_fin.getDate());
+			duree_mois.set(1, duree_mois.get(1)-date.getDate());
+			duree_mois.set(date_fin.getMonth()-date.getMonth()+1, date_fin.getDate()+duree_mois.get(date_fin.getMonth()-date.getMonth()));
 		}
+		
+		
+		List<String> matieres = new ArrayList<String>();
+		List<Integer> matieres_duree = new ArrayList<Integer>();
+		for(int i=0; i<projet.getPlanifications().size();i++){
+			matieres.add(projet.getPlanifications().get(i).getMatiere().getTitre());
+			matieres_duree.add(projet.getPlanifications().get(i).getMatiere().getDuree());
+		}
+		
+		List<Integer> long_rawspawn = new ArrayList<Integer>();
+		for (int i = 0; i<projet.getDuree();i++){
+			
+		}
+		model.addAttribute("dates", dates);
+		
+		model.addAttribute("jours", jours);
 		
 		model.addAttribute("mois", mois);
 		model.addAttribute("duree_mois", duree_mois);
