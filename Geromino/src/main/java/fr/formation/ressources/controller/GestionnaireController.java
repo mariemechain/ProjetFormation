@@ -168,13 +168,13 @@ public class GestionnaireController {
 				}
 		
 		@PostMapping("/gestionnaireProjetStagiaires")
-		public String ajouterStagiaires(@RequestParam("id") int id, Model model, @RequestParam("idStagiaire") int idStagiaire) {
+		public String ajouterStagiaires(@RequestParam("id") int id,@RequestParam("idStagiaire") int idStagiaire) {
 			Projet projet = daoProjet.findById(id);
 			projet.setId(id);
 			projet.getStagiaires().add(daoStagiaire.findById(idStagiaire).get());
-			//model.addAttribute("stagiaires", daoStagiaire.findAll());
+			
 			daoProjet.save(projet);
-			return "gestionnaireProjetStagiaires";
+			return "redirect:./gestionnaireProjetStagiaires?id="+id;
 				}
 		
 		//************************************************** Editer un projet***************************

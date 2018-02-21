@@ -92,6 +92,9 @@
 			</c:forEach>
 		</table>
 	
+	<a href="gestionnaire/gestionnaireProjet">
+			<button type="button" class="btn btn-danger">Revenir au menu précédent</button></a>
+	
 
 			</div>
 		</form:form>
