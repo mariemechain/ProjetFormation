@@ -17,9 +17,12 @@
 function changementType() {
 	var type = document.getElementById("personnels").value;
 	var div = document.getElementById("titre"); 
+	var div2 = document.getElementById("patience");
 	if (type == "Formateur") { 
 	div.style.display="block"; 
+	div2.style.display="block";
 	} else { 
-	div.style.display="none"; 
+	div.style.display="none";
+	div2.style.display="none";
 	} 
 	}
