@@ -40,7 +40,8 @@ const routesFormateur: Routes = [
 
         FormateurService,
         DispoService,
-        ExpertiseService
+        ExpertiseService,
+        LoginRouteGuard
 
     ],
 

@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 
 @Injectable()
 export class FormateurService {
-     private formateur: Formateur;
+     public formateur: Formateur;
      public IsConnected: boolean = false;
     constructor(private appConfig: AppConfigService, private http: Http, private router: Router) {
 

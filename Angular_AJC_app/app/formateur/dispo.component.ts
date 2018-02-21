@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { Component} from '@angular/core';
 import { Disponibilite } from './disponibilite';
 import { DispoService } from './dispo.service';
+import { FormateurService } from './formateur.service';
 
 @Component({
   templateUrl: 'app/formateur/dispo.component.html'
@@ -14,7 +15,7 @@ export class DispoComponent {
 
 
 
-  constructor(private dispoService: DispoService) { }
+  constructor(private dispoService: DispoService, private formateurService: FormateurService) { }
 
 
   public addDispo() {

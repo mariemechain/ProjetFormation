@@ -25,7 +25,12 @@
     </thead>
 
     <tbody>
-      <tr *ngFor="let dispo of disponibilites"></tr>
+      <tr *ngFor="let dispo of formateurService.formateur.disponibilites">
+        <td>{{dispo.id}}</td>
+        <td>{{dispo.date_debut}}</td>
+        <td>{{dispo.date_fin}}</td>
+        <td>nulz</td>
+      </tr>
     </tbody>
   </table>
 </div>

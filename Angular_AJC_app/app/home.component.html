@@ -1,1 +1,33 @@
 <h1>Page Home</h1>
+
+<!-- <p>{{ formateur.patience}}</p> -->
+<p>1 {{ formateurService.formateur.nom}}</p>
+<p>2 {{ formateurService.formateur.titre}}</p>
+<p>3 {{ formateurService.formateur.id}}</p>
+<!-- <p>4 {{ formateur.disponibilite.id }}</p>
+<p>5 {{ formateur.patience}}</p> -->
+
+
+<div class="container">
+  <h2>Liste des clients</h2>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Date Début</th>
+        <th>Date Fin</th>
+        <th>Durée</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let dispo of formateurService.formateur.disponibilites">
+        <td>{{dispo.id}}</td>
+        <td>{{dispo.date_debut}}</td>
+        <td>{{dispo.date_fin}}</td>
+        <td>nulz</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -4,10 +4,12 @@ import { Expertise } from './expertise';
 
 
 export class Formateur {
-public disponibilite: Array<Disponibilite>;
+public disponibilites: Array<Disponibilite>;
 public expertises: Array<Expertise>;
 public titre: string;
-public patiente: number;
+public patience: number;
+public prenom: string;
+public nom: string;
 public id: number;
 
   constructor() {

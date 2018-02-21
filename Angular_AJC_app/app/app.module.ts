@@ -34,7 +34,7 @@ const routes: Routes = [
   ],
   providers: [
     AppConfigService,
-
+    LoginRouteGuard,
 
   ],
 
