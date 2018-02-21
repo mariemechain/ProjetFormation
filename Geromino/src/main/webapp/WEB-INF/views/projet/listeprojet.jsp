@@ -14,30 +14,56 @@
 		<table class="table table-striped">
 			<thead>
 				<tr>
-					<th scope="col">ID</th>
+				<%-- 					
+					<th scope="col">ID</th> 
+					<th scope="col">Nom</th>  
+					<th scope="col">Date de début</th>
+					<th scope="col">Plannification</th> 
+					<th scope="col">Durée</th> 
+					<th scope="col">Salle</th>  
+				--%>
+					
+					<th scope="col">Info</th>
 					<th scope="col">Nom</th>
 					<th scope="col">Date de début</th>
-				<%--	<th scope="col">Plannification</th>  --%>
 					<th scope="col">Durée</th>
-				<%--	<th scope="col">Salle</th>  --%>
-					
+					<th scope="col">Salle</th>
+					<th scope="col">Cursus</th>
+					<th scope="col">Stagiaires</th>
 				</tr>
 			</thead>
 
 			<tbody>
 				<c:forEach items="${ Projet }" var="projet">
 					<tr>
+					<%-- 	
 						<td>${ projet.id }</td>
 						<td>${ projet.nom }</td>
-						<td>${ projet.debut}</td>
-					<%--  <td>${ projet.planifications}</td> --%>
+						<td>${ projet.dateDebut}</td>
+						<td>${ projet.planifications}</td> 
 						<td>${ projet.duree} jours</td>
 						<td>${ projet.salle}</td>
-					<%-- 	<td>${ projet.stagiaires}</td>  --%>
+						<td>${ projet.stagiaires}</td>
+					
 						
 						<td>
-						<a href="projet/editer?id=${ projet.id }" class="btn btn-primary">Editer</a>             
+						<a href="projet/editer/${ projet.id }" class="btn btn-primary">Editer</a>             
 						<a href="projet/supprimer?id=${ projet.id }" class="btn btn-danger">Supprimer</a>
+						</td>
+						--%>
+						
+						<td>
+							<a href="projet/detailProjet?id=${projet.id }" class="btn btn-success">détail</a>
+						</td>
+						<td>${ projet.nom }</td>
+						<td>${ projet.dateDebut}</td>
+						<td>${ projet.duree} jours</td>
+						<td>${ projet.salle.id}</td>
+						<td> </td>
+						<td>${ projet.stagiaires} / ${ projet.salle.places}</td>
+						<td>
+							<a href="projet/editer/${ projet.id }" class="btn btn-primary">Editer</a>
+							<a href="projet/supprimer?id=${ projet.id }" class="btn btn-danger">Supprimer</a>
 						</td>
 					</tr>
 				</c:forEach>

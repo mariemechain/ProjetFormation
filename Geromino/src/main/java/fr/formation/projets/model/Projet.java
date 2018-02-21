@@ -25,6 +25,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import fr.formation.ressources.metier.Gestionnaire;
 import fr.formation.ressources.metier.Materiel;
@@ -45,7 +46,9 @@ public class Projet {
 	
 	@Column(name="PRO_DUREE") private int duree; 
 	
+	
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	@Column(name="PRO_DEBUT") private Date dateDebut; 
 	
 	@OneToOne
@@ -93,8 +96,8 @@ public class Projet {
 	public int getDuree() { return duree; }
 	public void setDuree(int duree) { this.duree = duree; }
 
-	public Date getDebut() { return dateDebut; }
-	public void setDebut(Date debut) { this.dateDebut = debut; }
+	public Date getDateDebut() { return dateDebut; }
+	public void setDateDebut(Date debut) { this.dateDebut = debut; }
 
 	public Salle getSalle() { return salle; }
 	public void setSalle(Salle salle) { this.salle = salle; }
@@ -111,6 +114,7 @@ public class Projet {
 	public List<Materiel> getMateriels() { return materiels; }
 	public void setMateriels(List<Materiel> materiels) { this.materiels = materiels; }
 
+	
 	/* ===========================================
 	 * 	ToString 
 	 * =========================================== */

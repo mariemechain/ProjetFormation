@@ -1,7 +1,7 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <tiles:insertDefinition name="app.layout">
 	<tiles:putAttribute name="title" value="Création d'un projet" />
@@ -9,14 +9,6 @@
 
 		<form:form method="POST" modelAttribute="projet">
 			<!-- On assigne un Id au projet, mais normalement c'est autogenerer d'ou le commentaire de la partie  -->
-			<%-- 	<div class="form-group row">
-				<label for="id" class="col-sm-2 col-form-label">ID</label>
-				<div class="col-sm-10">
-					<input type="text" class="form-control" id="id" name="id"
-						value="${ projet.id }" placeholder="ID" />
-				</div>
-			</div> --%>
-
 			<div class="form-group row">
 				<label for="nom" class="col-sm-2 col-form-label">Nom</label>
 				<div class="col-sm-10">
@@ -31,23 +23,10 @@
 					début</label>
 				<div class="col-sm-10">
 					<input type="text" class="form-control" id="debut" name="debut"
-						value="${ projet.debut }" placeholder="Date de début" />
+						value="<fmt:formatDate pattern="yyyy-MM-dd" value="${ projet.dateDebut }" />"
+						placeholder="Date de début" />
 				</div>
 			</div>
-
-			<%--  
-			<div class="form-group row">
-				<label for="planification" class="col-sm-2 col-form-label">Planification</label>
-				<div class="col-sm-10">
-					<input type="text" class="form-control" id="planification"
-						name="plannification" value="${ projet.planification }"
-						placeholder="Planification" />
-				</div>
-			</div>  
-			--%>
-
-
-
 
 			<div class="form-group row">
 				<label for="duree" class="col-sm-2 col-form-label">Durée</label>
@@ -57,13 +36,16 @@
 				</div>
 			</div>
 
-
-			<label>Salle</label>
-			<select name="idSalle" class="form-control">
-				<c:forEach items="${ salle }" var="salle">
-					<option value="${ salle.id }">${ salle.adresse }</option>
-				</c:forEach>
-			</select>
+			<div class="form-group row">
+				<label for="salles" class="col-sm-2 col-form-label">Salle</label> 
+				<div class="col-sm-10">
+					<select name="idSalle" class="form-control">
+						<c:forEach items="${ salles }" var="salle">
+							<option value="${ salle.id }">${ salle.id}</option>
+						</c:forEach>
+					</select>
+				</div>
+			</div>
 
 
 			<div class="form-group row">
@@ -73,10 +55,7 @@
 			</div>
 
 			<br>
-			<!--Reorientation sur /Geromino/planification  -->
-			<td><a href="../planification?id=${projet.id }"
-				class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span>
-					Planification</a>
+
 		</form:form>
 
 	</tiles:putAttribute>

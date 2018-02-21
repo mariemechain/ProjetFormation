@@ -1,11 +1,10 @@
 package fr.formation.projets.controller;
 
-import javax.validation.Valid;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,9 +16,11 @@ import fr.formation.formateur.dao.IFormateurDAO;
 import fr.formation.matieres.dao.IMatiereDAO;
 import fr.formation.projets.dao.IProjetDAO;
 import fr.formation.projets.dao.ISalleDAO;
-//import fr.formation.projets.dao.IStagiaireDAO;
 import fr.formation.projets.dao.ITemplateDAO;
+import fr.formation.projets.model.Planification;
 import fr.formation.projets.model.Projet;
+import fr.formation.ressources.metier.Salle;
+import fr.formation.ressources.metier.Stagiaire;
 
 @Controller
 @RequestMapping("/projet")
@@ -53,13 +54,19 @@ public class ProjetController {
 	@GetMapping("/ajouter")
 	public String ajouter(Model model) {
 		model.addAttribute("projet", new Projet());
+		model.addAttribute("salles", daoSalle.findAll());
 		return "projet/addprojet";
 	}
-
+	
 	@PostMapping("/ajouter")
-	public String ajouter(@ModelAttribute("projet") Projet projet, Model model) {
-
-		daoProjet.save(projet);
+    public String ajouter(@ModelAttribute("projet") Projet projet, 
+                          @RequestParam String idSalle) {
+        
+        Salle s = daoSalle.findById(idSalle).get(); 
+        projet.setSalle(s);
+        System.out.println(projet);
+        daoProjet.save(projet);
+        
 		return "redirect:../projet";
 	}
 
@@ -75,25 +82,56 @@ public class ProjetController {
 	 * 
 	 */
 	// EDITION
-	@GetMapping("/editer")
-	public String editer(@RequestParam("id") int id, Model model) {
-		model.addAttribute("projet", daoProjet.findById(id).get());
+	@GetMapping("/editer/{id}")
+	public String editer(@PathVariable int id, Model model) {
+		Projet p1= daoProjet.findById(id).get();
+		model.addAttribute("projet",p1);
+		model.addAttribute("salles", daoSalle.findAll());
+
+		
 		return "projet/editprojet";
 	}
 
-	@PostMapping("/editer")
-	public String editer(@RequestParam("id") int id,@ModelAttribute("projet") Projet projet,  Model model) {
-		{
-			daoProjet.save(projet);
-			return "redirect:../projet";
-		}
-	}
+	@PostMapping("/editer/{id}")
+	public String editerPost(@ModelAttribute("projet") Projet projet,
+						     @PathVariable int id, 
+						     @RequestParam String idSal, 
+						     Model model){
+		
+		// TODO : ajouter un requestParam pour le cursus 
 
+		
+		Salle s = daoSalle.findById(idSal).get(); 
+		
+		projet.setId(id);
+		projet.setSalle(s);
+		
+		daoProjet.save(projet);
+		
+			return "redirect:../projet";
+	}
+	
 	// SUPRESSION
 	@GetMapping("/supprimer")
 	public String supprimer(@RequestParam("id") int idProjet) {
 		daoProjet.deleteById(idProjet);
+		
 		return "redirect:../projet";
 	}
+	
+	
+	@GetMapping("/detailProjet")
+    public String detail(@RequestParam("id") int id, Model model) {
+        
+        Projet detailProjet = daoProjet.findById(id).get();
+        model.addAttribute("detailProjet", detailProjet);
+        
+        List<Planification> planifications = detailProjet.getPlanifications();
+        model.addAttribute("projetPlanifications", planifications);
+        
+        List<Stagiaire> stagiaires = detailProjet.getStagiaires();
+        model.addAttribute("projetStagiaires", stagiaires);
 
+        return "projet/detailProjet";
+    }
 }
