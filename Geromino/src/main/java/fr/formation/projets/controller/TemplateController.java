@@ -69,11 +69,9 @@ public class TemplateController {
 		
 		Template myTemplate = daoTemplate.findById(myId).get();
 		session.setAttribute("template", myTemplate);
-		model.addAttribute("template", myTemplate);
+
 		List<OrdreMatiere> ordreMatieres = myTemplate.getOrdreMatieres();
 		session.setAttribute("ordreMatieres", ordreMatieres);
-		//model.addAttribute("ordreMatieres", ordreMatieres);
-		
 		afficheMatiere(model, ordreMatieres);
 		
 		return "templates/ajouter";
