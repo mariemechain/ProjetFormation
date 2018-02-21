@@ -1,7 +1,11 @@
 @CHARSET "ISO-8859-1";
 
+#myTable tr[id="ligne"]:hover {
+	/* Add a grey background color to the table header and on hover */
+	background-color: #c0c0c0;
+}
 
- #myTable tr[id="ligne"]:hover {
-    /* Add a grey background color to the table header and on hover */
-    background-color: #c0c0c0;
+#myTable input[id="myInput1"], input[id="myInput2"], input[id="myInput3"],
+	input[id="myInput4"], input[id="myInput5"] {
+	visibility: hidden;
 }

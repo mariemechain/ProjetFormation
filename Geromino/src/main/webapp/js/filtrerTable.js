@@ -1,4 +1,52 @@
 
+function visi1() {
+    var x = document.getElementById('myInput1');
+    if (x.style.visibility === 'visible') {
+        x.style.visibility = 'hidden';
+    } else {
+        x.style.visibility = 'visible';
+    }
+}
+
+
+function visi2() {
+    var x = document.getElementById('myInput2');
+    if (x.style.visibility === 'visible') {
+        x.style.visibility = 'hidden';
+    } else {
+        x.style.visibility = 'visible';
+    }
+}
+
+function visi3() {
+	    var x = document.getElementById('myInput3');
+    if (x.style.visibility === 'visible') {
+        x.style.visibility = 'hidden';
+    } else {
+        x.style.visibility = 'visible';
+    }
+}
+
+function visi4() {
+    var x = document.getElementById('myInput4');
+    if (x.style.visibility === 'visible') {
+        x.style.visibility = 'hidden';
+    } else {
+        x.style.visibility = 'visible';
+    }
+}
+
+function visi5() {
+    var x = document.getElementById('myInput5');
+    if (x.style.visibility === 'visible') {
+        x.style.visibility = 'hidden';
+    } else {
+        x.style.visibility = 'visible';
+    }
+}
+
+
+
 function myFunction1() {
   // Declare variables 
   var input, filter, table, tr, td, i;
