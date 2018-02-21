@@ -1,12 +1,11 @@
 
-// Classe créée par Christophe
-
 package fr.formation.projets.model;
 
 import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Cacheable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -41,9 +40,9 @@ public class Template implements Serializable{
 	@NotEmpty(message = "Le nom du cursus est obligatoire")
 	private String nom;
 	
-	@OneToMany(mappedBy="template", fetch=FetchType.EAGER)
-	@OrderBy("ordre")
-	private List<OrdreMatiere> ordreMatieres;
+	@OneToMany(mappedBy="template", fetch=FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @OrderBy("ordre")
+    private List<OrdreMatiere> ordreMatieres;
 	
 	/*
 	 * Getters et setters
