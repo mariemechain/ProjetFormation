@@ -15,20 +15,22 @@
 		<div class="container-fluid">
 			<h3>Liste personnels</h3>
 			<br />
-			<table class="table table-striped" style="text-align:center">
-				<thead>
+			<table style="width:100%" class="table table-striped"  id="myTable" >
+				<thead style ="text-align:center; vertical-align:middle">
 					<tr>
-						<th>Identifiant</th>
-						<th>Nom</th>
-						<th>Prénom</th>
-						<th>E-Mail</th>
-						<th>Type</th>
-						<th>Option</th>
+						<th style="width:5%">Id</br><input type="text" id="myInput1" onkeyup="myFunction1()" size="3" ></th>
+						<th style="width:10%">Nom </br><input type="text" id="myInput2" onkeyup="myFunction2()"  size="8"></th>
+						<th style="width:10%">Prénom</br><input type="text" id="myInput3" onkeyup="myFunction3()"  size="8"></th>
+						<th style="width:20%">E-Mail</br><input type="text" id="myInput4" onkeyup="myFunction4()" size="30"></th>
+						<th style="width:20%">Type</br><input type="text" id="myInput5" onkeyup="myFunction5()" size="20"></th>
+						<th style="width:35%"></th>
+						<!-- <th></th>
+						<th size="30"></th> -->
 					</tr>
 				</thead>
 				<c:forEach items="${ personnels }" var="personnel">
 
-					<tr>
+					<tr id="ligne">
 						<td>${ personnel.id }</td>
 						<td>${ personnel.nom }</td>
 						<td>${ personnel.prenom }</td>
@@ -36,7 +38,7 @@
 						<td>${personnel.type}</td>
 						<td><a
 							href="/Geromino/adminEditerPersonnel?id=${personnel.id}"
-							class="btn btn-success">Modifier</a>
+							class="btn btn-primary">Modifier</a>
 							<a
 							href="/Geromino/adminSupprimerPersonnel?id=${personnel.id}"
 							class="btn btn-danger">X</a>
@@ -53,7 +55,7 @@
 
 
 			</table>
-			<a href="/Geromino/adminAjouterPersonnel" class="btn btn-primary">Ajouter</a>
+			<a href="/Geromino/adminAjouterPersonnel" class="btn btn-success">Ajouter</a>
 			<a href="gestionnaire/"> <a href="/Geromino/admin">
 					<button type="button" class="btn btn-danger">Revenir au
 						menu précédent</button>

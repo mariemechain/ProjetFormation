@@ -8,6 +8,7 @@
 <base href="/Geromino/" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/filtrerTable.css" />
 
 <title>Site professionnel</title>
 </head>
@@ -27,6 +28,8 @@
 	<script src="js/jquery-3.1.1.min.js"></script>
 	<script src="js/popper.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<script src="js/ajouterFormateur.js"></script>
+	<script src="js/filtrerTable.js"></script>
 	<script src="js/meteoScript.js"></script>
 	<script src="js/ajouterFormateur.js"></script>
 </body>

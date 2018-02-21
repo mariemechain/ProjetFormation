@@ -1,0 +1,7 @@
+@CHARSET "ISO-8859-1";
+
+
+ #myTable tr[id="ligne"]:hover {
+    /* Add a grey background color to the table header and on hover */
+    background-color: #c0c0c0;
+}
