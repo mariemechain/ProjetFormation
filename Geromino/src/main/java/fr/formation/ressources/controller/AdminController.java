@@ -67,7 +67,7 @@ public class AdminController {
 	//************************************************** Ajouter un personnel***************************
 	
 	@PostMapping("/adminAjouterPersonnel")
-	public String ajouterPersonnel(@Valid @ModelAttribute("personnel") Personnel personnel, BindingResult result, @RequestParam("personnels") String type, @RequestParam("titre") String titre) {
+	public String ajouterPersonnel(@Valid @ModelAttribute("personnel") Personnel personnel, BindingResult result, @RequestParam("personnels") String type, @RequestParam("titre") String titre, @RequestParam("patience") double patience) {
 		
 		if (result.hasErrors()) {
 			return "ajouterPersonnel";
@@ -112,6 +112,7 @@ public class AdminController {
 			formateur.setMotDePasse(personnel.getMotDePasse());
 			formateur.setTelephone(personnel.getTelephone());
 			formateur.setTitre(titre);
+			formateur.setPatience(patience);
 			daoFormateur.save(formateur);
 			
 

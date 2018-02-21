@@ -105,13 +105,18 @@
 
 			</div>
 
+			<div class="form-group" id="patience">
+				<label>Indice de patience :</label> <input type="number" class="form-control"
+					name="patience" aria-describedby="Help" placeholder="Indice de patience" />
+
+			</div>
 
 
 
 
 
 			<button type="submit" class="btn btn-success">Ajouter</button>
-			<a href="gestionnaire/"> <a href="/Geromino/admin">
+			<a href="/Geromino/admin">
 					<button type="button" class="btn btn-danger">Revenir au
 						menu précédent</button>
 			</a>
