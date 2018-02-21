@@ -3,23 +3,33 @@ table th, td {
 	text-align: center;
 }
 
-ol.carousel-indicators {
-	position: absolute;
-	bottom: 0;
-	margin: 0;
-	left: 0;
-	right: 0;
-	width: auto;
+/* .carousel-inner { */
+/* 	margin-bottom: 50px; */
+/* } */
+
+.carousel-indicators {
+	top: -1px;
 }
 
+/* ol.carousel-indicators { */
+/* 	position: absolute; */
+/* 	bottom: 0; */
+/* 	margin: 0; */
+/* 	left: 0; */
+/* 	right: 0; */
+/* 	width: auto; */
+
+/* } */
+
 ol.carousel-indicators li, ol.carousel-indicators li.active {
-	float: left;
+/* 	float: left; */
 	width: 10%;
 	height: 10px;
 	margin: 0;
 	border-radius: 0;
 	border: solid 1px;
 	background: transparent;
+/* 	bottom: -50px; */
 }
 
 ol.carousel-indicators li.active {
@@ -40,8 +50,7 @@ ol.carousel-indicators li.active {
 	content: '>';
 	font-size: 55px;
 	color: silver;
-	
-	position : relative;
+	position: relative;
 	top: 50px;
 }
 
@@ -49,6 +58,6 @@ ol.carousel-indicators li.active {
 	content: '<';
 	font-size: 55px;
 	color: silver;
-	position : relative;
+	position: relative;
 	top: 50px;
 }
