@@ -41,7 +41,7 @@ const routesFormateur: Routes = [
         DispoService,
         ExpertiseService,
         LoginRouteGuard
-        
+
     ],
 
     declarations: [

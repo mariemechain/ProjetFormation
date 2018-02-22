@@ -30,7 +30,7 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>#</th>
+
         <th>Formateur</th>
         <th>Matiere</th>
         <th>Niveau</th>
@@ -39,7 +39,7 @@
 
     <tbody>
       <tr *ngFor="let e of formateurService.formateur.expertises">
-        <td>{{e.id}}</td>
+        
         <td>{{ formateurService.formateur.nom }} {{ formateurService.formateur.prenom }}</td>
         <td>{{e.matiere.titre}}</td>
         <td>{{e.niveau }}</td>
