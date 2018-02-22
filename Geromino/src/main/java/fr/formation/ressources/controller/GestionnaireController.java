@@ -348,9 +348,8 @@ public class GestionnaireController {
 						}
 						
 						@PostMapping("/gestionnaireEditerStagiaire")
-						public String editerStagiaire(@Valid @ModelAttribute("stagiaire") Stagiaire stagiaire,  @RequestParam("id") int id, BindingResult result, Model model) {
+						public String editerStagiaire(@Valid @ModelAttribute("stagiaire") Stagiaire stagiaire, BindingResult result,  @RequestParam("id") int id, Model model) {
 							if(result.hasErrors()) {
-								model.addAttribute("stagiaire", daoStagiaire.findById(id).get());
 								return "gestionnaireAjouterStagiaire";
 							}
 							model.addAttribute("stagiaires", daoStagiaire.findAll());
