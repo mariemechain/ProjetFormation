@@ -22,23 +22,22 @@
 						<th></th>
 					</tr>
 				</thead>
-				
+
 				<tr class="col-md-2">
 					<td><a href="/Geromino/gestionnaire/gestionnaireSalle"><button
-								type="button" class="btn btn-success " >Gestion des
+								type="button" class="btn btn-success ">Gestion des
 								salles</button></a></td>
 					<td><a href="/Geromino/gestionnaire/gestionnaireProjet"><button
-								type="button" class="btn btn-info" >Gestion
-								des projets</button></a></td>
-					<td><a href="/Geromino/gestionnaire/gestionnaireFormateur"><button
+								type="button" class="btn btn-info">Gestion des projets</button></a></td>
+					<td><a href="/Geromino/gestionnaire/gestionnaireMatieres"><button
 								type="button" class="btn btn-danger ">Gestion des
-								formateurs</button></a></td>
+								matières</button></a></td>
+					<td><a href="/Geromino/gestionnaire/gestionnaireTemplates"><button
+								type="button" class="btn btn-primary ">Gestion des
+								templates</button></a></td>
 					<td><a href="/Geromino/gestionnaire/gestionnaireContact"><button
 								type="button" class="btn btn-warning ">Gestion des
 								contacts</button></a></td>
-					<td><a href="/Geromino/gestionnaire/gestionnaireCursus"><button
-								type="button" class="btn btn-primary ">Gestion des
-								cursus</button></a></td>
 					<td><a href="/Geromino/gestionnaire/gestionnaireStagiaires"><button
 								type="button" class="btn btn-dark ">Gestion des
 								stagiaires</button></a></td>
