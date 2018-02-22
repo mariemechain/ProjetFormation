@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,7 +23,7 @@ import fr.formation.matieres.model.Matiere;
 
 
 @Controller
-@RequestMapping("/formateurs")
+@RequestMapping("/projet/detailProjet/{idProjet}/planification/{matiere}/{idPlanif}/formateurs")
 public class ControllerGestionnaireTest {
 
 	
@@ -57,7 +58,10 @@ return listeMatiere;
 
 //====================================LISTE FORMATEURS=====================================================
 @GetMapping ( value = {""})
-public String getListeFormateur (Model model){
+public String getListeFormateur (@PathVariable String matiere
+		,@PathVariable int idProjet,
+		@PathVariable int idPlanif, 
+		Model model){
 	model.addAttribute("listeMatiere",daoMatiere.findAll());
 	model.addAttribute("listeformateurs",daoFormateur.findAll());
 	return "listeformateurtest";

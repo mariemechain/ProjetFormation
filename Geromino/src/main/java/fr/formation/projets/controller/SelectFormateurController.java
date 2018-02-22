@@ -22,7 +22,7 @@ import fr.formation.projets.dao.IPlanificationDAO;
 import fr.formation.projets.model.Planification;
 
 @Controller
-@RequestMapping("selectFormateur")
+@RequestMapping("/planification/selectFormateur")
 public class SelectFormateurController {
 
 	@Autowired
