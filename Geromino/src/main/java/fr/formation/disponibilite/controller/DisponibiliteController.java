@@ -60,7 +60,7 @@ public class DisponibiliteController {
 		model.addAttribute("premierMois", premierMois);
 		model.addAttribute("listeMois", mois);
 		
-		//Ne prend pas le dernier jour du mois par exemple du 20/02/2018 au 19/03/2018
+		
 		for (int i=0; i<duree; i++) {
 			Disponibilite infoDate = new Disponibilite();
 			LocalDate date = debut.plusDays(i);
