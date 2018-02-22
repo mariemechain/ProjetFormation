@@ -39,8 +39,8 @@
 
 							<td>${dates[i].getDate()}</td>
 							<td>${jours[i]}</td>
-							<c:if test="${i==0}">
-								<td rowspan="${matieres_duree[i]}">${matieres[i]}</td>
+							<c:if test="${datesDebutMatiere[i]==dates[i]}">
+								<td rowspan="${matieresDureeMatiere2[i]}">${matierePlanning[i]}</td>
 							</c:if>
 							<c:if test="${i==0}">
 								<td rowspan="${matieres_duree[i]}">PAPA</td>

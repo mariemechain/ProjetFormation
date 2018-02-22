@@ -109,6 +109,83 @@ public class AfficheProjetController {
 		for (int i = 0; i < projet.getDuree(); i++) {
 
 		}
+		
+		// Ajouts de Klervi
+
+		List<String> matierePlanning = new ArrayList<String>();
+		List<Date> datesDebutMatiere = new ArrayList<Date>();
+		List<Integer> matieresDureeMatiere = new ArrayList<Integer>();
+		int j = 0; // indice pour nouvelle matiere (version long)
+		int k = 0; // indice pour temps dans une matiere
+		int m = 0; // indice pour nouvelle matiere (version court)
+		
+		matieresDureeMatiere.add(0);
+		
+		for (int i = 0; i < projet.getDuree(); i++) {
+			// liste des jours de début des matieres, taille de la duree totale du projet
+			if ( k == 0 ) {
+				datesDebutMatiere.add( dates.get(i) );
+			}
+			else if (jours.get(i) == "Lundi") {
+				datesDebutMatiere.add( dates.get(i) );
+			}
+			else {
+				datesDebutMatiere.add( datesDebutMatiere.get(i-1) );
+			}
+			
+			//
+			if (jours.get(i) != "Samedi" && jours.get(i) != "Dimanche") {
+				matieresDureeMatiere.set(m, matieresDureeMatiere.get(m) + 1 );
+				matierePlanning.add(matieres.get(j));
+				k++;
+				if (k==matieres_duree.get(j)-1) {
+					j++;
+					k = 0;
+					m++;
+					matieresDureeMatiere.add(0);
+				}
+				else if (jours.get(i) == "Vendredi") {
+					m++;
+					matieresDureeMatiere.add(0);
+				}
+			} else {
+				matierePlanning.add("");
+				matieres_duree.set(j, matieres_duree.get(j) + 1);
+			}
+		}
+		
+		// liste des durees courtes des matieres, taille de la duree totale du projet
+		List<Integer> matieresDureeMatiere2 = new ArrayList<Integer>();
+		j = 0;
+		k = 0; 
+		int n = 0;
+		for (int i = 0; i < projet.getDuree(); i++) {
+			if (jours.get(i).equals("Samedi") || jours.get(i).equals("Dimanche")) {
+				matieresDureeMatiere2.add(0);
+			}
+			else if (jours.get(i).equals("Lundi") || k==0) {
+				n++;
+				matieresDureeMatiere2.add(matieresDureeMatiere.get(n-1));
+				k++;
+			}
+			else {
+				matieresDureeMatiere2.add(matieresDureeMatiere.get(n-1));
+				k++;
+			}
+			if (k==matieres_duree.get(j)-1) {
+				j++;
+				k = 0;
+			}
+		}
+		
+		model.addAttribute("matierePlanning", matierePlanning);
+		model.addAttribute("datesDebutMatiere", datesDebutMatiere);
+		model.addAttribute("matieresDureeMatiere2", matieresDureeMatiere2);
+		
+		// Fin ajouts de Klervi
+		
+		
+		
 		model.addAttribute("dates", dates);
 		model.addAttribute("jours", jours);
 
