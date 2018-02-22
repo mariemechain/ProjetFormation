@@ -2,7 +2,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-
 <tiles:insertDefinition name="app.layout">
 	<tiles:putAttribute name="title" value="Détails du projet sélectionné" />
 
@@ -14,35 +13,32 @@
 		
 		<p>Date du début de la formation : ${ detailProjet.dateDebut }</p>
 		
-		<c:if test="${detailProjet.planifications=='[]'}">
-			<p>Planifications : aucun</p>
-		</c:if>
-		<c:if test="${detailProjet.planifications!='[]'}">
-			<p>Planifications :</p>
-			<c:forEach items="${planifications}" var="planifications">
-				<p>- Matière : ${planifications.matiere} Formateur : ${planifications.formateur} </p>
-			</c:forEach>
-		</c:if>
-		
-		
-		
 		<p>Durée du projet : ${ detailProjet.duree} jours</p>
 		
 		<p>Salle : ${ detailProjet.salle.id}</p>
-		
-		
+
+		<c:if test="${detailProjet.planifications == null}">
+			<p>Planifications : aucun</p>
+		</c:if>
+		<c:if test="${detailProjet.planifications != null}">
+			<p>Planifications :</p>
+			<c:forEach items="${detailProjet.planifications}" var="planification">
+				<p>- Matière : ${planification.matiere.titre} - Formateur : ${planification.formateur} </p>
+			</c:forEach>
+		</c:if>
+				
 		<c:if test="${detailProjet.stagiaires=='[]'}">
 			<p>Stagiaires : aucun</p>
 		</c:if>
 		<c:if test="${detailProjet.stagiaires!='[]'}">
 			<p>Stagiaires :</p>
 			<c:forEach items="${stagiaires}" var="stagiaires">
-				<p>- Nom : ${stagiaires.nom}</p>
+				<p>- Nom : ${stagiaires.nom} </p>
 			</c:forEach>
 		</c:if>
 		
 		
-		<a href="listeprojet" class="btn btn-primary">Retour à la liste des projets</a> 
+		<a href="projet" class="btn btn-primary">Retour à la liste des projets</a> 
 	
 	</tiles:putAttribute>
 </tiles:insertDefinition>

@@ -44,8 +44,9 @@ public class Projet {
 
 	@Column(name="PRO_NOM") private String nom; 
 	
-	@Column(name="PRO_DUREE") private int duree; 
+	@Column(name="PRO_NOMTEMPLATE") private String nomTemplate; 
 	
+	@Column(name="PRO_DUREE") private int duree; 
 	
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
@@ -114,15 +115,22 @@ public class Projet {
 	public List<Materiel> getMateriels() { return materiels; }
 	public void setMateriels(List<Materiel> materiels) { this.materiels = materiels; }
 
-	
+	public String getNomTemplate() { return nomTemplate; }
+	public void setNomTemplate(String nomTemplate) { this.nomTemplate = nomTemplate; }
+
 	/* ===========================================
 	 * 	ToString 
 	 * =========================================== */
 	public String toString() {
-		return "Projet [id=" + id + ", duree=" + duree + ", salle=" + salle + ", gestionnaire=" + gestionnaire
-				+ ", dateDebut=" + dateDebut + ", planifications=" + planifications + ", stagiaires=" + stagiaires
-				+ ", materiels=" + materiels + "]";
+		return "[Projet]"
+				+ "\n id =" + id 
+				+ ",\n duree=" + duree 
+				+ ",\n salle=" + salle 
+				+ ",\n gestionnaire=" + gestionnaire
+				+ ",\n dateDebut=" + dateDebut 
+				+ ",\n planifications=" + planifications 
+				+ ",\n stagiaires=" + stagiaires
+				+ ",\n materiels=" + materiels;
 	}
 
-	
 }

@@ -20,17 +20,9 @@
 			<div class="form-group row">
 				<label for="date de debut" class="col-sm-2 col-form-label">Date de début</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" id="date de debut" name="date de debut" 
+					<input type="date" class="form-control" id="date de debut" name="dateDebut" 
 						value="<fmt:formatDate pattern="yyyy-MM-dd" value="${ projet.dateDebut }" />"
 						placeholder="Date de début" />
-				</div>
-			</div>
-
-			<div class="form-group row">
-				<label for="duree" class="col-sm-2 col-form-label">Durée</label>
-				<div class="col-sm-10">
-					<input type="text" class="form-control" id="duree" name="duree"
-						value="${ projet.duree }" placeholder="Duree" />
 				</div>
 			</div>
 
@@ -39,24 +31,26 @@
 				<div class="col-sm-10">
 					<select name="idSal" class="form-control">
 						<c:forEach items="${ salles }" var="sal">
-							<option value="${ sal.id }" <c:if test="${ projet.salle.id == sal.id }"> selected </c:if> >${ sal.id }</option>
+							<option value="${ sal.id }" 
+								<c:if test="${ projet.salle.id == sal.id }"> selected </c:if> >${ sal.id }
+							</option>
 						</c:forEach>
 					</select>
 				</div>
 			</div>
 			
-<%-- 
 			<div class="form-group row">
-				<label for="planifications" class="col-sm-2 col-form-label">Plannification</label>
+				<label for="templates" class="col-sm-2 col-form-label">Template</label> 
 				<div class="col-sm-10">
-					<select name="idPlanification" class="form-control">
-						<c:forEach items="${ planifications }" var="planifications">
-							<option value="${ planifications.id }">${ planifications.template }</option>
+					<select name="idTemplate" class="form-control">
+						<c:forEach items="${ templates }" var="template">
+							<option value="${ template.id }"
+								<c:if test="${ projet.nomTemplate == template.nom }"> selected </c:if> >${ template.nom}
+							</option>
 						</c:forEach>
 					</select>
 				</div>
-			</div> 
---%>
+			</div>
 
             <button type="submit" class="btn btn-success">Modifier</button>
 			

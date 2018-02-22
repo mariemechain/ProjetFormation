@@ -1,5 +1,6 @@
 package fr.formation.projets.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +15,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.formation.formateur.dao.IFormateurDAO;
 import fr.formation.matieres.dao.IMatiereDAO;
+import fr.formation.projets.dao.IPlanificationDAO;
 import fr.formation.projets.dao.IProjetDAO;
 import fr.formation.projets.dao.ISalleDAO;
 import fr.formation.projets.dao.ITemplateDAO;
+import fr.formation.projets.model.OrdreMatiere;
 import fr.formation.projets.model.Planification;
 import fr.formation.projets.model.Projet;
+import fr.formation.projets.model.Template;
 import fr.formation.ressources.metier.Salle;
 import fr.formation.ressources.metier.Stagiaire;
 
@@ -40,98 +44,127 @@ public class ProjetController {
 
 	@Autowired
 	private IMatiereDAO daoMatiere;
+	
+	@Autowired private IPlanificationDAO daoPLanification;
 
-	/**
-	 * Recupere la liste des projets
-	 */
+	/** ==============================================
+	 * CRUD : SELECT - SAVE (ADD / EDIT) - DELETE
+	 *  ============================================== */
+	
+	/* ==============================================
+	 * SELECT
+	 * ============================================== */
 	@GetMapping("")
 	public String liste(Model model) {
 		model.addAttribute("Projet", daoProjet.findAll());
 		return "projet/listeprojet";
 	}
 
-	// Ajout de projet en choissisant les mati�res et formateurs
+	/* ==============================================
+	 * AJOUTER 
+	 * ============================================== */
 	@GetMapping("/ajouter")
 	public String ajouter(Model model) {
 		model.addAttribute("projet", new Projet());
+		model.addAttribute("template", new Projet());
+
 		model.addAttribute("salles", daoSalle.findAll());
+		model.addAttribute("templates", daoTemplate.findAll());
 		return "projet/addprojet";
 	}
-	
+
 	@PostMapping("/ajouter")
-    public String ajouter(@ModelAttribute("projet") Projet projet, 
-                          @RequestParam String idSalle) {
-        
-        Salle s = daoSalle.findById(idSalle).get(); 
-        projet.setSalle(s);
-        System.out.println(projet);
-        daoProjet.save(projet);
-        
+	public String ajouter(@ModelAttribute("projet") Projet projet, @RequestParam String idSalle,
+			@RequestParam int idTemplate) {
+
+		Salle s = daoSalle.findById(idSalle).get();
+		Template t = daoTemplate.findById(idTemplate).get();
+		List<OrdreMatiere> oms = t.getOrdreMatieres();
+		List<Planification> ps = new ArrayList<Planification>();
+		int njours = 0;
+		daoProjet.save(projet);
+		
+		for (OrdreMatiere om : oms) {
+			Planification p = new Planification();
+			p.setMatiere(om.getMatiere());
+			p.setProjet(projet);
+			daoPLanification.save(p); 
+			ps.add(p);
+			
+			njours += om.getMatiere().getDuree(); 
+		}
+		projet.setPlanifications(ps);
+		
+		projet.setDuree(njours);
+		projet.setSalle(s);
+		projet.setNomTemplate(t.getNom());
+		daoProjet.save(projet);
+
 		return "redirect:../projet";
 	}
 
-	/**
-	 * // EDITION @GetMapping("/editer/{id}") public String editer(@PathVariable
-	 * int id, Model model) { model.addAttribute("projet",
-	 * daoProjet.findById(id).get()); return "projet/editprojet"; }
-	 * 
-	 * @PostMapping("/editer/{id}") public String
-	 * editer(@ModelAttribute("projet") Projet projet, @PathVariable int id,
-	 * Model model) { { daoProjet.save(projet); return "redirect:../../projet";
-	 * } }
-	 * 
-	 */
-	// EDITION
+	/* ==============================================
+	 * EDITER
+	 * ============================================== */
 	@GetMapping("/editer/{id}")
 	public String editer(@PathVariable int id, Model model) {
-		Projet p1= daoProjet.findById(id).get();
-		model.addAttribute("projet",p1);
+		Projet p1 = daoProjet.findById(id).get();
+		model.addAttribute("projet", p1);
 		model.addAttribute("salles", daoSalle.findAll());
+		model.addAttribute("templates", daoTemplate.findAll());
 
-		
 		return "projet/editprojet";
 	}
 
 	@PostMapping("/editer/{id}")
-	public String editerPost(@ModelAttribute("projet") Projet projet,
-						     @PathVariable int id, 
-						     @RequestParam String idSal, 
-						     Model model){
-		
-		// TODO : ajouter un requestParam pour le cursus 
+	public String editerPost(@ModelAttribute("projet") Projet projet, @PathVariable int id, @RequestParam String idSal,
+			@RequestParam int idTemplate, Model model) {
 
-		
-		Salle s = daoSalle.findById(idSal).get(); 
-		
+		Salle s = daoSalle.findById(idSal).get();
+		Template t = daoTemplate.findById(idTemplate).get();
+
 		projet.setId(id);
 		projet.setSalle(s);
-		
+		projet.setNomTemplate(t.getNom());
+
 		daoProjet.save(projet);
-		
-			return "redirect:../projet";
+
+		return "redirect:../../projet";
 	}
-	
-	// SUPRESSION
+
+	/* ==============================================
+	 * SUPPRIMER
+	 * ============================================== */
 	@GetMapping("/supprimer")
 	public String supprimer(@RequestParam("id") int idProjet) {
-		daoProjet.deleteById(idProjet);
 		
-		return "redirect:../projet";
+		List<Planification> ps = daoPLanification.findAll();
+		for(Planification p : ps) {
+			if(p.getProjet() != null && p.getProjet().getId() == idProjet) {
+				daoPLanification.delete(p);				
+			}
+		}
+		
+		daoProjet.deleteById(idProjet);
+
+		return "redirect:../projet"; 
 	}
 	
-	
+	/** ==============================================
+	 * DETAILS DU PROJET
+	 *  ============================================== */
 	@GetMapping("/detailProjet")
-    public String detail(@RequestParam("id") int id, Model model) {
-        
-        Projet detailProjet = daoProjet.findById(id).get();
-        model.addAttribute("detailProjet", detailProjet);
-        
-        List<Planification> planifications = detailProjet.getPlanifications();
-        model.addAttribute("projetPlanifications", planifications);
-        
-        List<Stagiaire> stagiaires = detailProjet.getStagiaires();
-        model.addAttribute("projetStagiaires", stagiaires);
+	public String detail(@RequestParam("id") int id, Model model) {
 
-        return "projet/detailProjet";
-    }
+		Projet detailProjet = daoProjet.findById(id).get();
+		model.addAttribute("detailProjet", detailProjet);
+				
+		List<Planification> planifications = detailProjet.getPlanifications();
+		model.addAttribute("projetPlanifications", planifications);
+
+		List<Stagiaire> stagiaires = detailProjet.getStagiaires();
+		model.addAttribute("projetStagiaires", stagiaires);
+
+		return "projet/detailProjet";
+	}
 }
