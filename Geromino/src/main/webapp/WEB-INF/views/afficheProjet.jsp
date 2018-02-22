@@ -31,7 +31,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="i" begin="0" end="${duree-1}">
+					<c:forEach var="i" begin="0" end="${duree}">
 						<tr>
 							<c:if test="${i==duree_mois_tot[i]}">
 								<td rowspan="${duree_mois[i]}">${mois[i]}</td>
