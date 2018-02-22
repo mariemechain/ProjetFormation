@@ -17,6 +17,8 @@ public interface IOrdinateurDAO extends JpaRepository<Ordinateur, String>
 	 @Query("from Ordinateur o left join fetch o.dispo")
 	    public List<Ordinateur> findAll();
 	
-	@Query("from Ordinateur o left join fetch o.dispo s where o.id=:id")
+	@Query("from Ordinateur o left join fetch o.stagiaires where o.id=:id")
     public Optional<Ordinateur> findById(@Param("id") String idOrdinateur);
+	
+	
 }

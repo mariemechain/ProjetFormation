@@ -7,9 +7,11 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -106,7 +108,7 @@ public class TechnicienController {
 	}
 
 	@PostMapping("/ordi/etat")
-	public String dispoOrdinateur( @RequestParam("id") String idOrdi, 
+	public String dispoOrdinateur(@RequestParam("id") String idOrdi,
 			@RequestParam("date") @DateTimeFormat(pattern = "yyyy-MM-dd") Date date) {
 		Ordinateur ordi = ordiDAO.findById(idOrdi).get();
 		ordi.setDate(date);
@@ -176,11 +178,11 @@ public class TechnicienController {
 	}
 
 	@PostMapping("/video/etat")
-	public String dispoVideoprojecteur(@RequestParam("id") String idVideo, 
+	public String dispoVideoprojecteur(@RequestParam("id") String idVideo,
 			@RequestParam("date") @DateTimeFormat(pattern = "yyyy-MM-dd") Date date) {
-//		if (result.hasErrors()) {
-//			return "dispoVideo";
-//		}
+		// if (result.hasErrors()) {
+		// return "dispoVideo";
+		// }
 		VideoProjecteur video = videoDAO.findById(idVideo).get();
 		video.setDate(date);
 		videoDAO.save(video);
@@ -200,86 +202,96 @@ public class TechnicienController {
 
 	@GetMapping("/ordi/allouer")
 	public String allouerOrdi(Model model, @RequestParam("id") String idOrdi) {
-//		model.addAttribute("ordinateur", new Ordinateur());
-		int compteur = 0;
+
 		Ordinateur ordinateur = ordiDAO.findById(idOrdi).get();
-		System.out.println(ordinateur);
-//		model.addAttribute("ordinateur", ordinateur);
-//		model.addAttribute("stagiaire", new Stagiaire());
-		List<Stagiaire> stagiaires = stagDAO.findAll();
-		System.out.println(stagiaires.size());
-		for (Stagiaire s: stagiaires){
-			System.out.println("Coucou");
-			boolean verif = true;
-			Projet projet = s.getFormation();
-			List<LocalDate> dateStagiaire=obtenirListeIndisponibilite((java.sql.Date)projet.getDateDebut(), projet.getDuree());
-			for(LocalDate ld: dateStagiaire) {
-				compteur+=1;
-				verif=getDispoOrdi(ld, ordinateur);
-				System.out.println(verif);
-				if (verif=false){
-					
-					for(int i = 0 ; i<stagiaires.size() ; i++) {
-		                if(stagiaires.get(i).getId() == s.getId()) {
-		                    stagiaires.remove(i);
-		                }
-		            }
-//					int index = stagiaires.indexOf(s);
-//					stagiaires.remove(index);
-					
-				}
+		
+		List<Stagiaire> stagiaires = stagDAO.findAll(); //Chargement de tous les stagiaires en base
+		
+		for(int i=0; i<stagiaires.size(); i++) {
+			
+			//seuls les stagiaires avec une formation sont pris en compte
+			if(stagiaires.get(i).getFormation() == null) {
+				stagiaires.remove(i); //sortie des stagiaires qui n'ont pas de projet
 			}
 			
-			
+			else {
+				
+				if(stagiaires.get(i).getOrdinateur() != null) {
+					stagiaires.remove(i); //sortie des stagiaires qui ont déjà un ordinateur 
+				}
+			}
 		}
-//		for (Stagiaire s: stagiaires) {
-//			System.out.println(s);
-//		}
-		System.out.println(compteur);
+				
+		System.out.println(stagiaires.size()); //normalement 1
+
+		//verifier si l'ordi est dispo au moment du projet du stagiaire
+		for (int i=0;i<stagiaires.size();i++) {
+			boolean verif = true;
+			
+			Projet projet = stagiaires.get(i).getFormation(); //le stagiaire a forcement un projet donc jamais null
+			
+			List<LocalDate> dateProjetStagiaire = obtenirListeIndisponibilite((java.sql.Date) projet.getDateDebut(),projet.getDuree());
+
+			for (LocalDate ld : dateProjetStagiaire) {
+				
+				verif = getDispoOrdi(ld, ordinateur);
+				System.out.println(verif);
+				if (verif == false) {
+					
+					for (int j = 0; j < stagiaires.size(); j++) {
+						if (stagiaires.get(j).getId() == stagiaires.get(i).getId()) {
+							stagiaires.remove(j); //On supprime le stagiaire s de la liste des stagiaires possible pour l'ordinateur
+						}
+					}
+				}
+			}
+		}
+		
 		model.addAttribute("stagiaires", stagiaires);
 		return "allouerOrdi";
 	}
 	
-	private boolean getDispoOrdi(LocalDate d1, Ordinateur ordinateur) {
-		boolean verif = true;
-       
-        
-        
-            List<Projet> projets = ordinateur.getDispo(); //La liste des projets de chaque ordinateur
-            
-            for(Projet p : projets) {
-                Date dateD = p. getDateDebut();
-                java.sql.Date dateDebut = (java.sql.Date) dateD;
-                int duree = p.getDuree();
-                List<LocalDate> listeIndisponibilite = obtenirListeIndisponibilite(dateDebut,duree);
-                
-                for(LocalDate d2 : listeIndisponibilite) {
-                    if(d2.equals(d1)) {
-                        verif=false; //enlever un ordinateur disponible    
-                    }
-                }
-            }
-            return verif;  
-        }
-             
-    
 	
+	
+
+	private boolean getDispoOrdi(LocalDate d1, Ordinateur ordinateur) {
+		
+		List<Stagiaire> stagiairesOrdi = ordinateur.getStagiaires();
+
+		for (Stagiaire s : stagiairesOrdi) {
+			Projet p = s.getFormation(); //Projet du stagiaire s
+			
+			Date dateD = p.getDateDebut(); 
+			java.sql.Date dateDebut = (java.sql.Date) dateD; //Date de debut du projet p en SQL
+			
+			int duree = p.getDuree();
+			
+			List<LocalDate> listeIndisponibilite = obtenirListeIndisponibilite(dateDebut, duree);
+
+			for (LocalDate d2 : listeIndisponibilite) {
+				if (d2.equals(d1)) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+
 	private List<LocalDate> obtenirListeIndisponibilite(java.sql.Date dateDebut, int duree) {
-        List<LocalDate> listeDate = new ArrayList<LocalDate>();
-        LocalDate debut = dateDebut.toLocalDate();
-        for(int i=0;i<duree;i++) {
-            LocalDate d = debut.plusDays(i);
-            listeDate.add(d);
-        }
-        return listeDate;
-    }
+		List<LocalDate> listeDate = new ArrayList<LocalDate>();
+		LocalDate debut = dateDebut.toLocalDate();
+		for (int i = 0; i < duree; i++) {
+			LocalDate d = debut.plusDays(i);
+			listeDate.add(d);
+		}
+		return listeDate;
+	}
 
 	@PostMapping("/ordi/allouer")
 	public String allouerOrdinateur(@RequestParam("id") String idOrdi, @RequestParam("stagiaires") int idStagiaire) {
 		Ordinateur ordinateur = ordiDAO.findById(idOrdi).get();
 		Stagiaire s = stagDAO.findById(idStagiaire).get();
 		s.setOrdinateur(ordinateur);
-		ordinateur.getDispo().add(s.getFormation());
 		ordiDAO.save(ordinateur);
 		stagDAO.save(s);
 		return "redirect:./";
