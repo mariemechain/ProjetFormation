@@ -1,7 +1,9 @@
 package fr.formation.disponibilite.controller;
 
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.Month;
 import java.time.Period;
 import java.time.ZoneId;
@@ -10,7 +12,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -89,9 +90,18 @@ public class DisponibiliteController {
 	//Pour les ordinateurs
 	private double getPourcentageOrdi(LocalDate d1) {
 		List<Ordinateur> ordinateurs = this.ordiDao.findAll();
-		int compteurOrdiIndispo = 0 ; //Le nombre maxi d'ordinateur dispo
+		int compteurOrdiIndispo = 0 ; //Le nombre maxi d'ordinateur pas dispo
 		for(Ordinateur o : ordinateurs) {
 			List<Projet> projets = o.getDispo(); //La liste des projets de chaque ordinateur
+			
+			if(o.getDate() != null) {
+				Date retourMaintenanceAConvertir = o.getDate();			
+				Instant instant = Instant.ofEpochMilli(retourMaintenanceAConvertir.getTime());			
+				LocalDate retourMaintenance = LocalDateTime.ofInstant(instant, ZoneId.systemDefault()).toLocalDate();
+				
+				if(retourMaintenance.isAfter(d1))
+					compteurOrdiIndispo++;
+			}
 			
 			for(Projet p : projets) {
 				Date dateD = p. getDebut();
@@ -117,10 +127,19 @@ public class DisponibiliteController {
 	//Pour les salles
 	private double getPourcentageSalle(LocalDate d1) {
 		List<Salle> salles = salleDao.findAll();
-		int compteurSalleIndispo = 0; //Le nombre maxi de salles dispo
+		int compteurSalleIndispo = 0; //Le nombre maxi de salles indisponibles
 		
 		for(Salle s : salles) {
-			List<Projet> projets = s.getDispo(); //La liste des projets de chaque ordinateur [nom de méthode à verifier]
+			List<Projet> projets = s.getDispo(); //La liste des projets de chaque ordinateur
+			
+			if(s.getDate() != null) {
+				Date retourMaintenanceAConvertir = s.getDate();			
+				Instant instant = Instant.ofEpochMilli(retourMaintenanceAConvertir.getTime());			
+				LocalDate retourMaintenance = LocalDateTime.ofInstant(instant, ZoneId.systemDefault()).toLocalDate();
+				
+				if(retourMaintenance.isAfter(d1))
+					compteurSalleIndispo++;
+			}
 			for(Projet p : projets) {
 				Date dateD = p. getDebut();
 				java.sql.Date dateDebut = (java.sql.Date) dateD;
@@ -147,7 +166,15 @@ public class DisponibiliteController {
 		int compteurProjoIndispo = 0; //Le nombre maxi d'ordinateur dispo
 		
 		for(VideoProjecteur v : videoProjecteurs) {
-			List<Projet> projets = v.getDispo(); //La liste des projets de chaque ordinateur [nom de méthode à verifier]
+			List<Projet> projets = v.getDispo(); //La liste des projets de chaque ordinateur
+			if(v.getDate() != null) {
+				Date retourMaintenanceAConvertir = v.getDate();			
+				Instant instant = Instant.ofEpochMilli(retourMaintenanceAConvertir.getTime());			
+				LocalDate retourMaintenance = LocalDateTime.ofInstant(instant, ZoneId.systemDefault()).toLocalDate();
+				
+				if(retourMaintenance.isAfter(d1))
+					compteurProjoIndispo++;
+			}
 			for(Projet p : projets) {
 				Date dateD = p. getDebut();
 				java.sql.Date dateDebut = (java.sql.Date) dateD;
