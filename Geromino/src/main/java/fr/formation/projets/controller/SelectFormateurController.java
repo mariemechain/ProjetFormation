@@ -47,7 +47,7 @@ public class SelectFormateurController {
 		planification.setFormateur(formateur);
 
 		
-		System.out.println("VERIFION SIIIIIIIII CA MARCHEEEE £££££££££££££££££");
+		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ VERIFIONs SIIIIIIIII CA MARCHEEEE £££££££££££££££££");
 		
 		daoPlan.save(planification);
 		System.out.println(formateur.getNom() + " " + formateur.getId());

@@ -26,7 +26,8 @@
 
 
 				<div class="form-group">
-					<label for="sel2">Matières:</label> <span id="sel2" name="matiere" value="${ matiere.titre }">${ matiere.titre }</span>
+					<label for="sel2">Matières:</label> <span id="sel2" name="matiere"
+						value="${ matiere.titre }">${ matiere.titre }</span>
 				</div>
 
 				<button type="submit" class="btn btn-primary">Filtrer</button>
@@ -57,13 +58,7 @@
 						<td>${ listeFormateurs.id }</td>
 						<td>${ listeFormateurs.nom }</td>
 						<td>${ listeFormateurs.prenom }</td>
-						<td><a
-							href="/Geromino/formateurs/modifier?idf=${listeFormateurs.id}"
-							class="btn btn-primary">Editer</a><a
-							href="/Geromino/formateurs/supprimer?idf=${listeFormateurs.id}"
-							class="btn btn-danger">Supprimer</a><a
-							href="/Geromino/formateur/liste?idf=${listeFormateurs.id}"
-							class="btn btn-info">Expertise</a></td>
+						<td><a href="./formateurs/attribuer?idf=${listeFormateurs.id}">Attribuer</a></td>
 
 					</tr>
 				</c:forEach>

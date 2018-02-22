@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,10 +21,12 @@ import fr.formation.formateur.model.Formateur;
 import fr.formation.formateur.model.Niveau;
 import fr.formation.matieres.dao.IMatiereDAO;
 import fr.formation.matieres.model.Matiere;
+import fr.formation.projets.dao.IPlanificationDAO;
+import fr.formation.projets.model.Planification;
 
 @Controller
-@RequestMapping("/projet/detailProjet/{idProjet}/planification/{idMatiere}/{idPlanif}/formateurs")
-public class GestionnairePlanningGestionnaire {
+@RequestMapping("/projet/detailProjet/{idProjet}/planification/idMatiere{idMatiere}/idPlanif{idPlanif}/formateurs")
+public class GestionnairePlanningFormateur {
 
 	// ====================================INJECTION=====================================================
 	@Autowired(required = false)
@@ -30,6 +34,9 @@ public class GestionnairePlanningGestionnaire {
 
 	@Autowired
 	IMatiereDAO daoMatiere;
+	
+	@Autowired
+	IPlanificationDAO daoPlan;
 
 	// ====================================INITIALISATION=====================================================
 
@@ -58,26 +65,22 @@ public class GestionnairePlanningGestionnaire {
 			Model model) {
 		// recuperer la matiere en fonctiond de son id
 		Matiere matiere = daoMatiere.findById(idMatiere);
-		model.addAttribute("listeMatiere", daoMatiere.findAll());
-		model.addAttribute("listeformateurs", daoFormateur.findAll());
+		// model.addAttribute("listeMatiere", daoMatiere.findAll());
 		// envoyer la matiere a la jsp
 		model.addAttribute("matiere", matiere);
-		return "formateur/filtreFormateur";
-	}
+		model.addAttribute("idProjet", idProjet);
 
-	@PostMapping(value = { "" })
-	public String setListeFormateurFilter(Model model, @PathVariable int idMatiere) {
-		Matiere matiere = daoMatiere.findById(idMatiere);
-		model.addAttribute("listeMatiere", daoMatiere.findAll());
+		// Filtrer en fonction de l'id de la matiere, VOIR LA DAO FORMATEUR
 
-		System.out.println("££££££££££££££££££££££££££££££££ NOM DE LA MATIERE ££££££££££££££££££££££££££££££££££££££");
-		System.out.println(matiere.getTitre());
+		System.out.println("Début");
+		System.out.println(idMatiere);
+		System.out.println("fin");
 
-//		Filtrer en fonction de l'id de la matiere, VOIR LA DAO FORMATEUR
 		model.addAttribute("listeformateurs", daoFormateur.findByFilter(idMatiere));
 
 		return "formateur/filtreFormateur";
 	}
+
 
 	// ====================================SUPPRESSION=====================================================
 	@GetMapping(value = { "/supprimer" })
@@ -120,18 +123,21 @@ public class GestionnairePlanningGestionnaire {
 
 	// ====================================MODIFIER=====================================================
 
-	@GetMapping(value = { "/modifier" })
-	public String getModifierFormateur(@RequestParam("idf") int idFormateur, Model model) {
+	@GetMapping(value = { "/attribuer" })
+	public String getModifierFormateur(@RequestParam("idf") int idFormateur,@PathVariable int idPlanif) {
 
-		// Statut: Ajout ==> afin d'afficher le bon contenu sur le formulaire
-		model.addAttribute("statut", "edition");
+		Planification planif = daoPlan.findById(idPlanif).get();
+		Formateur formateur = daoFormateur.findById(idFormateur).get();
+		planif.setFormateur(formateur);
+		
+		daoPlan.save(planif);
+		System.out.println("===========================================Formateur=========================");
+		System.out.println(formateur.getNom());
 
-		model.addAttribute("formateur", daoFormateur.findById(idFormateur).get());
-
-		return "modifformateurstest";
+		return "redirect:../../../../planification";
 	}
 
-	@PostMapping(value = { "/modifier" })
+	@PostMapping(value = { "/attribuer" })
 	public String postModifierFormateur(@RequestParam("idf") int idFormateur, @RequestParam("nom") String nom,
 			@RequestParam("prenom") String prenom, @RequestParam("titre") String titre, Model model) {
 
@@ -145,7 +151,7 @@ public class GestionnairePlanningGestionnaire {
 		// Sauvegarde du formateur modifié
 		daoFormateur.save(formateur);
 
-		return "redirect:../formateurs";
+		return "redirect:planification";
 	}
 
 }

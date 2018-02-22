@@ -24,8 +24,8 @@ public class Formateur extends Personne {
 	@Column(name = "For_PRENOM")
 	private String prenom;
 
-	@Column(name = "FOR_PATIENCE")
-	private double patience;
+//	@Column(name = "FOR_PATIENCE")
+//	private double patience;
 
 	@OneToMany(mappedBy = "formateur")
 	@JsonIgnoreProperties("formateur")
@@ -43,13 +43,6 @@ public class Formateur extends Personne {
 		this.titre = titre;
 	}
 
-	public double getPatience() {
-		return patience;
-	}
-
-	public void setPatience(double patience) {
-		this.patience = patience;
-	}
 
 	public List<Disponibilite> getDisponibilites() {
 		return disponibilites;

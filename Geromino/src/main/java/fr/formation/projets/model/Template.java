@@ -19,7 +19,6 @@ import javax.validation.constraints.NotEmpty;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.hibernate.engine.internal.Cascade;
 
 
 @Entity
@@ -44,7 +43,6 @@ public class Template implements Serializable{
 	@OneToMany(mappedBy="template", fetch=FetchType.EAGER, cascade = CascadeType.REMOVE)
     @OrderBy("ordre")
     private List<OrdreMatiere> ordreMatieres;
-
 	
 	/*
 	 * Getters et setters
