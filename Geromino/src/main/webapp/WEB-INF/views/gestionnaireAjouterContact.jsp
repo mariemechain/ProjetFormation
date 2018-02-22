@@ -70,9 +70,9 @@
 
 
 
-			<button type="submit" class="btn btn-success">Ajouter</button>
+			<button type="submit" class="btn btn-success mb-4">Ajouter</button>
 			<a href="gestionnaire/gestionnaireContact">
-			<button type="button" class="btn btn-danger">Revenir au menu précédent</button></a>
+			<button type="button" class="btn btn-danger mb-4">Revenir au menu précédent</button></a>
 
 
 

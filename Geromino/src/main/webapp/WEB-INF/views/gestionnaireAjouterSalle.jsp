@@ -76,9 +76,9 @@
 
 
 			<div>
-				<button type="submit" class="btn btn-success">Ajouter</button>
+				<button type="submit" class="btn btn-success mb-4">Ajouter</button>
 				<a href="/Geromino/gestionnaire/gestionnaireSalle"><button
-						type="button" class="btn btn-danger">Revenir au menu
+						type="button" class="btn btn-danger mb-4">Revenir au menu
 						précédent</button></a>
 			</div>
 

@@ -28,7 +28,7 @@
 				</div>
 				
 				<div class="form-group">
-					<label for="duree">Durée du projet :</label> <label>${projet.duree}</label>
+					<label for="duree">Durée du projet :</label> <label>${projet.duree} jours</label>
 				</div>
 				
 				<div class="form-group">
@@ -54,7 +54,7 @@
                 </div>
             </div>
 
-				<button type="submit" class="btn btn-primary">Ajouter</button>
+				<button type="submit" class="btn btn-primary mb-4">Ajouter</button>
 				
 				
 		<table class="table table-striped" style="text-align: center">
@@ -95,7 +95,7 @@
 		</table>
 	
 	<a href="gestionnaire/gestionnaireProjet">
-			<button type="button" class="btn btn-danger">Revenir au menu précédent</button></a>
+			<button type="button" class="btn btn-danger mb-4">Revenir au menu précédent</button></a>
 	
 
 			</div>

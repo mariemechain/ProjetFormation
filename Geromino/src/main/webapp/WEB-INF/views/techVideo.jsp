@@ -22,7 +22,7 @@
 					<tr>
 						<th>Identifiant</th>
 						<th>Cout journalier</th>
-						<th>Date retour</th>
+						<th>Date retour de réparation</th>
 						<th></th>
 						<th></th>
 					</tr>
@@ -39,7 +39,7 @@
 
 						<td><a
 							href="/Geromino/technicien/video/etat?id=${videoprojecteur.id}"
-							class="btn btn-warning">OUT</a> <a
+							class="btn btn-warning">Envoi en réparation</a> <a
 							href="/Geromino/technicien/video/supprimer?id=${videoprojecteur.id}"
 							class="btn btn-danger">X</a></td>
 
