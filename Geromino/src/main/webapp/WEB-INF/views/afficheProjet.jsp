@@ -24,25 +24,12 @@
 							<c:if test="${i==duree_mois_tot[i]}">
 								<td rowspan="${duree_mois[i]}">${mois[i]}</td>
 							</c:if>
-							<%-- 	<c:when test="${i==duree_mois[i]+1}">
-									<td rowspan="${duree_mois[i+1]}">${mois[i]}</td>
-								</c:when>
-								<c:when test="${i==duree_mois[i]+1}">
-									<td rowspan="${duree_mois[i+1]+1}">${mois[i]}</td>
-								</c:when>
-								<c:when test="${i==duree_mois[i]+1}">
-									<td rowspan="${duree_mois[i+1]+1}">${mois[i]}</td>
-								</c:when>
-								<c:when test="${i==duree_mois[i]+1}">
-									<td rowspan="${duree_mois[i+1]+1}">${mois[i]}</td>
-								</c:when> --%>
-
 							<td>${dates[i].getDate()}</td>
 							<td>${jours[i]}</td>
 							<c:if test="${datesDebutMatiere[i]==dates[i]}">
 								<td rowspan="${matieresDureeMatiere2[i]}">${matierePlanning[i]}</td>
 							</c:if>
-							<c:if test="${i==0}">
+							<%-- <c:if test="${i==0}">
 								<td rowspan="${matieres_duree[i]}">PAPA</td>
 								<td rowspan="${matieres_duree[i]}">MAMAN</td>
 							</c:if>
@@ -52,7 +39,7 @@
 							<c:if test="${i==matieres_duree[0]}">
 								<td rowspan="${matieres_duree[i]}">PAPA</td>
 								<td rowspan="${matieres_duree[i]}">MAMAN</td>
-							</c:if>
+							</c:if> --%>
 						</tr>
 					</c:forEach>
 				</tbody>

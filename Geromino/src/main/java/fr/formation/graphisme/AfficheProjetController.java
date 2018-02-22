@@ -46,29 +46,39 @@ public class AfficheProjetController {
 		List<String> jours = new ArrayList<String>();
 		List<Integer> duree_mois = new ArrayList<Integer>();
 		List<String> mois = new ArrayList<String>();
-
+		int ii = 0;
 		for (int i = 0; i < projet.getDuree(); i++) {
-			jours.add(nom_day(i, dates, date, local_date));
-			mois.add(nom_month(i, dates, date));
-			duree_mois.add(duree_month(i, dates, date));
+			String day=nom_day(ii, dates, date, local_date);
+			jours.add(day);
+			mois.add(nom_month(ii, dates, date));
+			duree_mois.add(duree_month(ii, dates, date));
+			switch (day) {
+			case "Dimanche":
+				i--;
+				break;
+			case "Samedi":
+				i--;
+				break;
+			}
+			ii++;
 		}
 
-		Date date_fin = dates.get(projet.getDuree() - 1);
+		Date date_fin = dates.get(ii - 1);
 		int moi = date.getMonth();
 
 		if (date_fin.getMonth() == moi) {
 			duree_mois.set(0, date_fin.getDate() - date.getDate() + 1);
 		} else {
 			duree_mois.set(0, duree_mois.get(1) - date.getDate() + 1);
-			duree_mois.set(projet.getDuree() - 1, date_fin.getDate());
+			duree_mois.set(ii - 1, date_fin.getDate());
 		}
 		for (int i = 1; i < duree_mois.get(0); i++) {
 			duree_mois.set(i, duree_mois.get(0));
 		}
-		for (int i = 1; i < duree_mois.get(projet.getDuree() - 1); i++) {
-			duree_mois.set(projet.getDuree() - 1 - i, date_fin.getDate());
+		for (int i = 1; i < duree_mois.get(ii - 1); i++) {
+			duree_mois.set(ii - 1 - i, date_fin.getDate());
 		}
-		
+
 		List<Integer> duree_mois_tot = new ArrayList<Integer>();
 		int nb_mois = date_fin.getMonth() - date.getMonth() + 1;
 
@@ -79,11 +89,11 @@ public class AfficheProjetController {
 		for (int i = 1; i < nb_mois; i++) {
 			duree_mois_base.add(duree_month(
 					((Date) java.sql.Date.valueOf(((java.sql.Date) projet.getDebut()).toLocalDate().plusMonths(i)))));
-			duree_mois_base_somme.add(duree_mois_base_somme.get(i-1)+duree_month(
+			duree_mois_base_somme.add(duree_mois_base_somme.get(i - 1) + duree_month(
 					((Date) java.sql.Date.valueOf(((java.sql.Date) projet.getDebut()).toLocalDate().plusMonths(i)))));
 			if (i == nb_mois - 1) {
 				duree_mois_base.set(i, date_fin.getDate());
-				duree_mois_base.set(i, date_fin.getDate()+duree_mois_base_somme.get(i-1));
+				duree_mois_base.set(i, date_fin.getDate() + duree_mois_base_somme.get(i - 1));
 			}
 		}
 
@@ -93,10 +103,10 @@ public class AfficheProjetController {
 
 		for (int i = 1; i < nb_mois; i++) {
 			for (int j = 0; j < duree_mois_base.get(i); j++) {
-				duree_mois_tot.add(duree_mois_tot.get(duree_mois_base_somme.get(i-1)-1) + duree_mois_base.get(i-1));
+				duree_mois_tot
+						.add(duree_mois_tot.get(duree_mois_base_somme.get(i - 1) - 1) + duree_mois_base.get(i - 1));
 			}
 		}
-
 
 		List<String> matieres = new ArrayList<String>();
 		List<Integer> matieres_duree = new ArrayList<Integer>();
@@ -109,7 +119,7 @@ public class AfficheProjetController {
 		for (int i = 0; i < projet.getDuree(); i++) {
 
 		}
-		
+
 		// Ajouts de Klervi
 
 		List<String> matierePlanning = new ArrayList<String>();
@@ -118,33 +128,31 @@ public class AfficheProjetController {
 		int j = 0; // indice pour nouvelle matiere (version long)
 		int k = 0; // indice pour temps dans une matiere
 		int m = 0; // indice pour nouvelle matiere (version court)
-		
+
 		matieresDureeMatiere.add(0);
-		
+
 		for (int i = 0; i < projet.getDuree(); i++) {
-			// liste des jours de début des matieres, taille de la duree totale du projet
-			if ( k == 0 ) {
-				datesDebutMatiere.add( dates.get(i) );
+			// liste des jours de début des matieres, taille de la duree totale
+			// du projet
+			if (k == 0) {
+				datesDebutMatiere.add(dates.get(i));
+			} else if (jours.get(i) == "Lundi") {
+				datesDebutMatiere.add(dates.get(i));
+			} else {
+				datesDebutMatiere.add(datesDebutMatiere.get(i - 1));
 			}
-			else if (jours.get(i) == "Lundi") {
-				datesDebutMatiere.add( dates.get(i) );
-			}
-			else {
-				datesDebutMatiere.add( datesDebutMatiere.get(i-1) );
-			}
-			
+
 			//
 			if (jours.get(i) != "Samedi" && jours.get(i) != "Dimanche") {
-				matieresDureeMatiere.set(m, matieresDureeMatiere.get(m) + 1 );
+				matieresDureeMatiere.set(m, matieresDureeMatiere.get(m) + 1);
 				matierePlanning.add(matieres.get(j));
 				k++;
-				if (k==matieres_duree.get(j)-1) {
+				if (k == matieres_duree.get(j) - 1) {
 					j++;
 					k = 0;
 					m++;
 					matieresDureeMatiere.add(0);
-				}
-				else if (jours.get(i) == "Vendredi") {
+				} else if (jours.get(i) == "Vendredi") {
 					m++;
 					matieresDureeMatiere.add(0);
 				}
@@ -153,39 +161,36 @@ public class AfficheProjetController {
 				matieres_duree.set(j, matieres_duree.get(j) + 1);
 			}
 		}
-		
-		// liste des durees courtes des matieres, taille de la duree totale du projet
+
+		// liste des durees courtes des matieres, taille de la duree totale du
+		// projet
 		List<Integer> matieresDureeMatiere2 = new ArrayList<Integer>();
 		j = 0;
-		k = 0; 
+		k = 0;
 		int n = 0;
 		for (int i = 0; i < projet.getDuree(); i++) {
 			if (jours.get(i).equals("Samedi") || jours.get(i).equals("Dimanche")) {
 				matieresDureeMatiere2.add(0);
-			}
-			else if (jours.get(i).equals("Lundi") || k==0) {
+			} else if (jours.get(i).equals("Lundi") || k == 0) {
 				n++;
-				matieresDureeMatiere2.add(matieresDureeMatiere.get(n-1));
+				matieresDureeMatiere2.add(matieresDureeMatiere.get(n - 1));
+				k++;
+			} else {
+				matieresDureeMatiere2.add(matieresDureeMatiere.get(n - 1));
 				k++;
 			}
-			else {
-				matieresDureeMatiere2.add(matieresDureeMatiere.get(n-1));
-				k++;
-			}
-			if (k==matieres_duree.get(j)-1) {
+			if (k == matieres_duree.get(j) - 1) {
 				j++;
 				k = 0;
 			}
 		}
-		
+
 		model.addAttribute("matierePlanning", matierePlanning);
 		model.addAttribute("datesDebutMatiere", datesDebutMatiere);
 		model.addAttribute("matieresDureeMatiere2", matieresDureeMatiere2);
-		
+
 		// Fin ajouts de Klervi
-		
-		
-		
+
 		model.addAttribute("dates", dates);
 		model.addAttribute("jours", jours);
 
@@ -197,7 +202,7 @@ public class AfficheProjetController {
 		model.addAttribute("matieres_duree", matieres_duree);
 
 		model.addAttribute("projet", projet);
-		model.addAttribute("duree", projet.getDuree());
+		model.addAttribute("duree", ii);
 		model.addAttribute("date", projet.getDebut().getDate());
 
 		return "afficheProjet";
