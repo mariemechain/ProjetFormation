@@ -72,7 +72,7 @@
 				</span>
 			</div>
 
-			<a href="/Geromino/upload/" class="btn btn-outline-primary"
+			<a href="/Geromino/upload/download" class="btn btn-outline-primary"
 				role="button" aria-pressed="true">Fichiers en ligne</a>
 
 		</div>

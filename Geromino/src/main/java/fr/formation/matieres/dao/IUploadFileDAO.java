@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import fr.formation.matieres.model.UploadFile;
 
-public interface IUploadFileDAO extends JpaRepository<UploadFile, Integer>{
+public interface IUploadFileDAO extends JpaRepository<UploadFile, Long>{
 
 
 }

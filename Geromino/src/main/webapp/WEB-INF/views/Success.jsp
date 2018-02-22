@@ -18,7 +18,9 @@
 			</div>
 
 			<a href="/Geromino/matiere/" class="btn btn-outline-primary"
-				role="button" aria-pressed="true">Retour aux matières</a>
+				role="button" aria-pressed="true">Retour aux matières</a> <a
+				href="/Geromino/upload/download/" class="btn btn-outline-primary"
+				role="button" aria-pressed="true">Retour aux fichiers en ligne</a>
 
 		</div>
 

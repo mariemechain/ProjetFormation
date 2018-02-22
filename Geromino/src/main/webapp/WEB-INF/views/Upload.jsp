@@ -18,7 +18,7 @@
 				<form method="post" action="doUpload" enctype="multipart/form-data">
 					<table border="0">
 						<tr>
-							<td>Fichier #1:</td>
+							<td>Fichier à upload : </td>
 							<td><input type="file" name="fileUpload" size="50" /></td>
 						</tr>
 
@@ -30,7 +30,9 @@
 				</form>
 
 				<a href="/Geromino/matiere/" class="btn btn-outline-primary"
-					role="button" aria-pressed="true">Retour aux matières</a>
+					role="button" aria-pressed="true">Retour aux matières</a><a
+					href="/Geromino/upload/download" class="btn btn-outline-primary"
+					role="button" aria-pressed="true">Retour aux fichiers en ligne</a>
 
 			</div>
 
