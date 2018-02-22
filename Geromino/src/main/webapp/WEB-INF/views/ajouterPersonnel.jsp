@@ -80,7 +80,7 @@
 				<form:errors path="telephone" element="div"
 					cssClass="alert alert-danger" />
 			</div>
-			<div class="form-group">
+			<div class="form-group" id="login">
 				<form:label path="login">Login :</form:label>
 				<form:input path="login" type="text" class="form-control"
 					name="login" aria-describedby="Help" placeholder="Login"
@@ -88,7 +88,7 @@
 				<form:errors path="login" element="div"
 					cssClass="alert alert-danger" />
 			</div>
-			<div class="form-group">
+			<div class="form-group" id="password">
 				<form:label path="motDePasse">Password :</form:label>
 				<form:input path="motDePasse" type="text" class="form-control"
 					name="motDePasse" aria-describedby="Help" placeholder="Password"
