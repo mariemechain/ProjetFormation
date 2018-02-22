@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
@@ -21,16 +22,13 @@
 						<option value="Technicien">Technicien</option>
 						<option value="Gestionnaire">Gestionnaire</option>
 						<option value="Administrateur">Admin</option>
-
-
 					</select>
 				</c:if>
+
 				<c:if test="${personnel.id != 0}">
 					<label>${personnel.type }</label>
 				</c:if>
 			</div>
-
-
 
 			<div class="form-group">
 				<form:label path="adresse">Adresse :</form:label>
@@ -75,7 +73,7 @@
 			</div>
 
 			<div class="form-group">
-				<form:label path="telephone">Téléphone :</form:label>
+				<form:label path="telephone">TÃ©lÃ©phone :</form:label>
 				<form:input path="telephone" type="text" class="form-control"
 					name="telephone" aria-describedby="Help" placeholder="Telephone"
 					value="${personnel.telephone}" />
@@ -105,11 +103,13 @@
 
 			</div>
 
-			<div class="form-group" id="patience">
-				<label>Indice de patience :</label> <input type="number" class="form-control"
-					name="patience" aria-describedby="Help" placeholder="Indice de patience" />
-
-			</div>
+			<c:if test="${personnel.type == 'Formateur'}">
+				<div class="form-group" id="patience">
+					<label>Indice de patience :</label> <input type="number"
+						class="form-control" name="patience" aria-describedby="Help"
+						placeholder="Indice de patience" />
+				</div>
+			</c:if>
 
 
 
@@ -117,8 +117,8 @@
 
 			<button type="submit" class="btn btn-success">Ajouter</button>
 			<a href="/Geromino/admin">
-					<button type="button" class="btn btn-danger">Revenir au
-						menu précédent</button>
+				<button type="button" class="btn btn-danger">Revenir au
+					menu prÃ©cÃ©dent</button>
 			</a>
 		</form:form>
 	</tiles:putAttribute>
