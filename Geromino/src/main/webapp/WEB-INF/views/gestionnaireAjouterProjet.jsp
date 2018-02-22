@@ -82,7 +82,7 @@
  --%>
 			<div class="form-group row">
 				<div class="col-sm-10">
-					<button type="submit" class="btn btn-primary">Ajouter</button>
+					<button type="submit" class="btn btn-success">Ajouter</button>
 				</div>
 			</div>
 		</form:form>

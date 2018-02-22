@@ -39,7 +39,7 @@
 								type="button" class="btn btn-dark">Voir liste</button></a></td> 
 					<td><a
 						href="/Geromino/gestionnaire/gestionnaireEditerProjet?id=${projet.id }"><button
-								type="button" class="btn btn-outline-primary">modifier</button></a>
+								type="button" class="btn btn-primary">Modifier</button></a>
 								<a
 						href="/Geromino/gestionnaire/gestionnaireSupprimerProjet?id=${projet.id }"><button
 								type="button" class="btn btn-danger">X</button></a>
