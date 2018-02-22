@@ -86,21 +86,17 @@ public class AfficheProjetController {
 				duree_mois_base.set(i, date_fin.getDate()+duree_mois_base_somme.get(i-1));
 			}
 		}
-		System.out.println(duree_mois_base);
-		System.out.println("_________________");
-		System.out.println(duree_mois);
+
 		for (int i = 0; i < duree_mois.get(0); i++) {
 			duree_mois_tot.add(0);
 		}
-		System.out.println("_________________");
-		System.out.println(duree_mois_tot);
+
 		for (int i = 1; i < nb_mois; i++) {
 			for (int j = 0; j < duree_mois_base.get(i); j++) {
 				duree_mois_tot.add(duree_mois_tot.get(duree_mois_base_somme.get(i-1)-1) + duree_mois_base.get(i-1));
 			}
 		}
 
-		System.out.println(duree_mois_tot);
 
 		List<String> matieres = new ArrayList<String>();
 		List<Integer> matieres_duree = new ArrayList<Integer>();
@@ -114,7 +110,6 @@ public class AfficheProjetController {
 
 		}
 		model.addAttribute("dates", dates);
-
 		model.addAttribute("jours", jours);
 
 		model.addAttribute("mois", mois);
