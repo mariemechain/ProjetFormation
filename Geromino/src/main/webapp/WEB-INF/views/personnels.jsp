@@ -18,11 +18,11 @@
 			<table style="width:100%" class="table table-striped"  id="myTable" >
 				<thead style ="text-align:center; vertical-align:middle">
 					<tr id="colonneP">
-						<th style="width:5%"> <p onclick="visi1()" style="cursor: pointer;">Id</p><input type="text" type = "hidden" id="myInput1" onkeyup="myFunction1()" size="3" ></th>
-						<th style="width:10%"> <p onclick="visi2()" style="cursor: pointer;">Nom </p><input type="text" id="myInput2" onkeyup="myFunction2()"  size="8" id="foo"></th>
-						<th style="width:10%"> <p onclick="visi3()" style="cursor: pointer;">Prénom</p><input type="text" id="myInput3" onkeyup="myFunction3()"  size="8"></th>
-						<th style="width:20%"> <p onclick="visi4()" style="cursor: pointer;">E-Mail</p><input type="text" id="myInput4" onkeyup="myFunction4()" size="15"></th>
-						<th style="width:20%"> <p onclick="visi5()" style="cursor: pointer;">Type</p><input type="text" id="myInput5" onkeyup="myFunction5()" size="15"></th>
+						<th style="width:5%"> <p onclick="visi1()" title="Cliquez pour filtrer" style="cursor: pointer;">Id</p><input type="text" type = "hidden" id="myInput1" onkeyup="myFunction1()" size="3" ></th>
+						<th style="width:10%"> <p onclick="visi2()" title="Cliquez pour filtrer" style="cursor: pointer;">Nom </p><input type="text" id="myInput2" onkeyup="myFunction2()"  size="8" id="foo"></th>
+						<th style="width:10%"> <p onclick="visi3()" title="Cliquez pour filtrer" style="cursor: pointer;">Prénom</p><input type="text" id="myInput3" onkeyup="myFunction3()"  size="8"></th>
+						<th style="width:20%"> <p onclick="visi4()" title="Cliquez pour filtrer" style="cursor: pointer;">E-Mail</p><input type="text" id="myInput4" onkeyup="myFunction4()" size="15"></th>
+						<th style="width:20%"> <p onclick="visi5()" title="Cliquez pour filtrer" style="cursor: pointer;">Type</p><input type="text" id="myInput5" onkeyup="myFunction5()" size="15"></th>
 						<th style="width:35%"></th>
 
 					</tr>
