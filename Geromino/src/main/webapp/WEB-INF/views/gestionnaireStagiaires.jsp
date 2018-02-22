@@ -14,11 +14,11 @@
 			<thead>
 				<tr>
 					<th>Id</th>
+					<th>Nom</th>
+					<th>Prenom</th>
 					<th>Adresse</th>
 					<th>Date de naissance</th>
 					<th>Email</th>
-					<th>Nom</th>
-					<th>Prenom</th>
 					<th>Téléphone</th>
 					<th>Ordinateur</th>
 					<th>Formation</th>
@@ -31,11 +31,11 @@
 				<tr>
 					<td>${stagiaire.id }</td>
 					<%-- <td>${projet.XXX }</td>--%>
+					<td>${stagiaire.nom}</td>
+					<td>${stagiaire.prenom}</td>
 					<td>${stagiaire.adresse }</td>
 					<td>${stagiaire.date}</td>
 					<td>${stagiaire.email}</td>
-					<td>${stagiaire.nom}</td>
-					<td>${stagiaire.prenom}</td>
 					<td>${stagiaire.telephone}</td>
 					<td>${stagiaire.ordinateur.id}</td>
 					<td>${stagiaire.formation.nom}</td>
