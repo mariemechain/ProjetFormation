@@ -84,6 +84,9 @@ public class TemplateController {
 		session.setAttribute("ordreMatieres", ordreMatieres);
 		afficheMatiere(model, ordreMatieres);
 		
+		boolean erreurTemplateEmpty=false;
+		session.setAttribute("erreurTemplateEmpty", erreurTemplateEmpty);
+		
 		return "templates/ajouter";
 	}
 	
@@ -99,6 +102,9 @@ public class TemplateController {
 		model.addAttribute("listeMatiere", listeMatiere);	
 		
 		session.setAttribute("template", myTemplate);
+		
+		boolean erreurTemplateEmpty=false;
+		session.setAttribute("erreurTemplateEmpty", erreurTemplateEmpty);
 		
 		return "templates/ajouter";
 	}
@@ -182,6 +188,9 @@ public class TemplateController {
 	@PostMapping("/valider")
 	public String ajouter(@Valid @ModelAttribute("template") Template myTemplate, BindingResult result, Model model, HttpSession session) {
 		
+		boolean erreurTemplateEmpty=false;
+		session.setAttribute("erreurTemplateEmpty", erreurTemplateEmpty);
+		
 		List<OrdreMatiere> myOrdreMatieres = (List<OrdreMatiere>) session.getAttribute("ordreMatieres");
 					
 		myTemplate.setOrdreMatieres(myOrdreMatieres);
@@ -189,6 +198,27 @@ public class TemplateController {
 		if (result.hasErrors()) {
 			afficheMatiere(model, myOrdreMatieres);
 			
+			model.addAttribute("Matieres", myTemplate.getOrdreMatieres());
+			
+			if (myOrdreMatieres.isEmpty()) {
+				erreurTemplateEmpty=true;
+				session.setAttribute("erreurTemplateEmpty", erreurTemplateEmpty);
+				
+				afficheMatiere(model, myOrdreMatieres);
+				model.addAttribute("Matieres", myTemplate.getOrdreMatieres());
+				
+				return "templates/ajouter";
+			}
+			
+			return "templates/ajouter";
+			
+		}
+		
+		if (myOrdreMatieres.isEmpty()) {
+			erreurTemplateEmpty=true;
+			session.setAttribute("erreurTemplateEmpty", erreurTemplateEmpty);
+			
+			afficheMatiere(model, myOrdreMatieres);
 			model.addAttribute("Matieres", myTemplate.getOrdreMatieres());
 			
 			return "templates/ajouter";

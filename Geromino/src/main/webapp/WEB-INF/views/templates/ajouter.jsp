@@ -68,6 +68,10 @@
 					
 					<form:errors path="nom" element="div" cssClass="alert alert-danger" />
 					
+					<c:if  test ="${ erreurTemplateEmpty }">
+						<div class="alert alert-danger" role="alert">Le cursus doit contenir au moins une matiere</div>
+					</c:if>
+					
 					<div>
 						<button type="submit" class="btn btn-primary">Valider</button>
 					</div>
