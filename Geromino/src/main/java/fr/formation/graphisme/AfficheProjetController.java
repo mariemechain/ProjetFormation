@@ -114,6 +114,7 @@ public class AfficheProjetController {
 			matieres.add(projet.getPlanifications().get(i).getMatiere().getTitre());
 			matieres_duree.add(projet.getPlanifications().get(i).getMatiere().getDuree());
 		}
+		
 
 		List<Integer> long_rawspawn = new ArrayList<Integer>();
 		for (int i = 0; i < projet.getDuree(); i++) {
@@ -131,7 +132,7 @@ public class AfficheProjetController {
 
 		matieresDureeMatiere.add(0);
 
-		for (int i = 0; i < projet.getDuree(); i++) {
+		for (int i = 0; i < ii; i++) {
 			// liste des jours de début des matieres, taille de la duree totale
 			// du projet
 			if (k == 0) {
@@ -147,7 +148,7 @@ public class AfficheProjetController {
 				matieresDureeMatiere.set(m, matieresDureeMatiere.get(m) + 1);
 				matierePlanning.add(matieres.get(j));
 				k++;
-				if (k == matieres_duree.get(j) - 1) {
+				if (k == matieres_duree.get(j)) {
 					j++;
 					k = 0;
 					m++;
@@ -158,9 +159,13 @@ public class AfficheProjetController {
 				}
 			} else {
 				matierePlanning.add("");
-				matieres_duree.set(j, matieres_duree.get(j) + 1);
+				//matieres_duree.set(j, matieres_duree.get(j) + 1);
 			}
 		}
+		System.out.println(matieres_duree);
+		
+		for (int i : matieresDureeMatiere)
+			System.out.println(i);
 
 		// liste des durees courtes des matieres, taille de la duree totale du
 		// projet
@@ -168,7 +173,7 @@ public class AfficheProjetController {
 		j = 0;
 		k = 0;
 		int n = 0;
-		for (int i = 0; i < projet.getDuree(); i++) {
+		for (int i = 0; i < ii; i++) {
 			if (jours.get(i).equals("Samedi") || jours.get(i).equals("Dimanche")) {
 				matieresDureeMatiere2.add(0);
 			} else if (jours.get(i).equals("Lundi") || k == 0) {
@@ -179,7 +184,7 @@ public class AfficheProjetController {
 				matieresDureeMatiere2.add(matieresDureeMatiere.get(n - 1));
 				k++;
 			}
-			if (k == matieres_duree.get(j) - 1) {
+			if (k == matieres_duree.get(j)) {
 				j++;
 				k = 0;
 			}
@@ -188,6 +193,7 @@ public class AfficheProjetController {
 		model.addAttribute("matierePlanning", matierePlanning);
 		model.addAttribute("datesDebutMatiere", datesDebutMatiere);
 		model.addAttribute("matieresDureeMatiere2", matieresDureeMatiere2);
+	
 
 		// Fin ajouts de Klervi
 
@@ -198,7 +204,6 @@ public class AfficheProjetController {
 		model.addAttribute("duree_mois", duree_mois);
 		model.addAttribute("duree_mois_tot", duree_mois_tot);
 
-		model.addAttribute("matieres", matieres);
 		model.addAttribute("matieres_duree", matieres_duree);
 
 		model.addAttribute("projet", projet);
