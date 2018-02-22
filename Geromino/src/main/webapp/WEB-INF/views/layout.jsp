@@ -19,8 +19,6 @@
 	<script type="js/html2canvas.min.js"></script>
 	<script type="js/jspdf.min.js"></script>
 
-	
-
 
 	<div class="container">
 		<h1>

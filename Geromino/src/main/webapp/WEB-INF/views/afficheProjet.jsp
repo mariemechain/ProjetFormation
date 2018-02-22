@@ -4,22 +4,17 @@
 <%@  taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
-
 <script type="text/javascript">
-	function genPDF(){
-		html2canvas{document.getElementById("printable"), {
-			onrendered:function (canvas) {
-				var img = canvas.toDataURL("image/png");
-				var doc = new jsPDF();
-				doc.addImage(img, 'JPEG',20,20);
-				doc.save('test.pdf');
-			}
-		} 
+	function genPDF() {
+		html2canvas(document.getElementById("printable")).then(
+				function(canvas) {
+					var img = canvas.toDataURL('image/png');
+					var doc = new jsPDF();
+					doc.addImage(img, 'JPEG', 20, 20);
+					doc.save('test.pdf');
+				});
 	}
-}
 </script>
-
-
 
 <tiles:insertDefinition name="app.layout">
 	<tiles:putAttribute name="title" value="Planning d'un projet" />
@@ -46,17 +41,6 @@
 							<c:if test="${datesDebutMatiere[i]==dates[i]}">
 								<td rowspan="${matieresDureeMatiere2[i]}">${matierePlanning[i]}</td>
 							</c:if>
-							<%-- <c:if test="${i==0}">
-								<td rowspan="${matieres_duree[i]}">PAPA</td>
-								<td rowspan="${matieres_duree[i]}">MAMAN</td>
-							</c:if>
-								<c:if test="${i==matieres_duree[0]}">
-								<td rowspan="${matieres_duree[i]}">${matieres[i]}</td>
-							</c:if>
-							<c:if test="${i==matieres_duree[0]}">
-								<td rowspan="${matieres_duree[i]}">PAPA</td>
-								<td rowspan="${matieres_duree[i]}">MAMAN</td>
-							</c:if> --%>
 						</tr>
 					</c:forEach>
 				</tbody>
