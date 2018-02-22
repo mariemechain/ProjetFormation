@@ -54,11 +54,13 @@
 				<div class="form-group">
 					<label for="stagiaires">Stagiaires :</label>
 					<select  name="stagiaires">
-					<c:forEach items="${stagiaires}" var = "stagiaire">
 					
+					<c:forEach items="${stagiaires}" var = "stagiaire">
+					<c:if test="${stagiaire.ordinateur == null && stagiaire.formation != null}">
 					 <option value="${stagiaire.id}">${stagiaire.nom}</option>
-									 
+						</c:if>			 
 					</c:forEach>
+					
 					</select>
 
 				</div>

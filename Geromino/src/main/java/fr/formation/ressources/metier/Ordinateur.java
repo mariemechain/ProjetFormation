@@ -29,6 +29,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @PrimaryKeyJoinColumn(name="ORD_ID", referencedColumnName="MAT_ID")
 public class Ordinateur extends Materiel {
 	
+
+
 	private static final long serialVersionUID = 1L;
 	
 	@Column(name = "ORD_PROCESSEUR")
@@ -105,6 +107,10 @@ public class Ordinateur extends Materiel {
 		this.ram = ram;
 		this.stockage = stockage;
 		this.achat = achat;
+	}
+	@Override
+	public String toString() {
+		return "Ordinateur [processeur=" + processeur + ", ram=" + ram + ", stockage=" + stockage + "]";
 	}
 	
 }

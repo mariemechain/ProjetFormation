@@ -46,9 +46,13 @@ public class Materiel implements Serializable{
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date date;
-//	@ManyToMany(mappedBy = "materiels")
-//	private List<Projet> dispo;
-//	
+	
+	
+
+
+	@ManyToMany(mappedBy = "materiels")
+	private List<Projet> dispo;
+	
 	
 	// Constructeur par defaut	
 	public Materiel() {
@@ -57,6 +61,16 @@ public class Materiel implements Serializable{
 
 
 	//GETTERS ET SETTERS des attributs
+	
+	public List<Projet> getDispo() {
+		return dispo;
+	}
+
+
+	public void setDispo(List<Projet> dispo) {
+		this.dispo = dispo;
+	}
+	
 	public String getId() {
 		return id;
 	}
