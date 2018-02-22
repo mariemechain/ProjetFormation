@@ -16,7 +16,10 @@
 	<script type="js/jquery-3.1.1.min.js"></script>
 	<script type="js/popper.min.js"></script>
 	<script type="js/bootsrap.min.js"></script>
+	<script type="js/html2canvas.min.js"></script>
+	<script type="js/jspdf.min.js"></script>
 
+	
 
 
 	<div class="container">

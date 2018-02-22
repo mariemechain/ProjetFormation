@@ -4,6 +4,23 @@
 <%@  taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
+
+<script type="text/javascript">
+	function genPDF(){
+		html2canvas{document.getElementById("printable"), {
+			onrendered:function (canvas) {
+				var img = canvas.toDataURL("image/png");
+				var doc = new jsPDF();
+				doc.addImage(img, 'JPEG',20,20);
+				doc.save('test.pdf');
+			}
+		} 
+	}
+}
+</script>
+
+
+
 <tiles:insertDefinition name="app.layout">
 	<tiles:putAttribute name="title" value="Planning d'un projet" />
 	<tiles:putAttribute name="content">
@@ -45,7 +62,8 @@
 				</tbody>
 			</table>
 		</div>
-		<div>Gros bouton export PDF</div>
+		<a href="javascript:genPDF()">Exporter au format PDF</a>
+
 	</tiles:putAttribute>
 </tiles:insertDefinition>
 
