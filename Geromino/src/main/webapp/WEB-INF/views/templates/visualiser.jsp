@@ -26,8 +26,8 @@
 							</c:if>
 							<c:if test="${ordreMatiere.matiere.prerequis != '[]'}">
 								<td>
-									<c:forEach items="${Prerequis}" var="matierePrerequis">
-										${matierePrerequis},
+									<c:forEach items="${ordreMatiere.matiere.prerequis}" var="matierePrerequis">
+										${matierePrerequis.titre},
 									</c:forEach>
 								</td>
 							<%-- <td>${ordreMatiere.matiere.prerequis} </td> --%>
