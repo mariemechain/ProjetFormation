@@ -12,7 +12,8 @@
 				<thead>
 					<tr>
 						<th scope="col">Matière</th>
-						<th scope="col">durée</th>
+						<th scope="col">Durée</th>
+						<th scope="col">Prerequis</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -20,6 +21,17 @@
 						<tr>
 							<td>${ ordreMatiere.matiere.titre }</td>
 							<td>${ ordreMatiere.matiere.duree } jours</td>
+							<c:if test="${ordreMatiere.matiere.prerequis == '[]'}">
+								<td>aucun</td>
+							</c:if>
+							<c:if test="${ordreMatiere.matiere.prerequis != '[]'}">
+								<td>
+									<c:forEach items="${ordreMatiere.matiere.prerequis}" var="matierePrerequis">
+										${matierePrerequis.titre},
+									</c:forEach>
+								</td>
+							<%-- <td>${ordreMatiere.matiere.prerequis} </td> --%>
+							</c:if>
 						</tr>
 					</c:forEach>
 				</tbody>
