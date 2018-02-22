@@ -1,10 +1,14 @@
 package fr.formation.matieres.model;
 
+import java.sql.Blob;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name = "FILES_UPLOAD")
@@ -41,4 +45,27 @@ public class UploadFile {
 	public void setData(byte[] data) {
 		this.data = data;
 	}
+	
+	public Blob getContent() {
+		return content;
+	}
+
+	public void setContent(Blob content) {
+		this.content = content;
+	}
+
+	public String getContentType() {
+		return contentType;
+	}
+
+	public void setContentType(String contentType) {
+		this.contentType = contentType;
+	}
+
+	@Column(name="content")
+	@Lob
+	private Blob content;
+	
+	@Column(name="content_type")
+	private String contentType;
 }

@@ -18,20 +18,20 @@
 				<form method="post" action="doUpload" enctype="multipart/form-data">
 					<table border="0">
 						<tr>
-							<td>Fichier à upload : </td>
+							<td></td>
 							<td><input type="file" name="fileUpload" size="50" /></td>
 						</tr>
-
+						
 						<tr>
 							<td colspan="2" align="center"><input type="submit"
-								value="Mettre en ligne" /></td>
+								class="btn btn-success" value="Mettre en ligne" /></td>
 						</tr>
 					</table>
 				</form>
 
-				<a href="/Geromino/matiere/" class="btn btn-outline-primary"
+				<a href="/Geromino/matiere/" class="btn btn-outline-danger"
 					role="button" aria-pressed="true">Retour aux matières</a><a
-					href="/Geromino/upload/download" class="btn btn-outline-primary"
+					href="/Geromino/upload/download" class="btn btn-outline-warning"
 					role="button" aria-pressed="true">Retour aux fichiers en ligne</a>
 
 			</div>

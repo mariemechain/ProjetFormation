@@ -27,7 +27,7 @@
 							<th class="colonne1" scope="row"><span class="h6">${f.fileName}</span></th>
 
 							<td><a class="btn btn-outline-secondary"
-								href="/Geromino/upload/download/doDownload?id=${f.id}">Télécharger</a></td>
+								href="/Geromino/upload/download/${f.id}">Télécharger</a></td>
 							<td><a class="btn btn-outline-danger"
 								href="/Geromino/upload/download/supprimer?id=${f.id}">Supprimer</a></td>
 						</tr>
@@ -39,7 +39,9 @@
 
 
 			<a href="/Geromino/upload/" class="btn btn-outline-primary"
-				role="button" aria-pressed="true">Upload</a>
+				role="button" aria-pressed="true">Upload</a> <a
+				href="/Geromino/matiere/" class="btn btn-outline-warning"
+				role="button" aria-pressed="true">Retour</a>
 
 		</div>
 
