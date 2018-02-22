@@ -35,8 +35,8 @@
 							<td>${ planif.formateur.nom }</td>
 
 
-							<!-- Excecution des methodes du controller avec un mapping "/edit" -->
-							<td><a href="./planification/${planif.matiere.titre }/${planif.id}/formateurs"
+							<!-- recuperation de l'id de la matiere et recuerer dans le controller du gestionnaire -->
+							<td><a href="./planification/${planif.matiere.id }/${planif.id}/formateurs"
 								class="btn btn-warning"><span
 									class="glyphicon glyphicon-pencil"></span> Edit Formateur</a> <!-- Excecution des methodes du controller avec un mapping "/delete" -->
 								<a href="planification/delete?id=${planif.id }"

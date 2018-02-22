@@ -1,0 +1,76 @@
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
+<tiles:insertDefinition name="app.layout">
+
+	<tiles:putAttribute name="navigation"
+		value="/WEB-INF/views/navigation.jsp" />
+
+	<tiles:putAttribute name="content">
+
+
+
+		<h2>Choix formateur pour la matiere : ${matiere.titre}</h2>
+
+		<!--#########	Partie Filtre	#########-->
+
+
+		<form method="POST" action="">
+			<div class="form-group">
+				<input type="hidden" id="idf" name="idf" value="${formateur.id}">
+
+
+
+
+
+				<div class="form-group">
+					<label for="sel2">Matières:</label> <span id="sel2" name="matiere" value="${ matiere.titre }">${ matiere.titre }</span>
+				</div>
+
+				<button type="submit" class="btn btn-primary">Filtrer</button>
+				<a href="/Geromino/formateurs" class="btn btn-primary"> Annuler
+					Filtre </a>
+			</div>
+		</form>
+
+		<a href="/Geromino/formateurs/ajouter" class="btn btn-success btn-lg">
+			Ajouter un formateur</a>
+
+
+		<!--#########	Liste	#########-->
+
+
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Nom</th>
+					<th>Prenom</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${ listeformateurs }" var="listeFormateurs">
+					<tr>
+						<td>${ listeFormateurs.id }</td>
+						<td>${ listeFormateurs.nom }</td>
+						<td>${ listeFormateurs.prenom }</td>
+						<td><a
+							href="/Geromino/formateurs/modifier?idf=${listeFormateurs.id}"
+							class="btn btn-primary">Editer</a><a
+							href="/Geromino/formateurs/supprimer?idf=${listeFormateurs.id}"
+							class="btn btn-danger">Supprimer</a><a
+							href="/Geromino/formateur/liste?idf=${listeFormateurs.id}"
+							class="btn btn-info">Expertise</a></td>
+
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+
+
+
+	</tiles:putAttribute>
+</tiles:insertDefinition>
