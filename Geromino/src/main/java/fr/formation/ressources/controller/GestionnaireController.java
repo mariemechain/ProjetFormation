@@ -1,5 +1,7 @@
 package fr.formation.ressources.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -181,14 +183,26 @@ public class GestionnaireController {
 		
 		//*********************************Supprimer un stagiaire à projet***************************
 		@GetMapping("/gestionnaireProjetStagiairesSupprimer")
-		public String supprimerStagiaire(@RequestParam("id") int id, @RequestParam("idStagiaire") int idStagiaire) {
+		public String supprimerStagiaire(@RequestParam("id") int id, @RequestParam("idstag") int idStagiaire) {
 			Projet projet = daoProjet.findById(id);
 			projet.setId(id);
 			// FAIRE UNE BOUCLE POUR SUPPRIMER UN STAGIAIRE DANS LISTE SELON INDEX
-			//projet.getStagiaires().delete(daoStagiaire.findById(idStagiaire).get());
-//			Stagiaire stagiaire = daoStagiaire.findById(idStagiaire).get();
-//			stagiaire.setFormation(projet);
-//			daoStagiaire.save(stagiaire);
+			
+			List<Stagiaire> stagiaires = projet.getStagiaires();
+			Stagiaire s = daoStagiaire.findById(idStagiaire).get();
+			//int test = stagiaires.indexOf(s);
+			
+			for(int i = 0 ; i<stagiaires.size() ; i++) {
+				if(stagiaires.get(i).getId() == s.getId()) {
+					stagiaires.remove(i);
+				}
+			}
+			
+			
+			s.setFormation(null);
+			daoStagiaire.save(s);
+			
+			projet.setStagiaires(stagiaires);			
 			daoProjet.save(projet);
 			return "redirect:./gestionnaireProjetStagiaires?id="+id;
 	}

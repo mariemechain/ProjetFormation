@@ -46,7 +46,9 @@
                 <div class="col-sm-10">
                     <select name="idStagiaire" class="form-control">
                         <c:forEach items="${ stagiaires }" var="stagiaire">
+                        <c:if test="${stagiaire.formation == null }">
                             <option value="${ stagiaire.id }">${ stagiaire.nom}</option>
+                            </c:if>
                         </c:forEach>
                     </select>
                 </div>
@@ -86,7 +88,7 @@
 					<td>${stagiaire.formation.nom}</td>
 					
 					<td><a
-						href="/Geromino/gestionnaire/gestionnaireProjetStagiairesSupprimer?id=${stagiaire.id }"><button
+						href="/Geromino/gestionnaire/gestionnaireProjetStagiairesSupprimer?id=${projet.id}&idstag=${stagiaire.id }"><button
 								type="button" class="btn btn-danger">X</button></a></td>
 				</tr>
 			</c:forEach>
