@@ -40,7 +40,7 @@ export class DispoService {
 
     public save(d: Disponibilite) {
       if(d.id == null){
-        this.http.post(this.appConfig.uri + "/formateur/dispo", d).subscribe(resp => this.service.formateur.disponibilites.push(d));
+        this.http.post(this.appConfig.uri + "/formateur/dispo", d).subscribe(resp => this.service.formateur.disponibilites.push(resp.json()));
       }else{
           this.http.put(this.appConfig.uri + "/formateur/dispo/"+d.id, d).subscribe(resp => this.refresh());
       }

@@ -16,7 +16,8 @@ public tel: string ;
 public dateNaissance: string;
 public adresse: string ;
 
-  constructor() {
+  constructor(id?: number) {
+    this.id = id;
 }
 
 

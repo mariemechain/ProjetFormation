@@ -4,6 +4,7 @@ import { Disponibilite } from './disponibilite';
 import { DispoService } from './dispo.service';
 import { FormateurService } from './formateur.service';
 import { Router } from '@angular/router';
+import { Formateur } from './formateur';
 
 
 const equals = (one: NgbDateStruct, two: NgbDateStruct) =>
@@ -61,9 +62,8 @@ const after = (one: NgbDateStruct, two: NgbDateStruct) =>
       this.dated = new Date(this.fromDate.year + "-" + this.fromDate.month + "-" + this.fromDate.day);
       this.datef = new Date(this.toDate.year + "-" + this.toDate.month + "-" + this.toDate.day);
       this.dispo = new Disponibilite(this.dated,this.datef);
-      this.dispo.formateur = {
-        id: this.service.formateur.id
-      };
+
+      this.dispo.formateur = new Formateur(this.service.formateur.id);
       this.dispoService.save(this.dispo);
 
     }
@@ -73,9 +73,9 @@ const after = (one: NgbDateStruct, two: NgbDateStruct) =>
       this.datef = new Date(this.toDate.year + "-" + this.toDate.month + "-" + this.toDate.day);
       this.dispo = new Disponibilite(this.dated,this.datef);
       this.dispo.id =  d.id;
-      this.dispo.formateur = {
-        id: this.service.formateur.id
-      };
+      this.dispo.formateur = new Formateur(this.service.formateur.id);
+
+
 
       if (this.service.formateur.disponibilites.includes(d)){
           this.service.formateur.disponibilites.splice(this.service.formateur.disponibilites.indexOf(d),1,this.dispo);
