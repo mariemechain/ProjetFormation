@@ -49,7 +49,17 @@ public class TemplateController {
 	public String visualiser(@PathVariable(value="id", required=true) int myId, Model model) {
 		Template myTemplate = daoTemplate.findById(myId).get();		
 		model.addAttribute("Template", myTemplate);
-		model.addAttribute("ordreMatieres", myTemplate.getOrdreMatieres());
+		
+		List<OrdreMatiere> detailOrdreMatieres = daoOrdreMatiere.findAllByTemplateId(myId);
+		model.addAttribute("ordreMatieres", detailOrdreMatieres);
+		
+		for(OrdreMatiere o : detailOrdreMatieres ){
+			List prerequis = new ArrayList();
+			for(Matiere m : o.getMatiere().getPrerequis()) {
+					prerequis.add(m.getTitre());
+			}
+			model.addAttribute("Prerequis", prerequis);
+		}
 		
 		return "templates/visualiser";
 	}
