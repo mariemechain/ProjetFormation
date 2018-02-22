@@ -25,57 +25,59 @@ import fr.formation.ressources.metier.Technicien;
 
 @Controller
 public class AdminController {
-	
-	
+
 	@Autowired
 	private IPersonneDAO daoPersonne;
 	@Autowired
 	private IGestionnaireDAO daoGestionnaire;
-	
+
 	@Autowired
 	private ITechnicienDAO daoTechnicien;
-	
 
 	@Autowired
 	private IAdminDAO daoAdmin;
-	
+
 	@Autowired
 	private IPersonnelDAO daoPersonnel;
-	
+
 	@Autowired
 	private IFormateurDAO daoFormateur;
-	
+
 	@GetMapping("/admin")
 	public String listeContact(Model model) {
 		model.addAttribute("personnels", daoPersonnel.findAll());
 		return "personnels";
 	}
-	
-	
+
 	@ModelAttribute("page")
-    public String page() {
-        return "admin";
-    }
-	
-	
+	public String page() {
+		return "admin";
+	}
+
+	// ************************************************** Ajouter un
+	// personnel***************************
+
 	@GetMapping("/adminAjouterPersonnel")
 	public String formulaireAjout(Model model) {
 		model.addAttribute("personnel", new Personnel());
 		return "ajouterPersonnel";
 	}
-	
-	//************************************************** Ajouter un personnel***************************
-	
+
 	@PostMapping("/adminAjouterPersonnel")
-	public String ajouterPersonnel(@Valid @ModelAttribute("personnel") Personnel personnel, BindingResult result, @RequestParam("personnels") String type, @RequestParam("titre") String titre, @RequestParam("patience") double patience) {
+	public String ajouterPersonnel(@Valid @ModelAttribute("personnel") Personnel personnel, BindingResult result,
+			@RequestParam(value="personnels", required=false) String type, @RequestParam(value="titre", required=false) String titre,
+			@RequestParam(value="patience", required=false, defaultValue="0.0") double patience,
+			Model model) {
+		System.out.println("***************PREMIER**************");
+
 		
 		if (result.hasErrors()) {
+			System.out.println("***************DEUXIEME**************");
 			return "ajouterPersonnel";
-		}	
-		
-		
-		if(type.equals("Gestionnaire")){
-			Gestionnaire gestionnaire =new Gestionnaire();
+		}
+
+		if (type.equals("Gestionnaire")) {
+			Gestionnaire gestionnaire = new Gestionnaire();
 			gestionnaire.setNom(personnel.getNom());
 			gestionnaire.setPrenom(personnel.getPrenom());
 			gestionnaire.setAdresse(personnel.getAdresse());
@@ -86,7 +88,9 @@ public class AdminController {
 			gestionnaire.setTelephone(personnel.getTelephone());
 			daoGestionnaire.save(gestionnaire);
 		}
-		if(type.equals("Technicien")){
+
+		if (type.equals("Technicien")) {
+
 			Technicien technicien = new Technicien();
 			technicien.setNom(personnel.getNom());
 			technicien.setPrenom(personnel.getPrenom());
@@ -97,11 +101,12 @@ public class AdminController {
 			technicien.setMotDePasse(personnel.getMotDePasse());
 			technicien.setTelephone(personnel.getTelephone());
 			daoTechnicien.save(technicien);
-//			
-//			technicien.setNom(personne.getNom());
-//			daoTechnicien.save(technicien);
+			//
+			// technicien.setNom(personne.getNom());
+			// daoTechnicien.save(technicien);
 		}
-		if(type.equals("Formateur")){
+
+		if (type.equals("Formateur")) {
 			Formateur formateur = new Formateur();
 			formateur.setNom(personnel.getNom());
 			formateur.setPrenom(personnel.getPrenom());
@@ -114,10 +119,9 @@ public class AdminController {
 			formateur.setTitre(titre);
 			formateur.setPatience(patience);
 			daoFormateur.save(formateur);
-			
-
 		}
-		if(type.equals("Admin")){
+
+		if (type.equals("Admin")) {
 			Admin admin = new Admin();
 			admin.setNom(personnel.getNom());
 			admin.setPrenom(personnel.getPrenom());
@@ -128,32 +132,32 @@ public class AdminController {
 			admin.setMotDePasse(personnel.getMotDePasse());
 			admin.setTelephone(personnel.getTelephone());
 			daoAdmin.save(admin);
-//			
-//			technicien.setNom(personne.getNom());
-//			daoTechnicien.save(technicien);
+			//
+			// technicien.setNom(personne.getNom());
+			// daoTechnicien.save(technicien);
 		}
 
-		
-		
 		return "redirect:./admin";
 	}
-	
-	//************************************************** Editer un Personnel***************************
+
+	// ******************************** Editer un
+	// Personnel***************************
 	@GetMapping("/adminEditerPersonnel")
-	public String editerPersonnel( @RequestParam("id") int id, Model model) {
+	public String editerPersonnel(@RequestParam("id") int id, Model model) {
 		model.addAttribute("personnel", daoPersonnel.findById(id).get());
-		
+
 		return "ajouterPersonnel";
 	}
-	
+
 	@PostMapping("/adminEditerPersonnel")
-	public String editerPersonnel(@Valid @ModelAttribute("personnel") Personnel personnel, BindingResult result,  @RequestParam("id") int id, Model model) {
-		
+	public String editerPersonnel(@Valid @ModelAttribute("personnel") Personnel personnel, BindingResult result,
+			@RequestParam("id") int id, Model model) {
+
 		if (result.hasErrors()) {
 			return "ajouterPersonnel";
 		}
-		
-		Personnel pnl= daoPersonnel.findById(id).get();
+
+		Personnel pnl = daoPersonnel.findById(id).get();
 		pnl.setNom(personnel.getNom());
 		pnl.setPrenom(personnel.getPrenom());
 		pnl.setAdresse(personnel.getAdresse());
@@ -162,21 +166,21 @@ public class AdminController {
 		pnl.setLogin(personnel.getLogin());
 		pnl.setMotDePasse(personnel.getMotDePasse());
 		pnl.setTelephone(personnel.getTelephone());
-//		if(daoPersonnel.findById(id).get().getType().equals("Formateur")) {
-//			pnl.setTitre(personnel.getTitre());
-//		}
-		
+		// if(daoPersonnel.findById(id).get().getType().equals("Formateur")) {
+		// pnl.setTitre(personnel.getTitre());
+		// }
+
 		daoPersonnel.save(pnl);
-		
-		return "redirect:./admin";	
+
+		return "redirect:./admin";
 	}
-	
-	
-	//************************************************** Supprimer un personnel***************************
+
+	// ************************************************** Supprimer un
+	// personnel***************************
 	@GetMapping("/adminSupprimerPersonnel")
 	public String supprimerPersonnel(@RequestParam("id") int id) {
-		
-		daoPersonnel.delete(daoPersonnel.findById(id).get());	
+
+		daoPersonnel.delete(daoPersonnel.findById(id).get());
 		return "redirect:./admin";
 	}
 }
