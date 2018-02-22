@@ -73,12 +73,17 @@ public class AfficheProjetController {
 		int nb_mois = date_fin.getMonth() - date.getMonth() + 1;
 
 		List<Integer> duree_mois_base = new ArrayList<Integer>();
+		List<Integer> duree_mois_base_somme = new ArrayList<Integer>();
 		duree_mois_base.add(duree_mois.get(0));
+		duree_mois_base_somme.add(duree_mois.get(0));
 		for (int i = 1; i < nb_mois; i++) {
 			duree_mois_base.add(duree_month(
 					((Date) java.sql.Date.valueOf(((java.sql.Date) projet.getDebut()).toLocalDate().plusMonths(i)))));
+			duree_mois_base_somme.add(duree_mois_base_somme.get(i-1)+duree_month(
+					((Date) java.sql.Date.valueOf(((java.sql.Date) projet.getDebut()).toLocalDate().plusMonths(i)))));
 			if (i == nb_mois - 1) {
 				duree_mois_base.set(i, date_fin.getDate());
+				duree_mois_base.set(i, date_fin.getDate()+duree_mois_base_somme.get(i-1));
 			}
 		}
 		System.out.println(duree_mois_base);
@@ -91,7 +96,7 @@ public class AfficheProjetController {
 		System.out.println(duree_mois_tot);
 		for (int i = 1; i < nb_mois; i++) {
 			for (int j = 0; j < duree_mois_base.get(i); j++) {
-				duree_mois_tot.add(duree_mois_tot.get(duree_mois_base.get(i-1)-(j+1)) + duree_mois_base.get(i - 1));
+				duree_mois_tot.add(duree_mois_tot.get(duree_mois_base_somme.get(i-1)-1) + duree_mois_base.get(i-1));
 			}
 		}
 
