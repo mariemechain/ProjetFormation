@@ -110,11 +110,14 @@ public class AfficheProjetController {
 
 		List<String> matieres = new ArrayList<String>();
 		List<Integer> matieres_duree = new ArrayList<Integer>();
+		List<Integer> matieres_duree2 = new ArrayList<Integer>();
+		List<String> formateurs = new ArrayList<String>();
 		for (int i = 0; i < projet.getPlanifications().size(); i++) {
 			matieres.add(projet.getPlanifications().get(i).getMatiere().getTitre());
 			matieres_duree.add(projet.getPlanifications().get(i).getMatiere().getDuree());
+			matieres_duree2.add(projet.getPlanifications().get(i).getMatiere().getDuree());
+			formateurs.add(projet.getPlanifications().get(i).getFormateur().getTitre());
 		}
-		
 
 		List<Integer> long_rawspawn = new ArrayList<Integer>();
 		for (int i = 0; i < projet.getDuree(); i++) {
@@ -124,17 +127,28 @@ public class AfficheProjetController {
 		// Ajouts de Klervi
 
 		List<String> matierePlanning = new ArrayList<String>();
+		List<Date> datesDebut = new ArrayList<Date>();
 		List<Date> datesDebutMatiere = new ArrayList<Date>();
 		List<Integer> matieresDureeMatiere = new ArrayList<Integer>();
+		List<String> formateurs2 = new ArrayList<String>();
 		int j = 0; // indice pour nouvelle matiere (version long)
 		int k = 0; // indice pour temps dans une matiere
 		int m = 0; // indice pour nouvelle matiere (version court)
-
+		
 		matieresDureeMatiere.add(0);
 
 		for (int i = 0; i < ii; i++) {
+			
 			// liste des jours de début des matieres, taille de la duree totale
-			// du projet
+			// du projet (version longue
+			if (k == 0) {
+				datesDebut.add(dates.get(i));
+			} else {
+				datesDebut.add(datesDebut.get(i - 1));
+			}
+			
+			// liste des jours de début des matieres, taille de la duree totale
+			// du projet (version courte)
 			if (k == 0) {
 				datesDebutMatiere.add(dates.get(i));
 			} else if (jours.get(i) == "Lundi") {
@@ -147,6 +161,7 @@ public class AfficheProjetController {
 			if (jours.get(i) != "Samedi" && jours.get(i) != "Dimanche") {
 				matieresDureeMatiere.set(m, matieresDureeMatiere.get(m) + 1);
 				matierePlanning.add(matieres.get(j));
+				formateurs2.add(formateurs.get(j));
 				k++;
 				if (k == matieres_duree.get(j)) {
 					j++;
@@ -159,13 +174,12 @@ public class AfficheProjetController {
 				}
 			} else {
 				matierePlanning.add("");
-				//matieres_duree.set(j, matieres_duree.get(j) + 1);
+				formateurs2.add("");
+				matieres_duree2.set(j, matieres_duree2.get(j) + 1);
 			}
 		}
-		System.out.println(matieres_duree);
 		
-		for (int i : matieresDureeMatiere)
-			System.out.println(i);
+		System.out.println(matieres_duree);
 
 		// liste des durees courtes des matieres, taille de la duree totale du
 		// projet
@@ -189,11 +203,23 @@ public class AfficheProjetController {
 				k = 0;
 			}
 		}
-
+		
+		List<Integer> formateurDuree = new ArrayList<Integer>();
+		for (int i = 0; i < matieres_duree2.size(); i++) {
+			j = 0;
+			while (j<matieres_duree2.get(i)) {
+				formateurDuree.add(matieres_duree2.get(i));
+				j++;
+			}
+		}
+	
 		model.addAttribute("matierePlanning", matierePlanning);
 		model.addAttribute("datesDebutMatiere", datesDebutMatiere);
 		model.addAttribute("matieresDureeMatiere2", matieresDureeMatiere2);
 	
+		model.addAttribute("formateurs2", formateurs2);
+		model.addAttribute("datesDebut", datesDebut);
+		model.addAttribute("formateurDuree", formateurDuree);
 
 		// Fin ajouts de Klervi
 

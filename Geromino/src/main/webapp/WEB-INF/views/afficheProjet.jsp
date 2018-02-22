@@ -41,6 +41,9 @@
 							<c:if test="${datesDebutMatiere[i]==dates[i]}">
 								<td rowspan="${matieresDureeMatiere2[i]}">${matierePlanning[i]}</td>
 							</c:if>
+							<c:if test="${datesDebut[i]==dates[i]}">
+								<td rowspan="${formateurDuree[i]}">${formateurs2[i]}</td>
+							</c:if>
 						</tr>
 					</c:forEach>
 				</tbody>
