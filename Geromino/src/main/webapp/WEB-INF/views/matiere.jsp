@@ -33,7 +33,7 @@
 									</td>
 									<td><a class="btn btn-outline-secondary"
 										href="/Geromino/matiere/editer?id=${m.id}">Modifier</a></td>
-									<td><a class="btn btn-outline-danger"
+									<td><a id="suppr" class="btn btn-outline-danger"
 										href="/Geromino/matiere/supprimer?id=${m.id}">Supprimer</a></td>
 								</tr>
 							</c:forEach>
