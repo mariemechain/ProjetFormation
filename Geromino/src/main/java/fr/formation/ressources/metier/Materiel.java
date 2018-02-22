@@ -46,10 +46,6 @@ public class Materiel implements Serializable{
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date date;
-	
-	
-
-
 	@ManyToMany(mappedBy = "materiels")
 	private List<Projet> dispo;
 	
