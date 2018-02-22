@@ -11,7 +11,7 @@
 		<img src="img/giphy.gif" alt="Loading" />
 		<br/>
 		<a href="home">
-			<button type="button" class="btn btn-danger mt-4">Revenir au menu principal</button>
+			<button type="button" class="btn btn-danger mt-4 mb-4">Revenir au menu principal</button>
 		</a>
 
 
