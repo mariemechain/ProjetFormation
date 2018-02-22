@@ -26,15 +26,15 @@
 
 			<tbody>
 				<c:forEach items="${ Projet }" var="projet">
-					<tr>						
+					<tr>
 						<td>
-							<a href="projet/detailProjet?id=${projet.id }" class="btn btn-success">détail</a>
+							<a href="projet/detailProjet/${projet.id }" class="btn btn-success">détail</a>
 						</td>
 						<td>${ projet.nom }</td>
 						<td>${ projet.dateDebut}</td>
 						<td>${ projet.duree} jours</td>
 						<td>${ projet.salle.id}</td>
-						<td>${ projet.nomTemplate}</td>
+						<td> </td>
 						<td>${ projet.stagiaires} / ${ projet.salle.places}</td>
 						<td>
 							<a href="projet/editer/${ projet.id }" class="btn btn-primary">Editer</a>
