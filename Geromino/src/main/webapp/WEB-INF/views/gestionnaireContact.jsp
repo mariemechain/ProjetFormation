@@ -14,11 +14,11 @@
 			<thead>
 				<tr>
 					<th>Id</th>
+					<th>Nom</th>
+					<th>Prenom</th>
 					<th>Adresse</th>
 					<th>Date de naissance</th>
 					<th>Email</th>
-					<th>Nom</th>
-					<th>Prenom</th>
 					<th>Téléphone</th>
 					<th></th>
 					<th></th>
@@ -29,11 +29,11 @@
 				<tr>
 					<td>${contact.id }</td>
 					<%-- <td>${projet.XXX }</td>--%>
+					<td>${contact.nom}</td>
+					<td>${contact.prenom}</td>
  					<td>${contact.adresse }</td>		
 					<td>${contact.date}</td>
 					<td>${contact.email}</td>
-					<td>${contact.nom}</td>
-					<td>${contact.prenom}</td>
 					<td>${contact.telephone}</td>
 					<td><a
 						href="/Geromino/gestionnaire/gestionnaireEditerContact?id=${contact.id }"><button
