@@ -204,25 +204,30 @@ public class TechnicienController {
 	public String allouerOrdi(Model model, @RequestParam("id") String idOrdi) {
 
 		Ordinateur ordinateur = ordiDAO.findById(idOrdi).get();
+		model.addAttribute(ordinateur);
 		
 		List<Stagiaire> stagiaires = stagDAO.findAll(); //Chargement de tous les stagiaires en base
+		System.out.println(stagiaires.size() + " monique");
 		
-		for(int i=0; i<stagiaires.size(); i++) {
+		
+		for(int i=stagiaires.size()-1; i>=0; i--) {
 			
 			//seuls les stagiaires avec une formation sont pris en compte
 			if(stagiaires.get(i).getFormation() == null) {
 				stagiaires.remove(i); //sortie des stagiaires qui n'ont pas de projet
+				System.out.println(stagiaires.size() + " Tamèrezbwdhfk");
 			}
 			
 			else {
+				System.out.println(stagiaires.size() + " Tamère");
 				
 				if(stagiaires.get(i).getOrdinateur() != null) {
-					stagiaires.remove(i); //sortie des stagiaires qui ont déjà un ordinateur 
+					stagiaires.remove(i); //sortie des stagiaires qui ont dï¿½jï¿½ un ordinateur 
 				}
 			}
 		}
 				
-		System.out.println(stagiaires.size()); //normalement 1
+		System.out.println(stagiaires.size() + " EZHJGFQKSGFJWDGV"); //normalement 1
 
 		//verifier si l'ordi est dispo au moment du projet du stagiaire
 		for (int i=0;i<stagiaires.size();i++) {
@@ -256,7 +261,11 @@ public class TechnicienController {
 
 	private boolean getDispoOrdi(LocalDate d1, Ordinateur ordinateur) {
 		
-		List<Stagiaire> stagiairesOrdi = ordinateur.getStagiaires();
+		List<Stagiaire> stagiairesOrdi = new ArrayList<Stagiaire>();
+		if (ordinateur.getStagiaires()!= null) {
+		stagiairesOrdi = ordinateur.getStagiaires();
+		}
+		
 
 		for (Stagiaire s : stagiairesOrdi) {
 			Projet p = s.getFormation(); //Projet du stagiaire s
