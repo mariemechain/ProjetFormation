@@ -55,7 +55,7 @@
 
 			</table>
 			<a href="/Geromino/adminAjouterPersonnel" class="btn btn-success">Ajouter un personnel</a>
-			<a href="gestionnaire/"> <a href="/Geromino/admin">
+			<a href="gestionnaire/"> <a href="/Geromino/home">
 					<button type="button" class="btn btn-danger">Revenir au
 						menu précédent</button>
 			</a>

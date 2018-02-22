@@ -14,8 +14,8 @@
 			<div class="form-group">
 				<label for="stagiaires">Type :</label>
 				<c:if test="${personnel.id == 0}">
-					<select onchange="changementType();" id="personnels"
-						name="personnels">
+					<select onchange="activerBouton() ; changementType() "
+						id="personnels" name="personnels">
 
 						<option value="null">--</option>
 						<option value="Formateur">Formateur</option>
@@ -97,29 +97,52 @@
 					cssClass="alert alert-danger" />
 			</div>
 
-			<div class="form-group" id="titre">
-				<label>Titre :</label> <input type="text" class="form-control"
-					name="titre" aria-describedby="Help" placeholder="titre" />
 
-			</div>
-
-			<c:if test="${personnel.type == 'Formateur'}">
+			<c:if test="${personnel.id == 0}">
+				<div class="form-group" id="titre">
+					<label>Titre :</label> <input type="text" class="form-control"
+						name="titre" aria-describedby="Help" placeholder="titre" />
+					
+				</div>
 				<div class="form-group" id="patience">
 					<label>Indice de patience :</label> <input type="number"
 						class="form-control" name="patience" aria-describedby="Help"
 						placeholder="Indice de patience" />
+					
+				</div>
+			</c:if> 
+
+			<c:if test="${personnel.type == 'Formateur' && personnel.id != 0}">
+				<div class="form-group" id="titre2">
+					<label>Titre :</label> <input type="text" class="form-control"
+						name="titre" aria-describedby="Help" placeholder="titre" />
+						
+				</div>
+				<div class="form-group" id="patience2">
+					<label>Indice de patience :</label> <input type="number"
+						class="form-control" name="patience" aria-describedby="Help"
+						placeholder="Indice de patience" />
+						
 				</div>
 			</c:if>
 
-
-
-
-
-			<button type="submit" class="btn btn-success">Ajouter</button>
-			<a href="/Geromino/admin">
-				<button type="button" class="btn btn-danger">Revenir au
-					menu précédent</button>
+ 			<c:if test="${personnel.id == 0}">
+				<button type="submit" class="btn btn-success" disabled="disabled"
+					id="bouton1" title="Veuillez choisir un type"
+					style="cursor: not-allowed">Ajouter</button>
+				<a href="/Geromino/admin">
+					<button type="button" class="btn btn-danger">Revenir au
+						menu principal</button> 
+						
+			</c:if>
+			<c:if test="${personnel.id != 0}">
+				<button type="submit" class="btn btn-success">Ajouter</button>
+				<a href="/Geromino/admin">
+					<button type="button" class="btn btn-danger">Revenir au
+						menu principal</button>
+			</c:if>
 			</a>
+
 		</form:form>
 	</tiles:putAttribute>
 </tiles:insertDefinition>
