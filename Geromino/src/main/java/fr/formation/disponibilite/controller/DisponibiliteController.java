@@ -266,13 +266,12 @@ public class DisponibiliteController {
 		}
 	    
 	    for(LocalDate d : listeDate) {
-		    if (!(d.getDayOfWeek() == DayOfWeek.SATURDAY || d.getDayOfWeek() == DayOfWeek.SUNDAY)) {
+		    if (d.getDayOfWeek() == DayOfWeek.SATURDAY || d.getDayOfWeek() == DayOfWeek.SUNDAY) {
 		      ++addedDays;
 		    }
 	    }
 	    
 	    dureePlusWeekend = duree + addedDays;
-	    System.out.println(dureePlusWeekend);
 	    
 	    return dureePlusWeekend;
 	}

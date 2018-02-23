@@ -13,7 +13,7 @@
 
 		<div class="row">
 
-			<div class="col-5">
+			<div class="col-6">
 				<div class="list-group">
 					<table class="table table-striped">
 						<thead>
@@ -50,7 +50,7 @@
 
 			<div class="col-1"></div>
 
-			<div class="col-6">
+			<div class="col-5">
 				<span class="d-block p-2 bg-light text-black">
 					<h2>Details de la matière sélectionnée :</h2> <c:if
 						test="${detailMatiere==null}">
