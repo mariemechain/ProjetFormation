@@ -11,4 +11,3 @@ public class HibernateObjectMapper extends ObjectMapper
 		this.registerModule(new Hibernate5Module());
 	}
 }
-
