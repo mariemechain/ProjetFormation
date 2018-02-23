@@ -12,7 +12,7 @@
 				<thead>
 					<tr>
 						<th scope="col">Matière</th>
-						<th scope="col">durée</th>
+						<th scope="col">Durée</th>
 					</tr>
 				</thead>
 				<tbody>

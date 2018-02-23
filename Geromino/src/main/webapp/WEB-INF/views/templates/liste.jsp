@@ -5,7 +5,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 <tiles:insertDefinition name="app.layout">
-	<tiles:putAttribute name="title" value="liste des templates cursus" />
+	<tiles:putAttribute name="title" value="Liste des templates cursus" />
 	<tiles:putAttribute name="content">
 	
 	
@@ -31,7 +31,7 @@
 				<div class="col-sm-10">
 				<a class="btn btn-primary" href="/Geromino/gestionnaire/gestionnaireTemplates/ajouter" role="button">Créer un nouveau template</a>
 					<a href="/Geromino/gestionnaire">
-			<button type="button" class="btn btn-danger mb-4">Revenir au menu précédent</button></a>
+			<button class="btn btn-danger" type="button" >Revenir au menu précédent</button></a>
 			</div>
 			</div>
 
