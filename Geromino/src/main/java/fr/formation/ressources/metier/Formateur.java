@@ -10,6 +10,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
@@ -29,8 +32,10 @@ public class Formateur extends Personnel{
 	@JsonIgnoreProperties("formateur")
 	private List<Disponibilite> disponibilites;
 	
-	@OneToMany(mappedBy="formateur",fetch= FetchType.EAGER)
+//	@OneToMany(mappedBy="formateur",fetch= FetchType.EAGER)
+	@OneToMany(mappedBy="formateur")
 	@JsonIgnoreProperties("formateur")
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Expertise> expertises;
 	
 	@Override

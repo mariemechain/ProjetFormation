@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -20,6 +22,8 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -27,43 +31,53 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Cacheable
 @Cache(usage=CacheConcurrencyStrategy.READ_WRITE)
 public class Projet {
-
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="PRO_ID") private int id;
 
 	@Column(name="PRO_NOM") private String nom; 
 	
+	@Column(name="PRO_NOMTEMPLATE") private String nomTemplate; 
+	
 	@Column(name="PRO_DUREE") private int duree; 
 	
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	@Column(name="PRO_DEBUT") private Date dateDebut; 
-//	
+	
 	@OneToOne
 	@JoinColumn(name="PRO_SALLE_ID") private Salle salle;
 
 	@ManyToOne 
 	@JoinColumn(name="PRO_GESTIONNAIRE_ID") 
 	private Gestionnaire gestionnaire; 
-//
-//	@OneToMany(mappedBy="projet")
-//	private List<Planification> planifications = new ArrayList<Planification>();
-//	
-	@ManyToMany
+
+	@OneToMany(mappedBy="projet", fetch=FetchType.EAGER) 
+	private List<Planification> planifications;
+	
+	@ManyToMany//(fetch=FetchType.EAGER) 
+	@LazyCollection(LazyCollectionOption.FALSE)
 	@JoinTable(
 			name="participation", 
 			joinColumns = @JoinColumn(name="PAR_PROJET_ID", referencedColumnName="PRO_ID"),
 			inverseJoinColumns = @JoinColumn(name="PAR_STAGIAIRE_ID", referencedColumnName="STA_ID")
 	) private List<Stagiaire> stagiaires; 
 	
-	@ManyToMany
+	@ManyToMany//(fetch=FetchType.EAGER) 
+	@LazyCollection(LazyCollectionOption.FALSE)
 	@JoinTable(
 		name="reservation", 
 		joinColumns = @JoinColumn(name="RES_PROJET_ID", referencedColumnName="PRO_ID"),
 		inverseJoinColumns = @JoinColumn(name="RES_MATERIEL_ID", referencedColumnName="MAT_ID")
 	) private List<Materiel> materiels; 
 	
+	/* ===========================================
+	 * 	Constructeur(s)
+	 * =========================================== */
+	public Projet() {
+		// ctor par defaut
+	}
 
 	/* ===========================================
 	 * 	Accesseurs : Getters & Setters
@@ -77,35 +91,40 @@ public class Projet {
 	public int getDuree() { return duree; }
 	public void setDuree(int duree) { this.duree = duree; }
 
+	public Date getDateDebut() { return dateDebut; }
+	public void setDateDebut(Date debut) { this.dateDebut = debut; }
 
-
-	public Date getDateDebut() {
-		return dateDebut;
-	}
-	public void setDateDebut(Date dateDebut) {
-		this.dateDebut = dateDebut;
-	}
 	public Salle getSalle() { return salle; }
 	public void setSalle(Salle salle) { this.salle = salle; }
 	
 	public Gestionnaire getGestionnaire() { return gestionnaire; }
 	public void setGestionnaire(Gestionnaire gestionnaire) { this.gestionnaire = gestionnaire; }
-//
-//	public List<Planification> getPlanifications() { return planifications; }
-//	public void setPlanifications(List<Planification> plannifications) { this.planifications = plannifications; }
-//
+
+	public List<Planification> getPlanifications() { return planifications; }
+	public void setPlanifications(List<Planification> plannifications) { this.planifications = plannifications; }
+
 	public List<Stagiaire> getStagiaires() { return stagiaires; }
 	public void setStagiaires(List<Stagiaire> stagiaires) { this.stagiaires = stagiaires; }
-//
+
 	public List<Materiel> getMateriels() { return materiels; }
 	public void setMateriels(List<Materiel> materiels) { this.materiels = materiels; }
+
+	public String getNomTemplate() { return nomTemplate; }
+	public void setNomTemplate(String nomTemplate) { this.nomTemplate = nomTemplate; }
 
 	/* ===========================================
 	 * 	ToString 
 	 * =========================================== */
-//	public String toString() {
-//		return "Projet [id=" + id + ", duree=" + duree +
-//				 ", dateDebut=" ]";
-//	}
+	public String toString() {
+		return "[Projet]"
+				+ "\n id =" + id 
+				+ ",\n duree=" + duree 
+				+ ",\n salle=" + salle 
+				+ ",\n gestionnaire=" + gestionnaire
+				+ ",\n dateDebut=" + dateDebut 
+				+ ",\n planifications=" + planifications 
+				+ ",\n stagiaires=" + stagiaires
+				+ ",\n materiels=" + materiels;
+	}
 
 }

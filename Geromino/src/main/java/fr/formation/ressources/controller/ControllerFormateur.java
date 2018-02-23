@@ -14,7 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.formation.ressources.dao.IExpertiseDAO;
 import fr.formation.ressources.dao.IFormateurDAO;
-import fr.formation.ressources.dao.IMatiereDAOPourTest;
+import fr.formation.ressources.dao.IMatiereDAO;
+//import fr.formation.ressources.dao.IMatiereDAOPourTest;
 import fr.formation.ressources.metier.Expertise;
 import fr.formation.ressources.metier.Formateur;
 import fr.formation.ressources.metier.Matiere;
@@ -31,7 +32,7 @@ public class ControllerFormateur {
 IFormateurDAO daoFormateur;
 
 @Autowired
-IMatiereDAOPourTest daoMatiere;
+IMatiereDAO daoMatiere;
 
 @Autowired
 IExpertiseDAO daoExpertise;
@@ -156,7 +157,7 @@ public String postAjouterExpertise(@RequestParam("idf") int idFormateur,@Request
 	
 	//Allocation de la matière de l'expertise
 	Matiere matiere = new Matiere();
-	matiere = daoMatiere.findById(idMatiere).get();
+	matiere = daoMatiere.findById(idMatiere);
 	
 	expertise.setMatiere(matiere);
 	expertise.setFormateur(formateur);
