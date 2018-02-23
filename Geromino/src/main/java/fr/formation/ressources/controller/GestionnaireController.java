@@ -262,7 +262,34 @@ public class GestionnaireController {
 				
 				return "gestionnaireAjouterSalle";
 			}
-			Template t = daoTemplate.findById(idTemplate).get();
+			
+			List<Planification> plans = daoPLanification.findAll();
+			Template t = daoTemplate.findById(idTemplate).get(); 
+		    for(Planification p : plans) {
+		      if(p.getProjet() != null && p.getProjet().getId() == projet.getId()) {
+		        daoPLanification.delete(p);
+		      }
+		    }
+			
+			
+		    List<OrdreMatiere> oms = t.getOrdreMatieres();
+		    List<Planification> ps = new ArrayList<Planification>();
+		    int njours = 0;	    
+		 
+		    for (OrdreMatiere om : oms) {
+		      Planification p = new Planification();
+		      p.setMatiere(om.getMatiere());
+		      p.setProjet(projet);
+		      daoPLanification.save(p); 
+		      ps.add(p);
+		 
+		      njours += om.getMatiere().getDuree(); 
+		 
+		    }
+
+		    projet.setPlanifications(ps);
+		    projet.setDuree(njours);
+			
 			projet.setNomTemplate(t.getNom());
 			projet.setId(id);
 //			projet.setSalle(daoSalle.findById(idSalle).get());
