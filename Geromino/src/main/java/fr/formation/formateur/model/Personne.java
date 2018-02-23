@@ -19,4 +19,18 @@ public class Personne {
 	@Column(name="PER_ID")
 	protected int id;
 
+	@Column(name="PER_PRENOM")
+	private String prenom;
+
+
+	public String getPrenom() {
+		return prenom;
+	}
+
+
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
+	
+	
 }

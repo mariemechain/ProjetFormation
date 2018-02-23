@@ -112,11 +112,13 @@ public class AfficheProjetController {
 		List<Integer> matieres_duree = new ArrayList<Integer>();
 		List<Integer> matieres_duree2 = new ArrayList<Integer>();
 		List<String> formateurs = new ArrayList<String>();
+		List<String> formateursPrenom = new ArrayList<String>();
 		for (int i = 0; i < projet.getPlanifications().size(); i++) {
 			matieres.add(projet.getPlanifications().get(i).getMatiere().getTitre());
 			matieres_duree.add(projet.getPlanifications().get(i).getMatiere().getDuree());
 			matieres_duree2.add(projet.getPlanifications().get(i).getMatiere().getDuree());
 			formateurs.add(projet.getPlanifications().get(i).getFormateur().getTitre());
+			formateursPrenom.add(projet.getPlanifications().get(i).getFormateur().getPrenom());
 		}
 
 		List<Integer> long_rawspawn = new ArrayList<Integer>();
@@ -131,6 +133,7 @@ public class AfficheProjetController {
 		List<Date> datesDebutMatiere = new ArrayList<Date>();
 		List<Integer> matieresDureeMatiere = new ArrayList<Integer>();
 		List<String> formateurs2 = new ArrayList<String>();
+		List<String> formateursPrenom2 = new ArrayList<String>();
 		int j = 0; // indice pour nouvelle matiere (version long)
 		int k = 0; // indice pour temps dans une matiere
 		int m = 0; // indice pour nouvelle matiere (version court)
@@ -162,6 +165,7 @@ public class AfficheProjetController {
 				matieresDureeMatiere.set(m, matieresDureeMatiere.get(m) + 1);
 				matierePlanning.add(matieres.get(j));
 				formateurs2.add(formateurs.get(j));
+				formateursPrenom2.add(formateursPrenom.get(j));
 				k++;
 				if (k == matieres_duree.get(j)) {
 					j++;
@@ -175,11 +179,10 @@ public class AfficheProjetController {
 			} else {
 				matierePlanning.add("");
 				formateurs2.add("");
+				formateursPrenom2.add("");
 				matieres_duree2.set(j, matieres_duree2.get(j) + 1);
 			}
 		}
-		
-		System.out.println(matieres_duree);
 
 		// liste des durees courtes des matieres, taille de la duree totale du
 		// projet
@@ -218,6 +221,7 @@ public class AfficheProjetController {
 		model.addAttribute("matieresDureeMatiere2", matieresDureeMatiere2);
 	
 		model.addAttribute("formateurs2", formateurs2);
+		model.addAttribute("formateursPrenom2", formateursPrenom2);
 		model.addAttribute("datesDebut", datesDebut);
 		model.addAttribute("formateurDuree", formateurDuree);
 
