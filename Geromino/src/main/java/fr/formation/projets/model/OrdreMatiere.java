@@ -37,6 +37,7 @@ public class OrdreMatiere {
 	@JoinColumn(name="ORD_TEMPLATE_ID")
 	private Template template;
 	
+	
 	public int getId() {
 		return id;
 	}

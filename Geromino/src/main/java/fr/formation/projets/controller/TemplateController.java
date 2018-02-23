@@ -49,7 +49,18 @@ public class TemplateController {
 	public String visualiser(@PathVariable(value="id", required=true) int myId, Model model) {
 		Template myTemplate = daoTemplate.findById(myId).get();		
 		model.addAttribute("Template", myTemplate);
-		model.addAttribute("ordreMatieres", myTemplate.getOrdreMatieres());
+		
+		
+		List<OrdreMatiere> detailOrdreMatieres = daoOrdreMatiere.findAllByTemplateId(myId);
+		model.addAttribute("ordreMatieres", detailOrdreMatieres);
+		
+//		for(OrdreMatiere o : detailOrdreMatieres ){
+//			List prerequis = new ArrayList();
+//			for(Matiere m : o.getMatiere().getPrerequis()) {
+//					prerequis.add(m.getTitre());
+//			}
+//			model.addAttribute("Prerequis", prerequis);
+//		}
 		
 		return "templates/visualiser";
 	}
@@ -68,13 +79,17 @@ public class TemplateController {
 	public String modifier(@PathVariable(value="id", required=true) int myId, Model model, HttpSession session) {
 		
 		Template myTemplate = daoTemplate.findById(myId).get();
+		List<OrdreMatiere> ordreMatieres = daoOrdreMatiere.findAllByTemplateId(myId);
+		myTemplate.setOrdreMatieres(ordreMatieres);
 		session.setAttribute("template", myTemplate);
-		model.addAttribute("template", myTemplate);
-		List<OrdreMatiere> ordreMatieres = myTemplate.getOrdreMatieres();
+
 		session.setAttribute("ordreMatieres", ordreMatieres);
-		//model.addAttribute("ordreMatieres", ordreMatieres);
-		
 		afficheMatiere(model, ordreMatieres);
+		
+		boolean erreurTemplateEmpty=false;
+		session.setAttribute("erreurTemplateEmpty", erreurTemplateEmpty);
+		
+		session.setAttribute("erreurPrerequisManquant", verifPrerequis(ordreMatieres));
 		
 		return "templates/ajouter";
 	}
@@ -91,6 +106,11 @@ public class TemplateController {
 		model.addAttribute("listeMatiere", listeMatiere);	
 		
 		session.setAttribute("template", myTemplate);
+		
+		boolean erreurTemplateEmpty=false;
+		session.setAttribute("erreurTemplateEmpty", erreurTemplateEmpty);
+		
+		session.setAttribute("erreurPrerequisManquant", false);
 		
 		return "templates/ajouter";
 	}
@@ -111,6 +131,8 @@ public class TemplateController {
 		session.setAttribute("ordreMatieresSession", myOrdreMatieres);
 		
 		afficheMatiere(model, myOrdreMatieres);
+		
+		session.setAttribute("erreurPrerequisManquant", verifPrerequis(myOrdreMatieres));
 
 		return "templates/ajouter";
 	}
@@ -126,6 +148,8 @@ public class TemplateController {
 		session.setAttribute("ordreMatieres", myOrdreMatieres);
 		
 		afficheMatiere(model, myOrdreMatieres);
+		
+		session.setAttribute("erreurPrerequisManquant", verifPrerequis(myOrdreMatieres));
 	
 		return "templates/ajouter";
 	}
@@ -152,9 +176,9 @@ public class TemplateController {
 	
 
 	@GetMapping("/editer/bas/{id}")
-	public String decalerBas(@Valid @ModelAttribute("ordreMatieres") List<OrdreMatiere> myOrdreMatieres, @PathVariable(value="id", required=true) int myOrdre, Model model, HttpSession session) {
+	public String decalerBas(@PathVariable(value="id", required=true) int myOrdre, Model model, HttpSession session) {
 		
-		//List<OrdreMatiere> myOrdreMatieres = (List<OrdreMatiere>) session.getAttribute("ordreMatieres");
+		List<OrdreMatiere> myOrdreMatieres = (List<OrdreMatiere>) session.getAttribute("ordreMatieres");
 		
 		OrdreMatiere ordreMatiereTemp = myOrdreMatieres.get(myOrdre);
 		myOrdreMatieres.set(myOrdre, myOrdreMatieres.get(myOrdre+1));
@@ -174,6 +198,11 @@ public class TemplateController {
 	@PostMapping("/valider")
 	public String ajouter(@Valid @ModelAttribute("template") Template myTemplate, BindingResult result, Model model, HttpSession session) {
 		
+		boolean erreurTemplateEmpty=false;
+		session.setAttribute("erreurTemplateEmpty", erreurTemplateEmpty);
+		
+		model.addAttribute("erreurMatiereDoublon", false);
+		
 		List<OrdreMatiere> myOrdreMatieres = (List<OrdreMatiere>) session.getAttribute("ordreMatieres");
 					
 		myTemplate.setOrdreMatieres(myOrdreMatieres);
@@ -183,6 +212,36 @@ public class TemplateController {
 			
 			model.addAttribute("Matieres", myTemplate.getOrdreMatieres());
 			
+			if(verifDoublon(myOrdreMatieres)) {
+				model.addAttribute("erreurMatiereDoublon", true);
+			}
+			
+			if (myOrdreMatieres.isEmpty()) {
+				erreurTemplateEmpty=true;
+				session.setAttribute("erreurTemplateEmpty", erreurTemplateEmpty);
+				
+				afficheMatiere(model, myOrdreMatieres);
+				model.addAttribute("Matieres", myTemplate.getOrdreMatieres());
+				
+				
+			}
+			
+			return "templates/ajouter";
+			
+		}
+		
+		if (myOrdreMatieres.isEmpty()) {
+			erreurTemplateEmpty=true;
+			session.setAttribute("erreurTemplateEmpty", erreurTemplateEmpty);
+			
+			afficheMatiere(model, myOrdreMatieres);
+			model.addAttribute("Matieres", myTemplate.getOrdreMatieres());
+			
+			return "templates/ajouter";
+		}
+		
+		if(verifDoublon(myOrdreMatieres)) {
+			model.addAttribute("erreurMatiereDoublon", true);
 			return "templates/ajouter";
 		}
 
@@ -219,6 +278,40 @@ public class TemplateController {
 		model.addAttribute("tailleMax", tailleMax);
 		
 	}
-
+	
+	private boolean verifPrerequis(List<OrdreMatiere> ordreMatieres) {
+		
+		for(OrdreMatiere o : ordreMatieres) {
+			for( Matiere m : o.getMatiere().getPrerequis()) {
+				int count=0;
+				for( OrdreMatiere o2 : ordreMatieres ) {
+					if(o2.getMatiere().getTitre().equals(m.getTitre()))
+						count++;
+				}
+				
+				if(count==0)
+					return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	private boolean verifDoublon(List<OrdreMatiere> ordreMatieres) {
+		
+		for(OrdreMatiere o : ordreMatieres) {
+			int count=0;
+			
+			for(OrdreMatiere o2 : ordreMatieres) {
+				if(o.getMatiere().getTitre().equals(o2.getMatiere().getTitre()))
+					count++;
+			}
+			
+			if(count>1)
+				return true;
+		}
+		
+		return false;
+	}
 }
 

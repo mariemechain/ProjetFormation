@@ -21,5 +21,8 @@ public interface IOrdreMatiereDAO extends JpaRepository<OrdreMatiere, Integer> {
 	@Modifying
 	@Query("delete from OrdreMatiere o where o.template.id =:id")
 	public void deleteByTemplateId(@Param("id") int id);
+	
+	@Query("select distinct o from OrdreMatiere o left join fetch o.matiere m left join fetch m.prerequis p where o.template.id =:id order by o.ordre")
+	public List<OrdreMatiere> findAllByTemplateId(@Param("id") int id);
 
 }
