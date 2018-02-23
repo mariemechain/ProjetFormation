@@ -54,7 +54,7 @@
                 </div>
             </div>
 
-				<button type="submit" class="btn btn-primary mb-4">Ajouter</button>
+				<button type="submit" class="btn btn-success mb-4">Ajouter</button>
 				
 				
 		<table class="table table-striped" style="text-align: center">
@@ -94,10 +94,27 @@
 			</c:forEach>
 		</table>
 	
+	</br>
+	<h3>Liste des matières et des formateurs :  <a href="projet/detailProjet/planification?idProjet=${projet.id}">
+			<button type="button" class="btn btn-primary mb-4">Plannification</button></a> </h3>
+	
+	<table class="table table-striped" style="text-align: center">
+			<thead>
+				<tr>
+					<th>Matières</th>
+					<th>Formateurs</th>
+				</tr>
+			</thead>
+			<c:forEach items="${projet.planifications}" var="planification">
+				<tr>
+					<td>${planification.matiere.titre }</td>
+					<td>${planification.formateur.nom }</td>
+				</tr>
+			</c:forEach>
+		</table>
+		
 	<a href="gestionnaire/gestionnaireProjet">
 			<button type="button" class="btn btn-danger mb-4">Revenir au menu précédent</button></a>
-	
-
 			</div>
 				
 		</form:form>
