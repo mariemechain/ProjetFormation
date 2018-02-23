@@ -1,6 +1,7 @@
 package fr.formation.disponibilite.controller;
 
 import java.text.SimpleDateFormat;
+import java.time.DayOfWeek;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -52,7 +53,7 @@ public class DisponibiliteController {
 		LocalDate debut = LocalDate.now(); //date du jour
 		LocalDate fin = debut.plusMonths(6); //date dans 1 mois
 		double duree = ChronoUnit.DAYS.between(debut, fin);
-		
+
 		premierMois = moisFrancais(debut.getMonth());
 		model.addAttribute("premierMois", premierMois);
 		for (int i=0; i<6; i++)
@@ -94,9 +95,9 @@ public class DisponibiliteController {
 		for(Ordinateur o : ordinateurs) {
 			List<Projet> projets = o.getDispo(); //La liste des projets de chaque ordinateur
 			
-			if(o.getDate() != null) {
+			if(o.getDate() != null){
 				Date retourMaintenanceAConvertir = o.getDate();			
-				Instant instant = Instant.ofEpochMilli(retourMaintenanceAConvertir.getTime());			
+				Instant instant = Instant.ofEpochMilli(retourMaintenanceAConvertir.getTime());
 				LocalDate retourMaintenance = LocalDateTime.ofInstant(instant, ZoneId.systemDefault()).toLocalDate();
 				
 				if(retourMaintenance.isAfter(d1))
@@ -104,9 +105,13 @@ public class DisponibiliteController {
 			}
 			
 			for(Projet p : projets) {
-				Date dateD = p. getDebut();
+				Date dateD = p. getDebut();				
 				java.sql.Date dateDebut = (java.sql.Date) dateD;
+				LocalDate dateDebut2 = dateDebut.toLocalDate();
 				int duree = p.getDuree();
+				
+				duree = add(dateDebut2, duree);
+								
 				List<LocalDate> listeIndisponibilite = obtenirListeIndisponibilite(dateDebut,duree);
 				
 				for(LocalDate d2 : listeIndisponibilite) {
@@ -246,6 +251,30 @@ public class DisponibiliteController {
 				break;
 		}
 		return mois;
+	}
+	
+	public int add(LocalDate date, int duree){
+
+	    int dureePlusWeekend=duree;
+	    int addedDays = 0;
+	    
+	    List<LocalDate> listeDate = new ArrayList<LocalDate>();
+	    LocalDate dateFin = date.plusDays(duree);
+		for(int i=0;i<duree;i++) {
+			LocalDate d = date.plusDays(i);
+			listeDate.add(d);
+		}
+	    
+	    for(LocalDate d : listeDate) {
+		    if (!(d.getDayOfWeek() == DayOfWeek.SATURDAY || d.getDayOfWeek() == DayOfWeek.SUNDAY)) {
+		      ++addedDays;
+		    }
+	    }
+	    
+	    dureePlusWeekend = duree + addedDays;
+	    System.out.println(dureePlusWeekend);
+	    
+	    return dureePlusWeekend;
 	}
 	
 }
