@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 
-<!--  si je suis connectï¿½, j'affiche le menu de navigation sinon je ne l'affiche pas. -->
+<!--  si je suis connecté, j'affiche le menu de navigation sinon je ne l'affiche pas. -->
 <c:if test="${login != null}">
 
 	<c:if test="${utilisateur.type == 'Administrateur' }">
@@ -42,7 +42,7 @@
 						</li>
 						<li class="nav-item"><a class="nav-link" href="gestionnaire">Gestionnaire</a></li>
 						<li class="nav-item"><a class="nav-link" href="admin">Administrateur</a></li>
-						<li class="nav-item"><a class="nav-link" href="deconnexion">Dï¿½connexion</a></li>
+						<li class="nav-item"><a class="nav-link" href="deconnexion">Déconnexion</a></li>
 					</ul>
 				</c:if>
 
@@ -55,7 +55,7 @@
 							href="gestionnaire">Gestionnaire<span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item"><a class="nav-link" href="admin">Administrateur</a></li>
-						<li class="nav-item"><a class="nav-link" href="deconnexion">Dï¿½connexion</a></li>
+						<li class="nav-item"><a class="nav-link" href="deconnexion">Déconnexion</a></li>
 					</ul>
 				</c:if>
 
@@ -100,7 +100,7 @@
 						</a></li>
 						<li class="nav-item"><a class="nav-link" href="technicien">Techniciens</a></li>
 						<li class="nav-item"><a class="nav-link" href="gestionnaire">Gestionnaire</a></li>
-						<li class="nav-item"><a class="nav-link" href="deconnexion">Dï¿½connexion</a></li>
+						<li class="nav-item"><a class="nav-link" href="deconnexion">Déconnexion</a></li>
 					</ul>
 				</c:if>
 
@@ -112,7 +112,7 @@
 							href="technicien">Techniciens <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item"><a class="nav-link" href="gestionnaire">Gestionnaire</a></li>
-						<li class="nav-item"><a class="nav-link" href="deconnexion">Dï¿½connexion</a></li>
+						<li class="nav-item"><a class="nav-link" href="deconnexion">Déconnexion</a></li>
 					</ul>
 				</c:if>
 
@@ -124,7 +124,7 @@
 						<li class="nav-item active"><a class="nav-link"
 							href="gestionnaire">Gestionnaire<span class="sr-only">(current)</span></a>
 						</li>
-						<li class="nav-item"><a class="nav-link" href="deconnexion">Dï¿½connexion</a></li>
+						<li class="nav-item"><a class="nav-link" href="deconnexion">Déconnexion</a></li>
 					</ul>
 				</c:if>
 
@@ -155,7 +155,7 @@
 						</a></li>
 						<li class="nav-item"><a class="nav-link" href="technicien">Techniciens</a></li>
 						<li class="nav-item"><a class="nav-link" href="gestionnaire">Gestionnaire</a></li>
-						<li class="nav-item"><a class="nav-link" href="deconnexion">Dï¿½connexion</a></li>
+						<li class="nav-item"><a class="nav-link" href="deconnexion">Déconnexion</a></li>
 					</ul>
 				</c:if>
 				</div>
@@ -183,7 +183,7 @@
 								<span class="sr-only">(current)</span>
 						</a></li>
 						<li class="nav-item"><a class="nav-link" href="technicien">Techniciens</a></li>
-						<li class="nav-item"><a class="nav-link" href="deconnexion">Dï¿½connexion</a></li>
+						<li class="nav-item"><a class="nav-link" href="deconnexion">Déconnexion</a></li>
 					</ul>
 				</c:if>
 
@@ -194,7 +194,7 @@
 						<li class="nav-item active"><a class="nav-link"
 							href="technicien">Techniciens <span class="sr-only">(current)</span></a>
 						</li>
-						<li class="nav-item"><a class="nav-link" href="deconnexion">Dï¿½connexion</a></li>
+						<li class="nav-item"><a class="nav-link" href="deconnexion">Déconnexion</a></li>
 					</ul>
 				</c:if>
 

@@ -54,7 +54,7 @@
 
 
 			<div>
-				<a href="../${idProjet }">Valider</a>
+				<a href="gestionnaire/gestionnaireProjetStagiaires?id=${idProjet }">Valider</a>
 			</div>
 
 		</div>

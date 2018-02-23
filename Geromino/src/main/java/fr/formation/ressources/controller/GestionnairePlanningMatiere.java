@@ -59,7 +59,7 @@ public class GestionnairePlanningMatiere {
 		List<Matiere> matieres = daoMatiere.findAll();
 		model.addAttribute("matieres", matieres);
 
-		return "planification/choixMatiereforPlanification";
+		return "matiere/choixMatiereforPlanification";
 	}
 
 
