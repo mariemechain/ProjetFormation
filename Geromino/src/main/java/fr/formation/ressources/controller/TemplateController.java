@@ -25,6 +25,7 @@ import fr.formation.ressources.metier.Matiere;
 import fr.formation.ressources.metier.OrdreMatiere;
 import fr.formation.ressources.metier.Template;
 
+//Test Modification
 @Controller
 @RequestMapping("/gestionnaire/gestionnaireTemplates")
 public class TemplateController {
