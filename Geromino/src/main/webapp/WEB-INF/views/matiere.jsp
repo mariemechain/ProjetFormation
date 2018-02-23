@@ -28,12 +28,12 @@
 								<tr>
 									<th class="colonne1" scope="row"><span class="h6">${m.titre}</span></th>
 
-									<td><a class="btn btn-outline-success"
+									<td><a class="btn btn-warning"
 										href="/Geromino/gestionnaire/gestionnaireMatieres/information?id=${m.id}">Informations</a>
 									</td>
-									<td><a class="btn btn-outline-secondary"
+									<td><a class="btn btn-primary"
 										href="/Geromino/gestionnaire/gestionnaireMatieres/editer?id=${m.id}">Modifier</a></td>
-									<td><a id="suppr" class="btn btn-outline-danger"
+									<td><a id="suppr" class="btn btn-danger"
 										href="/Geromino/gestionnaire/gestionnaireMatieres/supprimer?id=${m.id}">X</a></td>
 								</tr>
 							</c:forEach>
@@ -44,7 +44,7 @@
 				</div>
 				<div class="list-group">
 					<a href="/Geromino/gestionnaire/gestionnaireMatieres/ajouter"
-						class="btn btn-outline-primary" role="button" aria-pressed="true">Ajouter
+						class="btn btn-success" role="button" aria-pressed="true">Ajouter
 						une nouvelle matière</a>
 				</div>
 			</div>
@@ -72,22 +72,24 @@
 					</c:if>
 				</span>
 			</div>
-
-			<a href="/Geromino/upload/download" class="btn btn-outline-primary"
-				role="button" aria-pressed="true">Fichiers en ligne</a>
-
-		</div>
-
-
-		<div class="form-group row">
+			
+			<div class="form-group row">
 			<div class="col-sm-10">
-				<a href="/Geromino/gestionnaire">
-					<button type="button" class="btn btn-danger mb-4">Revenir
-						au menu précédent</button>
-				</a>
-			</div>
-		</div>
+				<a href="/Geromino/gestionnaire/upload/download"
+					class="btn btn-primary mb-4" role="button" aria-pressed="true">Fichiers
+					en ligne</a>
 
+			</div>
+
+
+			
+				<div class="col-sm-10">
+					<a href="/Geromino/gestionnaire">
+						<button type="button" class="btn btn-danger mb-4">Revenir
+							au menu précédent</button>
+					</a>
+				</div>
+			</div>
 	</tiles:putAttribute>
 
 </tiles:insertDefinition>

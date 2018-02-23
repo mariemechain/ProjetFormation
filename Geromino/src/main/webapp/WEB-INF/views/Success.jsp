@@ -17,9 +17,9 @@
 				<h1>Le fichier a bien été envoyé</h1>
 			</div>
 
-			<a href="/Geromino/matiere/" class="btn btn-outline-primary"
+			<a href="/Geromino/gestionnaire/gestionnaireMatieres/" class="btn btn-primary"
 				role="button" aria-pressed="true">Retour aux matières</a> <a
-				href="/Geromino/upload/download/" class="btn btn-outline-primary"
+				href="/Geromino/gestionnaire/upload/download/" class="btn btn-primary"
 				role="button" aria-pressed="true">Retour aux fichiers en ligne</a>
 
 		</div>

@@ -305,5 +305,6 @@ public class TechnicienController {
 		stagDAO.save(s);
 		return "redirect:./";
 	}
+	
 
 }

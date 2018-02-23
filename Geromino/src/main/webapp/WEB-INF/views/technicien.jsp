@@ -17,23 +17,26 @@
 
 		<div class="container">
 
-			<table class="table table-striped" style="text-align:center">
+			<table class="table" style="text-align: center">
 
-				<thead>
-					<tr>
-						<th></th>
-						<th></th>
-						
-					</tr>
-				</thead>
 				<tr>
 					<td><a href="/Geromino/technicien/ordi"
 						class="btn btn-success mr-4">Gestion des ordinateurs</a></td>
 					<td><a href="/Geromino/technicien/video" class="btn btn-info">Gestion
 							des vidéoprojecteurs</a></td>
-							
-		</tr>
-		</table>					
+					
+
+				</tr>
+			</table>
+			<table class="table" style="text-align: center">
+
+				<tr>
+					
+					<td><a href="/Geromino/technicien/disponibilite" class="btn btn-dark">Gestion
+							des stocks</a></td>
+
+				</tr>
+			</table>
 		</div>
 
 	</tiles:putAttribute>

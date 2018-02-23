@@ -68,7 +68,7 @@
 				<form:errors path="duree" element="div" cssClass="alert alert-danger" />
 
 				<div>
-					<button type="submit" class="btn btn-outline-success"
+					<button type="submit" class="btn btn-success"
 						value="Ajouter">Valider</button>
 				</div>
 

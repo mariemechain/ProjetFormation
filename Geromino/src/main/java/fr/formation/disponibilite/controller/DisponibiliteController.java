@@ -19,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import fr.formation.disponibilite.model.Disponibilite;
@@ -31,7 +32,7 @@ import fr.formation.ressources.metier.Salle;
 import fr.formation.ressources.metier.VideoProjecteur;
 
 @Controller
-@RequestMapping("/disponibilite")
+@RequestMapping("/technicien/disponibilite")
 public class DisponibiliteController {
 	
 	@Autowired
@@ -41,6 +42,10 @@ public class DisponibiliteController {
 	@Autowired
 	ISalleDAO salleDao;
 	
+	@ModelAttribute("page")
+	public String page() {
+		return "technicien";
+	}
 
 	private String premierMois;
 	private Map<Integer, String> mois = new HashMap<Integer, String>();

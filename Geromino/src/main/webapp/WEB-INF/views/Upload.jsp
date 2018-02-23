@@ -15,25 +15,34 @@
 
 			<div align="center">
 				<h1>Mettre en ligne un fichier</h1>
-				<form method="post" action="doUpload" enctype="multipart/form-data">
-					<table border="0">
-						<tr>
-							<td></td>
+				<br/>
+				<br/>
+				<form method="post" action="gestionnaire/upload/doUpload"
+					enctype="multipart/form-data">
+					<table border="0" class="table" style="text-align: center">
+						<tr class="col-md-2">
+							
 							<td><input type="file" name="fileUpload" size="50" /></td>
 						</tr>
-						
-						<tr>
+
+						<tr class="col-md-2">
 							<td colspan="2" align="center"><input type="submit"
 								class="btn btn-success" value="Mettre en ligne" /></td>
 						</tr>
 					</table>
 				</form>
+				<table class="table" style="text-align: center">
+				
+					<tr class="col-md-2">
+						<td><a href="/Geromino/gestionnaire/gestionnaireMatieres/"
+							class="btn btn-danger" role="button" aria-pressed="true">Retour
+							aux matières</a></td>
 
-				<a href="/Geromino/matiere/" class="btn btn-outline-danger"
-					role="button" aria-pressed="true">Retour aux matières</a><a
-					href="/Geromino/upload/download" class="btn btn-outline-warning"
-					role="button" aria-pressed="true">Retour aux fichiers en ligne</a>
-
+						<td><a href="/Geromino/gestionnaire/upload/download"
+							class="btn btn-warning" role="button" aria-pressed="true">Retour
+							aux fichiers en ligne</a></td>
+							</tr>
+							</table>
 			</div>
 
 

@@ -40,12 +40,18 @@ import net.sf.ehcache.hibernate.HibernateUtil;
  * Handles requests for the file upload page.
  */
 @Controller
+@RequestMapping("/gestionnaire/upload")
 public class UploadController {
+	
 	@Autowired
 	private IUploadFileDAO fileUploadDao;
 
+	@ModelAttribute("page")
+    public String page() {
+        return "gestionnaire";
+    }
 
-	@GetMapping("/upload")
+	@GetMapping("")
 	public String showUploadForm(HttpServletRequest request) {
 		return "Upload";
 	}
@@ -69,7 +75,7 @@ public class UploadController {
 //		return "Success";
 //	}
 //	
-	@PostMapping("/upload/doUpload")
+	@PostMapping("/doUpload")
 	@Transactional
 	public String save(
 			@ModelAttribute("fichier") UploadFile fichier,
@@ -102,19 +108,19 @@ public class UploadController {
 
 	
 
-	@GetMapping("/upload/download")
+	@GetMapping("/download")
 	public String findAll(Model model) {
 		model.addAttribute("fichiers", fileUploadDao.findAll());
 		return "Download";
 	}
 
-	@GetMapping("/upload/download/supprimer")
+	@GetMapping("/download/supprimer")
 	public String supprimer(@RequestParam("id") long id) {
 		fileUploadDao.deleteById(id);
 		return "redirect:./";
 	}
 
-	@RequestMapping("/upload/download/{documentId}")
+	@RequestMapping("/download/{documentId}")
 	public String download(@PathVariable("documentId")
 			Long documentId, HttpServletResponse response) {
 		

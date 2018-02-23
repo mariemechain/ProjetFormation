@@ -26,10 +26,10 @@
 						<tr>
 							<th class="colonne1" scope="row"><span class="h6">${f.fileName}</span></th>
 
-							<td><a class="btn btn-outline-secondary"
-								href="/Geromino/upload/download/${f.id}">Télécharger</a></td>
-							<td><a class="btn btn-outline-danger"
-								href="/Geromino/upload/download/supprimer?id=${f.id}">Supprimer</a></td>
+							<td><a class="btn btn-secondary"
+								href="/Geromino/gestionnaire/upload/download/${f.id}">Télécharger</a></td>
+							<td><a class="btn btn-danger"
+								href="/Geromino/gestionnaire/upload/download/supprimer?id=${f.id}">X</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -38,10 +38,10 @@
 			</table>
 
 
-			<a href="/Geromino/upload/" class="btn btn-outline-primary"
+			<a href="/Geromino/gestionnaire/upload/" class="btn btn-primary"
 				role="button" aria-pressed="true">Upload</a> <a
-				href="/Geromino/matiere/" class="btn btn-outline-warning"
-				role="button" aria-pressed="true">Retour</a>
+				href="/Geromino/gestionnaire/gestionnaireMatieres/" class="btn btn-warning"
+				role="button" aria-pressed="true">Retour aux matières</a>
 
 		</div>
 
