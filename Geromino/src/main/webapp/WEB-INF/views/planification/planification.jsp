@@ -11,7 +11,7 @@
 
 		<div class=" container">
 
-
+		<a href=planification/addMat class="btn btn-success">+</a>
 
 			<table class="table table-striped">
 				<thead>
@@ -46,6 +46,10 @@
 									<td><a href="gestionnaire/gestionnaireProjetStagiaires/${idProjet }/planification/idPlanif${planif.id }/idMatiere${planif.matiere.id}"
 								class="btn btn-warning"><span
 									class="glyphicon glyphicon-pencil"></span> Modif matiere </a>
+									
+									<a href="planification/deleteMatiere?id=${planif.id }"
+								class="btn btn-danger"><span
+									class="glyphicon glyphicon-pencil"></span> Supprimer matiere </a>
 						</tr>
 					</c:forEach>
 				</tbody>
