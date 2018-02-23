@@ -51,7 +51,7 @@ public class GestionnairePlanningMatiere {
 	// ====================================LISTE
 	// FORMATEURS=====================================================
 	@GetMapping(value = { "" })
-	public String getListeFormateur(@PathVariable int idMatiere, @PathVariable int idProjet, @PathVariable int idPlanif,
+	public String getListeMatiere(@PathVariable int idMatiere, @PathVariable int idProjet, @PathVariable int idPlanif,
 			Model model) {
 		// recuperer la matiere en fonctiond de son id
 		Matiere matiere = daoMatiere.findById(idMatiere);
@@ -61,13 +61,13 @@ public class GestionnairePlanningMatiere {
 		List<Matiere> matieres = daoMatiere.findAll();
 		model.addAttribute("matieres", matieres);
 
-		return "matiere/choixMatiereforTemplate";
+		return "matiere/choixMatiereforPlanification";
 	}
 
 
 	// ====================================SUPPRESSION De la matiere dans la planification à finir=====================================================
 	@GetMapping(value = { "/supprimer" })
-	public String getSuppFormateur(@RequestParam("idm") int idMatiere, Model model) {
+	public String getSuppMatiere(@RequestParam("idm") int idMatiere, Model model) {
 
 		Planification planification = new Planification();
 		Matiere matiere = new Matiere();
@@ -82,7 +82,7 @@ public class GestionnairePlanningMatiere {
 	// ====================================MODIFIER=====================================================
 
 	@GetMapping(value = { "/modif" })
-	public String getModifierFormateur(@RequestParam("idm") int idMatiere,@PathVariable int idPlanif) {
+	public String getModifierMAtiere(@RequestParam("idm") int idMatiere,@PathVariable int idPlanif) {
 
 		Planification planif = daoPlan.findById(idPlanif).get();
 		Matiere matiere = daoMatiere.findById(idMatiere);

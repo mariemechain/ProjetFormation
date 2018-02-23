@@ -12,7 +12,7 @@
 
 
 
-		<h2>Remplacement de la matiere : ${matiere.titre}</h2>
+		<h2>Choix formateur pour la matiere : ${matiere.titre}</h2>
 
 		
 		
@@ -35,6 +35,8 @@
 				</c:forEach>
 			</tbody>
 		</table>
+		
+		
 
 	</tiles:putAttribute>
 </tiles:insertDefinition>
