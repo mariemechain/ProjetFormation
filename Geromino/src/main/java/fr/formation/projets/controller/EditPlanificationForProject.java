@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.formation.formateur.dao.IFormateurDAO;
 import fr.formation.projets.dao.IPlanificationDAO;
+import fr.formation.projets.dao.IProjetDAO;
 import fr.formation.projets.model.Planification;
+import fr.formation.projets.model.Projet;
 
 @Controller
 @RequestMapping("/projet/detailProjet/{idProjet}/planification")
@@ -28,14 +30,18 @@ public class EditPlanificationForProject {
 
 	@Autowired
 	private IPlanificationDAO daoPlan;
+	
+	@Autowired
+	private IProjetDAO daoPro;
 
 	@GetMapping("")
 	public String getMatieres(@PathVariable int idProjet, HttpServletRequest req, Model model) {
+		Projet projet = daoPro.findById(idProjet).get();
 		
-		for (Planification p : daoPlan.findAll()) {
+		for (Planification p : projet.getPlanifications()) {
 			System.out.println(p.getId());
 		}
-		model.addAttribute("planifications", daoPlan.findAll());
+		model.addAttribute("planifications", projet.getPlanifications());
 
 		return "planification/planification";
 	}

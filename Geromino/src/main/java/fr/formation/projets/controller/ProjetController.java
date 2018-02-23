@@ -108,9 +108,7 @@ public class ProjetController {
 	    projet.setDuree(njours);
 	    projet.setNomTemplate(t.getNom());
 	    
-	    
-		System.out.println(projet);
-		daoProjet.save(projet);
+	    daoProjet.save(projet);
 
 		return "redirect:../projet";
 	}
@@ -140,6 +138,38 @@ public class ProjetController {
 
 		Salle s = daoSalle.findById(idSal).get();
 		Template t = daoTemplate.findById(idTemplate).get();
+		
+		
+		/* Modification */
+		
+		List<Planification> plans = daoPLanification.findAll();
+		 
+	    for(Planification p : plans) {
+	      if(p.getProjet() != null && p.getProjet().getId() == projet.getId()) {
+	        daoPLanification.delete(p);
+	      }
+	    }
+		
+		
+	    List<OrdreMatiere> oms = t.getOrdreMatieres();
+	    List<Planification> ps = new ArrayList<Planification>();
+	    int njours = 0;	    
+	 
+	    for (OrdreMatiere om : oms) {
+	      Planification p = new Planification();
+	      p.setMatiere(om.getMatiere());
+	      p.setProjet(projet);
+	      daoPLanification.save(p); 
+	      ps.add(p);
+	 
+	      njours += om.getMatiere().getDuree(); 
+	 
+	    }
+
+	    projet.setPlanifications(ps);
+	    projet.setDuree(njours);
+
+		
 
 		projet.setId(id);
 		projet.setSalle(s);

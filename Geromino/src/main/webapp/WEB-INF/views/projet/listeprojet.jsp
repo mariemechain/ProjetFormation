@@ -34,7 +34,7 @@
 						<td>${ projet.dateDebut}</td>
 						<td>${ projet.duree} jours</td>
 						<td>${ projet.salle.id}</td>
-						<td> </td>
+						<td> ${projet.nomTemplate}</td>
 						<td>${ projet.stagiaires} / ${ projet.salle.places}</td>
 						<td>
 							<a href="projet/editer/${ projet.id }" class="btn btn-primary">Editer</a>
