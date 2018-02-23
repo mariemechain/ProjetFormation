@@ -30,14 +30,9 @@
 						value="${ matiere.titre }">${ matiere.titre }</span>
 				</div>
 
-				<button type="submit" class="btn btn-primary">Filtrer</button>
-				<a href="/Geromino/formateurs" class="btn btn-primary"> Annuler
-					Filtre </a>
 			</div>
 		</form>
 
-		<a href="/Geromino/formateurs/ajouter" class="btn btn-success btn-lg">
-			Ajouter un formateur</a>
 
 
 		<!--#########	Liste	#########-->
