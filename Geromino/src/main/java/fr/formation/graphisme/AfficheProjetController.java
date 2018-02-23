@@ -39,7 +39,11 @@ public class AfficheProjetController {
 	@GetMapping("")
 	public String afficher(@RequestParam("id") int id, Model model) {
 		Projet projet = daoPro.findById(id).get();
-
+		
+		List<String> couleurs = new ArrayList<String>();
+		List<String> couleurs_final = new ArrayList<String>();
+		remplir(couleurs);
+		
 		Date date = projet.getDebut();
 		List<Date> dates = new ArrayList<Date>();
 		LocalDate local_date = ((java.sql.Date) date).toLocalDate();
@@ -212,6 +216,7 @@ public class AfficheProjetController {
 			j = 0;
 			while (j<matieres_duree2.get(i)) {
 				formateurDuree.add(matieres_duree2.get(i));
+				couleurs_final.add(couleurs.get(i));
 				j++;
 			}
 		}
@@ -226,7 +231,9 @@ public class AfficheProjetController {
 		model.addAttribute("formateurDuree", formateurDuree);
 
 		// Fin ajouts de Klervi
-
+		
+		model.addAttribute("couleurs", couleurs_final);
+		
 		model.addAttribute("dates", dates);
 		model.addAttribute("jours", jours);
 
@@ -241,6 +248,27 @@ public class AfficheProjetController {
 		model.addAttribute("date", projet.getDebut().getDate());
 
 		return "afficheProjet";
+	}
+
+	private void remplir(List<String> couleurs) {
+		couleurs.add("#ff0000"); // hue = 0
+		couleurs.add("#00ff00"); // hue = 120
+		couleurs.add("#0000ff"); // hue = 240
+		couleurs.add("#ffff00"); // hue = 60
+		couleurs.add("#00ffff"); // hue = 180
+		couleurs.add("#ff00ff"); // hue = 300
+		couleurs.add("#808080"); // grey
+		couleurs.add("#ffbf00"); // hue = 45
+		couleurs.add("#00bfff"); // hue = 195
+		couleurs.add("#bf00ff"); // hue = 285
+		couleurs.add("#bfff00"); // hue = 75
+		couleurs.add("#00ffbf"); // hue = 165
+		couleurs.add("#ff00bf"); // hue = 315
+		couleurs.add("#ffffff"); // white
+		couleurs.add("#ffcccc"); // pink
+		couleurs.add("#66ff99"); // horrible green
+		couleurs.add("#993333"); // bordeaux
+
 	}
 
 	@SuppressWarnings("deprecation")

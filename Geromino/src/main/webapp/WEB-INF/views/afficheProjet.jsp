@@ -39,7 +39,7 @@
 							<td>${dates[i].getDate()}</td>
 							<td>${jours[i]}</td>
 							<c:if test="${datesDebutMatiere[i]==dates[i]}">
-								<td rowspan="${matieresDureeMatiere2[i]}">${matierePlanning[i]}</td>
+								<td rowspan="${matieresDureeMatiere2[i]}" bgcolor="${couleurs[i]}">${matierePlanning[i]}</td>
 							</c:if>
 							<c:if test="${datesDebut[i]==dates[i]}">
 								<td rowspan="${formateurDuree[i]}">${formateursPrenom2[i]}</td>
