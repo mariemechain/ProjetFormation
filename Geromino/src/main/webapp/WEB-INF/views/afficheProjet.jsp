@@ -34,18 +34,18 @@
 					<c:forEach var="i" begin="0" end="${duree-1}">
 						<tr>
 							<c:if test="${i==duree_mois_tot[i]}">
-								<td rowspan="${duree_mois[i]}">${mois[i]}</td>
+								<td rowspan="${duree_mois[i]}"><b>${mois[i]}</b></td>
 							</c:if>
 							<td>${dates[i].getDate()}</td>
 							<td>${jours[i]}</td>
 							<c:if test="${datesDebutMatiere[i]==dates[i]}">
-								<td rowspan="${matieresDureeMatiere2[i]}" bgcolor="${couleurs[i]}">${matierePlanning[i]}</td>
+								<td rowspan="${matieresDureeMatiere2[i]}" bgcolor="${couleurs[i]}"><b>${matierePlanning[i]}</b></td>
 							</c:if>
 							<c:if test="${datesDebut[i]==dates[i]}">
-								<td rowspan="${formateurDuree[i]}">${formateursPrenom2[i]}</td>
+								<td rowspan="${formateurDuree[i]}"><b>${formateursPrenom2[i]}</b></td>
 							</c:if>
 							<c:if test="${datesDebut[i]==dates[i]}">
-								<td rowspan="${formateurDuree[i]}">${formateurs2[i]}</td>
+								<td rowspan="${formateurDuree[i]}"><b>${formateurs2[i]}</b></td>
 							</c:if>
 						</tr>
 					</c:forEach>

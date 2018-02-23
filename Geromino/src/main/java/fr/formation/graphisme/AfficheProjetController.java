@@ -251,12 +251,9 @@ public class AfficheProjetController {
 	}
 
 	private void remplir(List<String> couleurs) {
-		couleurs.add("#ff0000"); // hue = 0
-		couleurs.add("#00ff00"); // hue = 120
-		couleurs.add("#0000ff"); // hue = 240
-		couleurs.add("#ffff00"); // hue = 60
-		couleurs.add("#00ffff"); // hue = 180
-		couleurs.add("#ff00ff"); // hue = 300
+		couleurs.add("#ffcccc"); // pink
+		couleurs.add("#66ff99"); // horrible green
+		couleurs.add("#993333"); // bordeaux
 		couleurs.add("#808080"); // grey
 		couleurs.add("#ffbf00"); // hue = 45
 		couleurs.add("#00bfff"); // hue = 195
@@ -264,11 +261,13 @@ public class AfficheProjetController {
 		couleurs.add("#bfff00"); // hue = 75
 		couleurs.add("#00ffbf"); // hue = 165
 		couleurs.add("#ff00bf"); // hue = 315
+		couleurs.add("#ff0000"); // hue = 0
+		couleurs.add("#00ff00"); // hue = 120
+		couleurs.add("#0000ff"); // hue = 240
+		couleurs.add("#ffff00"); // hue = 60
+		couleurs.add("#00ffff"); // hue = 180
+		couleurs.add("#ff00ff"); // hue = 300	
 		couleurs.add("#ffffff"); // white
-		couleurs.add("#ffcccc"); // pink
-		couleurs.add("#66ff99"); // horrible green
-		couleurs.add("#993333"); // bordeaux
-
 	}
 
 	@SuppressWarnings("deprecation")
