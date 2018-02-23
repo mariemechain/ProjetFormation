@@ -1,0 +1,44 @@
+
+<ngb-datepicker #dp ngModel (ngModelChange)="onDateChange($event)" [displayMonths]="2" [dayTemplate]="t">
+</ngb-datepicker>
+
+<ng-template #t let-date="date" let-focused="focused">
+  <span class="custom-day"
+        [class.focused]="focused"
+        [class.range]="isFrom(date) || isTo(date) || isInside(date) || isHovered(date)"
+        [class.faded]="isHovered(date) || isInside(date)"
+        (mouseenter)="hoveredDate = date"
+        (mouseleave)="hoveredDate = null">
+    {{ date.day }}
+  </span>
+</ng-template>
+
+<hr>
+
+<div class="row mb-2 col-auto">
+  <button (click)="addDispo()" class="btn btn-success">AJOUTER</button>
+</div>
+
+<div class="container">
+  <h2>Liste des disponibilités</h2>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        
+        <th>Date Début</th>
+        <th>Date Fin</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let dispo of service.formateur.disponibilites">
+
+       <td>{{dispo.date_debut | date:'d MMMM y' }}</td>
+       <td>{{dispo.date_fin | date:'d MMMM y'}}</td>
+       <td><button (click)="editDispo(dispo)" class="btn btn-primary">Editer</button><button (click)="deleteDispo(dispo)" class="btn btn-danger">Supprimer</button></td>
+     </tr>
+    </tbody>
+  </table>
+</div>

@@ -27,8 +27,8 @@
       </tbody>
      </table>
  
-  <a href="formateur/ajouter?idf=${formateur.id}" class="btn btn-success btn-lg" > Ajouter une compétence</a>
-  <!--  <a href="formateurs/liste" class="btn btn-info">Retour</a>-->
+  <a href="/Geromino/formateur/ajouter?idf=${formateur.id}" class="btn btn-success btn-lg" > Ajouter une compétence</a>
+  <a href="/Geromino/formateurs/liste" class="btn btn-info">Retour</a>
   <table class="table table-hover">
     <thead>
       <tr>
@@ -44,7 +44,7 @@
 			<td>${ listeExpertises.id }</td>
 			<td>${ listeExpertises.matiere.titre }</td>
 			<td>${ listeExpertises.niveau }</td>
-			<td> <a href="formateur/modifier?idf=${formateur.id}&ide=${listeExpertises.id}" class="btn btn-primary">Editer</a><a href="formateur/supprimer?idf=${formateur.id}&ide=${listeExpertises.id}" class="btn btn-danger">Supprimer</a></td>
+			<td> <a href="/Geromino/formateur/modifier?idf=${formateur.id}&ide=${listeExpertises.id}" class="btn btn-primary">Editer</a><a href="/Geromino/formateur/supprimer?idf=${formateur.id}&ide=${listeExpertises.id}" class="btn btn-danger">Supprimer</a></td>
 			
 			</tr>
 	</c:forEach>

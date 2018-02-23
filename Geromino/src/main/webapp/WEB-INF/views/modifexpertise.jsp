@@ -13,7 +13,8 @@
 <form method="POST" action="">
   <div class="form-group">
   	<input type="hidden" id="idf" name="idf" value="${formateur.id}">
-
+<!--     <label for="niveau">Niveau:</label> -->
+<!--     <input type="text" class="form-control" name="niveau" id="niveau"> -->
     
     <label for="sel1">Niveaux:</label>
   <select class="form-control" id="sel1" name="niveau">
@@ -26,6 +27,8 @@
   
  
   <div class="form-group">
+<!--     <label for="idM">Matiere:</label> -->
+<!--     <input type="text" class="form-control" name="idM" id="idM"> -->
     
     <label for="sel2">Matières:</label>
   	<select class="form-control" id="sel2" name="idM">

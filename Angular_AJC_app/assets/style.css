@@ -1,0 +1,32 @@
+body{
+  background-image: url('/images/deadline.jpg');
+}
+
+.negatif{
+  background-color: red;
+}
+
+.input-group-text{
+  width:200px;
+  background-color: #B34151;
+  color: white;
+}
+
+.form-control{
+  width: 300px;
+}
+
+.table-striped{
+  background-color: white;
+}
+
+#logo{
+  width:80px;
+  heigth:80px;
+  background-color: transparent;
+}
+
+.titres{
+  font-weight: bold;
+  width: 200px;
+}

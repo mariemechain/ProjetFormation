@@ -1,0 +1,49 @@
+<h1 align="center" >Bonjour {{ formateurService.formateur.nom}} {{ formateurService.formateur.prenom}}</h1>
+<h2 align="center">Informations personnelles</h2>
+<div class="container">
+
+
+  <!-- <p>Titre :              {{ formateurService.formateur.titre}}</p>
+  <p>Nom :                {{ formateurService.formateur.nom}}</p>
+  <p>Prenom :             {{ formateurService.formateur.prenom}}</p>
+  <p>Email :              {{ formateurService.formateur.email}}</p>
+  <p>Téléphone :          {{ formateurService.formateur.tel}}</p>
+  <p>Date de Naissance :  {{ formateurService.formateur.dateNaissance}}</p>
+  <p>Adresse :            {{ formateurService.formateur.adresse}}</p>
+  <p>Patience :           {{ formateurService.formateur.patience}}</p> -->
+  <ul class="list-group">
+    <li class="list-group-item"><label class="titres">Titre :</label> {{ formateurService.formateur.titre}}</li>
+    <li class="list-group-item"><label class="titres">Nom :</label> {{ formateurService.formateur.nom}}</li>
+    <li class="list-group-item"><label class="titres">Prenom :</label> {{ formateurService.formateur.prenom}}</li>
+    <li class="list-group-item"><label class="titres">Email :</label> {{ formateurService.formateur.email}}</li>
+    <li class="list-group-item"><label class="titres">Téléphone :</label> {{ formateurService.formateur.tel}}</li>
+    <li class="list-group-item"><label class="titres">Date de naissance :</label> {{ formateurService.formateur.dateNaissance}}</li>
+    <li class="list-group-item"><label class="titres">Adresse :</label> {{ formateurService.formateur.adresse}}</li>
+    <li class="list-group-item"><label class="titres">Patience :</label> {{ formateurService.formateur.patience}}</li>
+  </ul>
+</div>
+<br/>
+  <h2 align="center">Liste des Expertises</h2>
+<div class="container">
+
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+
+        <th>Formateur</th>
+        <th>Matiere</th>
+        <th>Niveau</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let e of formateurService.formateur.expertises">
+        
+        <td>{{ formateurService.formateur.nom }} {{ formateurService.formateur.prenom }}</td>
+        <td>{{e.matiere.titre}}</td>
+        <td>{{e.niveau }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
