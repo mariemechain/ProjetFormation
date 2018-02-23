@@ -1,10 +1,13 @@
 package fr.formation.ressources.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,14 +19,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.formation.ressources.dao.IContactDAO;
 import fr.formation.ressources.dao.IGestionnaireDAO;
+import fr.formation.ressources.dao.IPlanificationDAO;
 import fr.formation.ressources.dao.IProjetDAO;
 import fr.formation.ressources.dao.ISalleDAO;
 import fr.formation.ressources.dao.IStagiaireDAO;
+import fr.formation.ressources.dao.ITemplateDAO;
 import fr.formation.ressources.dao.IVideoProjecteurDAO;
 import fr.formation.ressources.metier.Contact;
+import fr.formation.ressources.metier.OrdreMatiere;
+import fr.formation.ressources.metier.Planification;
 import fr.formation.ressources.metier.Projet;
 import fr.formation.ressources.metier.Salle;
 import fr.formation.ressources.metier.Stagiaire;
+import fr.formation.ressources.metier.Template;
 
 @Controller
 @RequestMapping("/gestionnaire")
@@ -52,6 +60,12 @@ public class GestionnaireController {
 	
 	@Autowired
 	private IGestionnaireDAO daoGestionnaire;
+
+	@Autowired
+	private ITemplateDAO daoTemplate;
+
+	@Autowired
+	private IPlanificationDAO daoPLanification;
 	
 	
 
@@ -143,18 +157,39 @@ public class GestionnaireController {
 			model.addAttribute("stagiaires", daoStagiaire.findAll());
 			model.addAttribute("gestionnaires", daoGestionnaire.findAll());
 			model.addAttribute("salles", daoSalle.findAll());
+			model.addAttribute("templates", daoTemplate.findAll());
 			
 			return "gestionnaireAjouterProjet";
 		}
 
 		@PostMapping("/gestionnaireAjouterProjet")
-		public String ajouter(@Valid@ModelAttribute("projet") Projet projet, BindingResult result, Model model) {
+		public String ajouter(@Valid@ModelAttribute("projet") Projet projet, BindingResult result, Model model, @RequestParam("idTemplate") int idTemplate) {
 			if(result.hasErrors()) {
 				return "gestionnaireAjouterProjet";
 			
 			}
 			model.addAttribute("stagiaires", daoStagiaire.findAll());
 			model.addAttribute("gestionnaires", daoGestionnaire.findAll());
+			Template t = daoTemplate.findById(idTemplate).get();
+		    List<OrdreMatiere> oms = t.getOrdreMatieres();
+		    List<Planification> ps = new ArrayList<Planification>();
+		    int njours = 0;
+		    daoProjet.save(projet);
+		    
+		 
+		    for (OrdreMatiere om : oms) {
+		      Planification p = new Planification();
+		      p.setMatiere(om.getMatiere());
+		      p.setProjet(projet);
+		      daoPLanification.save(p); 
+		      ps.add(p);
+		 
+		      njours += om.getMatiere().getDuree(); 
+		 
+		    }
+		    projet.setDuree(njours);
+		    projet.setPlanifications(ps);
+		    projet.setNomTemplate(t.getNom());
 //			projet.setSalle(daoSalle.findById(id).get());
 //			projet.setGestionnaire(daoGestionnaire.findById(idGestionnaire).get());
 			daoProjet.save(projet);	
@@ -214,11 +249,12 @@ public class GestionnaireController {
 			model.addAttribute("stagiaires", daoStagiaire.findAll());
 			model.addAttribute("gestionnaires", daoGestionnaire.findAll());
 			model.addAttribute("salles", daoSalle.findAll());
+			model.addAttribute("templates", daoTemplate.findAll());
 			return "gestionnaireAjouterProjet";
 		}
 		
 		@PostMapping("/gestionnaireEditerProjet")
-		public String editerProjet( @Valid@ModelAttribute("projet") Projet projet,BindingResult result,  @RequestParam("id") int id, Model model) {
+		public String editerProjet( @Valid@ModelAttribute("projet") Projet projet,BindingResult result,  @RequestParam("id") int id, Model model, @RequestParam int idTemplate) {
 			if(result.hasErrors()) {
 				System.out.println(result.getAllErrors());
 				model.addAttribute("stagiaires", daoStagiaire.findAll());
@@ -226,6 +262,8 @@ public class GestionnaireController {
 				
 				return "gestionnaireAjouterSalle";
 			}
+			Template t = daoTemplate.findById(idTemplate).get();
+			projet.setNomTemplate(t.getNom());
 			projet.setId(id);
 //			projet.setSalle(daoSalle.findById(idSalle).get());
 //			projet.setGestionnaire(daoGestionnaire.findById(idGestionnaire).get());
@@ -238,8 +276,15 @@ public class GestionnaireController {
 		//************************************************** Supprimer un projet***************************	
 		
 		@GetMapping("/gestionnaireSupprimerProjet")
-		public String supprimerProjet(@RequestParam("id") int id) {
-			daoProjet.deleteById(id);	
+		public String supprimerProjet(@RequestParam("id") int idProjet) {
+			List<Planification> ps = daoPLanification.findAll();
+			 
+		    for(Planification p : ps) {
+		      if(p.getProjet() != null && p.getProjet().getId() == idProjet) {
+		        daoPLanification.delete(p);
+		      }
+		    }
+			daoProjet.deleteById(idProjet);	
 			return "redirect:./gestionnaireProjet";
 		}
 		

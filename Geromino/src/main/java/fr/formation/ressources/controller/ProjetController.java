@@ -62,7 +62,7 @@ public class ProjetController {
 	@GetMapping("")
 	public String liste(Model model) {
 		model.addAttribute("Projet", daoProjet.findAll());
-		return "listeprojet";
+		return "projet/listeprojet";
 	}
 	
 	
