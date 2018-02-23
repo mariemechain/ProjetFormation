@@ -2,13 +2,14 @@ package fr.formation.matieres.controller;
 
 import javax.validation.Valid;
 
+
+
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -60,7 +61,7 @@ public class MatiereController {
 		if (result.hasErrors()) {
 			model.addAttribute("matieres", daoMatiere.findAll());
 
-			return "ajouterMatiere";
+			return "matiere";
 		}
 
 		List<Matiere> liste = daoMatiere.findAll();

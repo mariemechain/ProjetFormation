@@ -13,6 +13,7 @@
 					<tr>
 						<th scope="col">Matière</th>
 						<th scope="col">Durée</th>
+						<th scope="col">Prerequis</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -20,16 +21,26 @@
 						<tr>
 							<td>${ ordreMatiere.matiere.titre }</td>
 							<td>${ ordreMatiere.matiere.duree } jours</td>
+							<c:if test="${ordreMatiere.matiere.prerequis == '[]'}">
+								<td>aucun</td>
+							</c:if>
+							<c:if test="${ordreMatiere.matiere.prerequis != '[]'}">
+								<td>
+									<c:forEach items="${ordreMatiere.matiere.prerequis}" var="matierePrerequis">
+										${matierePrerequis.titre},
+									</c:forEach>
+								</td>
+							<%-- <td>${ordreMatiere.matiere.prerequis} </td> --%>
+							</c:if>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 
-			<div class="form-group row">
-				<div class="col-sm-10">
+			<div>
 				<a class="btn btn-primary" href="/Geromino/gestionnaire/gestionnaireTemplates/modifier/${ Template.id }" role="button">Modifier</a>
 				<a class="btn btn-secondary" href="/Geromino/gestionnaire/gestionnaireTemplates" role="button">Retour</a>
 			</div>
-			</div>
+
 	</tiles:putAttribute>
 </tiles:insertDefinition>

@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <tiles:insertDefinition name="app.layout">
-	<tiles:putAttribute name="title" value="Création d'un projet" />
+	<tiles:putAttribute name="title" value="Crï¿½ation d'un projet" />
 	<tiles:putAttribute name="content">
 
 		<form:form method="POST" modelAttribute="projet">
@@ -18,11 +18,11 @@
 			</div>
 
 			<div class="form-group row">
-				<label for="debut" class="col-sm-2 col-form-label">Date de début</label>
+				<label for="debut" class="col-sm-2 col-form-label">Date de dï¿½but</label>
 				<div class="col-sm-10">
 					<input type="date" class="form-control" id="debut" name="dateDebut"
 						   value="<fmt:formatDate pattern="yyyy-MM-dd" value="${ projet.dateDebut }" />"
-						   placeholder="Date de début" />
+						   placeholder="Date de dï¿½but" />
 				</div>
 			</div>
 

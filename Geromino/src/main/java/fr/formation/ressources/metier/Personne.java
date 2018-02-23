@@ -35,7 +35,7 @@ public class Personne implements Serializable {
 	private String nom;
 
 	@Column(name = "PER_PRENOM")
-	@NotEmpty(message = "Veuillez indiquer le prénom")
+	@NotEmpty(message = "Veuillez indiquer le prï¿½nom")
 	private String prenom;
 
 	@Column(name = "PER_EMAIL", columnDefinition = "VARCHAR(50)") // => VARCHAR(50)
@@ -43,7 +43,7 @@ public class Personne implements Serializable {
 	private String email;
 
 	@Column(name = "PER_TELEPHONE", columnDefinition = "VARCHAR(50)")
-	@NotEmpty(message = "Veuillez indiquer le numéro")
+	@NotEmpty(message = "Veuillez indiquer le numï¿½ro")
 	private String telephone;
 
 	@Column(name = "PER_DATEDENAISSANCE", columnDefinition = "DATE")

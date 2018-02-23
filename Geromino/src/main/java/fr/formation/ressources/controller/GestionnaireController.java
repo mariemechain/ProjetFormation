@@ -6,8 +6,6 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,13 +15,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import fr.formation.projets.dao.ITemplateDAO;
 import fr.formation.ressources.dao.IContactDAO;
 import fr.formation.ressources.dao.IGestionnaireDAO;
 import fr.formation.ressources.dao.IPlanificationDAO;
 import fr.formation.ressources.dao.IProjetDAO;
 import fr.formation.ressources.dao.ISalleDAO;
 import fr.formation.ressources.dao.IStagiaireDAO;
-import fr.formation.ressources.dao.ITemplateDAO;
 import fr.formation.ressources.dao.IVideoProjecteurDAO;
 import fr.formation.ressources.metier.Contact;
 import fr.formation.ressources.metier.OrdreMatiere;

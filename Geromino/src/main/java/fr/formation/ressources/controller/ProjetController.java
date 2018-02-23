@@ -14,15 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.formation.matieres.dao.IMatiereDAO;
-
+import fr.formation.projets.dao.ITemplateDAO;
 import fr.formation.ressources.dao.IFormateurDAO;
 import fr.formation.ressources.dao.IPlanificationDAO;
 import fr.formation.ressources.dao.IProjetDAO;
 import fr.formation.ressources.dao.ISalleDAO;
-import fr.formation.ressources.dao.ITemplateDAO;
-
 import fr.formation.ressources.metier.OrdreMatiere;
-
 import fr.formation.ressources.metier.Planification;
 import fr.formation.ressources.metier.Projet;
 import fr.formation.ressources.metier.Salle;

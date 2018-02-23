@@ -38,11 +38,11 @@ public class Ordinateur extends Materiel {
 	private String processeur;
 	
 	@Column(name="ORD_RAM")
-	@NotNull(message = "Veuillez indiquer la quantité de RAM")
+	@NotNull(message = "Veuillez indiquer la quantitï¿½ de RAM")
 	private Integer ram;
 	
 	@Column(name="ORD_STOCKAGE")
-	@NotNull(message = "Veuillez indiquer la quantité de mémoire")
+	@NotNull(message = "Veuillez indiquer la quantitï¿½ de mï¿½moire")
 	private Integer stockage;
 	
 	@Column(name="ORD_ACHAT", columnDefinition="DATE")

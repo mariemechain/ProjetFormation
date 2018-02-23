@@ -15,9 +15,6 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import fr.formation.matieres.model.Matiere;
 
-
-
-
 @Entity
 @Table(name="ordrematiere")
 @Cacheable
@@ -39,6 +36,7 @@ public class OrdreMatiere {
 	@ManyToOne
 	@JoinColumn(name="ORD_TEMPLATE_ID")
 	private Template template;
+	
 	
 	public int getId() {
 		return id;

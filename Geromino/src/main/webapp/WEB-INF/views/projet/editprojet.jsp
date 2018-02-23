@@ -18,11 +18,11 @@
 			</div>
 
 			<div class="form-group row">
-				<label for="date de debut" class="col-sm-2 col-form-label">Date de début</label>
+				<label for="date de debut" class="col-sm-2 col-form-label">Date de dï¿½but</label>
 				<div class="col-sm-10">
 					<input type="date" class="form-control" id="date de debut" name="dateDebut" 
 						value="<fmt:formatDate pattern="yyyy-MM-dd" value="${ projet.dateDebut }" />"
-						placeholder="Date de début" />
+						placeholder="Date de dï¿½but" />
 				</div>
 			</div>
 

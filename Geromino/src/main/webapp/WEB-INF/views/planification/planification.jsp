@@ -29,7 +29,7 @@
 
 						<tr>
 							<!-- On parcours ,notre list<Produit> et on lui demande de nous afficher juste le nom et le prix(il reconnait tous seul que se sont les attribut
-				 d'un produit car c'est ainsi qu'on les appelés la bas et on a fait les dependance -->
+				 d'un produit car c'est ainsi qu'on les appelï¿½s la bas et on a fait les dependance -->
 							<td>${ planif.id }</td>
 							<td>${ planif.matiere.titre }</td>
 							<td>${ planif.formateur.nom }</td>
