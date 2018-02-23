@@ -15,7 +15,7 @@ import fr.formation.ressources.dao.IPlanificationDAO;
 import fr.formation.ressources.metier.Planification;
 
 @Controller
-@RequestMapping("/projet/detailProjet/{idProjet}/planification")
+@RequestMapping("/projet/detailProjet/planification")
 public class EditPlanificationForProject {
 
 	// @Autowired
@@ -27,7 +27,7 @@ public class EditPlanificationForProject {
 	private IPlanificationDAO daoPlan;
 
 	@GetMapping("")
-	public String getMatieres(@PathVariable int idProjet, HttpServletRequest req, Model model) {
+	public String getMatieres(@RequestParam int idProjet,  Model model) {
 		
 		for (Planification p : daoPlan.findAll()) {
 			System.out.println(p.getId());

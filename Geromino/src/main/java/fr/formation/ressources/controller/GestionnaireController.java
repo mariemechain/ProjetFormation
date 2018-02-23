@@ -68,6 +68,8 @@ public class GestionnaireController {
 	private IPlanificationDAO daoPLanification;
 	
 	
+	
+	
 
 	@GetMapping("")
 	public String gestionnaire() {
@@ -201,6 +203,9 @@ public class GestionnaireController {
 		public String ajouterStagiaires(@RequestParam("id") int id, Model model) {
 			model.addAttribute("projet", daoProjet.findById(id));
 			model.addAttribute("stagiaires", daoStagiaire.findAll());
+			Projet detailProjet = daoProjet.findById(id);
+			List<Planification> planifications = detailProjet.getPlanifications();
+			model.addAttribute("projetPlanifications", planifications);
 			return "gestionnaireProjetStagiaires";
 				}
 		
