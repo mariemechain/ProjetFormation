@@ -28,7 +28,7 @@ public class RestControllerDisponibilite {
 
 	
 	//====================================INJECTION=====================================================
-	@Autowired(required=false)
+	@Autowired
 	IDisponibiliteDAO daoDisponiblite;
 
 //	//====================================READ==========================================================

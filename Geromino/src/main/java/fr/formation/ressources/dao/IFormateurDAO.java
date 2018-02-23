@@ -20,7 +20,7 @@ public interface IFormateurDAO extends JpaRepository<Formateur, Integer>{
 	
 	//Requête de connexion : trouver un formateur selon un login et un mot de passe
 	
-	@Query("select f from Formateur f left join fetch f.disponibilites where f.login =:login and f.motDePasse =:pwd")
+	@Query("select f from Formateur f left join fetch f.disponibilites d where f.login =:login and f.motDePasse =:pwd")
 	public Formateur findByAuthentification(@Param("login") String login, @Param("pwd") String pwd);
 	
 	

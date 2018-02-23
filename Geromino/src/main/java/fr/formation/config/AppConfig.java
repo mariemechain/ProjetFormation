@@ -27,7 +27,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 @Configuration
 @PropertySource("classpath:data.properties")
 @EnableTransactionManagement
-@EnableJpaRepositories({"fr.formation.matieres.dao","fr.formation.disponibilite","fr.formation.ressources.dao", "fr.formation.projets.dao"})
+@EnableJpaRepositories({"fr.formation.matieres.dao","fr.formation.disponibilite","fr.formation.ressources.dao", "fr.formation.projets.dao","fr.formation.formateur.dao"})
 @ComponentScan({"fr.formation.matieres","fr.formation.disponibilite","fr.formation.ressources", "fr.formation.projets"})
 public class AppConfig
 {
@@ -51,7 +51,7 @@ public class AppConfig
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory(BasicDataSource dataSource) {
 		LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
 		emf.setDataSource(dataSource);
-		emf.setPackagesToScan("fr.formation.disponibilite","fr.formation.matieres","fr.formation.ressources.metier");
+		emf.setPackagesToScan("fr.formation.disponibilite","fr.formation.matieres","fr.formation.ressources.metier","fr.formation.formateur.model");
 
 		JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		emf.setJpaVendorAdapter(vendorAdapter);

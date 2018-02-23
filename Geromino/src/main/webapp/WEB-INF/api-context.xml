@@ -10,10 +10,8 @@
 
 
 	<!-- Scann des packages interessant -->
-	<context:component-scan base-package="fr.formation.restcontroller" />
+	<context:component-scan base-package="fr.formation.restcontroller, fr.formation.formateur.restcontroller" />
 	
-	<context:component-scan base-package="fr.formation.formateur.restcontroller"></context:component-scan>
-<!-- 	<context:component-scan base-package="fr.formation.formateur.restcontroller"></context:component-scan> -->
 	
 	<!-- Activation de la delegation, equivalent au enable web config mvc en 
 		configuation classe -->
