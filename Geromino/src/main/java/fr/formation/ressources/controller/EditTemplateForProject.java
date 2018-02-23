@@ -1,4 +1,4 @@
-package fr.formation.projets.controller;
+package fr.formation.ressources.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

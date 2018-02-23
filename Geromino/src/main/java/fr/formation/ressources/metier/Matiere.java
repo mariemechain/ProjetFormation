@@ -19,7 +19,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
 
-import fr.formation.matieres.test.Expertise;
+
 
 
 @Entity

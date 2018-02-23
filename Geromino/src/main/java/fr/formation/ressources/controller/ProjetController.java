@@ -1,4 +1,4 @@
-package fr.formation.projets.controller;
+package fr.formation.ressources.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,7 +62,7 @@ public class ProjetController {
 	@GetMapping("")
 	public String liste(Model model) {
 		model.addAttribute("Projet", daoProjet.findAll());
-		return "projet/listeprojet";
+		return "listeprojet";
 	}
 	
 	

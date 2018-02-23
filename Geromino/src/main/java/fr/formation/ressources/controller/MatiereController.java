@@ -1,4 +1,4 @@
-package fr.formation.matieres.controller;
+package fr.formation.ressources.controller;
 
 import java.util.ArrayList;
 import java.util.List;

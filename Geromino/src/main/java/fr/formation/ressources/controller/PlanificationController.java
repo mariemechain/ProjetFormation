@@ -1,4 +1,4 @@
-package fr.formation.projets.controller;
+package fr.formation.ressources.controller;
 
 import javax.servlet.http.HttpServletRequest;
 

@@ -1,5 +1,5 @@
 
-package fr.formation.projets.controller;
+package fr.formation.ressources.controller;
 
 import java.util.ArrayList;
 import java.util.List;
