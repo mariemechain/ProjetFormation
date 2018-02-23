@@ -25,10 +25,11 @@
 				</tbody>
 			</table>
 
-			<div>
+			<div class="form-group row">
+				<div class="col-sm-10">
 				<a class="btn btn-primary" href="/Geromino/gestionnaire/gestionnaireTemplates/modifier/${ Template.id }" role="button">Modifier</a>
 				<a class="btn btn-secondary" href="/Geromino/gestionnaire/gestionnaireTemplates" role="button">Retour</a>
 			</div>
-
+			</div>
 	</tiles:putAttribute>
 </tiles:insertDefinition>

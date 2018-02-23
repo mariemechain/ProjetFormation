@@ -27,12 +27,12 @@
 				</tbody>
 			</table>
 
-			<div>
+			<div class="form-group row">
+				<div class="col-sm-10">
 				<a class="btn btn-primary" href="/Geromino/gestionnaire/gestionnaireTemplates/ajouter" role="button">Créer un nouveau template</a>
-			</div>
-			<div>
 					<a href="/Geromino/gestionnaire">
 			<button type="button" class="btn btn-danger mb-4">Revenir au menu précédent</button></a>
+			</div>
 			</div>
 
 	</tiles:putAttribute>

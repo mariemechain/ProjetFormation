@@ -71,9 +71,11 @@
 					<button type="submit" class="btn btn-outline-success"
 						value="Ajouter">Valider</button>
 				</div>
-				<div>
+				<div class="form-group row">
+				<div class="col-sm-10">
 					<a href="gestionnaire/gestionnaireMatieres">
 			<button type="button" class="btn btn-danger mb-4">Revenir au menu précédent</button></a>
+			</div>
 			</div>
 
 			</form:form>

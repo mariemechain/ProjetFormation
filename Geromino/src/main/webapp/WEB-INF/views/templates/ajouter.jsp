@@ -67,13 +67,14 @@
 					<input id="id" name="id" type="hidden" value="${ template.id }">
 					
 					<form:errors path="nom" element="div" cssClass="alert alert-danger" />
-					
-					<div>
-						<button type="submit" class="btn btn-primary">Valider</button>
-					</div>
-					<div>
+				
+					<div class="form-group row">
+				<div class="col-sm-10">
+				<button type="submit" class="btn btn-primary">Valider</button>
+				
 					<a href="/Geromino/gestionnaire/gestionnaireTemplates">
 			<button type="button" class="btn btn-danger mb-4">Revenir au menu précédent</button></a>
+			</div>
 			</div>
 				</form:form>
 

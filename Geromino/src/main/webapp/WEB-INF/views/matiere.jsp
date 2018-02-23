@@ -48,7 +48,9 @@
 							une nouvelle matière</a>
 					</div>
 				</div>
-
+					
+					
+					
 				<div class="col-1"></div>
 
 				<div class="col-6">
@@ -73,14 +75,15 @@
 					</span>
 				</div>
 				
-				<div>
+				
+		
+
+<div class="form-group row">
+				<div class="col-sm-10">
 					<a href="Geromino/gestionnaire">
 			<button type="button" class="btn btn-danger mb-4">Revenir au menu précédent</button></a>
 			</div>
 			</div>
-		
-
-
 
 	</tiles:putAttribute>
 
