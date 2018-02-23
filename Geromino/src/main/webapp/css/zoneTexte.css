@@ -1,7 +1,6 @@
 .d-block {
 	height: 500px;
 	border: solid 2px gray;
-	
 }
 
 table th.colonne1 {
@@ -10,6 +9,51 @@ table th.colonne1 {
 	text-align: left;
 }
 
+table tr {
+	height: 53px;
+}
+
 .input-group-text {
-   width: 200px;
+	width: 200px;
+}
+
+.divcolonne {
+	
+	display: flex;
+	
+	justify-content: center;
+	align-items: center;
+
+
+}
+
+.divcolonne b {
+	font-size: 20px;
+	 transform:rotate(-90deg);
+	 
+	 position: absolute;
+	 width: auto;
+}
+.matiere{
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	
+}
+.matiere b {
+	font-size:30px;
+}
+
+@media print {
+	header {
+		display: none;
+	}
+	nav {
+		display: none;
+	}
+	footer {
+		display: none;
+	}
 }
