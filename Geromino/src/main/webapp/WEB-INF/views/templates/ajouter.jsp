@@ -23,15 +23,15 @@
 							<td>${ ordreMatiere.matiere.titre }</td>
 							<td>${ ordreMatiere.matiere.duree } jours</td>
 							<td>
-							<a class="btn btn-danger" href="/Geromino/templates/editer/supprimer/${ loop.index }"role="button">Supprimer</a>
+							<a class="btn btn-danger" href="/Geromino/gestionnaire/gestionnaireTemplates/editer/supprimer/${ loop.index }"role="button">Supprimer</a>
 							<c:if test ="${ loop.index > 0 }">
-								<a class="btn btn-secondary" href="/Geromino/templates/editer/haut/${ loop.index }"role="button">&uarr;</a>
+								<a class="btn btn-secondary" href="/Geromino/gestionnaire/gestionnaireTemplates/editer/haut/${ loop.index }"role="button">&uarr;</a>
 							</c:if>
 							<c:if test ="${ loop.index <= 0 }">
 								<a class="btn btn-secondary" role="button" disabled>&uarr;</a>
 							</c:if>
 							<c:if  test ="${ loop.index < tailleMax-1 }">
-								<a class="btn btn-secondary" href="/Geromino/templates/editer/bas/${ loop.index }"role="button">&darr;</a>
+								<a class="btn btn-secondary" href="/Geromino/gestionnaire/gestionnaireTemplates/editer/bas/${ loop.index }"role="button">&darr;</a>
 							</c:if>
 							<c:if  test ="${ loop.index >= tailleMax-1 }">
 								<a class="btn btn-secondary" role="button" disabled>&darr;</a>
@@ -41,7 +41,7 @@
 					</c:forEach>
 					
 						<tr>
-						<form:form method="POST" action="/Geromino/templates/editer/ajouterligne" modelAttribute="template" id="myForm">	
+						<form:form method="POST" action="/Geromino/gestionnaire/gestionnaireTemplates/editer/ajouterligne" modelAttribute="template" id="myForm">	
 							<td>			
 							<select name="matiereId" class="form-control">
 								<c:forEach items="${listeMatiere }" var="listeMatiere">
@@ -56,7 +56,7 @@
 				</tbody>
 			</table>
 	
-			<form:form method="POST" action="/Geromino/templates/valider" modelAttribute="template">
+			<form:form method="POST" action="/Geromino/gestionnaire/gestionnaireTemplates/valider" modelAttribute="template">
 					<div class="form-group">
 						<label for="nom">Nom</label> 
 						<input id="nom"
@@ -71,6 +71,10 @@
 					<div>
 						<button type="submit" class="btn btn-primary">Valider</button>
 					</div>
+					<div>
+					<a href="/Geromino/gestionnaire/gestionnaireTemplates">
+			<button type="button" class="btn btn-danger mb-4">Revenir au menu précédent</button></a>
+			</div>
 				</form:form>
 
 	</tiles:putAttribute>

@@ -26,7 +26,7 @@ import fr.formation.ressources.metier.OrdreMatiere;
 import fr.formation.ressources.metier.Template;
 
 @Controller
-@RequestMapping("/templates")
+@RequestMapping("/gestionnaire/gestionnaireTemplates")
 public class TemplateController {
 	
 	@Autowired
@@ -61,7 +61,7 @@ public class TemplateController {
 		System.err.println(myTemplate);
 		daoTemplate.delete(myTemplate);
 		
-		return "redirect:/templates";
+		return "redirect:/gestionnaire/gestionnaireTemplates";
 	}
 
 	@GetMapping("/modifier/{id}")
@@ -197,7 +197,7 @@ public class TemplateController {
 		
 		session.setAttribute("ordreMatieres",myTemplate.getOrdreMatieres());
 		
-		return "redirect:/templates";
+		return "redirect:/gestionnaire/gestionnaireTemplates";
 	}
 
 	

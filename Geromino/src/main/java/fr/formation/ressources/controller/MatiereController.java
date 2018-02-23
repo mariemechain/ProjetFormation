@@ -20,7 +20,7 @@ import fr.formation.ressources.dao.IMatiereDAO;
 import fr.formation.ressources.metier.Matiere;
 
 @Controller
-@RequestMapping(value = "/matiere")
+@RequestMapping(value = "/gestionnaire/gestionnaireMatieres")
 public class MatiereController {
 
 	@Autowired

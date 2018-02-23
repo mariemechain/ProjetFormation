@@ -20,15 +20,19 @@
 					<c:forEach items="${ Templates }" var="Template">
 						<tr>
 							<td>${ Template.nom }</td>
-							<td><a class="btn btn-success" href="/Geromino/templates/visualiser/${Template.id}" role="button">Visualiser</a>
-							<a class="btn btn-danger" href="/Geromino/templates/supprimer/${Template.id}"role="button">Supprimer</a></td>
+							<td><a class="btn btn-success" href="/Geromino/gestionnaire/gestionnaireTemplates/visualiser/${Template.id}" role="button">Visualiser</a>
+							<a class="btn btn-danger" href="/Geromino/gestionnaire/gestionnaireTemplates/supprimer/${Template.id}"role="button">Supprimer</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 
 			<div>
-				<a class="btn btn-primary" href="/Geromino/templates/ajouter" role="button">Créer un nouveau template</a>
+				<a class="btn btn-primary" href="/Geromino/gestionnaire/gestionnaireTemplates/ajouter" role="button">Créer un nouveau template</a>
+			</div>
+			<div>
+					<a href="/Geromino/gestionnaire">
+			<button type="button" class="btn btn-danger mb-4">Revenir au menu précédent</button></a>
 			</div>
 
 	</tiles:putAttribute>

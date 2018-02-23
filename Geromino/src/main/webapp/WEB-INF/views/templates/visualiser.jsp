@@ -26,8 +26,8 @@
 			</table>
 
 			<div>
-				<a class="btn btn-primary" href="/Geromino/templates/modifier/${ Template.id }" role="button">Modifier</a>
-				<a class="btn btn-secondary" href="/Geromino/templates" role="button">Retour</a>
+				<a class="btn btn-primary" href="/Geromino/gestionnaire/gestionnaireTemplates/modifier/${ Template.id }" role="button">Modifier</a>
+				<a class="btn btn-secondary" href="/Geromino/gestionnaire/gestionnaireTemplates" role="button">Retour</a>
 			</div>
 
 	</tiles:putAttribute>
