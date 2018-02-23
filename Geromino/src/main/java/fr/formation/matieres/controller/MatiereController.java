@@ -32,6 +32,13 @@ public class MatiereController {
 	@Autowired
 	private IMatiereDAO daoMatiere;
 
+	@ModelAttribute("page")
+    public String page() {
+        return "gestionnaire";
+    }
+	
+	
+	
 	@GetMapping("")
 	public String findAll(Model model) {
 		model.addAttribute("matieres", daoMatiere.findAll());
