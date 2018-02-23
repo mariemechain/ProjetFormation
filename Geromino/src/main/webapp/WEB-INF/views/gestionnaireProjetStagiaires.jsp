@@ -93,9 +93,9 @@
 				</tr>
 			</c:forEach>
 		</table>
-	
+
 	</br>
-	<h3>Liste des matières et des formateurs :  <a href="projet/detailProjet/planification?idProjet=${projet.id}">
+	<h3>Liste des matières et des formateurs :  <a href="projet/detailProjet/${projet.id}/planification ">
 			<button type="button" class="btn btn-primary mb-4">Plannification</button></a> </h3>
 	
 	<table class="table table-striped" style="text-align: center">

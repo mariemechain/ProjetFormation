@@ -29,7 +29,7 @@
 					<tr>
 						<td>${ matiere.id }</td>
 						<td>${ matiere.titre }</td>
-						<td><a href="idMatiere${matiere.id}/modif?idm=${matiere.id}">Attribuer</a></td>
+						<td><a href="projet/detailProjet/${idProjet }/planification/idPlanif${idPlanif }/idMatiere${matiere.id}/modif?idm=${matiere.id}">Attribuer</a></td>
 
 					</tr>
 				</c:forEach>
