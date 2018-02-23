@@ -70,7 +70,7 @@
 				
 					<div class="form-group row">
 				<div class="col-sm-10">
-				<button type="submit" class="btn btn-primary">Valider</button>
+				<button type="submit" class="btn btn-primary mb-4">Valider</button>
 				
 					<a href="/Geromino/gestionnaire/gestionnaireTemplates">
 			<button type="button" class="btn btn-danger mb-4">Revenir au menu précédent</button></a>

@@ -25,6 +25,8 @@ import fr.formation.ressources.dao.ITemplateDAO;
 import fr.formation.ressources.metier.OrdreMatiere;
 import fr.formation.ressources.metier.Template;
 
+
+
 //Test Modification
 @Controller
 @RequestMapping("/gestionnaire/gestionnaireTemplates")
@@ -38,6 +40,12 @@ public class TemplateController {
 	
 	@Autowired
 	private IMatiereDAO daoMatiere;
+	
+	@ModelAttribute("page")
+    public String page() {
+        return "gestionnaire";
+    }
+	
 	
 	@GetMapping("")
 	public String AfficherListe(Model model) {

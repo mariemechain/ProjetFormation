@@ -13,30 +13,29 @@
 		<table class="table table-striped" style="text-align:center">
 			<thead>
 				<tr>
-					<th>Id</th>
+					<th>Info</th>
 					<th>Nom</th>
 					<th>Durée</th>
 					<th>Salle</th>
 					<th>Date de début</th>
 					<th>Gestionnaire</th>
-					<th>Stagiaires</th>
-					<th>Option</th>
+					<th>Présence</th>
+					<th>Options</th>
 
 				</tr>
 			</thead>
 			<c:forEach items="${projet}" var="projet">
 				<tr>
-					<td>${projet.id }</td>
+				<td><a
+						href="/Geromino/gestionnaire/gestionnaireProjetStagiaires?id=${projet.id }"><button
+								type="button" class="btn btn-dark">+</button></a></td> 
 					<td>${projet.nom }</td>
-					<%-- <td>${projet.XXX }</td>--%>
  					<td>${projet.duree }</td>	
  					<td>${projet.salle.id }</td>		
-					<%-- <td>${projet.gestionnaire.nom }</td> --%>
 					<td>${projet.dateDebut }</td> 
 					<td>${projet.gestionnaire.nom }</td> 
-					<td><a
-						href="/Geromino/gestionnaire/gestionnaireProjetStagiaires?id=${projet.id }"><button
-								type="button" class="btn btn-dark">Voir liste</button></a></td> 
+					<td>${projet.stagiaires.size()} / ${projet.salle.places }</td>
+					
 					<td><a
 						href="/Geromino/gestionnaire/gestionnaireEditerProjet?id=${projet.id }"><button
 								type="button" class="btn btn-primary">Modifier</button></a>
