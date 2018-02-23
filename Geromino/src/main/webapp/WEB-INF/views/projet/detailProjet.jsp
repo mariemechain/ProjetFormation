@@ -44,10 +44,7 @@
 
 
 
-		<!-- Choisir la template ou créer une nouvelle template pour mon projet en edition-->
-		<td><a href="./${detailProjet.id }/templates"
-			class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span>
-				Template</a></td>
+
 
 
 
@@ -58,7 +55,7 @@
 
 
 
-		<a href="projet" class="btn btn-primary">Retour à la liste des
+		<a href="../../projet" class="btn btn-primary">Retour à la liste des
 			projets</a>
 	</tiles:putAttribute>
 </tiles:insertDefinition>

@@ -84,7 +84,7 @@ public class ProjetController {
 
 	@PostMapping("/ajouter")
 	public String ajouter(@ModelAttribute("projet") Projet projet, @RequestParam String idSalle, @RequestParam int idTemplate) {
-
+//Transformer une liste de matiere à partir de orderMatiere en liste de planifications
 		Salle s = daoSalle.findById(idSalle).get();
 		Template t = daoTemplate.findById(idTemplate).get();
 	    List<OrdreMatiere> oms = t.getOrdreMatieres();
@@ -103,6 +103,8 @@ public class ProjetController {
 	      njours += om.getMatiere().getDuree(); 
 	 
 	    }
+	    
+	    
 	    projet.setPlanifications(ps);
 		projet.setSalle(s);
 	    projet.setDuree(njours);

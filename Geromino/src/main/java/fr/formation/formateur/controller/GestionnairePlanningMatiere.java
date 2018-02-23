@@ -65,13 +65,14 @@ public class GestionnairePlanningMatiere {
 	}
 
 
-	// ====================================SUPPRESSION=====================================================
+	// ====================================SUPPRESSION De la matiere dans la planification à finir=====================================================
 	@GetMapping(value = { "/supprimer" })
-	public String getSuppFormateur(@RequestParam("idf") int idFormateur, Model model) {
+	public String getSuppFormateur(@RequestParam("idm") int idMatiere, Model model) {
 
-		Formateur formateur = new Formateur();
-		formateur = daoFormateur.findById(idFormateur).get();
-		daoFormateur.delete(formateur);
+		Planification planification = new Planification();
+		Matiere matiere = new Matiere();
+		matiere = daoMatiere.findById(idMatiere);
+		daoMatiere.delete(matiere);
 		return "redirect:../formateurs";
 	}
 

@@ -35,6 +35,7 @@ public class PlanificationController {
 		for (Planification p : daoPlan.findAll()) {
 			System.out.println(p.getId());
 		}
+		
 		model.addAttribute("planifications", daoPlan.findAll());
 
 		return "planification/planification";

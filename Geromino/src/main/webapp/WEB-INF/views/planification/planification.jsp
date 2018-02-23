@@ -45,7 +45,7 @@
 									
 									<td><a href="./planification/idPlanif${planif.id }/idMatiere${planif.matiere.id}"
 								class="btn btn-warning"><span
-									class="glyphicon glyphicon-pencil"></span> Modif matiere </a></td>
+									class="glyphicon glyphicon-pencil"></span> Modif matiere </a>
 						</tr>
 					</c:forEach>
 				</tbody>
