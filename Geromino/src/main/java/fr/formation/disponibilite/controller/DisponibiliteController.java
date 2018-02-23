@@ -136,23 +136,17 @@ public class DisponibiliteController {
 		
 		for(Salle s : salles) {
 			List<Projet> projets = s.getDispo(); //La liste des projets de chaque ordinateur
+			System.err.println("projet de la salle : " +s.getDispo());
 			
-			if(s.getDate() != null) {
-				Date retourMaintenanceAConvertir = s.getDate();			
-				Instant instant = Instant.ofEpochMilli(retourMaintenanceAConvertir.getTime());			
-				LocalDate retourMaintenance = LocalDateTime.ofInstant(instant, ZoneId.systemDefault()).toLocalDate();
-				
-				if(retourMaintenance.isAfter(d1))
-					compteurSalleIndispo++;
-			}
 			for(Projet p : projets) {
 				Date dateD = p. getDebut();
 				java.sql.Date dateDebut = (java.sql.Date) dateD;
 				int duree = p.getDuree();
 				List<LocalDate> listeIndisponibilite = obtenirListeIndisponibilite(dateDebut,duree);
+				System.err.println("liste date : " + listeIndisponibilite);
 				
 				for(LocalDate d2 : listeIndisponibilite) {
-					if(d2==d1) {
+					if(d2.equals(d1)) {
 						compteurSalleIndispo++; //enlever une salle disponible	
 					}
 				}
@@ -172,14 +166,7 @@ public class DisponibiliteController {
 		
 		for(VideoProjecteur v : videoProjecteurs) {
 			List<Projet> projets = v.getDispo(); //La liste des projets de chaque ordinateur
-			if(v.getDate() != null) {
-				Date retourMaintenanceAConvertir = v.getDate();			
-				Instant instant = Instant.ofEpochMilli(retourMaintenanceAConvertir.getTime());			
-				LocalDate retourMaintenance = LocalDateTime.ofInstant(instant, ZoneId.systemDefault()).toLocalDate();
-				
-				if(retourMaintenance.isAfter(d1))
-					compteurProjoIndispo++;
-			}
+			
 			for(Projet p : projets) {
 				Date dateD = p. getDebut();
 				java.sql.Date dateDebut = (java.sql.Date) dateD;
@@ -187,7 +174,7 @@ public class DisponibiliteController {
 				List<LocalDate> listeIndisponibilite = obtenirListeIndisponibilite(dateDebut,duree);
 				
 				for(LocalDate d2 : listeIndisponibilite) {
-					if(d2==d1) {
+					if(d2.equals(d1)) {
 						compteurProjoIndispo++; //enlever un ordinateur disponible	
 					}
 				}
