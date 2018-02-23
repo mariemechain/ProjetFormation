@@ -55,7 +55,7 @@ public class GestionnairePlanningMatiere {
 		List<Matiere> matieres = daoMatiere.findAll();
 		model.addAttribute("matieres", matieres);
 
-		return "matiere/choixMatiereforTemplate";
+		return "planification/choixMatiereforPlanification";
 	}
 
 
@@ -76,11 +76,12 @@ public class GestionnairePlanningMatiere {
 	// ====================================MODIFIER=====================================================
 
 	@GetMapping(value = { "/modif" })
-	public String getModifierFormateur(@RequestParam("idm") int idMatiere,@PathVariable int idPlanif) {
+	public String getModifierFormateur(@RequestParam("idm") int idMatiere,@PathVariable int idPlanif, Model model) {
 
 		Planification planif = daoPlan.findById(idPlanif).get();
 		Matiere matiere = daoMatiere.findById(idMatiere);
 		planif.setMatiere(matiere);
+		model.addAttribute(idPlanif);
 		
 		daoPlan.save(planif);
 		System.out.println("===========================================Formateur=========================");
