@@ -18,10 +18,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import fr.formation.ressources.dao.IMatiereDAO;
+import fr.formation.matieres.dao.IMatiereDAO;
+import fr.formation.matieres.model.Matiere;
 import fr.formation.ressources.dao.IOrdreMatiereDAO;
 import fr.formation.ressources.dao.ITemplateDAO;
-import fr.formation.ressources.metier.Matiere;
 import fr.formation.ressources.metier.OrdreMatiere;
 import fr.formation.ressources.metier.Template;
 

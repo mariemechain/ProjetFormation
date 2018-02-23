@@ -12,13 +12,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import fr.formation.matieres.dao.IMatiereDAO;
+import fr.formation.matieres.model.Matiere;
+
 import fr.formation.ressources.dao.IExpertiseDAO;
 import fr.formation.ressources.dao.IFormateurDAO;
-import fr.formation.ressources.dao.IMatiereDAO;
 //import fr.formation.ressources.dao.IMatiereDAOPourTest;
 import fr.formation.ressources.metier.Expertise;
 import fr.formation.ressources.metier.Formateur;
-import fr.formation.ressources.metier.Matiere;
 import fr.formation.ressources.metier.Niveau;
 
 

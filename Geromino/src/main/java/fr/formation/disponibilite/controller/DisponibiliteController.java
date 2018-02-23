@@ -21,14 +21,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import fr.formation.disponibilite.annexe.IOrdinateurDAO;
-import fr.formation.disponibilite.annexe.ISalleDAO;
-import fr.formation.disponibilite.annexe.IVideoProjecteurDAO;
-import fr.formation.disponibilite.annexe.Ordinateur;
-import fr.formation.disponibilite.annexe.Projet;
-import fr.formation.disponibilite.annexe.Salle;
-import fr.formation.disponibilite.annexe.VideoProjecteur;
 import fr.formation.disponibilite.model.Disponibilite;
+import fr.formation.ressources.dao.IOrdinateurDAO;
+import fr.formation.ressources.dao.ISalleDAO;
+import fr.formation.ressources.dao.IVideoProjecteurDAO;
+import fr.formation.ressources.metier.Ordinateur;
+import fr.formation.ressources.metier.Projet;
+import fr.formation.ressources.metier.Salle;
+import fr.formation.ressources.metier.VideoProjecteur;
 
 @Controller
 @RequestMapping("/disponibilite")
@@ -105,7 +105,7 @@ public class DisponibiliteController {
 			}
 			
 			for(Projet p : projets) {
-				Date dateD = p. getDebut();				
+				Date dateD = p. getDateDebut();				
 				java.sql.Date dateDebut = (java.sql.Date) dateD;
 				LocalDate dateDebut2 = dateDebut.toLocalDate();
 				int duree = p.getDuree();
@@ -136,14 +136,12 @@ public class DisponibiliteController {
 		
 		for(Salle s : salles) {
 			List<Projet> projets = s.getDispo(); //La liste des projets de chaque ordinateur
-			System.err.println("projet de la salle : " +s.getDispo());
 			
 			for(Projet p : projets) {
-				Date dateD = p. getDebut();
+				Date dateD = p. getDateDebut();
 				java.sql.Date dateDebut = (java.sql.Date) dateD;
 				int duree = p.getDuree();
 				List<LocalDate> listeIndisponibilite = obtenirListeIndisponibilite(dateDebut,duree);
-				System.err.println("liste date : " + listeIndisponibilite);
 				
 				for(LocalDate d2 : listeIndisponibilite) {
 					if(d2.equals(d1)) {
@@ -168,7 +166,7 @@ public class DisponibiliteController {
 			List<Projet> projets = v.getDispo(); //La liste des projets de chaque ordinateur
 			
 			for(Projet p : projets) {
-				Date dateD = p. getDebut();
+				Date dateD = p. getDateDebut();
 				java.sql.Date dateDebut = (java.sql.Date) dateD;
 				int duree = p.getDuree();
 				List<LocalDate> listeIndisponibilite = obtenirListeIndisponibilite(dateDebut,duree);

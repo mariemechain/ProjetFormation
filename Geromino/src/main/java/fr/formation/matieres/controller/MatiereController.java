@@ -26,7 +26,7 @@ import fr.formation.matieres.model.Matiere;
 import fr.formation.matieres.model.UploadFile;
 
 @Controller
-@RequestMapping(value = "/matiere")
+@RequestMapping(value = "/gestionnaire/gestionnaireMatieres")
 public class MatiereController {
 
 	@Autowired

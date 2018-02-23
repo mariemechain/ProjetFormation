@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import fr.formation.ressources.dao.IMatiereDAO;
-import fr.formation.ressources.metier.Matiere;
+import fr.formation.matieres.dao.IMatiereDAO;
+import fr.formation.matieres.model.Matiere;
 
 @Controller
 @RequestMapping("/selectMatiere")

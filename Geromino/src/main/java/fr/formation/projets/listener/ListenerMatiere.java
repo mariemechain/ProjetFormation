@@ -7,7 +7,7 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
-import fr.formation.ressources.metier.Matiere;
+import fr.formation.matieres.model.Matiere;
 
 
 

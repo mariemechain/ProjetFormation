@@ -1,7 +1,6 @@
 package fr.formation.formateur.controller;
 
 import java.util.ArrayList;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import fr.formation.matieres.dao.IMatiereDAO;
+import fr.formation.matieres.model.Matiere;
 import fr.formation.ressources.dao.IFormateurDAO;
 import fr.formation.ressources.metier.Formateur;
-import fr.formation.ressources.metier.Niveau;
-import fr.formation.ressources.dao.IMatiereDAO;
-import fr.formation.ressources.metier.Matiere;
 
 @Controller
 @RequestMapping("/projet/detailProjet/{idProjet}/planification/{idMatiere}/{idPlanif}/formateurs")

@@ -12,9 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import fr.formation.ressources.metier.Formateur;
-import fr.formation.ressources.metier.Matiere;
-import fr.formation.ressources.metier.Projet;
+import fr.formation.matieres.model.Matiere;
 
 @Entity
 @Table(name = "planification")

@@ -29,12 +29,12 @@
 									<th class="colonne1" scope="row"><span class="h6">${m.titre}</span></th>
 
 									<td><a class="btn btn-outline-success"
-										href="/Geromino/matiere/information?id=${m.id}">Informations</a>
+										href="/Geromino/gestionnaire/gestionnaireMatieres/information?id=${m.id}">Informations</a>
 									</td>
 									<td><a class="btn btn-outline-secondary"
-										href="/Geromino/matiere/editer?id=${m.id}">Modifier</a></td>
+										href="/Geromino/gestionnaire/gestionnaireMatieres/editer?id=${m.id}">Modifier</a></td>
 									<td><a id="suppr" class="btn btn-outline-danger"
-										href="/Geromino/matiere/supprimer?id=${m.id}">Supprimer</a></td>
+										href="/Geromino/gestionnaire/gestionnaireMatieres/supprimer?id=${m.id}">X</a></td>
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -43,8 +43,9 @@
 					</table>
 				</div>
 				<div class="list-group">
-					<a href="/Geromino/matiere/ajouter" class="btn btn-outline-primary"
-						role="button" aria-pressed="true">Ajouter une nouvelle matière</a>
+					<a href="/Geromino/gestionnaire/gestionnaireMatieres/ajouter"
+						class="btn btn-outline-primary" role="button" aria-pressed="true">Ajouter
+						une nouvelle matière</a>
 				</div>
 			</div>
 
@@ -78,7 +79,14 @@
 		</div>
 
 
-
+		<div class="form-group row">
+			<div class="col-sm-10">
+				<a href="/Geromino/gestionnaire">
+					<button type="button" class="btn btn-danger mb-4">Revenir
+						au menu précédent</button>
+				</a>
+			</div>
+		</div>
 
 	</tiles:putAttribute>
 

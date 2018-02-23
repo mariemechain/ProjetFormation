@@ -9,6 +9,6 @@ import fr.formation.ressources.metier.VideoProjecteur;
 
 public interface IVideoProjecteurDAO extends JpaRepository<VideoProjecteur, String>
 {
-	//@Query("from VideoProjecteur v left join fetch v.dispo")
+	@Query("from VideoProjecteur v left join fetch v.dispo")
     public List<VideoProjecteur> findAll();
 }

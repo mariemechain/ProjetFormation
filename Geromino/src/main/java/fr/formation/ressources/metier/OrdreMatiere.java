@@ -13,7 +13,9 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
-import fr.formation.ressources.metier.Matiere;
+import fr.formation.matieres.model.Matiere;
+
+
 
 
 @Entity
