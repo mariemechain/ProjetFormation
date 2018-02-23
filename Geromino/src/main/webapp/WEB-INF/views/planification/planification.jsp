@@ -36,14 +36,14 @@
 
 
 							<!-- recuperation de l'id de la matiere et recuerer dans le controller du gestionnaire -->
-							<td><a href="projet/detailProjet/${idProjet }/planification/idMatiere${planif.matiere.id }/idPlanif${planif.id}/formateurs"
+							<td><a href="gestionnaire/gestionnaireProjetStagiaires/${idProjet }/planification/idMatiere${planif.matiere.id }/idPlanif${planif.id}/formateurs"
 								class="btn btn-warning"><span
 									class="glyphicon glyphicon-pencil"></span> Edit Formateur</a> <!-- Excecution des methodes du controller avec un mapping "/delete" -->
 								<a href="planification/delete?id=${planif.id }"
 								class="btn btn-sm btn-danger"><span
 									class="glyphicon glyphicon-remove"></span> Delete Formateur </a></td>
 									
-									<td><a href="projet/detailProjet/${idProjet }/planification/idPlanif${planif.id }/idMatiere${planif.matiere.id}"
+									<td><a href="gestionnaire/gestionnaireProjetStagiaires/${idProjet }/planification/idPlanif${planif.id }/idMatiere${planif.matiere.id}"
 								class="btn btn-warning"><span
 									class="glyphicon glyphicon-pencil"></span> Modif matiere </a>
 						</tr>

@@ -19,7 +19,7 @@ import fr.formation.ressources.dao.IPlanificationDAO;
 import fr.formation.ressources.metier.Planification;
 
 @Controller
-@RequestMapping("/projet/detailProjet/{idProjet}/planification/idPlanif{idPlanif}/idMatiere{idMatiere}")
+@RequestMapping("/gestionnaire/gestionnaireProjetStagiaires/{idProjet}/planification/idPlanif{idPlanif}/idMatiere{idMatiere}")
 public class GestionnairePlanningMatiere {
 
 	// ====================================INJECTION=====================================================
@@ -31,7 +31,11 @@ public class GestionnairePlanningMatiere {
 	
 	@Autowired
 	IPlanificationDAO daoPlan;
-
+	
+	@ModelAttribute("page")
+    public String page() {
+        return "home";
+    }
 	// ====================================INITIALISATION=====================================================
 
 

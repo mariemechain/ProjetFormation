@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,9 +18,9 @@ import fr.formation.ressources.metier.Planification;
 import fr.formation.ressources.metier.Projet;
 
 @Controller
-@RequestMapping("/projet/detailProjet/{idProjet}/planification")
+@RequestMapping("/gestionnaire/gestionnaireProjetStagiaires/{idProjet}/planification")
 public class EditPlanificationForProject {
-
+	
 	// @Autowired
 	// private IMatiereDAO daoMat;
 	@Autowired
@@ -30,6 +31,11 @@ public class EditPlanificationForProject {
 	
 	@Autowired
 	private IProjetDAO daoPro;
+	
+	@ModelAttribute("page")
+    public String page() {
+        return "home";
+    }
 
 	@GetMapping("")
 	public String getMatieres(@PathVariable int idProjet, HttpServletRequest req, Model model) {

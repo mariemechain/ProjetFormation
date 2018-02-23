@@ -21,7 +21,7 @@ import fr.formation.ressources.metier.Formateur;
 import fr.formation.ressources.metier.Planification;
 
 @Controller
-@RequestMapping("/projet/detailProjet/{idProjet}/planification/idMatiere{idMatiere}/idPlanif{idPlanif}/formateurs")
+@RequestMapping("/gestionnaire/gestionnaireProjetStagiaires/{idProjet}/planification/idMatiere{idMatiere}/idPlanif{idPlanif}/formateurs")
 public class GestionnairePlanningFormateur {
 
 	// ====================================INJECTION=====================================================
@@ -33,7 +33,12 @@ public class GestionnairePlanningFormateur {
 	
 	@Autowired
 	IPlanificationDAO daoPlan;
-
+	
+	@ModelAttribute("page")
+    public String page() {
+        return "home";
+    }
+	
 	// ====================================INITIALISATION=====================================================
 
 	@ModelAttribute("formateur")
