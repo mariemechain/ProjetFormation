@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import fr.formation.formateur.dao.IFormateurDAO;
-import fr.formation.formateur.model.Formateur;
+import fr.formation.ressources.dao.IFormateurDAO;
+import fr.formation.ressources.metier.Formateur;
+
 
 
 @ResponseBody
