@@ -5,6 +5,7 @@ import java.util.Properties;
 import javax.persistence.EntityManagerFactory;
 
 import org.apache.commons.dbcp2.BasicDataSource;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -18,13 +19,16 @@ import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
-
+//Module matiere merge
 
 
 @Configuration
 @PropertySource("classpath:data.properties")
 @EnableTransactionManagement
+@EnableJpaRepositories({"fr.formation.matieres.dao","fr.formation.disponibilite"})
+@ComponentScan({"fr.formation.matieres","fr.formation.disponibilite"})
 @EnableJpaRepositories("fr.formation.ressources.dao")
 @ComponentScan("fr.formation.ressources")
 public class AppConfig
@@ -53,6 +57,7 @@ public class AppConfig
 		LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
 		emf.setDataSource(dataSource);
 		emf.setPackagesToScan("fr.formation.ressources.metier");
+		emf.setPackagesToScan("fr.formation.disponibilite","fr.formation.matieres");
 
 		JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		emf.setJpaVendorAdapter(vendorAdapter);
@@ -74,6 +79,22 @@ public class AppConfig
 	public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
 		return new PersistenceExceptionTranslationPostProcessor();
 	}
+	
+	
+//	@Autowired
+//	@Bean(name = "fileUploadDao")
+//	public FileUploadDAO getUserDao(SessionFactory sessionFactory) {
+//	    return new FileUploadDAOImpl(sessionFactory);
+//	}
+	
+	@Bean(name = "multipartResolver")
+	public CommonsMultipartResolver getCommonsMultipartResolver() {
+	    CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
+	    multipartResolver.setMaxUploadSize(20971520);   // 20MB
+	    multipartResolver.setMaxInMemorySize(1048576);  // 1MB
+	    return multipartResolver;
+	}
+	
 	
 	
 	

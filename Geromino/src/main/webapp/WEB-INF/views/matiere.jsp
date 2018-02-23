@@ -13,7 +13,7 @@
 
 		<div class="row">
 
-			<div class="col-5">
+			<div class="col-6">
 				<div class="list-group">
 					<table class="table table-striped">
 						<thead>
@@ -28,13 +28,13 @@
 								<tr>
 									<th class="colonne1" scope="row"><span class="h6">${m.titre}</span></th>
 
-									<td><a class="btn btn-success"
-										href="/Geromino/gestionnaire/gestionnaireMatieres/information?id=${m.id}">Informations</a>
+									<td><a class="btn btn-outline-success"
+										href="/Geromino/matiere/information?id=${m.id}">Informations</a>
 									</td>
-									<td><a class="btn btn-secondary"
-										href="/Geromino/gestionnaire/gestionnaireMatieres/editer?id=${m.id}">Modifier</a></td>
-									<td><a class="btn btn-danger"
-										href="/Geromino/gestionnaire/gestionnaireMatieres/supprimer?id=${m.id}">X</a></td>
+									<td><a class="btn btn-outline-secondary"
+										href="/Geromino/matiere/editer?id=${m.id}">Modifier</a></td>
+									<td><a id="suppr" class="btn btn-outline-danger"
+										href="/Geromino/matiere/supprimer?id=${m.id}">Supprimer</a></td>
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -43,17 +43,14 @@
 					</table>
 				</div>
 				<div class="list-group">
-					<a href="/Geromino/gestionnaire/gestionnaireMatieres/ajouter"
-						class="btn btn-primary" role="button" aria-pressed="true">Ajouter
-						une nouvelle matière</a>
+					<a href="/Geromino/matiere/ajouter" class="btn btn-outline-primary"
+						role="button" aria-pressed="true">Ajouter une nouvelle matière</a>
 				</div>
 			</div>
 
-
-
 			<div class="col-1"></div>
 
-			<div class="col-6">
+			<div class="col-5">
 				<span class="d-block p-2 bg-light text-black">
 					<h2>Details de la matière sélectionnée :</h2> <c:if
 						test="${detailMatiere==null}">
@@ -75,17 +72,14 @@
 				</span>
 			</div>
 
+			<a href="/Geromino/upload/download" class="btn btn-outline-primary"
+				role="button" aria-pressed="true">Fichiers en ligne</a>
 
-			<br /> <br /> <br />
+		</div>
 
-			<div class="form-group row">
-				<div class="col-sm-10">
-					<a href="/Geromino/gestionnaire">
-						<button type="button" class="btn btn-danger mb-4">Revenir
-							au menu précédent</button>
-					</a>
-				</div>
-			</div>
+
+
+
 	</tiles:putAttribute>
 
 </tiles:insertDefinition>

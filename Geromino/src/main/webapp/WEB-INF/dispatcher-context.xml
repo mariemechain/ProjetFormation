@@ -26,6 +26,8 @@
 	<mvc:resources mapping="/images/**" location="/images/" />
 	<mvc:resources mapping="/img/**" location="/img/" />
 	
+	<context:component-scan base-package="fr.formation.matieres.controller, fr.formation.config.controller, fr.formation.ressources.controller, fr.formation.formateur.controller, fr.formation.disponibilite.controller "></context:component-scan>
+	<context:component-scan base-package="fr.formation.matieres.controller, fr.formation.matieres.dao"></context:component-scan>
 	<context:component-scan base-package=" fr.formation.ressources.controller "></context:component-scan>
 
 </beans>
