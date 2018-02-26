@@ -21,7 +21,7 @@
 					<tr>
 						<th style="width:100px;">Mois</th>
 						<th style="width:100px;" colspan="2">Date</th>
-						<th>Module</th>
+						<th>Moduleee</th>
 						<th style="width:100px;">Formateurs</th>
 						<th style="width:100px;">Titres</th>
 					</tr>
@@ -29,20 +29,20 @@
 				
 				<tbody>
 					<c:forEach var="i" begin="0" end="${duree-1}">
-						<tr>
+						<tr style="max-height:54px;border:0;">
 							<c:if test="${i==duree_mois_tot[i]}">
-								<td  rowspan="${duree_mois[i]}"><div class="divcolonne" style="height:${duree_mois[i]*48}px;"><b>${mois[i]}</b></div></td>
+								<td  rowspan="${duree_mois[i]}" style="padding:0;border:0;"><div class="divcolonne" style="height:${duree_mois[i]*54}px;"><b>${mois[i]}</b></div></td>
 							</c:if>
-							<td style="width: 40px;">${dates[i].getDate()}</td>
-							<td>${jours[i]}</td>
+							<td style="width: 40px;padding:0;border:0;">${dates[i].getDate()}</td>
+							<td style="padding:0;border:0;">${jours[i]}</td>
 							<c:if test="${datesDebutMatiere[i]==dates[i]}">
-								<td style="padding:0;" rowspan="${matieresDureeMatiere2[i]}" ><div  style="background:${couleurs[i]};height:${matieresDureeMatiere2[i]*53}px;" class="matiere"><b>${matierePlanning[i]}</b></div></td>
+								<td style="padding:0;border:0;" rowspan="${matieresDureeMatiere2[i]}" ><div  style="background:${couleurs[i]};height:${matieresDureeMatiere2[i]*54}px;" class="matiere"><b>${matierePlanning[i]}</b></div></td>
 							</c:if>
 							<c:if test="${datesDebut[i]==dates[i]}">
-								<td rowspan="${formateurDuree[i]}"><div class="divcolonne" style="height:${formateurDuree[i]*48}px;"><b>${formateursPrenom2[i]}</b></div></td>
+								<td rowspan="${formateurDuree[i]}" style="padding:0;border:0;"><div class="divcolonne" style="height:${formateurDuree[i]*54}px;"><b>${formateursPrenom2[i]}</b></div></td>
 							</c:if>
 							<c:if test="${datesDebut[i]==dates[i]}">
-								<td rowspan="${formateurDuree[i]}"><div class="divcolonne" style="height:${formateurDuree[i]*48}px;"><b>${formateurs2[i]}</b></div></td>
+								<td rowspan="${formateurDuree[i]}" style="padding:0;border:0;"><div class="divcolonne" style="height:${formateurDuree[i]*54}px;"><b>${formateurs2[i]}</b></div></td>
 							</c:if>
 						</tr>
 					</c:forEach>
