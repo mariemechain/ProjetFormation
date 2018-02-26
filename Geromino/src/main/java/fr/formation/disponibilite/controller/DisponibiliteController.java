@@ -48,6 +48,7 @@ public class DisponibiliteController {
 	}
 
 	private String premierMois;
+	
 	private Map<Integer, String> mois = new HashMap<Integer, String>();
 
 	@GetMapping("")
@@ -105,8 +106,9 @@ public class DisponibiliteController {
 				Instant instant = Instant.ofEpochMilli(retourMaintenanceAConvertir.getTime());
 				LocalDate retourMaintenance = LocalDateTime.ofInstant(instant, ZoneId.systemDefault()).toLocalDate();
 				
-				if(retourMaintenance.isAfter(d1))
-					compteurOrdiIndispo++;
+				if(retourMaintenance.isAfter(d1) || retourMaintenance.equals(d1))
+					if(o.getDispo() == null)
+							compteurOrdiIndispo++;
 			}
 			
 			for(Projet p : projets) {
