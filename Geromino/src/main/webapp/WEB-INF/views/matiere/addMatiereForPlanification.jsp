@@ -29,7 +29,7 @@
 					<tr>
 						<td>${ matiere.id }</td>
 						<td>${ matiere.titre }</td>
-						<td><a href="choixMat?idm=${matiere.id}">add</a></td>
+						<td><a href="gestionnaire/gestionnaireProjetStagiaires/1/planification/choixMat?idm=${matiere.id}">add</a></td>
 
 					</tr>
 				</c:forEach>

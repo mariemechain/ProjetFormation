@@ -80,7 +80,7 @@ public class EditPlanificationForProject {
 		return "redirect:../planification";
 	}
 	
-	@GetMapping("/addMat")
+	@GetMapping("addMat")
 	public String AddMatiereForPlanification(Model model ){
 		List<Matiere> matieres2 = daoMat.findAll();
 		
@@ -91,7 +91,7 @@ public class EditPlanificationForProject {
 		return  "matiere/addMatiereForPlanification";
 	}
 	
-	@GetMapping("/choixMat")
+	@GetMapping("choixMat")
 	public String ChoiceMatToAdd(@RequestParam("idm") int idMatiere,@PathVariable int idProjet, Model model){
 		
 		

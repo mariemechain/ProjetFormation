@@ -137,22 +137,6 @@ public class GestionnairePlanningFormateur {
 
 		return "redirect:../../../../planification";
 	}
-//
-//	@PostMapping(value = { "/attribuer" })
-//	public String postModifierFormateur(@RequestParam("idf") int idFormateur, @RequestParam("nom") String nom,
-//			@RequestParam("prenom") String prenom, @RequestParam("titre") String titre, Model model) {
-//
-//		// Initialisation
-//		Formateur formateur = new Formateur();
-//		formateur = daoFormateur.findById(idFormateur).get();
-//		formateur.setTitre(titre);
-//		formateur.setTitre(prenom);
-//		formateur.setTitre(nom);
-//
-//		// Sauvegarde du formateur modifié
-//		daoFormateur.save(formateur);
-//
-//		return "redirect:";
-//	}
+
 
 }

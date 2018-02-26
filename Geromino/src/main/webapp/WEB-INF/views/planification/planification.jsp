@@ -11,7 +11,7 @@
 
 		<div class=" container">
 
-		<a href=planification/addMat class="btn btn-success">+</a>
+		<a href=gestionnaire/gestionnaireProjetStagiaires/1/planification/addMat class="btn btn-success">+</a>
 
 			<table class="table table-striped">
 				<thead>
