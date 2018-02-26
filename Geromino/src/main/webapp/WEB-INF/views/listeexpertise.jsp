@@ -28,7 +28,7 @@
      </table>
  
   <a href="/Geromino/formateur/ajouter?idf=${formateur.id}" class="btn btn-success btn-lg" > Ajouter une compétence</a>
-  <a href="/Geromino/formateurs/liste" class="btn btn-info">Retour</a>
+  <a href="/Geromino/admin" class="btn btn-info">Retour</a>
   <table class="table table-hover">
     <thead>
       <tr>
