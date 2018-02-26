@@ -80,11 +80,7 @@ public class GestionnairePlanningMatiere {
 	// ====================================MODIFIER=====================================================
 
 	@GetMapping(value = { "/modif" })
-<<<<<<< HEAD:Geromino/src/main/java/fr/formation/ressources/controller/GestionnairePlanningMatiere.java
-	public String getModifierFormateur(@RequestParam("idm") int idMatiere,@PathVariable int idPlanif, Model model) {
-=======
-	public String getModifierMAtiere(@RequestParam("idm") int idMatiere,@PathVariable int idPlanif) {
->>>>>>> Module_projets:Geromino/src/main/java/fr/formation/formateur/controller/GestionnairePlanningMatiere.java
+	public String getModifierMAtiere(@RequestParam("idm") int idMatiere,@PathVariable int idPlanif, Model model) {
 
 		Planification planif = daoPlan.findById(idPlanif).get();
 		Matiere matiere = daoMatiere.findById(idMatiere);

@@ -40,12 +40,6 @@ public class ProjetController {
 	private ITemplateDAO daoTemplate;
 
 	@Autowired
-	private IFormateurDAO daoFormateur;
-
-	@Autowired
-	private IMatiereDAO daoMatiere;
-
-	@Autowired
 	private IPlanificationDAO daoPLanification;
 
 	/** ==============================================
@@ -124,7 +118,7 @@ public class ProjetController {
 	// EDITION
 	@GetMapping("/editer/{id}")
 	public String editer(@PathVariable int id, Model model) {
-		Projet p1 = daoProjet.findById(id);
+		Projet p1 = daoProjet.findById(id).get();
 		model.addAttribute("projet", p1);
 		model.addAttribute("salles", daoSalle.findAll());
 		model.addAttribute("templates", daoTemplate.findAll());
@@ -183,7 +177,7 @@ public class ProjetController {
 	@GetMapping("/detailProjet/{id}")
 	public String detail(@PathVariable("id") int id, Model model) {
 
-		Projet detailProjet = daoProjet.findById(id);
+		Projet detailProjet = daoProjet.findById(id).get();
 		model.addAttribute("detailProjet", detailProjet);
 
 		List<Planification> planifications = detailProjet.getPlanifications();

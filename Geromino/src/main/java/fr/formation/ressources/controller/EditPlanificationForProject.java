@@ -1,9 +1,10 @@
 package fr.formation.ressources.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.annotation.SynthesizedAnnotation;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,30 +13,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-<<<<<<< HEAD:Geromino/src/main/java/fr/formation/ressources/controller/EditPlanificationForProject.java
-import fr.formation.ressources.dao.IFormateurDAO;
 import fr.formation.ressources.dao.IPlanificationDAO;
 import fr.formation.ressources.dao.IProjetDAO;
 import fr.formation.ressources.metier.Planification;
 import fr.formation.ressources.metier.Projet;
-=======
-import fr.formation.formateur.dao.IFormateurDAO;
 import fr.formation.matieres.dao.IMatiereDAO;
 import fr.formation.matieres.model.Matiere;
-import fr.formation.projets.dao.IPlanificationDAO;
-import fr.formation.projets.dao.IProjetDAO;
-import fr.formation.projets.model.Planification;
-import fr.formation.projets.model.Projet;
->>>>>>> Module_projets:Geromino/src/main/java/fr/formation/projets/controller/EditPlanificationForProject.java
+
+
 
 @Controller
 @RequestMapping("/gestionnaire/gestionnaireProjetStagiaires/{idProjet}/planification")
 public class EditPlanificationForProject {
-	
-	// @Autowired
-	// private IMatiereDAO daoMat;
-	@Autowired
-	private IFormateurDAO daoFor;
 
 	@Autowired
 	private IPlanificationDAO daoPlan;
@@ -43,23 +32,18 @@ public class EditPlanificationForProject {
 	@Autowired
 	private IProjetDAO daoPro;
 	
-<<<<<<< HEAD:Geromino/src/main/java/fr/formation/ressources/controller/EditPlanificationForProject.java
+
 	@ModelAttribute("page")
     public String page() {
         return "home";
     }
 
-	@GetMapping("")
-	public String getMatieres(@PathVariable int idProjet, HttpServletRequest req, Model model) {
-		Projet projet = daoPro.findById(idProjet);
-=======
 	@Autowired
 	private IMatiereDAO daoMat;
 
 	@GetMapping("")
 	public String getMatieres(@PathVariable  int idProjet, HttpServletRequest req, Model model) {
 		Projet projet = daoPro.findById(idProjet).get();
->>>>>>> Module_projets:Geromino/src/main/java/fr/formation/projets/controller/EditPlanificationForProject.java
 		
 		for (Planification p : projet.getPlanifications()) {
 			System.out.println(p.getId());

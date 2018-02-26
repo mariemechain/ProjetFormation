@@ -201,7 +201,7 @@ public class GestionnaireController {
 		public String ajouterStagiaires(@RequestParam("id") int id, Model model) {
 			model.addAttribute("projet", daoProjet.findById(id));
 			model.addAttribute("stagiaires", daoStagiaire.findAll());
-			Projet detailProjet = daoProjet.findById(id);
+			Projet detailProjet = daoProjet.findById(id).get();
 			List<Planification> planifications = detailProjet.getPlanifications();
 			model.addAttribute("projetPlanifications", planifications);
 			return "gestionnaireProjetStagiaires";
@@ -209,7 +209,7 @@ public class GestionnaireController {
 		
 		@PostMapping("/gestionnaireProjetStagiaires")
 		public String ajouterStagiaires(@RequestParam("id") int id,@RequestParam("idStagiaire") int idStagiaire) {
-			Projet projet = daoProjet.findById(id);
+			Projet projet = daoProjet.findById(id).get();
 			projet.setId(id);
 			projet.getStagiaires().add(daoStagiaire.findById(idStagiaire).get());
 			Stagiaire stagiaire = daoStagiaire.findById(idStagiaire).get();
@@ -222,7 +222,7 @@ public class GestionnaireController {
 		//*********************************Supprimer un stagiaire à projet***************************
 		@GetMapping("/gestionnaireProjetStagiairesSupprimer")
 		public String supprimerStagiaire(@RequestParam("id") int id, @RequestParam("idstag") int idStagiaire) {
-			Projet projet = daoProjet.findById(id);
+			Projet projet = daoProjet.findById(id).get();
 			projet.setId(id);
 			// FAIRE UNE BOUCLE POUR SUPPRIMER UN STAGIAIRE DANS LISTE SELON INDEX
 			
