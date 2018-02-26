@@ -12,8 +12,8 @@ public prenom: string;
 public nom: string;
 public id: number;
 public email: string ;
-public tel: string ;
-public dateNaissance: string;
+public telephone: string ;
+public date: string;
 public adresse: string ;
 
   constructor(id?: number) {

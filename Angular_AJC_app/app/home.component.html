@@ -16,8 +16,8 @@
     <li class="list-group-item"><label class="titres">Nom :</label> {{ formateurService.formateur.nom}}</li>
     <li class="list-group-item"><label class="titres">Prenom :</label> {{ formateurService.formateur.prenom}}</li>
     <li class="list-group-item"><label class="titres">Email :</label> {{ formateurService.formateur.email}}</li>
-    <li class="list-group-item"><label class="titres">Téléphone :</label> {{ formateurService.formateur.tel}}</li>
-    <li class="list-group-item"><label class="titres">Date de naissance :</label> {{ formateurService.formateur.dateNaissance}}</li>
+    <li class="list-group-item"><label class="titres">Téléphone :</label> {{ formateurService.formateur.telephone}}</li>
+    <li class="list-group-item"><label class="titres">Date de naissance :</label> {{ formateurService.formateur.date| date:'d MMMM y'}}</li>
     <li class="list-group-item"><label class="titres">Adresse :</label> {{ formateurService.formateur.adresse}}</li>
     <li class="list-group-item"><label class="titres">Patience :</label> {{ formateurService.formateur.patience}}</li>
   </ul>
