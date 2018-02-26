@@ -107,8 +107,7 @@ public class DisponibiliteController {
 				LocalDate retourMaintenance = LocalDateTime.ofInstant(instant, ZoneId.systemDefault()).toLocalDate();
 				
 				if(retourMaintenance.isAfter(d1) || retourMaintenance.equals(d1))
-					if(o.getDispo() == null)
-							compteurOrdiIndispo++;
+					compteurOrdiIndispo++;
 			}
 			
 			for(Projet p : projets) {
@@ -128,8 +127,9 @@ public class DisponibiliteController {
 				}
 			}
 		}
-		if(ordinateurs.size()!=0) {
-			return 100*(ordinateurs.size()-compteurOrdiIndispo)/ordinateurs.size();
+		double pourcentage = 100*(ordinateurs.size()-compteurOrdiIndispo)/ordinateurs.size();
+		if(ordinateurs.size()!=0 && pourcentage>0) {
+			return pourcentage;
 		}
 		else
 			return 0;
