@@ -248,7 +248,7 @@ public class GestionnaireController {
 		//************************************************** Editer un projet***************************
 		@GetMapping("/gestionnaireEditerProjet")
 		public String editerProjet( @RequestParam("id") int id, Model model) {
-			model.addAttribute("projet", daoProjet.findById(id));
+			model.addAttribute("projet", daoProjet.findById(id).get());
 			model.addAttribute("stagiaires", daoStagiaire.findAll());
 			model.addAttribute("gestionnaires", daoGestionnaire.findAll());
 			model.addAttribute("salles", daoSalle.findAll());

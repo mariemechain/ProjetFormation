@@ -8,8 +8,8 @@
 <base href="/Geromino/" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="/Geromino/css/bootstrap.min.css" />
-<link rel="stylesheet" href="/Geromino/css/zoneTexte.css" />
 <link rel="stylesheet" href="/Geromino/css/dispo.css" />
+<link rel="stylesheet" href="/Geromino/css/zoneTexte.css" />
 <title>Site professionnel</title>
 </head>
 <body>
