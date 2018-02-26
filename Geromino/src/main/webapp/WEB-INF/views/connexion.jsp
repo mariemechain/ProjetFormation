@@ -32,8 +32,6 @@
 				<button type="submit" class="btn btn-primary">Se connecter</button>
 			</form>
 			<div class="dropdown-divider"></div>
-			<a class="dropdown-item" href="#">Nouveau ici? Enregistrez-vous!</a>
-			<a class="dropdown-item" href="#">Mot de Passe perdu?</a>
 			
 	</tiles:putAttribute>
 </tiles:insertDefinition>
