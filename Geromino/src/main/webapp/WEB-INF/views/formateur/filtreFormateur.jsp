@@ -53,7 +53,7 @@
 						<td>${ listeFormateurs.id }</td>
 						<td>${ listeFormateurs.nom }</td>
 						<td>${ listeFormateurs.prenom }</td>
-						<td><a href="./formateurs/attribuer?idf=${listeFormateurs.id}">Attribuer</a></td>
+						<td><a href="gestionnaire/gestionnaireProjetStagiaires/${idProjet}/planification/idMatiere${idMatiere}/idPlanif${idPlanif}/formateurs/attribuer?idf=${listeFormateurs.id}">Attribuer</a></td>
 
 					</tr>
 				</c:forEach>
