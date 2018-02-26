@@ -199,7 +199,7 @@ public class GestionnaireController {
 		//*********************************** Ajouter  un stagiaire à projet***************************
 		@GetMapping("/gestionnaireProjetStagiaires")
 		public String ajouterStagiaires(@RequestParam("id") int id, Model model) {
-			model.addAttribute("projet", daoProjet.findById(id));
+			model.addAttribute("projet", daoProjet.findById(id).get());
 			model.addAttribute("stagiaires", daoStagiaire.findAll());
 			Projet detailProjet = daoProjet.findById(id).get();
 			List<Planification> planifications = detailProjet.getPlanifications();

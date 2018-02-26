@@ -121,7 +121,7 @@ public class AdminController {
 			daoFormateur.save(formateur);
 		}
 
-		if (type.equals("Admin")) {
+		if (type.equals("Administrateur")) {
 			Admin admin = new Admin();
 			admin.setNom(personnel.getNom());
 			admin.setPrenom(personnel.getPrenom());

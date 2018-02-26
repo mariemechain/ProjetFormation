@@ -17,14 +17,14 @@ import fr.formation.ressources.metier.Projet;
 
 
 @Controller
-@RequestMapping(value = "/afficheProjet")
+@RequestMapping(value = "/gestionnaire")
 public class AfficheProjetController {
 
 	@Autowired
 	private IProjetDAO daoPro;
 
 	@SuppressWarnings("deprecation")
-	@GetMapping("")
+	@GetMapping("/afficheProjet")
 	public String afficher(@RequestParam("id") int id, Model model) {
 		Projet projet = daoPro.findById(id).get();
 		

@@ -31,7 +31,6 @@
 	<script src="js/ajouterFormateur.js"></script>
 	<script src="js/filtrerTable.js"></script>
 	<script src="js/meteoScript.js"></script>
-	
 	<script src="js/ajouterFormateur.js"></script>
 </body>
 </html>

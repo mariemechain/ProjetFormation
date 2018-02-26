@@ -95,8 +95,8 @@
 		</table>
 
 	</br>
-	<h3>Liste des matières et des formateurs :  <a href="gestionnaire/gestionnaireProjetStagiaires/${projet.id}/planification ">
-			<button type="button" class="btn btn-primary mb-4">Plannification</button></a> </h3>
+	<h3>Liste des matières et des formateurs :  <a href="gestionnaire/afficheProjet?id=${projet.id}">
+			<button type="button" class="btn btn-primary mb-4">Planification</button></a> </h3>
 	
 	<table class="table table-striped" style="text-align: center">
 			<thead>
