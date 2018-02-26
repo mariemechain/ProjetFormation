@@ -20,8 +20,8 @@
       <!-- Jumbotron Header -->
       <header class="jumbotron my-4">
         <h1 class="display-3">Bonjour et bienvenue ${utilisateur.prenom} sur votre page d'accueil!</h1>
-        <p class="lead">En tant qu' ${utilisateur.type}, vous êtes la pierre angulaire. A l'image de Monique, vous inspirez crainte et terreur auprès de vos sbires et des stagiaires. Vous possedez aussi le contrôle sur tout. Agréable n'est-ce pas?</p>
-        <a href="admin" class="btn btn-primary btn-lg">Je contrôle!</a>
+        <p class="lead">En tant qu' ${utilisateur.type}, vous administrez les ressources humaines et materielles. Votre accès est complet.</p>
+        <a href="admin" class="btn btn-primary btn-lg">J'administre!</a>
       </header>
 </c:if>	
 		
@@ -29,7 +29,7 @@
       <!-- Jumbotron Header -->
       <header class="jumbotron my-4">
         <h1 class="display-3">Bonjour et bienvenue ${utilisateur.prenom} sur votre page d'accueil!</h1>
-        <p class="lead">En tant que ${utilisateur.type}, vous êtes à même de pouvoir gérer les ressources materielles et humaines.</p>
+        <p class="lead">En tant que ${utilisateur.type}, vous êtes à même de pouvoir gérer les projets et les matières</p>
         <a href="gestionnaire" class="btn btn-primary btn-lg">Je gère!</a>
       </header>
 </c:if>	
@@ -38,8 +38,8 @@
       <!-- Jumbotron Header -->
       <header class="jumbotron my-4">
         <h1 class="display-3">Bonjour et bienvenue ${utilisateur.prenom} sur votre page d'accueil!</h1>
-        <p class="lead">En tant que ${utilisateur.type}, vous faites en sorte que tout fonctionne. Vos patrons ne veulent pas l'admettre mais sans vous, l'entreprise court à sa perte! </p>
-        <a href="technicien" class="btn btn-primary btn-lg">Je sauve l'entreprise!</a>
+        <p class="lead">En tant que ${utilisateur.type}, vous gérez les ressources matérielles. </p>
+        <a href="technicien" class="btn btn-primary btn-lg">Je gère!</a>
       </header>
 </c:if>	
 		
